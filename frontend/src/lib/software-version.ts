@@ -1,10 +1,10 @@
-export const HQ_SOFTWARE_VERSION = "H38700";
-export const HQ_SOFTWARE_VERSION_NUMBER = 38700;
-export const HQ_SOURCE_FINGERPRINT = "753d36a1e2e005eace29408f326ca9f6ab18fbb34bb08eba3755f492a4d083d8";
-export const HQ_SOFTWARE_UPDATE_ID = "2026-08-28-hq-h38700-auto-source-tracker";
+export const HQ_SOFTWARE_VERSION = "H38701";
+export const HQ_SOFTWARE_VERSION_NUMBER = 38701;
+export const HQ_SOURCE_FINGERPRINT = "c234acdf09bc693266cde9020bcbc9f5dbed071085e4c8c590c64deb40e0ff47";
+export const HQ_SOFTWARE_UPDATE_ID = "2026-08-28-hq-h38701-auto-source-tracker";
 export const HQ_SOFTWARE_UPDATE_TITLE = "总部源码自动推进";
-export const HQ_SOFTWARE_UPDATE_SUMMARY = "自动检测到 5 个受跟踪源码变动：frontend/src/components/AIServiceWidget.tsx、frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx、frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx、frontend/src/page-factory/phase-two-verification.json、frontend/src/pages/ProductMarket.tsx。";
-export const HQ_SOFTWARE_UPDATE_CREATED_AT = "2026-08-28T10:47:27.681Z";
+export const HQ_SOFTWARE_UPDATE_SUMMARY = "自动检测到 2 个受跟踪源码变动：frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx、frontend/src/page-factory/phase-two-verification.json。";
+export const HQ_SOFTWARE_UPDATE_CREATED_AT = "2026-08-28T10:58:38.218Z";
 
 export function parseVersionNumber(value?: string | null) {
   if (!value) return 0;

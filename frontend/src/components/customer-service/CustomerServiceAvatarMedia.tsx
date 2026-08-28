@@ -23,24 +23,26 @@ type AvatarMediaCandidate = {
 };
 
 const avatarFirstPaintContract = MEDIA_OPTIMIZATION_CONTRACT.delivery.avatarFirstPaint;
-const bundledFallbackLoadStatus = new Map<string, "ready" | "failed">();
-const bundledFallbackLoadPromises = new Map<string, Promise<boolean>>();
+const bundledFallbackResolvedUrlCache = new Map<string, string | null>();
+const bundledFallbackLoadPromises = new Map<string, Promise<string | null>>();
 
 function loadBundledFallbackOnce(url: string) {
-  const status = bundledFallbackLoadStatus.get(url);
-  if (status) return Promise.resolve(status === "ready");
+  if (bundledFallbackResolvedUrlCache.has(url)) {
+    return Promise.resolve(bundledFallbackResolvedUrlCache.get(url) || null);
+  }
   const existing = bundledFallbackLoadPromises.get(url);
   if (existing) return existing;
-  const pending = new Promise<boolean>((resolve) => {
-    const probe = new Image();
-    const settle = (ready: boolean) => {
-      bundledFallbackLoadStatus.set(url, ready ? "ready" : "failed");
-      resolve(ready);
-    };
-    probe.onload = () => settle(probe.naturalWidth > 0 && probe.naturalHeight > 0);
-    probe.onerror = () => settle(false);
-    probe.src = url;
-  });
+  const pending = fetch(url, { cache: "force-cache" })
+    .then(async (response) => {
+      if (!response.ok) return null;
+      const resolvedUrl = URL.createObjectURL(await response.blob());
+      bundledFallbackResolvedUrlCache.set(url, resolvedUrl);
+      return resolvedUrl;
+    })
+    .catch(() => {
+      bundledFallbackResolvedUrlCache.set(url, null);
+      return null;
+    });
   bundledFallbackLoadPromises.set(url, pending);
   return pending;
 }
@@ -73,21 +75,21 @@ export function CustomerServiceAvatarMedia({
   });
   const readyUrls = loadState.signature === signature ? loadState.readyUrls : [];
   const failedUrls = loadState.signature === signature ? loadState.failedUrls : [];
-  const [fallbackLoadState, setFallbackLoadState] = useState<{ url: string; ready: boolean }>(() => ({
-    url: normalizedFallbackUrl,
-    ready: bundledFallbackLoadStatus.get(normalizedFallbackUrl) === "ready",
+  const [fallbackLoadState, setFallbackLoadState] = useState<{ sourceUrl: string; resolvedUrl: string | null }>(() => ({
+    sourceUrl: normalizedFallbackUrl,
+    resolvedUrl: bundledFallbackResolvedUrlCache.get(normalizedFallbackUrl) || null,
   }));
 
   useEffect(() => {
     if (!normalizedFallbackUrl) return;
     let active = true;
-    const status = bundledFallbackLoadStatus.get(normalizedFallbackUrl);
-    setFallbackLoadState({ url: normalizedFallbackUrl, ready: status === "ready" });
-    if (!status) {
-      void loadBundledFallbackOnce(normalizedFallbackUrl).then((ready) => {
-        if (active) setFallbackLoadState({ url: normalizedFallbackUrl, ready });
-      });
-    }
+    setFallbackLoadState({
+      sourceUrl: normalizedFallbackUrl,
+      resolvedUrl: bundledFallbackResolvedUrlCache.get(normalizedFallbackUrl) || null,
+    });
+    void loadBundledFallbackOnce(normalizedFallbackUrl).then((resolvedUrl) => {
+      if (active) setFallbackLoadState({ sourceUrl: normalizedFallbackUrl, resolvedUrl });
+    });
     return () => {
       active = false;
     };
@@ -131,8 +133,8 @@ export function CustomerServiceAvatarMedia({
   ) {
     candidates.push({ url: normalizedSourceUrl, kind: normalizedSourceKind, source: "saved" });
   }
-  if (normalizedFallbackUrl && fallbackLoadState.url === normalizedFallbackUrl && fallbackLoadState.ready) {
-    candidates.push({ url: normalizedFallbackUrl, kind: "image", source: "bundled-fallback" });
+  if (normalizedFallbackUrl && fallbackLoadState.sourceUrl === normalizedFallbackUrl && fallbackLoadState.resolvedUrl) {
+    candidates.push({ url: fallbackLoadState.resolvedUrl, kind: "image", source: "bundled-fallback" });
   }
   const candidate = candidates.find((item) => !failedUrls.includes(item.url));
 

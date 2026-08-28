@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38700,
-  "version": "H38700",
-  "updatedAt": "2026-08-28T10:47:27.681Z",
-  "sourceFingerprint": "753d36a1e2e005eace29408f326ca9f6ab18fbb34bb08eba3755f492a4d083d8",
+  "sequence": 38701,
+  "version": "H38701",
+  "updatedAt": "2026-08-28T10:58:38.218Z",
+  "sourceFingerprint": "c234acdf09bc693266cde9020bcbc9f5dbed071085e4c8c590c64deb40e0ff47",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -783,7 +783,7 @@
     "frontend/src/components/ContentProofGovernance.tsx": "bd1db88b1fac45375acd3aefc63f5e6e6c92fad23a9d35b31b8b6d5bfbb2836c",
     "frontend/src/components/crm/CrmGovernance.tsx": "4bfa995c2bdb41ebd8412fa68f860327367fc472efcf8e798a34b8d62dd86303",
     "frontend/src/components/CurrentProjectVersionBadge.tsx": "680b801313e082ea0f90ec3779a84c820769a4090c542bbd71a626108caaa7c2",
-    "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx": "3c2e672db41e7f438331f99d3606f63125e345fe86998eae09513519f63104ee",
+    "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx": "ce6b10dcceb14eea42a1315f2bc9d1809f02423bd1bd4a7ff159a03836f47b68",
     "frontend/src/components/customer-service/ExpertIdentitySummary.tsx": "df7b8d00a04e6b76ab0c5a59dc5fdb9318ddaf0883c3986578047e8c5d0977bb",
     "frontend/src/components/customer-success/CustomerSuccessGovernance.tsx": "b1781f7257ba11660665d156d04a39920b788557d6ccb62cb3eebb1ae5e8023a",
     "frontend/src/components/DataStatsPanel.tsx": "a7c4364cf9a454c9adfe4bac5bccea5f10a56fdc13803cf2126c8dbc037537ac",
@@ -1218,7 +1218,7 @@
     "frontend/src/page-factory/page-inventory-baseline.json": "ee0df900432010b26230cb84b713b01b775aba581b57adba66bcb03ad01259d3",
     "frontend/src/page-factory/page-inventory.json": "93c7e4b96762a30712ec73388e32ffdfd4c190e6773b66f852a08f5f65e3a97b",
     "frontend/src/page-factory/page-registry.json": "d727c23281aaab2e50eabb2a19a79e44fa42a25110fb3e50639c4693c5a2412f",
-    "frontend/src/page-factory/phase-two-verification.json": "2e272e77ddc8dcb239fa5633bd18977c147c62e8526f28537e1c0ce6fde9f133",
+    "frontend/src/page-factory/phase-two-verification.json": "00b5e30028c27c15cced43574d7ff4c41697a57d2521072523f3e201d0a58703",
     "frontend/src/pages/Account.tsx": "0705e1ed8f5618e36a121e60921fe3ddbd6bb228af01a53a91575f95cc94b1cd",
     "frontend/src/pages/agency/AgencyCustomers.tsx": "a1f4b9b8153462725fd8ffe3258b7e43d69491dcd6aff9c42ae27f1a962f2502",
     "frontend/src/pages/agency/AgencyDashboard.tsx": "01046171e1d9bc8b4d5653c3c824d2eb591fae91da158ecc3f22d4d02cfb4288",
@@ -1361,20 +1361,17 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "frontend/src/components/AIServiceWidget.tsx",
     "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx",
-    "frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx",
-    "frontend/src/page-factory/phase-two-verification.json",
-    "frontend/src/pages/ProductMarket.tsx"
+    "frontend/src/page-factory/phase-two-verification.json"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 5 个受跟踪源码变动：frontend/src/components/AIServiceWidget.tsx、frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx、frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx、frontend/src/page-factory/phase-two-verification.json、frontend/src/pages/ProductMarket.tsx。",
+  "summary": "自动检测到 2 个受跟踪源码变动：frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx、frontend/src/page-factory/phase-two-verification.json。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38700",
+    "version": "H38701",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }
