@@ -23,6 +23,27 @@ type AvatarMediaCandidate = {
 };
 
 const avatarFirstPaintContract = MEDIA_OPTIMIZATION_CONTRACT.delivery.avatarFirstPaint;
+const bundledFallbackLoadStatus = new Map<string, "ready" | "failed">();
+const bundledFallbackLoadPromises = new Map<string, Promise<boolean>>();
+
+function loadBundledFallbackOnce(url: string) {
+  const status = bundledFallbackLoadStatus.get(url);
+  if (status) return Promise.resolve(status === "ready");
+  const existing = bundledFallbackLoadPromises.get(url);
+  if (existing) return existing;
+  const pending = new Promise<boolean>((resolve) => {
+    const probe = new Image();
+    const settle = (ready: boolean) => {
+      bundledFallbackLoadStatus.set(url, ready ? "ready" : "failed");
+      resolve(ready);
+    };
+    probe.onload = () => settle(probe.naturalWidth > 0 && probe.naturalHeight > 0);
+    probe.onerror = () => settle(false);
+    probe.src = url;
+  });
+  bundledFallbackLoadPromises.set(url, pending);
+  return pending;
+}
 
 /**
  * Shared expert-avatar media renderer. A configured URL is only a candidate:
@@ -52,6 +73,25 @@ export function CustomerServiceAvatarMedia({
   });
   const readyUrls = loadState.signature === signature ? loadState.readyUrls : [];
   const failedUrls = loadState.signature === signature ? loadState.failedUrls : [];
+  const [fallbackLoadState, setFallbackLoadState] = useState<{ url: string; ready: boolean }>(() => ({
+    url: normalizedFallbackUrl,
+    ready: bundledFallbackLoadStatus.get(normalizedFallbackUrl) === "ready",
+  }));
+
+  useEffect(() => {
+    if (!normalizedFallbackUrl) return;
+    let active = true;
+    const status = bundledFallbackLoadStatus.get(normalizedFallbackUrl);
+    setFallbackLoadState({ url: normalizedFallbackUrl, ready: status === "ready" });
+    if (!status) {
+      void loadBundledFallbackOnce(normalizedFallbackUrl).then((ready) => {
+        if (active) setFallbackLoadState({ url: normalizedFallbackUrl, ready });
+      });
+    }
+    return () => {
+      active = false;
+    };
+  }, [normalizedFallbackUrl]);
 
   useEffect(() => {
     if (!normalizedSourceUrl || normalizedSourceKind !== "image" || normalizedSourceUrl === normalizedFallbackUrl) return;
@@ -91,7 +131,7 @@ export function CustomerServiceAvatarMedia({
   ) {
     candidates.push({ url: normalizedSourceUrl, kind: normalizedSourceKind, source: "saved" });
   }
-  if (normalizedFallbackUrl) {
+  if (normalizedFallbackUrl && fallbackLoadState.url === normalizedFallbackUrl && fallbackLoadState.ready) {
     candidates.push({ url: normalizedFallbackUrl, kind: "image", source: "bundled-fallback" });
   }
   const candidate = candidates.find((item) => !failedUrls.includes(item.url));

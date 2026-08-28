@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38699,
-  "version": "H38699",
-  "updatedAt": "2026-08-28T10:42:05.192Z",
-  "sourceFingerprint": "10fac145b6a5aeb943eb8b4fcd522483d258ae4f8eeebb981d5d2fa965b00b9c",
+  "sequence": 38700,
+  "version": "H38700",
+  "updatedAt": "2026-08-28T10:47:27.681Z",
+  "sourceFingerprint": "753d36a1e2e005eace29408f326ca9f6ab18fbb34bb08eba3755f492a4d083d8",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -764,7 +764,7 @@
     "frontend/src/components/AIGenerateButton.tsx": "fa812af81dd59c266bf56b59af917b9fa29a36fdb3b90c4edf2a02ab72d1c802",
     "frontend/src/components/AIGenerateDialog.tsx": "e7b27c5a3eb5c34e2e77055fc60d538896a58d1cb0fe7746b8e43ad27e3e66b1",
     "frontend/src/components/AIServiceWidget.css": "6029f42099db4baa6fa352473ba40ded17182d7f1351a8269c7c27c0f696d3f2",
-    "frontend/src/components/AIServiceWidget.tsx": "a08355ce62a67527d79055d4e4874f46d421ad30665121f71d987118acbc0f40",
+    "frontend/src/components/AIServiceWidget.tsx": "55b967d6c21bbdffa95a8790f30b8fcefdb67f0c01fd2f3ae0d46821a491f693",
     "frontend/src/components/AppProductMarketRuntime.tsx": "111250a77eff0a8e3e3a23f3b21f1eda2a4fc955bbca131185e3098db697c810",
     "frontend/src/components/BatchImportDialog.tsx": "d9ad197963957cd5df20cdc85299fb658bbc9adcfe941a83fa3f346305683304",
     "frontend/src/components/blog/BlogArticleLayout.tsx": "1866be3921559e15591bf654c770b0af57e16648341e61420e4bbcf995b7dd56",
@@ -783,7 +783,7 @@
     "frontend/src/components/ContentProofGovernance.tsx": "bd1db88b1fac45375acd3aefc63f5e6e6c92fad23a9d35b31b8b6d5bfbb2836c",
     "frontend/src/components/crm/CrmGovernance.tsx": "4bfa995c2bdb41ebd8412fa68f860327367fc472efcf8e798a34b8d62dd86303",
     "frontend/src/components/CurrentProjectVersionBadge.tsx": "680b801313e082ea0f90ec3779a84c820769a4090c542bbd71a626108caaa7c2",
-    "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx": "93ad992455a7730f75a05e7f91a3f38417bb43c982abe724419121734cfbd7f1",
+    "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx": "3c2e672db41e7f438331f99d3606f63125e345fe86998eae09513519f63104ee",
     "frontend/src/components/customer-service/ExpertIdentitySummary.tsx": "df7b8d00a04e6b76ab0c5a59dc5fdb9318ddaf0883c3986578047e8c5d0977bb",
     "frontend/src/components/customer-success/CustomerSuccessGovernance.tsx": "b1781f7257ba11660665d156d04a39920b788557d6ccb62cb3eebb1ae5e8023a",
     "frontend/src/components/DataStatsPanel.tsx": "a7c4364cf9a454c9adfe4bac5bccea5f10a56fdc13803cf2126c8dbc037537ac",
@@ -832,7 +832,7 @@
     "frontend/src/components/product-market/PageFactoryWorkbench.tsx": "6f3a53278abc6305a1758f3bbf320af39c0a1acf9cb7a8570e72e619b51b54d8",
     "frontend/src/components/product-market/PerformanceExperienceWorkbench.tsx": "81b7b7f7211f9a020a49e0cfb2698ce50fd78be411ca63115e674510ac6e10a1",
     "frontend/src/components/product-market/PerformanceQualityReleaseWorkbench.tsx": "6bc4085b690c31d0584f37082f8098a5d7eeda739b7c216f8e53873108adb794",
-    "frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx": "1ca88d654dcba0600eb26fd919b67c26e1166733ef53ac58d5c61b890251bd5d",
+    "frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx": "8264ad1e84285f6fcd4daf11770718aa822810fa1143db836a8af3f37b70681f",
     "frontend/src/components/product-market/ProductMarketColorPicker.tsx": "60de89f8e9075703ed1e6ece1853ae5f63c2f7f08b7fe436ca05161c4ea3c2be",
     "frontend/src/components/product-market/ProductMarketCustomerServiceSection.tsx": "5ccac025859fe570dae33bea355351e1c355fa7eea2ccd4434356f8022fc0066",
     "frontend/src/components/product-market/ProductMarketDevelopmentGuidePanel.tsx": "3da8870cbe61a8d6e54b9164d2a218148fcd0d1d2091981b5b142c319e6938d3",
@@ -1218,7 +1218,7 @@
     "frontend/src/page-factory/page-inventory-baseline.json": "ee0df900432010b26230cb84b713b01b775aba581b57adba66bcb03ad01259d3",
     "frontend/src/page-factory/page-inventory.json": "93c7e4b96762a30712ec73388e32ffdfd4c190e6773b66f852a08f5f65e3a97b",
     "frontend/src/page-factory/page-registry.json": "d727c23281aaab2e50eabb2a19a79e44fa42a25110fb3e50639c4693c5a2412f",
-    "frontend/src/page-factory/phase-two-verification.json": "b78245b83fe742b162e6138075393adbf186ac4b75075b523566ca23ea2e194f",
+    "frontend/src/page-factory/phase-two-verification.json": "2e272e77ddc8dcb239fa5633bd18977c147c62e8526f28537e1c0ce6fde9f133",
     "frontend/src/pages/Account.tsx": "0705e1ed8f5618e36a121e60921fe3ddbd6bb228af01a53a91575f95cc94b1cd",
     "frontend/src/pages/agency/AgencyCustomers.tsx": "a1f4b9b8153462725fd8ffe3258b7e43d69491dcd6aff9c42ae27f1a962f2502",
     "frontend/src/pages/agency/AgencyDashboard.tsx": "01046171e1d9bc8b4d5653c3c824d2eb591fae91da158ecc3f22d4d02cfb4288",
@@ -1334,7 +1334,7 @@
     "frontend/src/pages/PreviewFrame.tsx": "d75915343cbf015cd13ce840fb21f14bc323a1ecb348f23ec61c5cf2620ac122",
     "frontend/src/pages/PreviewSite.tsx": "03a478854e6554502dbd9d3539f8a28a0760fe24a4a36f32f423881b57d78277",
     "frontend/src/pages/ProductAnalysis.tsx": "990fdeacc5b2eaaee346431d626ca0626744daba4b8ecc4c9b20b7a5ab7e65bb",
-    "frontend/src/pages/ProductMarket.tsx": "57b6382e485fec58558ed4866b045a40031a50436e416d4de98bf91d6ee6cfd3",
+    "frontend/src/pages/ProductMarket.tsx": "804dd76b7d218e86717b47d06be91de1d4fcd55f47128f43b0d2f41d18bd579b",
     "frontend/src/pages/Products.tsx": "3a4ae0dc6bbac6c35e1d104f2c47bfc27079969abfa3e55954c9900a5b5d34a5",
     "frontend/src/pages/Projects.tsx": "f843778e152674dee9aa4a6646e63735c96291ba2c8991b79a64a6a3b4f78d55",
     "frontend/src/pages/Reports.tsx": "80601d2e809685657e90045b23dfdfc0cff2517072b3d92c30e2af00e1ef863c",
@@ -1361,16 +1361,20 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "frontend/src/page-factory/phase-two-verification.json"
+    "frontend/src/components/AIServiceWidget.tsx",
+    "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx",
+    "frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx",
+    "frontend/src/page-factory/phase-two-verification.json",
+    "frontend/src/pages/ProductMarket.tsx"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 1 个受跟踪源码变动：frontend/src/page-factory/phase-two-verification.json。",
+  "summary": "自动检测到 5 个受跟踪源码变动：frontend/src/components/AIServiceWidget.tsx、frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx、frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx、frontend/src/page-factory/phase-two-verification.json、frontend/src/pages/ProductMarket.tsx。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38699",
+    "version": "H38700",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }

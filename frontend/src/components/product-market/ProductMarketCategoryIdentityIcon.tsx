@@ -60,7 +60,7 @@ export function ProductMarketCategoryIdentityIcon({
     <CustomerServiceAvatarMedia
       sourceUrl={avatarUrl}
       sourceKind={avatarKind}
-      fallbackUrl={override?.mediaAssetId || override?.imageDataUrl ? expert.defaultAvatarUrl : undefined}
+      fallbackUrl={expert.defaultAvatarUrl}
       alt={`${categoryLabel}专家头像`}
       fallback={<Users className="h-[60%] w-[60%]" />}
     />

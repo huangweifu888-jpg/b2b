@@ -25,8 +25,6 @@ import { playClickSoundWithConfig } from "@/lib/click-sound";
 import {
   isCustomerServiceVideoMimeType,
   readCustomerServiceMedia,
-  readCustomerServiceMediaPreview,
-  resolveCustomerServiceLocalMaterialReference,
 } from "@/lib/customer-service-media";
 import {
   getCustomerServiceVoicePreset,
@@ -402,7 +400,6 @@ export default function AIServiceWidget() {
   const [hasGreeted, setHasGreeted] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [avatarMedia, setAvatarMedia] = useState<CustomerServiceAvatarMedia | null>(null);
-  const [avatarMediaResolved, setAvatarMediaResolved] = useState(false);
   const [expertAvatarMedia, setExpertAvatarMedia] = useState<Record<string, CustomerServiceAvatarMedia>>({});
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [speakingMessageId, setSpeakingMessageId] = useState<string | null>(null);
@@ -966,24 +963,20 @@ export default function AIServiceWidget() {
 
   useEffect(() => {
     let active = true;
+    let objectUrl: string | null = null;
     setAvatarMedia(null);
-    setAvatarMediaResolved(false);
     async function loadAvatarMedia() {
-      const materialReference = resolveCustomerServiceLocalMaterialReference(
-        avatarOverride?.mediaAssetId || avatar.defaultAvatarAssetId,
-        avatarOverride?.mediaAssetId ? undefined : avatar.defaultAvatarUrl,
-      );
-      if (materialReference) {
+      if (avatarOverride?.mediaAssetId) {
         try {
-          const preview = await readCustomerServiceMediaPreview(materialReference);
-          if (preview?.media && active) {
+          const media = await readCustomerServiceMedia(avatarOverride.mediaAssetId);
+          if (media && active) {
+            objectUrl = URL.createObjectURL(media.blob);
             setAvatarMedia({
-              url: preview.url,
-              kind: preview.media.kind,
-              assetId: materialReference.materialId,
+              url: objectUrl,
+              kind: media.kind,
+              assetId: avatarOverride.mediaAssetId,
               signature: currentAvatarMediaSignature,
             });
-            setAvatarMediaResolved(true);
             return;
           }
         } catch {
@@ -997,19 +990,18 @@ export default function AIServiceWidget() {
           assetId: avatarOverride.mediaAssetId,
           signature: currentAvatarMediaSignature,
         });
-        setAvatarMediaResolved(true);
         return;
       }
       if (active) {
         setAvatarMedia(null);
-        setAvatarMediaResolved(true);
       }
     }
     void loadAvatarMedia();
     return () => {
       active = false;
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
-  }, [avatar.defaultAvatarAssetId, avatar.defaultAvatarUrl, avatarOverride?.imageDataUrl, avatarOverride?.mediaAssetId, avatarOverride?.mediaMimeType, currentAvatarMediaSignature]);
+  }, [avatarOverride?.imageDataUrl, avatarOverride?.mediaAssetId, avatarOverride?.mediaMimeType, currentAvatarMediaSignature]);
 
   useEffect(() => {
     setExpertAvatarMedia({});
@@ -1371,7 +1363,7 @@ export default function AIServiceWidget() {
       <CustomerServiceAvatarMedia
         sourceUrl={activeAvatarMedia?.url}
         sourceKind={activeAvatarMedia?.kind}
-        fallbackUrl={!activeAvatarMedia && avatarMediaResolved ? avatar.defaultAvatarUrl : undefined}
+        fallbackUrl={avatar.defaultAvatarUrl}
         alt={`${avatar.defaultAvatarCountry || avatar.name}专家头像`}
         loading="eager"
         sourceStyle={shouldRotateCustomerServiceMediaUpright(activeAvatarMedia?.assetId, activeAvatarMedia?.kind) ? { transform: "rotate(180deg)" } : undefined}

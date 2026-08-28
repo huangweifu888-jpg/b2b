@@ -3685,10 +3685,7 @@ export default function ProductMarket() {
       groups.forEach((group) => visibleKeys.add(group.key));
     };
     if (productMarketSubview === "operations") {
-      // Operations renders every category identity in its grouped catalogue.
-      // Warm each portrait through the shared single-flight cache once so
-      // repeated cards never fall back to duplicate direct asset requests.
-      addVisibleGroups(renderableOperationGroups);
+      addVisibleGroups(renderableOperationGroups.slice(0, visibleOperationGroupCount));
     }
     if (
       productMarketSubview === "modules"
@@ -3731,8 +3728,7 @@ export default function ProductMarket() {
             avatarId: expert.id,
             override,
             materialReference: resolveCustomerServiceLocalMaterialReference(
-              override.mediaAssetId || expert.defaultAvatarAssetId,
-              override.mediaAssetId ? undefined : expert.defaultAvatarUrl,
+              override.mediaAssetId,
             ),
             previewDescriptor: getCustomerServiceAvatarPreviewDescriptor(override, serviceWorkspaceActive),
           };
