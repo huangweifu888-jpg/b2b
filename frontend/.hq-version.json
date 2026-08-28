@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38696,
-  "version": "H38696",
-  "updatedAt": "2026-08-28T10:06:19.050Z",
-  "sourceFingerprint": "db856e9defc9a4518949eeeca43ae18c3f11c2ce2ec67cbdb81c0ca4482afc47",
+  "sequence": 38697,
+  "version": "H38697",
+  "updatedAt": "2026-08-28T10:16:47.774Z",
+  "sourceFingerprint": "0b1cde45fed7960ce2f47a09c26a9524fb2ba9bb42e4f406423853154773526a",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -704,7 +704,7 @@
     "frontend/scripts/verify-layout-migration-assistant-contract.mjs": "e7c19d88616dd056caf8774243cfe5847555db53e2bc78d672ab564f5f464ac8",
     "frontend/scripts/verify-layout-screenshot-regression-contract.mjs": "129218b3172c98b947412b9c6456f2cb7640ca6161c1509b24d789f3cbdf060d",
     "frontend/scripts/verify-local-env-background-polling-contract.mjs": "74ba40b49e0f68f7552dabbb423014548489d69b3afbec0020b0108ce5ba6cd1",
-    "frontend/scripts/verify-local-env-recovery-contract.mjs": "d33cd22333ccfcec3255863277f0d911eeaffe2ea244c208f9ecc3ae54a39639",
+    "frontend/scripts/verify-local-env-recovery-contract.mjs": "609ba56064fed37597ba5c0665e2c200cdfb28f78b6dfc9e000f6d0e38da5270",
     "frontend/scripts/verify-media-optimization-contract.mjs": "1e2d99a62cec47f24907be773fc5eb7399015addb127bede70736b6395f86352",
     "frontend/scripts/verify-module-architecture-workbench-contract.mjs": "dd2625b6ba19599f5c7052694a8870599f5f6d3953de752891e4f696e97fc9e1",
     "frontend/scripts/verify-new-content-plugin-guide-contract.mjs": "8e7d8c0aacffb59c37d94978a0a44a7ec6da077b39d69373d2f01ab2e8cccf70",
@@ -1361,16 +1361,16 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "backend/routers/local_dev.py"
+    "frontend/scripts/verify-local-env-recovery-contract.mjs"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 1 个受跟踪源码变动：backend/routers/local_dev.py。",
+  "summary": "自动检测到 1 个受跟踪源码变动：frontend/scripts/verify-local-env-recovery-contract.mjs。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38696",
+    "version": "H38697",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }
