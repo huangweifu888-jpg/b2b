@@ -125,6 +125,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -133,6 +136,8 @@ jobs:
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm ci
+      - name: Install backend dependencies for cross-runtime contracts
+        run: pip install -r backend/requirements.lock.txt
       - name: Verify dependency supply-chain controls
         run: |
           python tools/verify_supply_chain_controls.py
