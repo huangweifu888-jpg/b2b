@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "change_id": "CHG-REPLACE",
+  "window_utc": {
+    "start": "2026-08-01T01:00:00Z",
+    "end": "2026-08-01T03:00:00Z"
+  },
+  "artifact": {
+    "image": "registry.example.invalid/b2b/platform",
+    "digest": "sha256:REPLACE_WITH_64_HEX",
+    "release_manifest_sha256": "REPLACE_WITH_64_HEX"
+  },
+  "approval_roles": ["release_manager", "operations", "security"],
+  "rollout_rings": ["hq", "test_agency", "test_client_plan", "full_rollout"],
+  "rollback": {
+    "owner": "REPLACE_OPERATOR",
+    "previous_digest": "sha256:REPLACE_WITH_64_HEX",
+    "restore_drill_reference": "REPLACE_RESTORE_DRILL_REFERENCE"
+  },
+  "customer_communication": {
+    "status": "drafted",
+    "audience": "affected_agencies_and_clients"
+  }
+}

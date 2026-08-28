@@ -1,0 +1,335 @@
+/* Homepage Banner uses the same Card/Content action contract as Product
+   Market Module Configuration.  These are semantic controls, not an extra
+   action-card shell: the row stays transparent while each control retains a
+   small, clear hover target.  The contentActions plugin records 运营市场 as
+   reusable text operations; it does not change their business behavior. */
+#root .page-banner-management-table .page-banner-content-actions {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+html[data-tradepro-page-content-plugin-content-actions="true"] #root .page-banner-management-table {
+  --tradepro-banner-content-action-hover-bg: var(--tradepro-product-market-action-hover-bg, rgba(255, 255, 255, 0.64));
+}
+
+html[data-tradepro-page-shared-list="true"] #root [data-client-source-shell] .page-banner-management-table :is(.page-banner-icon-action, .page-banner-content-action, .page-banner-toggle-action) {
+  min-height: var(--tradepro-shared-action-height, 2rem);
+  height: var(--tradepro-shared-action-height, 2rem);
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--tradepro-panel-list-text) !important;
+  font-size: var(--tradepro-shared-action-font-size, var(--tradepro-page-note-size, 0.75rem)) !important;
+  font-weight: 600;
+  line-height: 1;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+#root .page-banner-management-table .page-banner-icon-action {
+  width: var(--tradepro-shared-action-height, 2rem);
+  padding: 0 !important;
+}
+
+#root .page-banner-management-table .page-banner-toggle-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.25rem;
+}
+
+#root .page-banner-management-table .page-banner-toggle-action [role="switch"] {
+  border-color: transparent !important;
+  border-radius: 9999px !important;
+}
+
+#root .page-banner-management-table .page-banner-content-action {
+  flex: 0 0 auto;
+  padding-inline: 0.5rem !important;
+}
+
+html[data-tradepro-page-shared-list="true"] #root [data-client-source-shell] .page-banner-management-table :is(.page-banner-icon-action, .page-banner-content-action):hover:not(:disabled) {
+  background: var(--tradepro-banner-content-action-hover-bg, var(--tradepro-product-market-action-hover-bg, rgba(255, 255, 255, 0.64))) !important;
+}
+
+#root .page-banner-management-table .page-banner-content-action.is-active {
+  color: var(--tradepro-panel-action-bg) !important;
+}
+
+#root .page-banner-management-table :is(.page-banner-icon-action, .page-banner-content-action, .page-banner-toggle-action):focus-visible {
+  outline: 2px solid var(--tradepro-shared-action-bg, var(--tradepro-panel-action-bg));
+  outline-offset: 2px;
+}
+
+#root .page-banner-management-table .page-banner-delete-action,
+#root .page-banner-management-table .page-banner-delete-action:hover:not(:disabled) {
+  color: color-mix(in srgb, #dc2626 74%, var(--tradepro-panel-list-text)) !important;
+}
+
+#root .page-banner-management-table :is(tbody, tbody td, .page-banner-name, .page-banner-link, .page-banner-order-cell) {
+  color: var(--tradepro-panel-list-text) !important;
+  font-size: var(--tradepro-shared-list-font-size, var(--tradepro-page-body-size, 0.875rem)) !important;
+  font-weight: var(--tradepro-shared-list-font-weight, 400) !important;
+}
+
+/* Homepage Banner is an ordinary page-owned table. It must read the current
+   shared table/list tokens even when an old saved plan lacks the optional
+   shared-list switch, otherwise legacy text can sit on a dark workspace. */
+#root .page-banner-management-table {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+
+/* Banner is a five-field business table, not a reusable card grid. A saved
+   Card/Content plan from another page must never turn its single table into
+   one item of a multi-column [data-page-list] grid. That was the source of
+   the narrow left table, clipped fields, nested scrollbars and blank right
+   workspace seen after applying a non-Banner plan. */
+html[data-tradepro-page-layout="active"] #root [data-page-content-kind="banner"] [data-page-list] {
+  display: block !important;
+  grid-template-columns: none !important;
+}
+
+#root [data-page-content-kind="banner"] [data-page-table-scroll] {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+#root [data-page-content-kind="banner"] .page-banner-management-table {
+  width: 100% !important;
+  min-width: 880px;
+}
+
+#root .page-banner-management-table thead,
+#root .page-banner-management-table thead tr {
+  background: var(--tradepro-panel-table-bg) !important;
+  color: var(--tradepro-panel-table-text) !important;
+}
+
+#root .page-banner-management-table thead :is(th, small, b) {
+  color: var(--tradepro-panel-table-text) !important;
+}
+
+#root .page-banner-management-table tbody tr {
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+}
+
+#root .page-banner-management-table tbody td {
+  border-top: 1px solid var(--tradepro-surface-border) !important;
+  border-bottom: 1px solid var(--tradepro-surface-border) !important;
+}
+
+#root .page-banner-management-table tbody td:first-child {
+  border-left: 1px solid var(--tradepro-surface-border) !important;
+  border-radius: var(--tradepro-page-radius, 0.75rem) 0 0 var(--tradepro-page-radius, 0.75rem);
+}
+
+#root .page-banner-management-table tbody td:last-child {
+  border-right: 1px solid var(--tradepro-surface-border) !important;
+  border-radius: 0 var(--tradepro-page-radius, 0.75rem) var(--tradepro-page-radius, 0.75rem) 0;
+}
+
+#root .page-banner-management-table .page-banner-name,
+#root .page-banner-management-table .page-banner-order-cell {
+  font-weight: 600 !important;
+}
+
+#root .page-banner-add-button {
+  min-height: var(--tradepro-shared-action-height, 2rem) !important;
+  height: var(--tradepro-shared-action-height, 2rem) !important;
+  padding-inline: 0.75rem !important;
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 40%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.5rem) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+  font-size: var(--tradepro-shared-action-font-size, var(--tradepro-page-note-size, 0.75rem)) !important;
+  font-weight: 700 !important;
+}
+
+#root .page-banner-add-button:hover {
+  background: color-mix(in srgb, var(--tradepro-panel-action-bg) 82%, #000) !important;
+}
+
+/* 首页大图是普通业务页的表格内容：滚动、表头和插件尺寸必须和
+   导航自定共享同一内容区合同。旧实现让项目外层和表格内层同时滚动，
+   又让 Table 的默认 h-10 / p-4 参与计算，导致 76px 表头、40px 图标
+   和右边第二条滚条。这里仅规范结构几何，不触碰 Banner 数据或弹窗。 */
+#root [data-client-source-shell] [data-client-project-content]:has([data-company-info-tab="banner"]) {
+  overflow: hidden;
+}
+
+#root [data-company-info-tab="banner"] [data-page-content-kind="banner"] {
+  overflow: hidden;
+}
+
+#root [data-company-info-tab="banner"] [data-page-list][data-page-list-layout="table"] {
+  box-sizing: border-box;
+  overflow: auto !important;
+  padding: 0 var(--tradepro-shared-list-edge-inset, 0.75rem) var(--tradepro-shared-list-bottom-inset, 3.75rem) !important;
+  background: var(--tradepro-shared-workspace-bg, var(--tradepro-panel-frame-bg, var(--tradepro-panel-bg))) !important;
+  scrollbar-color: var(--tradepro-shared-scrollbar-thumb, var(--tradepro-panel-action-bg)) var(--tradepro-shared-workspace-scroll-track, var(--tradepro-shared-workspace-bg, var(--tradepro-panel-frame-bg))) !important;
+}
+
+#root [data-company-info-tab="banner"] [data-page-table-scroll] {
+  overflow: visible !important;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table {
+  border-spacing: 0 var(--tradepro-shared-list-gap, 0.75rem);
+}
+
+#root [data-company-info-tab="banner"] [data-page-table-header] {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  height: var(--tradepro-shared-table-header-frame-height, 3.875rem);
+  min-height: var(--tradepro-shared-table-header-frame-height, 3.875rem);
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table thead th {
+  height: auto !important;
+  padding: 0.5rem 0.75rem !important;
+  vertical-align: middle;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table thead small {
+  font-size: 0.6875rem !important;
+  line-height: 1.25rem !important;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table thead b {
+  font-size: 0.84rem !important;
+  font-weight: 400 !important;
+  line-height: 1.25rem !important;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table :is(.page-banner-icon-action, .page-banner-content-action) {
+  width: var(--tradepro-shared-action-height, 2rem) !important;
+  min-width: var(--tradepro-shared-action-height, 2rem) !important;
+  height: var(--tradepro-shared-action-height, 2rem) !important;
+  min-height: var(--tradepro-shared-action-height, 2rem) !important;
+  padding-inline: 0.375rem !important;
+  border-radius: 9999px !important;
+  font-size: var(--tradepro-shared-plugin-font-size, 0.75rem) !important;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-content-action {
+  width: auto !important;
+  min-width: 2.75rem !important;
+}
+
+/* 自定模块直接复用首页大图的共享内容工作区合同。模块页不再保留旧的
+   Card/Table 外框：标题以下只由列表自身拥有一个滚动容器、一个表头和
+   一个新增区，颜色、字体、间距、滚条均从共享变量读取。 */
+#root [data-client-source-shell] [data-client-project-content]:has([data-company-info-tab="modules"]) {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+#root [data-client-source-shell] [data-client-project-content]:has([data-company-info-tab="modules"]) > [data-page-layout-surface],
+#root [data-company-info-tab="modules"] [data-page-content-kind="module"] {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root [data-company-info-tab="modules"] [data-page-list][data-page-list-layout="table"] {
+  box-sizing: border-box;
+  overflow: auto !important;
+  padding: 0 var(--tradepro-shared-list-edge-inset, 0.75rem) var(--tradepro-shared-list-bottom-inset, 3.75rem) !important;
+  background: var(--tradepro-shared-workspace-bg, var(--tradepro-panel-frame-bg, var(--tradepro-panel-bg))) !important;
+  scrollbar-color: var(--tradepro-shared-scrollbar-thumb, var(--tradepro-panel-action-bg)) var(--tradepro-shared-workspace-scroll-track, var(--tradepro-shared-workspace-bg, var(--tradepro-panel-frame-bg))) !important;
+}
+
+/* 模块页需要与首页大图一致的表格字级，但不把该页面验证用的字号
+   写回运营市场的全局保存方案。 */
+#root [data-company-info-tab="modules"] [data-company-module-shared-workspace] {
+  --tradepro-shared-table-header-font-size: 0.75rem;
+  --tradepro-shared-table-header-font-weight: 400;
+  --tradepro-shared-list-font-size: 0.875rem;
+  --tradepro-shared-list-font-weight: 400;
+}
+
+#root [data-company-info-tab="modules"] [data-page-table-header],
+#root [data-company-info-tab="modules"] [data-page-table-header] > tr {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  height: var(--tradepro-shared-table-header-frame-height, 3.875rem) !important;
+  min-height: var(--tradepro-shared-table-header-frame-height, 3.875rem) !important;
+}
+
+#root [data-company-info-tab="modules"] .page-banner-management-table {
+  border-spacing: 0 var(--tradepro-shared-list-gap, 0.75rem);
+}
+
+#root [data-company-info-tab="modules"] .page-banner-management-table [data-page-table-header] th {
+  height: auto !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: var(--tradepro-shared-table-header-font-size, 0.875rem) !important;
+  font-weight: var(--tradepro-shared-table-header-font-weight, 400) !important;
+}
+
+#root [data-company-info-tab="modules"] [data-page-content-kind="module"] [data-page-list-has-footer] {
+  padding-bottom: 0 !important;
+}
+
+
+/* Homepage Banner final shared-frame normalization.  This intentionally lives
+   after legacy table presets: ordinary project content is a flex viewport,
+   so the Banner list (not its parent and not the table wrapper) owns the one
+   vertical scrollbar.  The same tokens are used by 导航自定. */
+#root [data-client-source-shell] [data-client-project-content]:has([data-company-info-tab="banner"]) {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 0 !important;
+}
+
+#root [data-client-source-shell] [data-client-project-content]:has([data-company-info-tab="banner"]) > [data-page-layout-surface] {
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table [data-page-table-header],
+#root [data-company-info-tab="banner"] .page-banner-management-table [data-page-table-header] > tr {
+  height: var(--tradepro-shared-table-header-frame-height, 3.875rem) !important;
+  min-height: var(--tradepro-shared-table-header-frame-height, 3.875rem) !important;
+}
+
+#root [data-company-info-tab="banner"] .page-banner-management-table [data-page-table-header] th {
+  height: auto !important;
+  padding: 0.5rem 0.75rem !important;
+  font-size: var(--tradepro-shared-table-header-font-size, 0.875rem) !important;
+  font-weight: var(--tradepro-shared-table-header-font-weight, 400) !important;
+}
+
+
+#root .page-banner-management-table .page-banner-content-actions {
+  gap: var(--tradepro-shared-plugin-gap, 0.5rem) !important;
+}
+
+#root [data-company-info-tab="banner"] [data-page-content-kind="banner"] [data-page-list-has-footer] {
+  padding-bottom: 0 !important;
+}
+
+/* The navigation-frame compatibility mode previously overrode all tables to
+   0.375rem, including Banner.  Banner is a normal shared-content table, so
+   its row rhythm must read the global list-gap token. */
+html[data-tradepro-page-layout-plugin="navigation-frame"] #root [data-company-info-tab="banner"] .page-banner-management-table {
+  border-spacing: 0 var(--tradepro-shared-list-gap, 0.75rem);
+}

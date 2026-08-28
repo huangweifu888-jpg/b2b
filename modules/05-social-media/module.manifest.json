@@ -1,0 +1,8 @@
+{
+  "id": "05-social-media",
+  "name": "圈养（社交媒体）",
+  "version": "0.1.0",
+  "publicCapabilities": [],
+  "requiredTenantContext": ["agent_path", "tenant_id", "client_id"],
+  "legacyFrontendPage": "src/pages/SocialMedia.tsx"
+}

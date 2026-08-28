@@ -1,0 +1,35 @@
+"""governed social-account matrix projections
+
+Revision ID: e7a4c9d2b605
+Revises: d5f9b2e7a103
+
+Rollback removes only social-matrix projections, permissions and contracts. It
+never removes OAuth applications, credential references, social pages, metric
+snapshots, content reviews, publish jobs or any secret-manager material.
+"""
+import json
+from alembic import op
+import sqlalchemy as sa
+revision="e7a4c9d2b605";down_revision="d5f9b2e7a103";branch_labels=None;depends_on=None
+P=("factory.deepen.social-matrix.create","factory.deepen.social-matrix.bind","factory.deepen.social-matrix.verify","factory.deepen.social-matrix.publish","factory.deepen.social-matrix.acknowledge")
+def C():return [sa.Column("id",sa.String(100),primary_key=True),sa.Column("project_id",sa.Integer(),nullable=False),sa.Column("agent_path",sa.String(500),nullable=False),sa.Column("tenant_id",sa.String(100),nullable=False),sa.Column("client_id",sa.String(100),nullable=False),sa.Column("plan_id",sa.String(100),nullable=False)]
+def ix(table,cols):
+ for col in cols:op.create_index(f"ix_{table}_{col}",table,[col])
+def perms(remove=False):
+ bind=op.get_bind()
+ for row in bind.execute(sa.text("SELECT id,permissions_json FROM roles_platform WHERE is_system=1 AND scope IN ('client','project')")).mappings():
+  try:values=json.loads(row["permissions_json"] or "[]")
+  except (TypeError,ValueError):values=[]
+  values=[v for v in values if v not in P] if remove else list(dict.fromkeys([*values,*P]))
+  bind.execute(sa.text("UPDATE roles_platform SET permissions_json=:permissions WHERE id=:id"),{"permissions":json.dumps(values,ensure_ascii=False),"id":row["id"]})
+def upgrade():
+ op.create_table("factory_social_matrices",*C(),sa.Column("matrix_number",sa.String(100),nullable=False,unique=True),sa.Column("matrix_key",sa.String(100),nullable=False),sa.Column("matrix_name",sa.String(255),nullable=False),sa.Column("market_scope",sa.String(32),nullable=False),sa.Column("status",sa.String(32),nullable=False,server_default="draft"),sa.Column("created_by",sa.String(255),nullable=False),sa.Column("verified_by",sa.String(255)),sa.Column("verification_reference",sa.String(255)),sa.Column("published_by",sa.String(255)),sa.Column("revision",sa.Integer(),nullable=False,server_default="1"),sa.Column("created_at",sa.DateTime(timezone=True)),sa.Column("updated_at",sa.DateTime(timezone=True)),sa.UniqueConstraint("project_id","matrix_key",name="uq_factory_social_matrix_key"))
+ op.create_table("factory_social_matrix_bindings",*C(),sa.Column("binding_number",sa.String(100),nullable=False,unique=True),sa.Column("matrix_id",sa.String(100),nullable=False),sa.Column("matrix_number",sa.String(100),nullable=False),sa.Column("page_asset_id",sa.String(100),nullable=False),sa.Column("provider",sa.String(80),nullable=False),sa.Column("page_reference",sa.String(255),nullable=False),sa.Column("credential_reference_id",sa.String(100),nullable=False),sa.Column("credential_fingerprint",sa.String(64),nullable=False),sa.Column("page_fingerprint",sa.String(64),nullable=False),sa.Column("latest_snapshot_id",sa.String(100),nullable=False),sa.Column("latest_snapshot_fingerprint",sa.String(64),nullable=False),sa.Column("created_by",sa.String(255),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True)),sa.UniqueConstraint("matrix_id","page_asset_id",name="uq_factory_social_matrix_page"))
+ op.create_table("factory_social_matrix_publications",*C(),sa.Column("publication_number",sa.String(100),nullable=False,unique=True),sa.Column("matrix_id",sa.String(100),nullable=False),sa.Column("matrix_number",sa.String(100),nullable=False),sa.Column("version_number",sa.Integer(),nullable=False),sa.Column("manifest_json",sa.Text(),nullable=False),sa.Column("manifest_fingerprint",sa.String(64),nullable=False),sa.Column("status",sa.String(32),nullable=False,server_default="pending"),sa.Column("published_by",sa.String(255),nullable=False),sa.Column("delivery_reference",sa.String(255),nullable=False),sa.Column("acknowledged_by",sa.String(255)),sa.Column("acknowledgement_reference",sa.String(255)),sa.Column("revision",sa.Integer(),nullable=False,server_default="1"),sa.Column("created_at",sa.DateTime(timezone=True)),sa.Column("acknowledged_at",sa.DateTime(timezone=True)),sa.UniqueConstraint("matrix_id","version_number",name="uq_factory_social_matrix_version"))
+ ix("factory_social_matrices",("project_id","agent_path","tenant_id","client_id","plan_id","matrix_number","matrix_key","market_scope","status","created_by","verified_by","published_by"));ix("factory_social_matrix_bindings",("project_id","agent_path","tenant_id","client_id","plan_id","binding_number","matrix_id","page_asset_id","provider","credential_reference_id","latest_snapshot_id","created_by"));ix("factory_social_matrix_publications",("project_id","agent_path","tenant_id","client_id","plan_id","publication_number","matrix_id","status","published_by","acknowledged_by"))
+ bind=op.get_bind();bind.execute(sa.text("INSERT INTO factory_core_object_contracts (id,sequence,label,system_of_record,identity_rule,minimum_fields_json,lifecycle_status,schema_version,revision,updated_by) SELECT 'social-account-matrix',45,'Social account matrix','deepen','tenant matrix and source page/credential fingerprints','[\"tenantId\",\"matrixId\",\"pageAssetId\",\"credentialReferenceId\",\"snapshotFingerprint\"]','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_object_contracts WHERE id='social-account-matrix')"));bind.execute(sa.text("INSERT INTO factory_core_event_contracts (id,sequence,label,subject_id,producer,consumers_json,required_fields_json,compatibility,lifecycle_status,schema_version,revision,updated_by) SELECT 'social-matrix-published',37,'Social matrix published','social-account-matrix','deepen','[\"content\",\"decision\"]','[\"eventId\",\"tenantId\",\"subjectId\",\"version\",\"manifestFingerprint\"]','backward','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_event_contracts WHERE id='social-matrix-published')"));perms()
+def downgrade():
+ perms(True);bind=op.get_bind();bind.execute(sa.text("DELETE FROM factory_core_event_contracts WHERE id='social-matrix-published'"));bind.execute(sa.text("DELETE FROM factory_core_object_contracts WHERE id='social-account-matrix'"))
+ for table,cols in (("factory_social_matrix_publications",("acknowledged_by","published_by","status","matrix_id","publication_number","plan_id","client_id","tenant_id","agent_path","project_id")),("factory_social_matrix_bindings",("created_by","latest_snapshot_id","credential_reference_id","provider","page_asset_id","matrix_id","binding_number","plan_id","client_id","tenant_id","agent_path","project_id")),("factory_social_matrices",("published_by","verified_by","created_by","status","market_scope","matrix_key","matrix_number","plan_id","client_id","tenant_id","agent_path","project_id"))):
+  for col in cols:op.drop_index(f"ix_{table}_{col}",table_name=table)
+ op.drop_table("factory_social_matrix_publications");op.drop_table("factory_social_matrix_bindings");op.drop_table("factory_social_matrices")

@@ -1,0 +1,37 @@
+{
+    "title": "chat_messages",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "conversation_id": {
+            "type": "integer",
+            "description": "Foreign key to chat_conversations"
+        },
+        "role": {
+            "type": "string",
+            "description": "Message role: user/assistant"
+        },
+        "content": {
+            "type": "string",
+            "description": "Message content"
+        },
+        "feedback": {
+            "type": "string",
+            "description": "User feedback: up/down/null"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "conversation_id",
+        "role",
+        "content"
+    ]
+}

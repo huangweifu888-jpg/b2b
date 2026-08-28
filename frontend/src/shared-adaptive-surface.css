@@ -1,0 +1,365 @@
+/* Desktop-base shared adaptive surfaces v1
+   The desktop component is the only live owner of business controls and
+   state. Compact layouts move that same DOM into a viewport-contained layer;
+   they never rebuild Title 1, Title 2 or Table Header controls. */
+html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+  [data-responsive-semantic-band-active] {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 639px), (max-height: 650px) {
+  /* The semantic tool rail is the only compact-screen entry point. Keep the
+     authored desktop band mounted as the single live DOM owner, but collapse
+     it until its matching tool explicitly opens the shared surface. */
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root#root
+    [data-responsive-semantic-band-active]:not([data-responsive-live-surface-open="true"]) {
+    display: none !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface][data-responsive-live-surface-open="true"] {
+    display: block !important;
+    position: fixed !important;
+    z-index: 220 !important;
+    top: calc(var(--responsive-vertical-topbar-height, 52px) + max(8px, env(safe-area-inset-top))) !important;
+    left: max(8px, env(safe-area-inset-left)) !important;
+    right: max(8px, env(safe-area-inset-right)) !important;
+    bottom: auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    max-height: calc(100dvh - var(--responsive-vertical-topbar-height, 52px) - var(--responsive-page-tools-footer-reserve, 60px) - max(24px, env(safe-area-inset-bottom))) !important;
+    margin: 0 !important;
+    padding: clamp(6px, 1.6vw, 12px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    pointer-events: auto !important;
+    transform: none !important;
+    container: tradepro-live-surface / inline-size;
+    box-sizing: border-box !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] :where(*) {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] > :where(*) {
+    max-width: 100%;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] :where([data-responsive-capacity-row], [data-responsive-page-actions], [data-responsive-batch-actions]) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] :where(button, a, input, select, [role="button"]) {
+    max-width: 100%;
+  }
+
+  /* Compact overlays expose the desktop band's real content. Legacy mobile
+     disclosure wrappers are transport chrome and must not create a second
+     collapsed state inside the shared live surface. */
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] > .nav-mobile-disclosure,
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] > .nav-mobile-table-disclosure {
+    display: none !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] :is(.nav-mobile-header-content, .nav-table-header-content) {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] :is(.template-config-action-strip, [data-page-title-actions], [data-responsive-batch-actions]) {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    overflow: visible !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-semantic-tools="true"]:not([data-responsive-page-tools-panel="overflow"])
+    [data-responsive-page-tools-popover="anchored"] {
+    display: none !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-overflow-menu] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr));
+    gap: 6px;
+    min-width: min(18rem, calc(100vw - 16px));
+    padding: 6px;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-overflow-menu] > button {
+    min-width: 0;
+    height: var(--tradepro-shared-action-height, 32px);
+  }
+}
+
+@media (max-width: 495px) {
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] {
+    font-size: clamp(12px, 3.4cqi, 14px) !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface-open="true"] :where([data-responsive-choice-grid], [data-responsive-field-grid]) {
+    grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr)) !important;
+  }
+}
+
+/* Shared live-surface copy policy v2026.08.17.3.
+   Title 1 keeps the desktop component, palette, depth and interactions. The
+   compact contract changes only density and flow: the real heading remains a
+   single readable line, actions shrink before wrapping, and supporting copy
+   returns only when the live surface owns enough horizontal and vertical
+   capacity. No compact proxy or reconstructed action participates. */
+@media (max-width: 639px) {
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"]:not([data-responsive-live-surface-open="true"]) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"]:not([data-responsive-live-surface-open="true"])
+    :is([data-page-title-actions], [data-responsive-generated-title-actions="true"]) {
+    position: static !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    flex: 0 1 auto !important;
+    align-self: stretch !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-generated-title-band="true"][data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 6px !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"] [data-responsive-live-title-layout] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 6px !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is([data-page-title-content], [data-responsive-generated-title-content="true"]) {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    container-name: responsive-title-copy !important;
+    container-type: inline-size !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is(h1, h2, [data-shared-title-heading], [data-responsive-semantic-title], [data-responsive-live-title-heading]) {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: clamp(4px, 1.3cqi, 8px) !important;
+    overflow: hidden !important;
+    font-size: clamp(12px, 3.6cqi, 16px) !important;
+    line-height: 1.25 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    writing-mode: horizontal-tb !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is(h1, h2, [data-shared-title-heading], [data-responsive-semantic-title], [data-responsive-live-title-heading]) > :where(span) {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is([data-shared-title-description], [data-responsive-semantic-description], [data-responsive-live-title-description]) {
+    display: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin-top: 2px !important;
+    overflow: hidden !important;
+    font-size: clamp(10px, 2.2cqi, 12px) !important;
+    line-height: 1.25 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is([data-page-title-actions], [data-responsive-generated-title-actions="true"]) {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    :is(
+      [data-responsive-live-surface="title-2"],
+      [data-responsive-live-surface="table-header"]
+    )[data-responsive-live-surface-open="true"] {
+    display: block !important;
+  }
+}
+
+/* A short viewport is not automatically a narrow viewport. From 640px upward,
+   Title 1 keeps the real desktop heading and action rail on one measured row;
+   only the rail itself scrolls when its intrinsic controls exceed the assigned
+   track. Compact widths may place the complete rail below the heading. */
+@media (min-width: 640px) and (max-height: 650px) {
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is([data-page-title-content], [data-responsive-generated-title-content="true"]) {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    container-name: responsive-title-copy !important;
+    container-type: inline-size !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"][data-responsive-live-title-layout-mode="stacked"]
+    [data-responsive-live-title-layout] {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-items: start !important;
+    gap: 6px !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"][data-responsive-live-title-layout-mode="stacked"]
+    :is([data-page-title-content], [data-responsive-generated-title-content="true"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"][data-responsive-live-title-layout-mode="stacked"]
+    :is([data-page-title-actions], [data-responsive-generated-title-actions="true"]) {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    overflow: visible !important;
+  }
+}
+
+@media (min-width: 640px) {
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"][data-responsive-live-title-layout-mode="inline"]
+    [data-responsive-live-title-layout] {
+    grid-template-columns: minmax(8rem, 1fr) var(--responsive-live-title-actions-width) !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-generated-title-band="true"][data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"][data-responsive-live-title-layout-mode="inline"] {
+    grid-template-columns: minmax(8rem, 1fr) var(--responsive-live-title-actions-width) !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"][data-responsive-live-title-layout-mode="inline"]
+    :is([data-page-title-actions], [data-responsive-generated-title-actions="true"]) {
+    width: var(--responsive-live-title-actions-width) !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+
+  /* The compact safety cap uses a percentage max-width on every control.  At
+     inline desktop widths that percentage would make the max-content grid
+     contribution cyclic and collapse the action track to icon width. Restore
+     each real action's intrinsic label width here; narrow layouts keep the
+     safety cap and wrap whole controls below the heading. */
+  html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+    [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+    :is([data-page-title-actions], [data-responsive-generated-title-actions="true"])
+    > :is(button, a, [role="button"]) {
+    width: auto !important;
+    min-width: max-content !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (min-height: 520px) {
+  @container responsive-title-copy (min-width: 580px) {
+    html[data-shared-adaptive-surface-strategy="single-live-dom-desktop-base"] #root
+      [data-responsive-live-surface="title-1"][data-responsive-live-surface-open="true"]
+      :is([data-shared-title-description], [data-responsive-semantic-description], [data-responsive-live-title-description]) {
+      display: block !important;
+    }
+  }
+}

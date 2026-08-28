@@ -1,0 +1,1579 @@
+{
+  "schemaVersion": 1,
+  "inventoryVersion": "2026.08.22.6",
+  "mode": "code-owned-read-only-baseline",
+  "fingerprint": "4e9097320220474b32b2b5e2d41426ae414c080f1023f3ebc5ccccfc25e95fcb",
+  "pages": [
+    {
+      "id": "account",
+      "source": "frontend/src/pages/Account.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/account"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "agency-agencycustomers",
+      "source": "frontend/src/pages/agency/AgencyCustomers.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/customers",
+        "/dl/customers"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "agency-agencydashboard",
+      "source": "frontend/src/pages/agency/AgencyDashboard.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/",
+        "/dl"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-agencylivepages",
+      "source": "frontend/src/pages/agency/AgencyLivePages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/enterprises",
+        "/dl/plans",
+        "/enterprises",
+        "/plans"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-agencyorders",
+      "source": "frontend/src/pages/agency/AgencyOrders.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/orders",
+        "/orders"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-agencysites",
+      "source": "frontend/src/pages/agency/AgencySites.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/sites",
+        "/sites"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "agency-agencysocialcontentreviews",
+      "source": "frontend/src/pages/agency/AgencySocialContentReviews.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/social-content-reviews"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization",
+        "network-data"
+      ]
+    },
+    {
+      "id": "agency-agencyversioncenter",
+      "source": "frontend/src/pages/agency/AgencyVersionCenter.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/version",
+        "/version"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-businessdata",
+      "source": "frontend/src/pages/agency/BusinessData.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/business-data",
+        "/dl/business-data"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-enterprises",
+      "source": "frontend/src/pages/agency/Enterprises.tsx",
+      "routeEntry": false,
+      "routeHints": [],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-invitelinks",
+      "source": "frontend/src/pages/agency/InviteLinks.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/invite-links",
+        "/dl/invites",
+        "/invite-links",
+        "/invites"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-members",
+      "source": "frontend/src/pages/agency/Members.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/members",
+        "/members"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "agency-oemsettings",
+      "source": "frontend/src/pages/agency/OEMSettings.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/oem",
+        "/dl/oem-settings",
+        "/oem",
+        "/oem-settings"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "upload"
+      ]
+    },
+    {
+      "id": "agency-performance",
+      "source": "frontend/src/pages/agency/Performance.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/performance",
+        "/performance"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "agency-plans",
+      "source": "frontend/src/pages/agency/Plans.tsx",
+      "routeEntry": false,
+      "routeHints": [],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-publicpool",
+      "source": "frontend/src/pages/agency/PublicPool.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/public-pool",
+        "/public-pool"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-quotas",
+      "source": "frontend/src/pages/agency/Quotas.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/quotas",
+        "/quotas"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-reports",
+      "source": "frontend/src/pages/agency/Reports.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/reports",
+        "/reports"
+      ],
+      "risk": "review",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-roles",
+      "source": "frontend/src/pages/agency/Roles.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/roles",
+        "/roles"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "agency-seoblogs",
+      "source": "frontend/src/pages/agency/SEOBlogs.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/seo-blogs",
+        "/seo-blogs"
+      ],
+      "risk": "review",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-seotasks",
+      "source": "frontend/src/pages/agency/SEOTasks.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/seo-tasks",
+        "/seo-tasks"
+      ],
+      "risk": "review",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-wallet",
+      "source": "frontend/src/pages/agency/Wallet.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/wallet",
+        "/wallet"
+      ],
+      "risk": "review",
+      "riskSignals": []
+    },
+    {
+      "id": "agency-workspace",
+      "source": "frontend/src/pages/agency/Workspace.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/workspace",
+        "/workspace"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "aichat",
+      "source": "frontend/src/pages/AIChat.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-chat"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "upload",
+        "write-action",
+        "network-data",
+        "tenant-context",
+        "complex-interaction",
+        "browser-storage",
+        "large-source"
+      ]
+    },
+    {
+      "id": "aicustomerservice",
+      "source": "frontend/src/pages/AICustomerService.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-customer-service"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "authcallback",
+      "source": "frontend/src/pages/AuthCallback.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/auth/callback"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "browser-storage"
+      ]
+    },
+    {
+      "id": "autherror",
+      "source": "frontend/src/pages/AuthError.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/auth/error"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "blog-blogindexpage",
+      "source": "frontend/src/pages/blog/BlogIndexPage.tsx",
+      "routeEntry": false,
+      "routeHints": [],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "blog-blogpostpage",
+      "source": "frontend/src/pages/blog/BlogPostPage.tsx",
+      "routeEntry": false,
+      "routeHints": [],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "blogoptimize",
+      "source": "frontend/src/pages/BlogOptimize.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/blog"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "cases",
+      "source": "frontend/src/pages/Cases.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/cases"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "companyinfo",
+      "source": "frontend/src/pages/CompanyInfo.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/company-info"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "upload",
+        "write-action",
+        "tenant-context",
+        "complex-interaction",
+        "browser-storage",
+        "large-source"
+      ]
+    },
+    {
+      "id": "companyinfodeferredpanels",
+      "source": "frontend/src/pages/CompanyInfoDeferredPanels.tsx",
+      "routeEntry": false,
+      "routeHints": [],
+      "risk": "high",
+      "riskSignals": [
+        "write-action",
+        "large-source"
+      ]
+    },
+    {
+      "id": "customers",
+      "source": "frontend/src/pages/Customers.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/customers"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context",
+        "large-source"
+      ]
+    },
+    {
+      "id": "factoryabm",
+      "source": "frontend/src/pages/FactoryAbm.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/abm"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factoryaccountgraph",
+      "source": "frontend/src/pages/FactoryAccountGraph.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/account-graph"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factoryaicommand",
+      "source": "frontend/src/pages/FactoryAiCommand.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-command"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryaisdr",
+      "source": "frontend/src/pages/FactoryAiSdr.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-sdr"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factoryapprovalcenter",
+      "source": "frontend/src/pages/FactoryApprovalCenter.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/approval-center"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorybrandstudio",
+      "source": "frontend/src/pages/FactoryBrandStudio.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/brand-studio"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorybuyingcommittee",
+      "source": "frontend/src/pages/FactoryBuyingCommittee.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/buying-committee"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorycdp",
+      "source": "frontend/src/pages/FactoryCdp.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/customer-data-platform"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorychannelfeed",
+      "source": "frontend/src/pages/FactoryChannelFeed.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/channel-feed"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorycommerce",
+      "source": "frontend/src/pages/FactoryCommerce.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/commerce"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorycpqquotes",
+      "source": "frontend/src/pages/FactoryCpqQuotes.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/cpq-quotes"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorycreativecenter",
+      "source": "frontend/src/pages/FactoryCreativeCenter.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/creative-center"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorycustomerassets",
+      "source": "frontend/src/pages/FactoryCustomerAssets.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/customer-assets"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorycustomertimeline",
+      "source": "frontend/src/pages/FactoryCustomerTimeline.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/customer-timeline"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorydamlocalization",
+      "source": "frontend/src/pages/FactoryDamLocalization.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dam-localization"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorydatawarehouse",
+      "source": "frontend/src/pages/FactoryDataWarehouse.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/data-warehouse"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorydigitalassets",
+      "source": "frontend/src/pages/FactoryDigitalAssets.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/digital-assets"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryerp",
+      "source": "frontend/src/pages/FactoryErp.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/erp"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryfieldservice",
+      "source": "frontend/src/pages/FactoryFieldService.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/field-service"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryfinance",
+      "source": "frontend/src/pages/FactoryFinance.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/finance"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryforecast",
+      "source": "frontend/src/pages/FactoryForecast.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/forecast"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryfulfillmentorders",
+      "source": "frontend/src/pages/FactoryFulfillmentOrders.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/fulfillment-orders"
+      ],
+      "risk": "review",
+      "riskSignals": []
+    },
+    {
+      "id": "factoryhealthcockpit",
+      "source": "frontend/src/pages/FactoryHealthCockpit.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/health-cockpit"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryicpprofiles",
+      "source": "frontend/src/pages/FactoryIcpProfiles.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/icp-profiles"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization",
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryidentityresolution",
+      "source": "frontend/src/pages/FactoryIdentityResolution.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/identity-resolution"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factoryknowledgegraph",
+      "source": "frontend/src/pages/FactoryKnowledgeGraph.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/knowledge-graph"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorylegalcontracts",
+      "source": "frontend/src/pages/FactoryLegalContracts.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/contract-legal"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorymanufacturingexecution",
+      "source": "frontend/src/pages/FactoryManufacturingExecution.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/manufacturing-execution"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "factorymetricsemantics",
+      "source": "frontend/src/pages/FactoryMetricSemantics.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/metric-center"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorypartnervoice",
+      "source": "frontend/src/pages/FactoryPartnerVoice.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/partner-voice"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorypeople",
+      "source": "frontend/src/pages/FactoryPeople.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/people"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryprocurement",
+      "source": "frontend/src/pages/FactoryProcurement.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/procurement"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryproductionplanning",
+      "source": "frontend/src/pages/FactoryProductionPlanning.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/production-plans"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryproductpassports",
+      "source": "frontend/src/pages/FactoryProductPassports.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/product-passports"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryqualityinspections",
+      "source": "frontend/src/pages/FactoryQualityInspections.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/quality-inspections"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryrecruiting",
+      "source": "frontend/src/pages/FactoryRecruiting.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/recruiting"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryrenewalgrowth",
+      "source": "frontend/src/pages/FactoryRenewalGrowth.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/renewal-growth"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryrevenueprofit",
+      "source": "frontend/src/pages/FactoryRevenueProfit.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/revenue-profit"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factoryrfqsamples",
+      "source": "frontend/src/pages/FactoryRfqSamples.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/rfq-samples"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "factorysegmentsconsent",
+      "source": "frontend/src/pages/FactorySegmentsConsent.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/segments-consent"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorysitemanagement",
+      "source": "frontend/src/pages/FactorySiteManagement.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/site-management"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "factorystructureddata",
+      "source": "frontend/src/pages/FactoryStructuredData.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/structured-data"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "factorywarrantyrma",
+      "source": "frontend/src/pages/FactoryWarrantyRma.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/warranty-rma"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization",
+        "write-action"
+      ]
+    },
+    {
+      "id": "geocenter",
+      "source": "frontend/src/pages/GeoCenter.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/geo-center"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "hq-agencysourcereleases",
+      "source": "frontend/src/pages/hq/AgencySourceReleases.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/agency-source/releases"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "upload",
+        "write-action",
+        "browser-storage"
+      ]
+    },
+    {
+      "id": "hq-auditreleaselogs",
+      "source": "frontend/src/pages/hq/AuditReleaseLogs.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/audit-logs"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "hq-backuprestoredrills",
+      "source": "frontend/src/pages/hq/BackupRestoreDrills.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/backup-restore-drills"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "upload",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "hq-clientsourcereleases",
+      "source": "frontend/src/pages/hq/ClientSourceReleases.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/client-source/releases"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "tenant-context",
+        "browser-storage"
+      ]
+    },
+    {
+      "id": "hq-hqaipages",
+      "source": "frontend/src/pages/hq/HQAIPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/ai-cost",
+        "/zb/ai-logs",
+        "/zb/ai-square"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data",
+        "browser-storage",
+        "large-source"
+      ]
+    },
+    {
+      "id": "hq-hqcodeeditor",
+      "source": "frontend/src/pages/hq/HQCodeEditor.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/code-editor",
+        "/zb/code-editor/:scope"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "network-data"
+      ]
+    },
+    {
+      "id": "hq-hqdashboard",
+      "source": "frontend/src/pages/hq/HQDashboard.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqliveadminpages",
+      "source": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/depts",
+        "/zb/members",
+        "/zb/roles"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "hq-hqliveaimodelspage",
+      "source": "frontend/src/pages/hq/HQLiveAIModelsPage.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/ai-models"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "hq-hqliveaipages",
+      "source": "frontend/src/pages/hq/HQLiveAIPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/ai-keys",
+        "/zb/ai-vendors"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqliveassetpages",
+      "source": "frontend/src/pages/hq/HQLiveAssetPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/gallery",
+        "/zb/templates"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqliveauditpages",
+      "source": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/agency-source/recharge-audit",
+        "/zb/oem-audit",
+        "/zb/recharge-audit"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqliveconfigpages",
+      "source": "frontend/src/pages/hq/HQLiveConfigPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/email-config",
+        "/zb/platform-config"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqlivefinancepages",
+      "source": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/auto-renew",
+        "/zb/expiring",
+        "/zb/invoices",
+        "/zb/order-audit",
+        "/zb/orders",
+        "/zb/refunds",
+        "/zb/wallet"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "large-source"
+      ]
+    },
+    {
+      "id": "hq-hqlivegovernancepages",
+      "source": "frontend/src/pages/hq/HQLiveGovernancePages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/alerts",
+        "/zb/payment-channels"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqlivemarketingpages",
+      "source": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/announcements",
+        "/zb/csat",
+        "/zb/groups",
+        "/zb/promotions"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqliveopspages",
+      "source": "frontend/src/pages/hq/HQLiveOpsPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/inquiry-auto",
+        "/zb/notify-config"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqlivepackagespages",
+      "source": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/boosters",
+        "/zb/coupons",
+        "/zb/points"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqlivepages",
+      "source": "frontend/src/pages/hq/HQLivePages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/agencies",
+        "/zb/agency-source/partners",
+        "/zb/domains",
+        "/zb/enterprises",
+        "/zb/plans",
+        "/zb/sites"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "write-action",
+        "tenant-context",
+        "large-source"
+      ]
+    },
+    {
+      "id": "hq-hqliveqapages",
+      "source": "frontend/src/pages/hq/HQLiveQaPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/qa-plans",
+        "/zb/qa-tasks"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "hq-hqliveseopages",
+      "source": "frontend/src/pages/hq/HQLiveSeoPages.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/seo-blogs",
+        "/zb/tdk-rules"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqpages",
+      "source": "frontend/src/pages/hq/HQPages.tsx",
+      "routeEntry": false,
+      "routeHints": [],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "upload",
+        "large-source"
+      ]
+    },
+    {
+      "id": "hq-hqsocialauthorization",
+      "source": "frontend/src/pages/hq/HQSocialAuthorization.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/social-authorization"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqsocialcontentreviews",
+      "source": "frontend/src/pages/hq/HQSocialContentReviews.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/social-content-reviews"
+      ],
+      "risk": "review",
+      "riskSignals": []
+    },
+    {
+      "id": "hq-hqsocialpublishdelivery",
+      "source": "frontend/src/pages/hq/HQSocialPublishDelivery.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/social-publish-delivery"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "network-data"
+      ]
+    },
+    {
+      "id": "hq-platformarchitecture",
+      "source": "frontend/src/pages/hq/PlatformArchitecture.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/platform-architecture"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "hq-releaserollouts",
+      "source": "frontend/src/pages/hq/ReleaseRollouts.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/release-rollouts"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data"
+      ]
+    },
+    {
+      "id": "hq-templatesnapshotmigrations",
+      "source": "frontend/src/pages/hq/TemplateSnapshotMigrations.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/template-migrations"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "hq-tenantgovernance",
+      "source": "frontend/src/pages/hq/TenantGovernance.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/tenant-governance"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "write-action"
+      ]
+    },
+    {
+      "id": "index",
+      "source": "frontend/src/pages/Index.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/"
+      ],
+      "risk": "low",
+      "riskSignals": []
+    },
+    {
+      "id": "inquiries",
+      "source": "frontend/src/pages/Inquiries.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/inquiries"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "network-data",
+        "browser-storage"
+      ]
+    },
+    {
+      "id": "logoutcallbackpage",
+      "source": "frontend/src/pages/LogoutCallbackPage.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/logout-callback"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "newscenter",
+      "source": "frontend/src/pages/NewsCenter.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/news"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "previewframe",
+      "source": "frontend/src/pages/PreviewFrame.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/preview-frame"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "browser-storage"
+      ]
+    },
+    {
+      "id": "previewsite",
+      "source": "frontend/src/pages/PreviewSite.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/sites/:slug"
+      ],
+      "risk": "high",
+      "riskSignals": []
+    },
+    {
+      "id": "productanalysis",
+      "source": "frontend/src/pages/ProductAnalysis.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/product-analysis"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "authorization"
+      ]
+    },
+    {
+      "id": "productmarket",
+      "source": "frontend/src/pages/ProductMarket.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/product-market",
+        "/product-market",
+        "/zb/agency-style-settings",
+        "/zb/client-style-settings",
+        "/zb/dl-style-settings",
+        "/zb/kh-style-settings",
+        "/zb/material-assets",
+        "/zb/product-market"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "upload",
+        "write-action",
+        "tenant-context",
+        "complex-interaction",
+        "browser-storage",
+        "large-source"
+      ]
+    },
+    {
+      "id": "products",
+      "source": "frontend/src/pages/Products.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/products"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context",
+        "large-source"
+      ]
+    },
+    {
+      "id": "projects",
+      "source": "frontend/src/pages/Projects.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/projects"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "reports",
+      "source": "frontend/src/pages/Reports.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/reports"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "seo",
+      "source": "frontend/src/pages/SEO.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/seo"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "sitesettings",
+      "source": "frontend/src/pages/SiteSettings.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/site-settings"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "tenant-context",
+        "complex-interaction",
+        "browser-storage"
+      ]
+    },
+    {
+      "id": "smartads",
+      "source": "frontend/src/pages/SmartAds.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/smart-ads"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "tenant-context",
+        "large-source"
+      ]
+    },
+    {
+      "id": "socialmedia",
+      "source": "frontend/src/pages/SocialMedia.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/social"
+      ],
+      "risk": "high",
+      "riskSignals": [
+        "authorization",
+        "write-action",
+        "tenant-context",
+        "browser-storage",
+        "large-source"
+      ]
+    },
+    {
+      "id": "templates",
+      "source": "frontend/src/pages/Templates.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/templates"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    },
+    {
+      "id": "videos",
+      "source": "frontend/src/pages/Videos.tsx",
+      "routeEntry": true,
+      "routeHints": [
+        "/videos"
+      ],
+      "risk": "review",
+      "riskSignals": [
+        "write-action",
+        "tenant-context"
+      ]
+    }
+  ]
+}

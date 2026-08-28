@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "environment": "staging",
+  "runtime": {"reference": "provider:REPLACE_RUNTIME", "repeatable_deployment": true, "immutable_image_required": true},
+  "database": {"reference": "provider:REPLACE_POSTGRES", "migration_only": true, "isolated_restore_required": true},
+  "redis": {"reference": "provider:REPLACE_REDIS", "private_network_required": true},
+  "assets": {"reference": "provider:REPLACE_PRIVATE_ASSETS", "public_serving_forbidden": true},
+  "monitoring": {"reference": "provider:REPLACE_MONITOR", "alert_delivery_test_required": true}
+}

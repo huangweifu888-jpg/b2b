@@ -1,0 +1,28 @@
+{
+  "contractVersion": "1.0.0",
+  "compositionId": "zbcx.headquarters",
+  "shellId": "zbcx",
+  "surface": "headquarters",
+  "mode": "govern",
+  "codePolicy": "reference-only",
+  "categoryCatalog": "modules/technical-category-catalog.json",
+  "applicationResolution": {
+    "sourceFile": "frontend/src/lib/factory-platform-blueprint.ts",
+    "rule": "Resolve applications by stable category ID, then apply permissions and entitlements."
+  },
+  "categoryRefs": [
+    { "id": "identity", "mode": "govern" },
+    { "id": "content", "mode": "govern" },
+    { "id": "trust", "mode": "govern" },
+    { "id": "recommend", "mode": "govern" },
+    { "id": "deepen", "mode": "govern" },
+    { "id": "portrait", "mode": "govern" },
+    { "id": "lead", "mode": "govern" },
+    { "id": "convert", "mode": "govern" },
+    { "id": "fulfillment", "mode": "govern" },
+    { "id": "care", "mode": "govern" },
+    { "id": "decision", "mode": "govern" },
+    { "id": "operations", "mode": "govern" }
+  ],
+  "scopePolicy": "Headquarters governs baseline templates, approvals, release rings, and tenant routing policy; it does not create tenant source copies."
+}

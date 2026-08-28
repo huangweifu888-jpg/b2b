@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "sequence": ["identity_mfa", "payment_callback", "provision_plan", "publish_site", "private_download", "backup_restore", "rollback"],
+  "environment": "staging_only_until_approved",
+  "evidence": ["change_record", "tenant_scope", "signed_artifact", "restore_reference", "rollback_reference", "customer_communication"],
+  "production_data_write": "forbidden_without_approved_change"
+}

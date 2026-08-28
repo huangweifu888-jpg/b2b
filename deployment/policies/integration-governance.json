@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "api": {"version_prefix": "/api/v1", "idempotency_key_required_for_writes": true, "tenant_context_required": true},
+  "webhook": {"hmac_sha256_required": true, "secret_manager_reference_required": true, "replay_protection_required": true, "event_id_required": true},
+  "retries": {"transient_only": true, "max_attempts": 3, "dead_letter_required": true},
+  "sandbox": {"separate_endpoint": true, "production_credentials_forbidden": true}
+}

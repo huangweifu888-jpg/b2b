@@ -1,0 +1,46 @@
+version: 1
+id: "04"
+name: content-worker
+label: 素材与异步任务
+purpose: 执行上传隔离、素材扫描、派生处理、网站构建、批量发布和持久任务。
+rulePath: deployment/role-definitions/role-04.yaml
+sourceIncludes:
+  - backend/**
+  - shared/**
+  - modules/02-content/**
+  - platform/worker/**
+  - platform/release-manager/**
+  - release/**
+  - deployment/containers/backend.Dockerfile
+  - deployment/schedules/**
+sourceExcludes:
+  - "**/AGENTS.md"
+  - backend/scaffolds/**
+  - backend/tests/**
+  - backend/mock_data/**
+  - "**/__pycache__/**"
+  - "**/*.pyc"
+  - "**/*.log"
+  - "**/*.pid"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: ["06"]
+artifactRoot: ../04-content-worker/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: worker-heartbeat
+    type: queue-heartbeat
+    target: "${REDIS_URL}"
+    expected: worker-registered-and-no-stale-lease
+  - name: upload-quarantine
+    type: storage-policy
+    target: "${ASSET_STORAGE_URI}"
+    expected: private-quarantine-and-scanner-ready
+deployOrder: 40
+rollbackPolicy:
+  strategy: stop-old-worker-before-previous-version
+  retainVersions: 2
+  requireHealthCheck: true
+  restoreData: false

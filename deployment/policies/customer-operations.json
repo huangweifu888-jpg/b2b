@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "severity": {"sev1": {"ack_minutes": 15, "update_minutes": 30}, "sev2": {"ack_minutes": 60, "update_minutes": 120}, "sev3": {"ack_minutes": 480, "update_minutes": 1440}},
+  "customer_communication": ["status_page", "incident_template", "affected_tenant_list", "post_incident_summary"],
+  "escalation": ["support", "operations", "security", "release_manager"],
+  "on_call": {"owner_required": true, "handoff_record_required": true}
+}

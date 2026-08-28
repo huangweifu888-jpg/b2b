@@ -1,0 +1,8 @@
+param([string]$BaseUrl="http://127.0.0.1:8000",[int]$ProjectId=1)
+$ErrorActionPreference="Stop"
+function S([string]$scope){Invoke-RestMethod -Method Post -Uri "$BaseUrl/api/v1/auth/local/demo-session" -ContentType "application/json" -Body (@{scope=$scope}|ConvertTo-Json -Compress)}
+function P([string]$path,[hashtable]$payload,[hashtable]$headers){Invoke-RestMethod -Method Post -Uri "$BaseUrl$path" -Headers $headers -ContentType "application/json" -Body ($payload|ConvertTo-Json -Depth 12 -Compress)}
+$hq=S "hq";$agency=S "agency";$client=S "client";$hh=@{Authorization="Bearer $($hq.token)"};$ah=@{Authorization="Bearer $($agency.token)"};$ch=@{Authorization="Bearer $($client.token)"};$stamp=Get-Date -Format "yyyyMMddHHmmssfff";$root="/api/v1/factory-platform/projects/$ProjectId/experiments"
+$experiment=P $root @{experiment_key="landing-$stamp";hypothesis="Variant A improves qualified inquiry intent $stamp";evidence_reference="evidence:landing-$stamp"} $hh;$experiment=P "$root/$($experiment.id)/review" @{expected_revision=$experiment.revision;reference="EXP-REVIEW-$stamp"} $ah;$decided=P "$root/$($experiment.id)/decide" @{expected_revision=$experiment.revision;destination="marketing-owner"} $ch;$decision=P "$root/decisions/$($decided.decision.id)/acknowledge" @{expected_revision=$decided.decision.revision;reference="EXP-ACK-$stamp"} $hh
+if($decision.status -ne "acknowledged"){throw "Experiment decision was not acknowledged."}
+[pscustomobject]@{project_id=$ProjectId;experiment_status=$decided.experiment.status;decision_status=$decision.status;raw_campaign_data_copied=$false;external_campaign_changed=$false;incrementality_guaranteed=$false;roles="hq,agency,client"}|ConvertTo-Json -Depth 8

@@ -1,0 +1,279 @@
+html[data-tradepro-page-shared-table-header="true"] #root .template-config-table-header .template-config-module-collapse,
+html[data-tradepro-page-shared-table-header="true"] #root .template-config-table-header .template-config-module-collapse * {
+  color: var(--tradepro-panel-action-text) !important;
+}
+@media (max-width: 1023px) {
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] :is(
+    .product-module-operation-grid,
+    .product-module-child-operation-grid,
+    .product-module-category-operation-grid
+  ) {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 760px) {
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] {
+    height: auto !important;
+    min-height: var(--tradepro-shared-table-header-height, 3.5rem) !important;
+    overflow: visible !important;
+  }
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] [data-template-module-split] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    row-gap: var(--tradepro-shared-responsive-control-gap, 0.5rem) !important;
+  }
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .adaptive-work-matrix-edit {
+    border-left: 0 !important;
+    border-top: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text) 28%, transparent) !important;
+    padding-top: 0.5rem !important;
+  }
+}
+
+@media (max-width: 520px) {
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] :is(
+    .product-module-operation-grid,
+    .product-module-child-operation-grid,
+    .product-module-category-operation-grid
+  ) {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    row-gap: var(--tradepro-shared-responsive-control-gap, 0.5rem) !important;
+  }
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] :is(
+    .product-module-operation-grid,
+    .product-module-child-operation-grid,
+    .product-module-category-operation-grid
+  ) :is(.nav-icon-setting, .nav-delete-button) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+body [data-product-market-workspace][data-product-market-settings-route="true"]:has([data-template-module-table-header="true"]) [data-shared-layout-section="title"] {
+  padding-left: var(--tradepro-template-card-edge-inset) !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] .template-config-table-header {
+  box-sizing: border-box;
+  display: flex !important;
+  align-items: center !important;
+  min-height: var(--tradepro-shared-table-header-height, 3.5rem) !important;
+  height: var(--tradepro-shared-table-header-height, 3.5rem) !important;
+  border-radius: var(--tradepro-shared-table-header-radius, 0.75rem) !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] .template-config-table-header [data-template-module-split] {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] {
+  --tradepro-shared-table-header-height: 3.5rem;
+  align-items: center !important;
+  min-height: var(--tradepro-shared-table-header-height) !important;
+  height: var(--tradepro-shared-table-header-height) !important;
+  gap: 0 !important;
+  overflow: hidden !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] [data-template-module-split] {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  column-gap: 0 !important;
+  align-self: center;
+  box-sizing: border-box;
+  padding: var(--tradepro-shared-table-header-padding, 0.5rem 0.75rem) !important;
+}
+
+@media (min-width: 761px) {
+  body [data-product-market-workspace][data-product-market-settings-route="true"] :is(
+    [data-template-module-table-header="true"] [data-template-module-split],
+    .product-module-root-card > .product-module-card-content > [data-template-module-split],
+    .product-module-child-card > [data-template-module-split]
+  ) {
+    grid-template-columns: minmax(0, var(--tradepro-product-module-function-column, 36rem)) minmax(0, 1fr) !important;
+  }
+  body [data-product-market-workspace][data-product-market-settings-route="true"] :is(
+    [data-template-module-table-header="true"] [data-template-module-split],
+    .product-module-root-card > .product-module-card-content > [data-template-module-split],
+    .product-module-child-card > [data-template-module-split]
+  ) .adaptive-work-matrix-function-grid {
+    grid-template-columns:
+      minmax(0, calc(
+        var(--tradepro-shared-plugin-control-size, 2rem) * 6
+        + var(--tradepro-shared-plugin-gap, 0.5rem) * 6
+        + var(--tradepro-shared-plugin-icon-width, 5.625rem)
+      ))
+      minmax(0, var(--awm-sort-width, 214px)) !important;
+  }
+  body #root [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] [data-template-module-split] {
+    grid-template-columns:
+      minmax(0, var(--tradepro-product-module-header-function-column, 579px))
+      minmax(0, 1fr) !important;
+    column-gap: var(--awm-section-gap, 24px) !important;
+    padding-right: calc(0.75rem + var(--awm-section-gap, 24px)) !important;
+  }
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] :is(.adaptive-work-matrix-function, .adaptive-work-matrix-edit) {
+  align-items: center !important;
+  min-height: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .adaptive-work-matrix-row {
+  align-items: center !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] [data-template-module-split] {
+  align-items: center !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .adaptive-work-matrix-edit {
+  align-self: center !important;
+  border-left: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .adaptive-work-matrix-function {
+  border: 0 !important;
+  padding-left: var(--tradepro-product-module-header-control-inset, 18px) !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .adaptive-work-matrix-edit {
+  border-top: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .adaptive-work-matrix-function-grid {
+  align-items: center !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .product-module-detail-grid {
+  align-items: center !important;
+  gap: 0.25rem !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] [data-template-module-table-header="true"] .template-config-module-collapse {
+  align-self: center !important;
+  margin-right: 0 !important;
+}
+
+body [data-product-market-workspace][data-product-market-settings-route="true"] .template-config-module-collapse {
+  align-self: center !important;
+  margin: 0 !important;
+  margin-right: -1px !important;
+}
+@media (max-width: 640px) {
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] .product-module-category-operation-grid {
+    grid-template-columns:
+      minmax(0, 1fr)
+      var(--tradepro-shared-plugin-control-size, 2rem)
+      calc(var(--tradepro-shared-plugin-control-size, 2rem) * 2 + var(--tradepro-shared-plugin-gap, 0.5rem)) !important;
+  }
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] .product-module-category-operation-grid-fixed {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #root [data-product-market-workspace][data-product-market-settings-route="true"] .product-module-category-operation-grid [data-content-plugin-actions="status"] {
+    grid-column: 1 / -1 !important;
+    justify-self: start;
+  }
+}
+#root [data-product-market-workspace] [data-product-market-category-group] .product-module-category-header-shell {
+  background: transparent !important;
+  color: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  min-height: 2.375rem;
+  height: auto;
+  --tradepro-shared-plugin-text: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text));
+  --tradepro-plugin-state-hover: color-mix(in srgb, var(--tradepro-panel-action-bg) 16%, var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)));
+}
+
+#root [data-product-market-workspace] [data-product-market-category-group] .product-module-category-header-shell:hover [data-shared-category-rail],
+#root [data-product-market-workspace] [data-product-market-category-group] .product-module-category-header-shell:focus-within [data-shared-category-rail] {
+  border: 1px solid color-mix(in srgb, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 20%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.5rem) !important;
+  background: color-mix(in srgb, var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 84%, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 16%) !important;
+}
+
+#root [data-product-market-workspace] [data-product-market-category-group] [data-product-market-module-category-heading] {
+  color: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) !important;
+}
+#root [data-product-market-workspace] :is(.product-module-root-card, .product-module-child-card) [data-template-module-split] > .adaptive-work-matrix-function {
+  background: transparent !important;
+  color: var(--tradepro-panel-card-text) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#root [data-product-market-workspace] :is(.product-module-root-card, .product-module-child-card) [data-template-module-split] > .adaptive-work-matrix-edit {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+#root [data-product-market-workspace] :is(.product-module-root-card, .product-module-child-card) {
+  box-shadow: var(--tradepro-layout-shadow, none) !important;
+}
+#root [data-product-market-workspace] .product-module-root-card {
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+  border-color: var(--tradepro-surface-border) !important;
+}
+
+#root [data-product-market-workspace] .product-module-child-card {
+  background: transparent !important;
+  color: var(--tradepro-panel-card-text) !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+#root [data-product-market-module-category-heading] {
+  color: var(--tradepro-shared-table-header-text, var(--tradepro-panel-table-text)) !important;
+  opacity: 1 !important;
+}
+@media (max-width: 639px) {
+
+  html[data-responsive-mobile-architecture="shared-mobile-app-frame-v1"] #root
+    [data-responsive-structure-item="module"] > .product-module-card-content > [data-template-module-split] {
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  html[data-responsive-mobile-architecture="shared-mobile-app-frame-v1"] #root#root
+    [data-responsive-mobile-collection="function-grid"][data-responsive-collection-complexity="editor"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+.product-module-list > [data-product-market-category-group] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 280px;
+}
+.product-module-matrix-shell {
+  --awm-section-gap: 8px;
+  --awm-function-gap: 8px;
+  --awm-operation-width: 330px;
+  --awm-sort-width: 160px;
+  --awm-function-width: 570px;
+  --tradepro-product-module-header-function-column: 519px;
+  --tradepro-product-module-header-control-inset: 18px;
+}

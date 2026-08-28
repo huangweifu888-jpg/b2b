@@ -1,0 +1,28 @@
+{
+  "contractVersion": "1.0.0",
+  "compositionId": "dlcx.agency-runtime",
+  "shellId": "dlcx",
+  "surface": "agency-runtime",
+  "mode": "operate",
+  "codePolicy": "reference-only",
+  "categoryCatalog": "modules/technical-category-catalog.json",
+  "applicationResolution": {
+    "sourceFile": "frontend/src/lib/factory-platform-blueprint.ts",
+    "rule": "Resolve stable application IDs, then filter by published version, descendant agent scope, permissions, and entitlements."
+  },
+  "categoryRefs": [
+    { "id": "identity", "mode": "operate" },
+    { "id": "content", "mode": "operate" },
+    { "id": "trust", "mode": "operate" },
+    { "id": "recommend", "mode": "operate" },
+    { "id": "deepen", "mode": "operate" },
+    { "id": "portrait", "mode": "operate" },
+    { "id": "lead", "mode": "operate" },
+    { "id": "convert", "mode": "operate" },
+    { "id": "fulfillment", "mode": "operate" },
+    { "id": "care", "mode": "operate" },
+    { "id": "decision", "mode": "operate" },
+    { "id": "operations", "mode": "operate" }
+  ],
+  "scopePolicy": "Agency runtime can operate only within its descendant agent path and published override contract."
+}

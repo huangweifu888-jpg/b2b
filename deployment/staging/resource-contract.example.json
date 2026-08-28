@@ -1,0 +1,26 @@
+{
+  "environment": "staging",
+  "deployment_id": "staging-customer-stamp-a",
+  "public_base_url": "https://REPLACE_STAGING_DOMAIN",
+  "database": {
+    "provider": "managed-postgresql",
+    "resource_id": "REPLACE_STAGING_POSTGRES_RESOURCE"
+  },
+  "redis": {
+    "provider": "managed-redis",
+    "resource_id": "REPLACE_STAGING_REDIS_RESOURCE"
+  },
+  "private_assets": {
+    "uri": "s3://REPLACE_PRIVATE_STAGING_ASSET_BUCKET/b2b-assets",
+    "runtime_mount": "/srv/b2b/private-assets"
+  },
+  "backups": {
+    "uri": "s3://REPLACE_OFFSITE_STAGING_BACKUP_BUCKET/b2b-backups",
+    "schedule_id": "REPLACE_STAGING_BACKUP_SCHEDULE",
+    "restore_drill_reference": "REPLACE_STAGING_RESTORE_DRILL"
+  },
+  "observability": {
+    "health_endpoint": "/api/v1/operations/health",
+    "alert_after_consecutive_failures": 3
+  }
+}

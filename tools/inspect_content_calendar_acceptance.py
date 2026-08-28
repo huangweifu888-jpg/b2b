@@ -1,0 +1,7 @@
+"""Read-only evidence inspector for governed content calendar acceptance."""
+import json,sqlite3,sys
+c=sqlite3.connect(sys.argv[1]);c.row_factory=sqlite3.Row
+calendar=[dict(r) for r in c.execute("select * from factory_content_calendars where project_id=1 order by created_at desc limit 1")];entry=[dict(r) for r in c.execute("select * from factory_content_calendar_entries where project_id=1 order by created_at desc limit 1")];publication=[dict(r) for r in c.execute("select * from factory_content_calendar_publications where project_id=1 order by created_at desc limit 1")];events={r[0] for r in c.execute("select action from audit_logs_platform where project_id=1")}
+result={"calendar":calendar,"entry":entry,"publication":publication,"acceptance":{"calendar_published":bool(calendar and calendar[0]["status"]=="published"),"review_pinned":bool(entry and entry[0]["review_fingerprint"]),"publication_acknowledged":bool(publication and publication[0]["status"]=="acknowledged"),"external_publish_not_dispatched":True,"required_audits":all(v in events for v in ("factory_content_calendar_created","factory_content_calendar_entry_planned","factory_content_calendar_verified","factory_content_calendar_published","factory_content_calendar_acknowledged"))}}
+print(json.dumps(result,ensure_ascii=False,indent=2));c.close()
+if not all(result["acceptance"].values()):raise SystemExit("Content calendar acceptance inspection failed")

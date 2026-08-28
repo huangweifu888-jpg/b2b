@@ -1,0 +1,3342 @@
+{
+  "schemaVersion": 1,
+  "phase": "page-factory-phase-2",
+  "mode": "read-only-census",
+  "sourceOfTruth": "frontend/src/pages + frontend/src/page-factory/page-registry.json",
+  "inventoryVersion": "2026.08.22.6",
+  "routingAudit": {
+    "literalRouteDeclarations": 181,
+    "mappedRouteDeclarations": 181,
+    "unmappedRouteTargets": [],
+    "expectedRouteIdentities": 158,
+    "registeredRouteIdentities": 158,
+    "routeIdentityCoveragePercent": 100.0,
+    "unregisteredRouteIdentities": [],
+    "ownershipMismatches": [],
+    "registryRouteIdentities": 201,
+    "queryVariantIdentities": 43,
+    "dynamicRouteIdentities": 2
+  },
+  "baselineDiff": {
+    "status": "unchanged",
+    "baselineVersion": "2026.08.22.6",
+    "currentFingerprint": "4e9097320220474b32b2b5e2d41426ae414c080f1023f3ebc5ccccfc25e95fcb",
+    "addedPageIds": [],
+    "removedPageIds": [],
+    "riskChangedPageIds": []
+  },
+  "phaseProgress": {
+    "phase": "page-factory-phase-2",
+    "version": "2026.08.22.6",
+    "completedPercent": 100,
+    "steps": [
+      {
+        "id": "route-census",
+        "label": "全平台路由普查",
+        "weight": 20,
+        "complete": true
+      },
+      {
+        "id": "source-risk",
+        "label": "源码特征风险分级",
+        "weight": 20,
+        "complete": true
+      },
+      {
+        "id": "batch-plan",
+        "label": "完整分批与波次计划",
+        "weight": 20,
+        "complete": true
+      },
+      {
+        "id": "coverage-data",
+        "label": "覆盖率中心数据",
+        "weight": 20,
+        "complete": true
+      },
+      {
+        "id": "difference-baseline",
+        "label": "普查差异基线",
+        "weight": 20,
+        "complete": true
+      }
+    ]
+  },
+  "planSummary": {
+    "eligibleRouteEntries": 0,
+    "plannedRouteEntries": 0,
+    "unplannedPageIds": [],
+    "duplicatePageIds": [],
+    "complete": true
+  },
+  "totals": {
+    "pageFiles": 124,
+    "registered": 118,
+    "completed": 118,
+    "unregistered": 6,
+    "coveragePercent": 95.16,
+    "routeEntries": 118,
+    "supportFiles": 6,
+    "registeredRouteEntries": 118,
+    "completedRouteEntries": 118,
+    "routeCoveragePercent": 100.0,
+    "risk": {
+      "low": 12,
+      "review": 57,
+      "high": 55
+    },
+    "routeRisk": {
+      "low": 9,
+      "review": 56,
+      "high": 53
+    }
+  },
+  "guardrails": [
+    "只读普查不修改任何业务页面。",
+    "不批量接入、不批量改写、不自动登记。",
+    "禁止读取或写入数据库、上传素材、正式备份和外部服务器。",
+    "每次接入必须获得单页授权，并继续使用 page_factory.py 的计划优先流程。"
+  ],
+  "batches": [
+    {
+      "id": "B01",
+      "label": "低风险候选：仅列队与单页验证",
+      "mode": "review-only",
+      "risk": "low",
+      "candidateCount": 0,
+      "waveSize": 5,
+      "candidatePageIds": [],
+      "waves": [],
+      "entryCriteria": [
+        "保持源码锁通过",
+        "单页路由和租户上下文已确认",
+        "无数据库、素材或备份写入"
+      ],
+      "exitCriteria": [
+        "人工确认模板与11区域",
+        "通过小屏、开发器、可视化和共享契约检查",
+        "明确获得单页接入授权"
+      ]
+    },
+    {
+      "id": "B02",
+      "label": "业务交互候选：逐页影响审查",
+      "mode": "review-only",
+      "risk": "review",
+      "candidateCount": 0,
+      "waveSize": 8,
+      "candidatePageIds": [],
+      "waves": [],
+      "entryCriteria": [
+        "保持源码锁通过",
+        "单页路由和租户上下文已确认",
+        "无数据库、素材或备份写入"
+      ],
+      "exitCriteria": [
+        "人工确认模板与11区域",
+        "通过小屏、开发器、可视化和共享契约检查",
+        "明确获得单页接入授权"
+      ]
+    },
+    {
+      "id": "B03",
+      "label": "高风险治理页：专项方案后再处理",
+      "mode": "review-only",
+      "risk": "high",
+      "candidateCount": 0,
+      "waveSize": 3,
+      "candidatePageIds": [],
+      "waves": [],
+      "entryCriteria": [
+        "保持源码锁通过",
+        "单页路由和租户上下文已确认",
+        "无数据库、素材或备份写入"
+      ],
+      "exitCriteria": [
+        "人工确认模板与11区域",
+        "通过小屏、开发器、可视化和共享契约检查",
+        "明确获得单页接入授权"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "id": "account",
+      "source": "frontend/src/pages/Account.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/account"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 275,
+        "analyzedLineCount": 275,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencycustomers",
+      "source": "frontend/src/pages/agency/AgencyCustomers.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/customers",
+        "/dl/customers"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 270,
+        "analyzedLineCount": 270,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencydashboard",
+      "source": "frontend/src/pages/agency/AgencyDashboard.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/",
+        "/dl"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 217,
+        "analyzedLineCount": 217,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencylivepages",
+      "source": "frontend/src/pages/agency/AgencyLivePages.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/enterprises",
+        "/dl/plans",
+        "/enterprises",
+        "/plans"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 375,
+        "analyzedLineCount": 375,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencyorders",
+      "source": "frontend/src/pages/agency/AgencyOrders.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/orders",
+        "/orders"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 123,
+        "analyzedLineCount": 123,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencysites",
+      "source": "frontend/src/pages/agency/AgencySites.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/sites",
+        "/sites"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 227,
+        "analyzedLineCount": 227,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencysocialcontentreviews",
+      "source": "frontend/src/pages/agency/AgencySocialContentReviews.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/social-content-reviews"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization, network-data。",
+      "analysis": {
+        "lineCount": 24,
+        "analyzedLineCount": 243,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/lib/social-content-review-api.ts"
+        ],
+        "riskScore": 5,
+        "riskSignals": [
+          "authorization",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-agencyversioncenter",
+      "source": "frontend/src/pages/agency/AgencyVersionCenter.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/version",
+        "/version"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 80,
+        "analyzedLineCount": 80,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-businessdata",
+      "source": "frontend/src/pages/agency/BusinessData.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/business-data",
+        "/dl/business-data"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 131,
+        "analyzedLineCount": 131,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-enterprises",
+      "source": "frontend/src/pages/agency/Enterprises.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": false,
+      "routeHints": [],
+      "registered": false,
+      "completed": false,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 133,
+        "analyzedLineCount": 133,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": false
+      },
+      "adoption": "review-only"
+    },
+    {
+      "id": "agency-invitelinks",
+      "source": "frontend/src/pages/agency/InviteLinks.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/invite-links",
+        "/dl/invites",
+        "/invite-links",
+        "/invites"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 105,
+        "analyzedLineCount": 105,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-members",
+      "source": "frontend/src/pages/agency/Members.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/members",
+        "/members"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 120,
+        "analyzedLineCount": 120,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-oemsettings",
+      "source": "frontend/src/pages/agency/OEMSettings.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/oem",
+        "/dl/oem-settings",
+        "/oem",
+        "/oem-settings"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：upload。",
+      "analysis": {
+        "lineCount": 181,
+        "analyzedLineCount": 181,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "upload"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-performance",
+      "source": "frontend/src/pages/agency/Performance.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/performance",
+        "/performance"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 107,
+        "analyzedLineCount": 107,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-plans",
+      "source": "frontend/src/pages/agency/Plans.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": false,
+      "routeHints": [],
+      "registered": false,
+      "completed": false,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 197,
+        "analyzedLineCount": 197,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": false
+      },
+      "adoption": "review-only"
+    },
+    {
+      "id": "agency-publicpool",
+      "source": "frontend/src/pages/agency/PublicPool.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/public-pool",
+        "/public-pool"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 99,
+        "analyzedLineCount": 99,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-quotas",
+      "source": "frontend/src/pages/agency/Quotas.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/quotas",
+        "/quotas"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 71,
+        "analyzedLineCount": 71,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-reports",
+      "source": "frontend/src/pages/agency/Reports.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/reports",
+        "/reports"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 109,
+        "analyzedLineCount": 109,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-roles",
+      "source": "frontend/src/pages/agency/Roles.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/roles",
+        "/roles"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 86,
+        "analyzedLineCount": 86,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-seoblogs",
+      "source": "frontend/src/pages/agency/SEOBlogs.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/seo-blogs",
+        "/seo-blogs"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 92,
+        "analyzedLineCount": 92,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-seotasks",
+      "source": "frontend/src/pages/agency/SEOTasks.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/seo-tasks",
+        "/seo-tasks"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 143,
+        "analyzedLineCount": 143,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-wallet",
+      "source": "frontend/src/pages/agency/Wallet.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/wallet",
+        "/wallet"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 135,
+        "analyzedLineCount": 135,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "agency-workspace",
+      "source": "frontend/src/pages/agency/Workspace.tsx",
+      "scopeHint": "agency_source",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/workspace",
+        "/workspace"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 137,
+        "analyzedLineCount": 137,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "aichat",
+      "source": "frontend/src/pages/AIChat.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-chat"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, upload, write-action, network-data, tenant-context, complex-interaction, browser-storage, large-source。",
+      "analysis": {
+        "lineCount": 2594,
+        "analyzedLineCount": 2594,
+        "linkedSources": [],
+        "riskScore": 16,
+        "riskSignals": [
+          "authorization",
+          "upload",
+          "write-action",
+          "network-data",
+          "tenant-context",
+          "complex-interaction",
+          "browser-storage",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "aicustomerservice",
+      "source": "frontend/src/pages/AICustomerService.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-customer-service"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 690,
+        "analyzedLineCount": 690,
+        "linkedSources": [],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "authcallback",
+      "source": "frontend/src/pages/AuthCallback.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/auth/callback"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, browser-storage。",
+      "analysis": {
+        "lineCount": 44,
+        "analyzedLineCount": 44,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "authorization",
+          "browser-storage"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "autherror",
+      "source": "frontend/src/pages/AuthError.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/auth/error"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 88,
+        "analyzedLineCount": 88,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "blog-blogindexpage",
+      "source": "frontend/src/pages/blog/BlogIndexPage.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": false,
+      "routeHints": [],
+      "registered": false,
+      "completed": false,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 71,
+        "analyzedLineCount": 71,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": false
+      },
+      "adoption": "review-only"
+    },
+    {
+      "id": "blog-blogpostpage",
+      "source": "frontend/src/pages/blog/BlogPostPage.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": false,
+      "routeHints": [],
+      "registered": false,
+      "completed": false,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 170,
+        "analyzedLineCount": 170,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": false
+      },
+      "adoption": "review-only"
+    },
+    {
+      "id": "blogoptimize",
+      "source": "frontend/src/pages/BlogOptimize.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/blog"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 6,
+        "analyzedLineCount": 245,
+        "linkedSources": [
+          "frontend/src/components/ContentLibraryEditor.tsx"
+        ],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "cases",
+      "source": "frontend/src/pages/Cases.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/cases"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 6,
+        "analyzedLineCount": 245,
+        "linkedSources": [
+          "frontend/src/components/ContentLibraryEditor.tsx"
+        ],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "companyinfo",
+      "source": "frontend/src/pages/CompanyInfo.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/company-info"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：upload, write-action, tenant-context, complex-interaction, browser-storage, large-source。",
+      "analysis": {
+        "lineCount": 1584,
+        "analyzedLineCount": 1584,
+        "linkedSources": [],
+        "riskScore": 11,
+        "riskSignals": [
+          "upload",
+          "write-action",
+          "tenant-context",
+          "complex-interaction",
+          "browser-storage",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "companyinfodeferredpanels",
+      "source": "frontend/src/pages/CompanyInfoDeferredPanels.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": false,
+      "routeHints": [],
+      "registered": false,
+      "completed": false,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：write-action, large-source。",
+      "analysis": {
+        "lineCount": 1607,
+        "analyzedLineCount": 1607,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "large-source"
+        ],
+        "factoryContractPresent": false
+      },
+      "adoption": "review-only"
+    },
+    {
+      "id": "customers",
+      "source": "frontend/src/pages/Customers.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/customers"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context, large-source。",
+      "analysis": {
+        "lineCount": 936,
+        "analyzedLineCount": 936,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "tenant-context",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryabm",
+      "source": "frontend/src/pages/FactoryAbm.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/abm"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 14,
+        "analyzedLineCount": 218,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-abm-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryaccountgraph",
+      "source": "frontend/src/pages/FactoryAccountGraph.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/account-graph"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 30,
+        "analyzedLineCount": 241,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-account-graph-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryaicommand",
+      "source": "frontend/src/pages/FactoryAiCommand.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-command"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 98,
+        "analyzedLineCount": 98,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryaisdr",
+      "source": "frontend/src/pages/FactoryAiSdr.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/ai-sdr"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 12,
+        "analyzedLineCount": 194,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/lib/factory-ai-sdr-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryapprovalcenter",
+      "source": "frontend/src/pages/FactoryApprovalCenter.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/approval-center"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 42,
+        "analyzedLineCount": 42,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorybrandstudio",
+      "source": "frontend/src/pages/FactoryBrandStudio.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/brand-studio"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 8,
+        "analyzedLineCount": 217,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-brand-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorybuyingcommittee",
+      "source": "frontend/src/pages/FactoryBuyingCommittee.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/buying-committee"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 31,
+        "analyzedLineCount": 252,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-buying-committee-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorycdp",
+      "source": "frontend/src/pages/FactoryCdp.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/customer-data-platform"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 66,
+        "analyzedLineCount": 66,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorychannelfeed",
+      "source": "frontend/src/pages/FactoryChannelFeed.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/channel-feed"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 32,
+        "analyzedLineCount": 244,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-channel-feed-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorycommerce",
+      "source": "frontend/src/pages/FactoryCommerce.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/commerce"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 13,
+        "analyzedLineCount": 229,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/lib/factory-commerce-api.ts",
+          "frontend/src/lib/factory-fulfillment-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorycpqquotes",
+      "source": "frontend/src/pages/FactoryCpqQuotes.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/cpq-quotes"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 48,
+        "analyzedLineCount": 48,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorycreativecenter",
+      "source": "frontend/src/pages/FactoryCreativeCenter.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/creative-center"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 13,
+        "analyzedLineCount": 217,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-creative-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorycustomerassets",
+      "source": "frontend/src/pages/FactoryCustomerAssets.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/customer-assets"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 79,
+        "analyzedLineCount": 79,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorycustomertimeline",
+      "source": "frontend/src/pages/FactoryCustomerTimeline.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/customer-timeline"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 12,
+        "analyzedLineCount": 223,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-customer-timeline-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorydamlocalization",
+      "source": "frontend/src/pages/FactoryDamLocalization.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/dam-localization"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 15,
+        "analyzedLineCount": 229,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-dam-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorydatawarehouse",
+      "source": "frontend/src/pages/FactoryDataWarehouse.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/data-warehouse"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 104,
+        "analyzedLineCount": 104,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorydigitalassets",
+      "source": "frontend/src/pages/FactoryDigitalAssets.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/digital-assets"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 51,
+        "analyzedLineCount": 51,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryerp",
+      "source": "frontend/src/pages/FactoryErp.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/erp"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 57,
+        "analyzedLineCount": 57,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryfieldservice",
+      "source": "frontend/src/pages/FactoryFieldService.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/field-service"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 129,
+        "analyzedLineCount": 129,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryfinance",
+      "source": "frontend/src/pages/FactoryFinance.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/finance"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 53,
+        "analyzedLineCount": 53,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryforecast",
+      "source": "frontend/src/pages/FactoryForecast.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/forecast"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 110,
+        "analyzedLineCount": 110,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryfulfillmentorders",
+      "source": "frontend/src/pages/FactoryFulfillmentOrders.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/fulfillment-orders"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 79,
+        "analyzedLineCount": 79,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryhealthcockpit",
+      "source": "frontend/src/pages/FactoryHealthCockpit.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/health-cockpit"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 128,
+        "analyzedLineCount": 128,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryicpprofiles",
+      "source": "frontend/src/pages/FactoryIcpProfiles.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/icp-profiles"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization, write-action。",
+      "analysis": {
+        "lineCount": 44,
+        "analyzedLineCount": 44,
+        "linkedSources": [],
+        "riskScore": 5,
+        "riskSignals": [
+          "authorization",
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryidentityresolution",
+      "source": "frontend/src/pages/FactoryIdentityResolution.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/identity-resolution"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 35,
+        "analyzedLineCount": 259,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-identity-resolution-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryknowledgegraph",
+      "source": "frontend/src/pages/FactoryKnowledgeGraph.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/knowledge-graph"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 36,
+        "analyzedLineCount": 247,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-knowledge-graph-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorylegalcontracts",
+      "source": "frontend/src/pages/FactoryLegalContracts.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/contract-legal"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 51,
+        "analyzedLineCount": 51,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorymanufacturingexecution",
+      "source": "frontend/src/pages/FactoryManufacturingExecution.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/manufacturing-execution"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 98,
+        "analyzedLineCount": 98,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorymetricsemantics",
+      "source": "frontend/src/pages/FactoryMetricSemantics.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/metric-center"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 152,
+        "analyzedLineCount": 152,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorypartnervoice",
+      "source": "frontend/src/pages/FactoryPartnerVoice.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/partner-voice"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 222,
+        "analyzedLineCount": 222,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorypeople",
+      "source": "frontend/src/pages/FactoryPeople.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/people"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 61,
+        "analyzedLineCount": 61,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryprocurement",
+      "source": "frontend/src/pages/FactoryProcurement.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/procurement"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 95,
+        "analyzedLineCount": 95,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryproductionplanning",
+      "source": "frontend/src/pages/FactoryProductionPlanning.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/production-plans"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 96,
+        "analyzedLineCount": 96,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryproductpassports",
+      "source": "frontend/src/pages/FactoryProductPassports.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/product-passports"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 251,
+        "analyzedLineCount": 251,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryqualityinspections",
+      "source": "frontend/src/pages/FactoryQualityInspections.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/quality-inspections"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 121,
+        "analyzedLineCount": 121,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryrecruiting",
+      "source": "frontend/src/pages/FactoryRecruiting.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/recruiting"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 49,
+        "analyzedLineCount": 49,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryrenewalgrowth",
+      "source": "frontend/src/pages/FactoryRenewalGrowth.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/renewal-growth"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 178,
+        "analyzedLineCount": 178,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryrevenueprofit",
+      "source": "frontend/src/pages/FactoryRevenueProfit.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/revenue-profit"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 114,
+        "analyzedLineCount": 114,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factoryrfqsamples",
+      "source": "frontend/src/pages/FactoryRfqSamples.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/rfq-samples"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 43,
+        "analyzedLineCount": 43,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorysegmentsconsent",
+      "source": "frontend/src/pages/FactorySegmentsConsent.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/segments-consent"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 12,
+        "analyzedLineCount": 216,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-segments-consent-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorysitemanagement",
+      "source": "frontend/src/pages/FactorySiteManagement.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/site-management"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 185,
+        "analyzedLineCount": 185,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorystructureddata",
+      "source": "frontend/src/pages/FactoryStructuredData.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/structured-data"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 41,
+        "analyzedLineCount": 270,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/lib/factory-structured-data-api.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "factorywarrantyrma",
+      "source": "frontend/src/pages/FactoryWarrantyRma.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/warranty-rma"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization, write-action。",
+      "analysis": {
+        "lineCount": 99,
+        "analyzedLineCount": 99,
+        "linkedSources": [],
+        "riskScore": 5,
+        "riskSignals": [
+          "authorization",
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "geocenter",
+      "source": "frontend/src/pages/GeoCenter.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/geo-center"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 209,
+        "analyzedLineCount": 209,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-agencysourcereleases",
+      "source": "frontend/src/pages/hq/AgencySourceReleases.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/agency-source/releases"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, upload, write-action, browser-storage。",
+      "analysis": {
+        "lineCount": 460,
+        "analyzedLineCount": 460,
+        "linkedSources": [],
+        "riskScore": 9,
+        "riskSignals": [
+          "authorization",
+          "upload",
+          "write-action",
+          "browser-storage"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-auditreleaselogs",
+      "source": "frontend/src/pages/hq/AuditReleaseLogs.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/audit-logs"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 45,
+        "analyzedLineCount": 45,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-backuprestoredrills",
+      "source": "frontend/src/pages/hq/BackupRestoreDrills.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/backup-restore-drills"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, upload, write-action, network-data。",
+      "analysis": {
+        "lineCount": 28,
+        "analyzedLineCount": 1035,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/lib/template-snapshot/api.ts"
+        ],
+        "riskScore": 10,
+        "riskSignals": [
+          "authorization",
+          "upload",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-clientsourcereleases",
+      "source": "frontend/src/pages/hq/ClientSourceReleases.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/client-source/releases"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, tenant-context, browser-storage。",
+      "analysis": {
+        "lineCount": 341,
+        "analyzedLineCount": 341,
+        "linkedSources": [],
+        "riskScore": 6,
+        "riskSignals": [
+          "authorization",
+          "tenant-context",
+          "browser-storage"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqaipages",
+      "source": "frontend/src/pages/hq/HQAIPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/ai-cost",
+        "/zb/ai-logs",
+        "/zb/ai-square"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data, browser-storage, large-source。",
+      "analysis": {
+        "lineCount": 861,
+        "analyzedLineCount": 861,
+        "linkedSources": [],
+        "riskScore": 10,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data",
+          "browser-storage",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqcodeeditor",
+      "source": "frontend/src/pages/hq/HQCodeEditor.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/code-editor",
+        "/zb/code-editor/:scope"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：network-data。",
+      "analysis": {
+        "lineCount": 281,
+        "analyzedLineCount": 281,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqdashboard",
+      "source": "frontend/src/pages/hq/HQDashboard.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 252,
+        "analyzedLineCount": 252,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveadminpages",
+      "source": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/depts",
+        "/zb/members",
+        "/zb/roles"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 550,
+        "analyzedLineCount": 550,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveaimodelspage",
+      "source": "frontend/src/pages/hq/HQLiveAIModelsPage.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/ai-models"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 594,
+        "analyzedLineCount": 594,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveaipages",
+      "source": "frontend/src/pages/hq/HQLiveAIPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/ai-keys",
+        "/zb/ai-vendors"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 285,
+        "analyzedLineCount": 285,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveassetpages",
+      "source": "frontend/src/pages/hq/HQLiveAssetPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/gallery",
+        "/zb/templates"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 398,
+        "analyzedLineCount": 398,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveauditpages",
+      "source": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/agency-source/recharge-audit",
+        "/zb/oem-audit",
+        "/zb/recharge-audit"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 396,
+        "analyzedLineCount": 396,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveconfigpages",
+      "source": "frontend/src/pages/hq/HQLiveConfigPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/email-config",
+        "/zb/platform-config"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 470,
+        "analyzedLineCount": 470,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqlivefinancepages",
+      "source": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/auto-renew",
+        "/zb/expiring",
+        "/zb/invoices",
+        "/zb/order-audit",
+        "/zb/orders",
+        "/zb/refunds",
+        "/zb/wallet"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：large-source。",
+      "analysis": {
+        "lineCount": 908,
+        "analyzedLineCount": 908,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqlivegovernancepages",
+      "source": "frontend/src/pages/hq/HQLiveGovernancePages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/alerts",
+        "/zb/payment-channels"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 525,
+        "analyzedLineCount": 525,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqlivemarketingpages",
+      "source": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/announcements",
+        "/zb/csat",
+        "/zb/groups",
+        "/zb/promotions"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 545,
+        "analyzedLineCount": 545,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveopspages",
+      "source": "frontend/src/pages/hq/HQLiveOpsPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/inquiry-auto",
+        "/zb/notify-config"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 437,
+        "analyzedLineCount": 437,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqlivepackagespages",
+      "source": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/boosters",
+        "/zb/coupons",
+        "/zb/points"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 596,
+        "analyzedLineCount": 596,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqlivepages",
+      "source": "frontend/src/pages/hq/HQLivePages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/agencies",
+        "/zb/agency-source/partners",
+        "/zb/domains",
+        "/zb/enterprises",
+        "/zb/plans",
+        "/zb/sites"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：write-action, tenant-context, large-source。",
+      "analysis": {
+        "lineCount": 1654,
+        "analyzedLineCount": 1654,
+        "linkedSources": [],
+        "riskScore": 6,
+        "riskSignals": [
+          "write-action",
+          "tenant-context",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveqapages",
+      "source": "frontend/src/pages/hq/HQLiveQaPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/qa-plans",
+        "/zb/qa-tasks"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 430,
+        "analyzedLineCount": 430,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqliveseopages",
+      "source": "frontend/src/pages/hq/HQLiveSeoPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/seo-blogs",
+        "/zb/tdk-rules"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 468,
+        "analyzedLineCount": 468,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqpages",
+      "source": "frontend/src/pages/hq/HQPages.tsx",
+      "scopeHint": "hq",
+      "routeEntry": false,
+      "routeHints": [],
+      "registered": false,
+      "completed": false,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, upload, large-source。",
+      "analysis": {
+        "lineCount": 1513,
+        "analyzedLineCount": 1513,
+        "linkedSources": [],
+        "riskScore": 8,
+        "riskSignals": [
+          "authorization",
+          "upload",
+          "large-source"
+        ],
+        "factoryContractPresent": false
+      },
+      "adoption": "review-only"
+    },
+    {
+      "id": "hq-hqsocialauthorization",
+      "source": "frontend/src/pages/hq/HQSocialAuthorization.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/social-authorization"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 108,
+        "analyzedLineCount": 108,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqsocialcontentreviews",
+      "source": "frontend/src/pages/hq/HQSocialContentReviews.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/social-content-reviews"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 71,
+        "analyzedLineCount": 71,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-hqsocialpublishdelivery",
+      "source": "frontend/src/pages/hq/HQSocialPublishDelivery.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/social-publish-delivery"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, network-data。",
+      "analysis": {
+        "lineCount": 35,
+        "analyzedLineCount": 264,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/lib/social-publish-delivery-api.ts",
+          "frontend/src/lib/display-number-contract.ts"
+        ],
+        "riskScore": 5,
+        "riskSignals": [
+          "authorization",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-platformarchitecture",
+      "source": "frontend/src/pages/hq/PlatformArchitecture.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/platform-architecture"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 367,
+        "analyzedLineCount": 367,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-releaserollouts",
+      "source": "frontend/src/pages/hq/ReleaseRollouts.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/release-rollouts"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data。",
+      "analysis": {
+        "lineCount": 31,
+        "analyzedLineCount": 233,
+        "linkedSources": [
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/lib/release-rollouts.ts"
+        ],
+        "riskScore": 7,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-templatesnapshotmigrations",
+      "source": "frontend/src/pages/hq/TemplateSnapshotMigrations.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/template-migrations"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 147,
+        "analyzedLineCount": 147,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "hq-tenantgovernance",
+      "source": "frontend/src/pages/hq/TenantGovernance.tsx",
+      "scopeHint": "hq",
+      "routeEntry": true,
+      "routeHints": [
+        "/zb/tenant-governance"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：write-action。",
+      "analysis": {
+        "lineCount": 169,
+        "analyzedLineCount": 169,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "write-action"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "index",
+      "source": "frontend/src/pages/Index.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "low",
+      "reason": "静态或单一展示入口候选；仍须先走单页计划和检查，不能自动接入。",
+      "analysis": {
+        "lineCount": 134,
+        "analyzedLineCount": 134,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "inquiries",
+      "source": "frontend/src/pages/Inquiries.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/inquiries"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, network-data, browser-storage。",
+      "analysis": {
+        "lineCount": 39,
+        "analyzedLineCount": 497,
+        "linkedSources": [
+          "frontend/src/lib/auth.ts",
+          "frontend/src/components/ui/badge.tsx",
+          "frontend/src/components/ui/button.tsx",
+          "frontend/src/components/ui/card.tsx",
+          "frontend/src/components/ui/input.tsx",
+          "frontend/src/components/ui/textarea.tsx",
+          "frontend/src/lib/factory-inquiry-api.ts"
+        ],
+        "riskScore": 8,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "network-data",
+          "browser-storage"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "logoutcallbackpage",
+      "source": "frontend/src/pages/LogoutCallbackPage.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/logout-callback"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 44,
+        "analyzedLineCount": 44,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "newscenter",
+      "source": "frontend/src/pages/NewsCenter.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/news"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 6,
+        "analyzedLineCount": 245,
+        "linkedSources": [
+          "frontend/src/components/ContentLibraryEditor.tsx"
+        ],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "previewframe",
+      "source": "frontend/src/pages/PreviewFrame.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/preview-frame"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：browser-storage。",
+      "analysis": {
+        "lineCount": 180,
+        "analyzedLineCount": 180,
+        "linkedSources": [],
+        "riskScore": 1,
+        "riskSignals": [
+          "browser-storage"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "previewsite",
+      "source": "frontend/src/pages/PreviewSite.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/sites/:slug"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；未发现额外交互信号。",
+      "analysis": {
+        "lineCount": 323,
+        "analyzedLineCount": 323,
+        "linkedSources": [],
+        "riskScore": 0,
+        "riskSignals": [],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "productanalysis",
+      "source": "frontend/src/pages/ProductAnalysis.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/product-analysis"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：authorization。",
+      "analysis": {
+        "lineCount": 260,
+        "analyzedLineCount": 260,
+        "linkedSources": [],
+        "riskScore": 3,
+        "riskSignals": [
+          "authorization"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "productmarket",
+      "source": "frontend/src/pages/ProductMarket.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/dl/product-market",
+        "/product-market",
+        "/zb/agency-style-settings",
+        "/zb/client-style-settings",
+        "/zb/dl-style-settings",
+        "/zb/kh-style-settings",
+        "/zb/material-assets",
+        "/zb/product-market"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, upload, write-action, tenant-context, complex-interaction, browser-storage, large-source。",
+      "analysis": {
+        "lineCount": 12620,
+        "analyzedLineCount": 12620,
+        "linkedSources": [],
+        "riskScore": 14,
+        "riskSignals": [
+          "authorization",
+          "upload",
+          "write-action",
+          "tenant-context",
+          "complex-interaction",
+          "browser-storage",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "products",
+      "source": "frontend/src/pages/Products.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/products"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context, large-source。",
+      "analysis": {
+        "lineCount": 860,
+        "analyzedLineCount": 860,
+        "linkedSources": [],
+        "riskScore": 6,
+        "riskSignals": [
+          "write-action",
+          "tenant-context",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "projects",
+      "source": "frontend/src/pages/Projects.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/projects"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 768,
+        "analyzedLineCount": 768,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "reports",
+      "source": "frontend/src/pages/Reports.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/reports"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 740,
+        "analyzedLineCount": 740,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "seo",
+      "source": "frontend/src/pages/SEO.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/seo"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：tenant-context。",
+      "analysis": {
+        "lineCount": 490,
+        "analyzedLineCount": 490,
+        "linkedSources": [],
+        "riskScore": 2,
+        "riskSignals": [
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "sitesettings",
+      "source": "frontend/src/pages/SiteSettings.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/site-settings"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, tenant-context, complex-interaction, browser-storage。",
+      "analysis": {
+        "lineCount": 625,
+        "analyzedLineCount": 625,
+        "linkedSources": [],
+        "riskScore": 9,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "tenant-context",
+          "complex-interaction",
+          "browser-storage"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "smartads",
+      "source": "frontend/src/pages/SmartAds.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/smart-ads"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, tenant-context, large-source。",
+      "analysis": {
+        "lineCount": 1788,
+        "analyzedLineCount": 1788,
+        "linkedSources": [],
+        "riskScore": 9,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "tenant-context",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "socialmedia",
+      "source": "frontend/src/pages/SocialMedia.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/social"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "high",
+      "reason": "涉及治理壳层或多项高影响代码特征，只允许单页专项审查；源码信号：authorization, write-action, tenant-context, browser-storage, large-source。",
+      "analysis": {
+        "lineCount": 2499,
+        "analyzedLineCount": 2499,
+        "linkedSources": [],
+        "riskScore": 10,
+        "riskSignals": [
+          "authorization",
+          "write-action",
+          "tenant-context",
+          "browser-storage",
+          "large-source"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "templates",
+      "source": "frontend/src/pages/Templates.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/templates"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 697,
+        "analyzedLineCount": 697,
+        "linkedSources": [],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    },
+    {
+      "id": "videos",
+      "source": "frontend/src/pages/Videos.tsx",
+      "scopeHint": "shared-client-entry",
+      "routeEntry": true,
+      "routeHints": [
+        "/videos"
+      ],
+      "registered": true,
+      "completed": true,
+      "risk": "review",
+      "reason": "包含业务交互、租户语义或状态读写特征，先完成单页影响检查；源码信号：write-action, tenant-context。",
+      "analysis": {
+        "lineCount": 6,
+        "analyzedLineCount": 245,
+        "linkedSources": [
+          "frontend/src/components/ContentLibraryEditor.tsx"
+        ],
+        "riskScore": 4,
+        "riskSignals": [
+          "write-action",
+          "tenant-context"
+        ],
+        "factoryContractPresent": true
+      },
+      "adoption": "registered"
+    }
+  ]
+}

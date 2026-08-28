@@ -1,0 +1,55 @@
+version: 1
+id: "02"
+name: agency-runtime
+label: 代理运行端
+purpose: 运行多代理、多级代理业务，并强制校验代理路径和租户上下文。
+rulePath: deployment/role-definitions/role-02.yaml
+sourceIncludes:
+  - frontend/src/**
+  - frontend/public/**
+  - frontend/index.html
+  - frontend/package.json
+  - frontend/package-lock.json
+  - frontend/tsconfig*.json
+  - frontend/vite.config.ts
+  - backend/**
+  - dlcx/**
+  - shared/**
+  - modules/**
+  - platform/tenant-registry/**
+  - deployment/containers/backend.Dockerfile
+sourceExcludes:
+  - "**/AGENTS.md"
+  - backend/scaffolds/**
+  - frontend/node_modules/**
+  - frontend/dist/**
+  - frontend/test-results/**
+  - frontend/e2e/**
+  - backend/tests/**
+  - backend/mock_data/**
+  - "**/__pycache__/**"
+  - "**/*.pyc"
+  - "**/*.log"
+  - "**/*.pid"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: ["01", "06"]
+artifactRoot: ../02-agency-runtime/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: agency-api-ready
+    type: http
+    target: "${AGENCY_RUNTIME_BASE_URL}/api/v1/operations/health"
+    expected: http-200-and-tenant-context-ready
+  - name: agency-shell-smoke
+    type: browser-smoke
+    target: /zb/agency-source/product-market
+    expected: agency-runtime-loads-without-cross-tenant-data
+deployOrder: 60
+rollbackPolicy:
+  strategy: previous-version-atomic-switch
+  retainVersions: 2
+  requireHealthCheck: true
+  restoreData: false

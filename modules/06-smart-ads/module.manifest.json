@@ -1,0 +1,1 @@
+{"id":"06-smart-ads","name":"精投（智能推广）","version":"0.1.0","legacyFrontendPage":"src/pages/SmartAds.tsx","requiredTenantContext":["agent_path","tenant_id","client_id"]}

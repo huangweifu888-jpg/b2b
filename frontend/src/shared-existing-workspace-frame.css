@@ -1,0 +1,463 @@
+/*
+ * Shared existing-workspace frame profile.
+ *
+ * Compatible pages opt in through real page-factory regions. The visible
+ * title and table shell own geometry; only the canonical content band owns
+ * vertical scrolling. Pages without these regions are intentionally left
+ * untouched and must use a reviewed adapter instead of route-specific CSS.
+ */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]:has(
+    > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+  ) {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  scrollbar-gutter: auto !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-shared-layout-section="title"][data-development-standard-frame-region="title"] {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  flex: 0 0 auto;
+  margin: 0 !important;
+}
+
+/* A registered shared title owns its real desktop copy. Older responsive
+   rules may hide unregistered headings while measuring compact capacity; the
+   explicit factory title must remain visible on desktop and is moved as the
+   same DOM only when the compact live-surface controller opens it. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-shared-layout-section="title"][data-development-standard-frame-region="title"]
+  [data-page-title-content] {
+  display: block !important;
+  min-width: 0 !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-shared-layout-section="title"][data-development-standard-frame-region="title"]
+  [data-page-title-content] > [data-shared-title-heading] {
+  display: flex !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-shared-layout-section="title"][data-development-standard-frame-region="title"]:not([data-responsive-live-surface-open="true"])
+  [data-page-title-content] > [data-shared-title-description] {
+  display: block !important;
+}
+
+/* Short-height density belongs to the shared frame contract: keep the page
+   identity and actions, but yield secondary copy to the usable content area. */
+@media (max-height: 799px) {
+  html[data-visual-responsive-contract="true"][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    > [data-shared-layout-section="title"][data-development-standard-frame-region="title"]:not([data-responsive-live-surface-open="true"])
+    [data-page-title-content] > [data-shared-title-description] {
+    display: none !important;
+  }
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"] {
+  order: 3;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 0 !important;
+  flex-direction: column;
+  gap: 0;
+  margin: 0 !important;
+  padding: var(--tradepro-shared-table-shell-padding, var(--tradepro-layout-space, 0.75rem));
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-frame-text, var(--tradepro-panel-text)) 22%, transparent);
+  border-radius:
+    0
+    0
+    var(--tradepro-shared-table-shell-bottom-radius, var(--tradepro-page-frame-radius, 1.5rem))
+    var(--tradepro-shared-table-shell-bottom-radius, var(--tradepro-page-frame-radius, 1.5rem));
+  background: var(--tradepro-panel-frame-bg, var(--tradepro-panel-bg));
+  color: var(--tradepro-panel-frame-text, var(--tradepro-panel-text));
+  box-shadow: var(--tradepro-layout-shadow, none);
+}
+
+/* The shared spacing contract keeps one explicit 8px rhythm from title 2 to
+   the table header and from the header to the first scrollable card. The fixed
+   header and scroll owner are direct siblings, so scrolling starts below it. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-development-standard-frame-region="table-shell"][data-development-standard-spacing-contract="title-2-table-header-content-8"] {
+  margin-top: 8px !important;
+  padding-top: 0 !important;
+  border-top-width: 0;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-development-standard-frame-region="table-shell"][data-development-standard-spacing-contract="title-2-table-header-content-8"]
+  > [data-shared-scroll-content-start="after-table-header"][data-shared-scroll-contract="table-inner-60"][data-page-list-scroll-owner][data-development-standard-frame-region="content"] {
+  gap: 0 !important;
+  padding-top: 8px !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+  > :is([data-page-table-header], [data-development-standard-frame-region="table-header"])[data-development-standard-frame-region="table-header"] {
+  box-sizing: border-box;
+  display: flex !important;
+  min-width: 0;
+  min-height: var(--tradepro-shared-table-header-height, 3.25rem);
+  flex: 0 0 auto;
+  margin: 0 !important;
+  /* Header controls own their internal rhythm. The canonical outer band owns
+     only the shared frame boundary, matching Operations Market. */
+  padding: 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-gutter: auto;
+  border: 1px solid var(--tradepro-shared-table-header-border, var(--tradepro-shell-border)) !important;
+  border-radius: var(--tradepro-shared-table-header-radius, 0.75rem) !important;
+  background: var(--tradepro-shared-table-header-bg, var(--tradepro-panel-table-bg)) !important;
+  color: var(--tradepro-shared-table-header-text, var(--tradepro-panel-table-text)) !important;
+  box-shadow: var(--tradepro-layout-shadow, none) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+  > [data-shared-scroll-contract="table-inner-60"][data-page-list-scroll-owner][data-development-standard-frame-region="content"] {
+  box-sizing: border-box;
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  flex-direction: column;
+  gap: var(--tradepro-shared-list-gap, 0.75rem) !important;
+  margin: 0 !important;
+  padding:
+    var(--tradepro-shared-list-scroll-top-inset, var(--tradepro-layout-space, 0.75rem))
+    0
+    var(--tradepro-shared-list-scroll-end-space, 3.75rem) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scroll-padding-top: 0;
+  scroll-padding-bottom: var(--tradepro-shared-list-scroll-end-space, 3.75rem);
+  scrollbar-gutter: stable;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--tradepro-product-market-content-text, var(--tradepro-panel-frame-text, var(--tradepro-panel-text))) !important;
+  box-shadow: none !important;
+}
+
+/* The table shell and content use the same vertical context label as the
+   shared Product Market contract. Their padding lane remains hoverable while
+   the more specific title/header/content labels suppress their parent label. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+      > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"],
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+      > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+      > [data-development-standard-frame-region="content"]
+  )::after {
+  top: 0.5rem;
+  bottom: auto;
+  left: 0.25rem;
+  right: auto;
+  width: auto;
+  padding: var(--tradepro-vertical-context-marker-padding, 0.3125rem 0.125rem);
+  font-family: var(--tradepro-vertical-context-marker-font-family);
+  font-size: var(--tradepro-vertical-context-marker-font-size);
+  font-weight: var(--tradepro-vertical-context-marker-font-weight);
+  line-height: var(--tradepro-vertical-context-marker-line-height);
+  letter-spacing: var(--tradepro-vertical-context-marker-letter-spacing);
+  writing-mode: var(--tradepro-vertical-context-marker-writing-mode);
+  text-orientation: var(--tradepro-vertical-context-marker-text-orientation);
+}
+
+/* Table-shell markers use the shared responsive inset so source developers,
+   shared-contract pages and runtime scans stay on the same blank gutter. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]::after {
+  left: var(--responsive-table-shell-marker-left-inset, 0px);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+      > [data-development-standard-frame-region="title"],
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+      > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+      > [data-development-standard-frame-region="table-header"]
+  )::after {
+  left: 0.5rem;
+  right: auto;
+  width: max-content;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]:has(> [data-development-standard-frame-region]:hover)::after,
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]:has(> [data-development-standard-frame-region]:focus-within)::after {
+  display: none;
+}
+
+/* Body keeps semantic ownership on the canonical workspace, but the visible
+   capsule is painted by app-main's reserved outer gutter. This is the same
+   host relation for Operations, Marketing Playbook and every reviewed
+   existing-workspace adapter; no route-specific selector may move it back.
+   Geometry and hover ownership are structural, so they remain available even
+   before the developer applies optional shared colour variables. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(
+    [data-client-source-shell] .app-main,
+    [data-client-runtime-shell] .app-main,
+    .app-shell[data-platform-frame-scope="hq"] .app-main-roomy,
+    .app-shell[data-platform-frame-scope="agency-source"] .app-main-roomy
+  ):has(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  ) {
+  position: relative;
+  --tradepro-hover-capsule-bg: color-mix(in srgb, var(--tradepro-panel-text) 86%, var(--tradepro-panel-bg));
+  --tradepro-hover-capsule-text: var(--tradepro-panel-bg);
+}
+
+/* A real, measured pointer target occupies only the left outer gutter. It is
+   portalled as a direct child of the paint host because the canonical
+   workspace clips overflow. No route-specific padding formula is duplicated. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(
+    [data-client-source-shell] .app-main,
+    [data-client-runtime-shell] .app-main,
+    .app-shell[data-platform-frame-scope="hq"] .app-main-roomy,
+    .app-shell[data-platform-frame-scope="agency-source"] .app-main-roomy
+  ):has(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  )
+  > [data-existing-workspace-body-marker-hit-area="left"] {
+  position: absolute;
+  /* Stay above the empty page gutter but below dialogs and developer docks. */
+  z-index: 1;
+  display: block;
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  pointer-events: auto;
+  user-select: none;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(
+    [data-client-source-shell] .app-main,
+    [data-client-runtime-shell] .app-main,
+    .app-shell[data-platform-frame-scope="hq"] .app-main-roomy,
+    .app-shell[data-platform-frame-scope="agency-source"] .app-main-roomy
+  ):has(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  )::after {
+  content: "主体";
+  position: absolute;
+  z-index: var(--tradepro-context-marker-z-index, 90);
+  top: calc(var(--tradepro-shared-workspace-top-inset, 0.75rem) + 0.5rem);
+  left: max(var(--responsive-workspace-marker-left-inset, 0.25rem), env(safe-area-inset-left, 0px));
+  right: auto;
+  display: none;
+  align-items: center;
+  width: max-content;
+  border: 1px solid color-mix(in srgb, var(--tradepro-hover-capsule-text) 46%, transparent);
+  border-radius: 9999px;
+  padding: var(--tradepro-vertical-context-marker-padding);
+  background: var(--tradepro-hover-capsule-bg);
+  color: var(--tradepro-hover-capsule-text);
+  font-family: var(--tradepro-vertical-context-marker-font-family);
+  font-size: var(--developer-global-frame-runtime-annotation-font-size, var(--tradepro-vertical-context-marker-font-size));
+  font-weight: var(--tradepro-vertical-context-marker-font-weight);
+  line-height: var(--tradepro-vertical-context-marker-line-height);
+  letter-spacing: var(--tradepro-vertical-context-marker-letter-spacing);
+  writing-mode: var(--tradepro-vertical-context-marker-writing-mode);
+  text-orientation: var(--tradepro-vertical-context-marker-text-orientation);
+  translate: var(--developer-global-frame-runtime-annotation-offset, 0px) 0;
+  pointer-events: none;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+@media (min-width: 640px) {
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(
+      [data-client-source-shell] .app-main,
+      [data-client-runtime-shell] .app-main,
+      .app-shell[data-platform-frame-scope="hq"] .app-main-roomy,
+      .app-shell[data-platform-frame-scope="agency-source"] .app-main-roomy
+    ):has(> [data-existing-workspace-body-marker-hit-area="left"]:hover)::after {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(.app-main, .app-main-roomy):has(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"][data-development-standard-marker-visibility="always"]
+  )::after,
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(.app-main, .app-main-roomy)[data-existing-workspace-body-marker-host][data-visual-card-annotation-visibility="always"]::after,
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(.app-main, .app-main-roomy):has(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  )::after {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(.app-main, .app-main-roomy)[data-existing-workspace-body-marker-host][data-visual-card-annotation-visibility="hidden"]::after,
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  :is(.app-main, .app-main-roomy):has(
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"][data-visual-card-annotation-visibility="hidden"]
+  )::after {
+  display: none !important;
+}
+
+/* In the real visual developer all five canonical labels remain visible at
+   once. Normal runtime remains hover/focus-only. This is production UI state,
+   not an inspector-only mutation. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-development-standard-frame-region="title"]::after,
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]::after,
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+  > :is([data-development-standard-frame-region="table-header"], [data-development-standard-frame-region="content"])::after {
+  content: attr(data-development-standard-frame-label) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > [data-development-standard-frame-region="title"]::after,
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]::after,
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+  > :is([data-development-standard-frame-region="table-header"], [data-development-standard-frame-region="content"])::after,
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+  [data-page-factory-region="title-2"][data-development-standard-frame-region="title-2"]::after,
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-developer-global-frame-runtime="applied"][data-developer-global-frame-runtime-region="workspace"][data-developer-global-frame-annotation-visible="true"]::after,
+html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-developer-global-frame-runtime="applied"]
+  :is(
+    [data-developer-global-frame-runtime-region="title"],
+    [data-developer-global-frame-runtime-region="table-shell"],
+    [data-developer-global-frame-runtime-region="table-header"],
+    [data-developer-global-frame-runtime-region="content"]
+  )[data-developer-global-frame-annotation-visible="true"]::after,
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region][data-development-standard-marker-visibility="always"]::after {
+  display: inline-flex !important;
+}
+
+@media (max-width: 767px) {
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"] {
+    padding: 0.5rem;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    > :is([data-page-table-shell], [data-development-standard-frame-region="table-shell"])[data-development-standard-frame-region="table-shell"]
+    > :is([data-page-table-header], [data-development-standard-frame-region="table-header"])[data-development-standard-frame-region="table-header"] {
+    padding-inline: 0.75rem !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  /* Every canonical existing-workspace reserves the same minimum marker lane.
+     The portal still measures the final host/root geometry, so safe-area and
+     source-shell differences remain supported without route-specific CSS. */
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(
+      [data-client-source-shell] .app-main,
+      [data-client-runtime-shell] .app-main,
+      .app-shell[data-platform-frame-scope="hq"] .app-main-roomy,
+      .app-shell[data-platform-frame-scope="agency-source"] .app-main-roomy
+    ):has(
+      [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    ) {
+    padding-left: max(
+      var(--responsive-workspace-marker-min-host-gutter, 16px),
+      env(safe-area-inset-left, 0px)
+    ) !important;
+  }
+}
+
+@media (max-width: 639px) {
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(
+      [data-client-source-shell] .app-main,
+      [data-client-runtime-shell] .app-main,
+      .app-shell[data-platform-frame-scope="hq"] .app-main-roomy,
+      .app-shell[data-platform-frame-scope="agency-source"] .app-main-roomy
+    )
+    > [data-existing-workspace-body-marker-hit-area="left"] {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(.app-main, .app-main-roomy):has(
+      [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    )::after {
+    display: none !important;
+  }
+
+  html[data-visual-card-editor-open][data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(.app-main, .app-main-roomy):has(
+      [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"]
+    )::after,
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(.app-main, .app-main-roomy):has(
+      [data-page-factory-frame-owner="existing-workspace"][data-shared-page-workspace][data-development-standard-frame-region="body"][data-development-standard-marker-visibility="always"]
+    )::after,
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+    :is(.app-main, .app-main-roomy)[data-existing-workspace-body-marker-host][data-visual-card-annotation-visibility="always"]::after {
+    display: inline-flex !important;
+  }
+}

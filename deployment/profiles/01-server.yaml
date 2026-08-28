@@ -1,0 +1,12 @@
+version: 1
+profile: 01-server
+serverCount: 1
+roleDefinitionsRoot: deployment/role-definitions
+releaseFlow: deployment/common/global-release-flow.yaml
+sourcePolicy: one-source-no-role-copies
+purpose: 本地沙盘、开发和演示
+external_backup_required: true
+servers:
+  - id: SERVER-01-ALL
+    roles: ["01", "02", "03", "04", "05", "06"]
+    summary: 全部应用角色与本地数据服务合并运行；不承诺高可用。

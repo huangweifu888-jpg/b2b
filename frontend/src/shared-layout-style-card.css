@@ -1,0 +1,119 @@
+/* Shared semantic card surfaces.
+   Business pages register real large/small cards once; Layout Style owns the
+   default palette, while the Visual developer may add a page-scoped role
+   override through the existing --visual-card-component-* variables. */
+#root [data-shared-large-card-surface="true"] {
+  --visual-card-component-background: var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg, #ffffff));
+  --visual-card-component-text: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text, #0f172a));
+  --visual-card-component-font-family: var(--tradepro-global-font-family, system-ui, sans-serif);
+  --visual-card-component-font-size: var(--tradepro-shared-large-card-font-size, 0.875rem);
+  --visual-card-component-font-weight: var(--tradepro-shared-large-card-font-weight, var(--tradepro-global-font-weight, 400));
+  background: var(--visual-card-component-background) !important;
+  color: var(--visual-card-component-text) !important;
+  border-color: var(--visual-card-component-border-color, color-mix(in srgb, var(--visual-card-component-text) 18%, transparent)) !important;
+  border-radius: var(--visual-card-component-radius, var(--tradepro-layout-card-radius, var(--tradepro-shared-card-radius, 0.75rem))) !important;
+  font-family: var(--visual-card-component-font-family) !important;
+  font-size: var(--visual-card-component-font-size) !important;
+  font-weight: var(--visual-card-component-font-weight) !important;
+}
+
+#root :is(
+  [data-shared-small-card-surface="true"],
+  [data-shared-small-card-style-surface-effective="true"]
+) {
+  --visual-card-component-background: var(--tradepro-panel-card-bg, #ffffff);
+  --visual-card-component-text: var(--tradepro-panel-card-text, #0f172a);
+  --visual-card-component-font-family: var(--tradepro-global-font-family, system-ui, sans-serif);
+  --visual-card-component-font-size: var(--tradepro-shared-small-card-font-size, 0.75rem);
+  --visual-card-component-font-weight: var(--tradepro-shared-small-card-font-weight, var(--tradepro-global-font-weight, 400));
+  background: var(--visual-card-component-background) !important;
+  color: var(--visual-card-component-text) !important;
+  border-color: var(--visual-card-component-border-color, color-mix(in srgb, var(--visual-card-component-text) 22%, transparent)) !important;
+  border-radius: var(--visual-card-component-radius, var(--tradepro-layout-card-radius, var(--tradepro-shared-card-radius, 0.75rem))) !important;
+  font-family: var(--visual-card-component-font-family) !important;
+  font-size: var(--visual-card-component-font-size) !important;
+  font-weight: var(--visual-card-component-font-weight) !important;
+}
+
+#root [data-shared-large-card-surface="true"][data-development-standard-frame-region="large-card"]::after {
+  top: var(--responsive-large-card-marker-top-inset, 2px);
+  left: 50%;
+  right: auto;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+#root :is(
+  [data-shared-small-card-surface="true"],
+  [data-shared-small-card-style-surface-effective="true"]
+)[data-development-standard-frame-region="small-card"]::after {
+  left: 0.5rem;
+  right: auto;
+  width: max-content;
+}
+
+/* Named first-card representatives stay pinned to the physical upper-left
+   corner even if a page-level marker rule changes the generic fallback. */
+#root [data-development-standard-frame-region="small-card"][data-development-standard-marker-placement="card-left-top"]::after {
+  top: 0.375rem;
+  bottom: auto;
+  left: 0.5rem;
+  right: auto;
+  width: max-content;
+  transform: none;
+}
+
+/* A short desktop remains a desktop: hover annotations must not be swallowed
+   by the general vertical-budget rule. Touch-width pages keep hover-only
+   diagnostics suppressed, while the real developer can still show them. */
+@media (min-width: 640px) {
+  #root :is([data-shared-large-card-surface="true"], [data-shared-small-card-surface="true"], [data-shared-small-card-style-surface-effective="true"])[data-development-standard-frame-region]:not([data-shared-small-card-marker-effective="silent"]):not([data-development-standard-marker="silent"]:not([data-shared-small-card-marker-effective="representative"])):is(:hover, :focus-within)::after {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  html:not([data-visual-card-editor-open]) #root
+    [data-shared-large-card-surface="true"][data-development-standard-frame-region="large-card"]:not([data-development-standard-marker-visibility="always"]):has(
+      :is([data-shared-small-card-surface="true"], [data-shared-small-card-style-surface-effective="true"])[data-development-standard-frame-region="small-card"]:not([data-shared-small-card-marker-effective="silent"]):not([data-development-standard-marker="silent"]:not([data-shared-small-card-marker-effective="representative"])):is(:hover, :focus-within)
+    )::after {
+    display: none !important;
+  }
+
+  /* Hover also matches every ancestor. The previous card-only arbitration
+     recognised only small cards that already carried the shared surface flag,
+     so a normal title or adapter-provided small card could display together
+     with its parent large-card marker. Resolve ownership by semantic nesting:
+     the deepest hovered/focused frame is the only visible marker. */
+  html:not([data-visual-card-editor-open]) #root
+    [data-development-standard-frame-region]:not([data-development-standard-marker-visibility="always"]):has(
+      [data-development-standard-frame-region]:not([data-shared-small-card-marker-effective="silent"]):not([data-development-standard-marker="silent"]:not([data-shared-small-card-marker-effective="representative"])):is(:hover, :focus-within)
+    )::after {
+    display: none !important;
+  }
+}
+
+html[data-visual-card-editor-open] #root
+  :is(
+    [data-shared-large-card-surface="true"],
+    [data-shared-small-card-surface="true"],
+    [data-shared-small-card-style-surface-effective="true"],
+    [data-shared-small-card-marker-effective="representative"],
+    [data-development-standard-marker-representative="first-per-large-card"]
+  )[data-development-standard-frame-region][data-visual-contract-annotation]:not([data-shared-small-card-marker-effective="silent"]):not([data-development-standard-marker="silent"]:not([data-shared-small-card-marker-effective="representative"])):not([data-visual-card-annotation-visibility="hidden"])::after {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Silent instances remain complete Visual style/plugin targets, but they can
+   never redraw a duplicate label, including when an editor draft says always. */
+html[data-visual-card-editor-open] #root
+  [data-development-standard-frame-region][data-shared-small-card-marker-effective="silent"]::after,
+html[data-visual-card-editor-open] #root
+  [data-development-standard-frame-region][data-development-standard-marker="silent"]:not([data-shared-small-card-marker-effective="representative"])::after {
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}

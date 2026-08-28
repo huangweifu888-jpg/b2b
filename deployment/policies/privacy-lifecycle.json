@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "requests": {"export": ["authenticated", "tenant_scoped", "audited"], "delete": ["approved", "tenant_scoped", "backup_aware", "audited"]},
+  "customer_closure": {"access_disable_first": true, "export_window_days": 30, "deletion_after_approval": true, "backup_expiry_required": true},
+  "prohibitions": ["cross_tenant_export", "public_backup", "secret_in_request_record"],
+  "review_frequency_days": 180
+}

@@ -1,0 +1,21 @@
+{
+  "contractVersion": "1.0.0",
+  "catalogId": "b2b-technical-category-catalog",
+  "sourceOfTruth": "frontend/src/lib/factory-platform-blueprint.ts",
+  "directoryConvention": "cNN_snake_case",
+  "physicalDirectoryPolicy": "Only create a category or application directory when it has a real owner, contract, tests, and migration work. Catalog-only categories must not be represented by empty folders.",
+  "categories": [
+    { "id": "identity", "order": "01", "directory": "c01_identity", "physicalState": "catalog-only" },
+    { "id": "content", "order": "02", "directory": "c02_content", "physicalState": "catalog-only" },
+    { "id": "trust", "order": "03", "directory": "c03_trust", "physicalState": "catalog-only" },
+    { "id": "recommend", "order": "04", "directory": "c04_recommend", "physicalState": "catalog-only" },
+    { "id": "deepen", "order": "05", "directory": "c05_deepen", "physicalState": "pilot-manifest" },
+    { "id": "portrait", "order": "06", "directory": "c06_portrait", "physicalState": "catalog-only" },
+    { "id": "lead", "order": "07", "directory": "c07_lead", "physicalState": "catalog-only" },
+    { "id": "convert", "order": "08", "directory": "c08_convert", "physicalState": "catalog-only" },
+    { "id": "fulfillment", "order": "09", "directory": "c09_fulfillment", "physicalState": "catalog-only" },
+    { "id": "care", "order": "10", "directory": "c10_care", "physicalState": "catalog-only" },
+    { "id": "decision", "order": "11", "directory": "c11_decision", "physicalState": "catalog-only" },
+    { "id": "operations", "order": "12", "directory": "c12_operations", "physicalState": "catalog-only" }
+  ]
+}

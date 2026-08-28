@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "moduleOwner": "customer-source",
+  "modules": [
+    { "id": "00-product-market", "name": "产品市场", "legacyFrontendPage": "src/pages/ProductMarket.tsx", "downloadEnabled": false },
+    { "id": "01-momentum", "name": "蓄势", "downloadEnabled": false },
+    { "id": "02-content", "name": "布场（内容）", "legacyFrontendPages": ["src/pages/Products.tsx", "src/pages/NewsCenter.tsx", "src/pages/Cases.tsx", "src/pages/Videos.tsx"], "downloadEnabled": true },
+    { "id": "03-seo", "name": "营搜（SEO）", "legacyFrontendPage": "src/pages/SEO.tsx", "downloadEnabled": false },
+    { "id": "04-geo", "name": "占新（GEO）", "legacyFrontendPage": "src/pages/GeoCenter.tsx", "downloadEnabled": false },
+    { "id": "05-social-media", "name": "圈养（社交媒体）", "legacyFrontendPage": "src/pages/SocialMedia.tsx", "downloadEnabled": false },
+    { "id": "06-smart-ads", "name": "精投（智能推广）", "legacyFrontendPage": "src/pages/SmartAds.tsx", "downloadEnabled": false },
+    { "id": "07-inquiries", "name": "承转（询盘）", "legacyFrontendPage": "src/pages/Inquiries.tsx", "downloadEnabled": false },
+    { "id": "08-reports", "name": "锁客（数据报表）", "legacyFrontendPage": "src/pages/Reports.tsx", "downloadEnabled": false },
+    { "id": "09-crm", "name": "深养（CRM）", "downloadEnabled": false },
+    { "id": "10-health-dashboard", "name": "驭数（健康驾舱）", "downloadEnabled": false }
+  ]
+}

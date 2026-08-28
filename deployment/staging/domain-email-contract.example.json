@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "environment": "staging",
+  "public_base_url": "https://REPLACE_STAGING_DOMAIN",
+  "mail_from_domain": "mail.REPLACE_STAGING_DOMAIN",
+  "dns": {
+    "spf": "v=spf1 include:REPLACE_PROVIDER -all",
+    "dkim_selector": "REPLACE_SELECTOR",
+    "dmarc": "v=DMARC1; p=quarantine",
+    "caa_present": true
+  },
+  "mail_provider_secret_reference": "secret-manager:REPLACE_PROVIDER_REFERENCE",
+  "test_recipient_reference": "secret-manager:REPLACE_TEST_MAILBOX_REFERENCE"
+}

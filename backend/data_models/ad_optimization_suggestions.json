@@ -1,0 +1,50 @@
+{
+    "title": "ad_optimization_suggestions",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "platform_name": {
+            "type": "string",
+            "description": "Ad platform name"
+        },
+        "account_id": {
+            "type": "string",
+            "description": "Account identifier"
+        },
+        "account_name": {
+            "type": "string",
+            "description": "Account display name"
+        },
+        "suggestion_type": {
+            "type": "string",
+            "description": "budget, keyword, copy"
+        },
+        "suggestion_content": {
+            "type": "string",
+            "description": "AI generated suggestion text"
+        },
+        "priority": {
+            "type": "string",
+            "description": "high, medium, low"
+        },
+        "status": {
+            "type": "string",
+            "description": "pending, applied, dismissed"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "platform_name",
+        "account_id",
+        "suggestion_type",
+        "suggestion_content"
+    ]
+}

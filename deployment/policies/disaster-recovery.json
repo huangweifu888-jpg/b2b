@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "objectives": {"initial_rpo_hours": 24, "initial_rto_hours": 8},
+  "required_separation": ["application_runtime", "primary_database", "private_assets", "offsite_backup"],
+  "recovery_sequence": ["declare_incident", "contain", "restore_isolated", "verify_tenant_integrity", "approve_cutover", "communicate"],
+  "drill": {"frequency_days": 90, "production_overwrite": "forbidden", "evidence_required": ["restore_reference", "revision", "tenant_integrity", "health_probe", "owner"]},
+  "growth_trigger": ["contractual_high_availability", "rto_or_rpo_not_met", "regional_outage_requirement"]
+}

@@ -1,0 +1,52 @@
+{
+    "title": "ai_usage_records",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "model_id": {
+            "type": "string",
+            "description": "AI model identifier"
+        },
+        "model_name": {
+            "type": "string",
+            "description": "AI model display name"
+        },
+        "category": {
+            "type": "string",
+            "description": "Model category: text/image/video/audio/transcribe"
+        },
+        "tokens_used": {
+            "type": "integer",
+            "description": "Number of tokens consumed",
+            "default": 0
+        },
+        "cost": {
+            "type": "number",
+            "description": "Cost in credits",
+            "default": 0
+        },
+        "status": {
+            "type": "string",
+            "description": "Call status: success/failed",
+            "default": "success"
+        },
+        "source_page": {
+            "type": "string",
+            "description": "Which page triggered the call"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "model_id",
+        "model_name",
+        "category"
+    ]
+}

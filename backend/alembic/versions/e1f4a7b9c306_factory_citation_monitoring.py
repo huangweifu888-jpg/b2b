@@ -1,0 +1,29 @@
+"""bounded AI citation observation governance
+
+Revision ID: e1f4a7b9c306
+Revises: f8a1c3e6b205
+Rollback removes only citation-monitoring governance records, permissions and contracts; it never deletes content, model output or source facts.
+"""
+import json
+from alembic import op
+import sqlalchemy as sa
+revision="e1f4a7b9c306";down_revision="f8a1c3e6b205";branch_labels=None;depends_on=None
+P=("factory.recommend.citation.monitor.manage","factory.recommend.citation.observation.verify","factory.recommend.citation.release.approve","factory.recommend.citation.handoff.acknowledge")
+def T():return[sa.Column("id",sa.String(100),primary_key=True),sa.Column("project_id",sa.Integer(),nullable=False),sa.Column("agent_path",sa.String(255),nullable=False),sa.Column("tenant_id",sa.String(128),nullable=False),sa.Column("client_id",sa.String(128),nullable=False),sa.Column("plan_id",sa.String(128),nullable=False)]
+def perms(remove=False):
+ b=op.get_bind()
+ for r in b.execute(sa.text("SELECT id,permissions_json FROM roles_platform WHERE is_system=1 AND scope IN ('client','project')")).mappings():
+  try:v=json.loads(r["permissions_json"]or"[]")
+  except(ValueError,TypeError):v=[]
+  v=[x for x in v if x not in P]if remove else list(dict.fromkeys([*v,*P]));b.execute(sa.text("UPDATE roles_platform SET permissions_json=:p WHERE id=:i"),{"p":json.dumps(v,ensure_ascii=False),"i":r["id"]})
+def upgrade():
+ op.create_table("factory_citation_monitors",*T(),sa.Column("monitor_number",sa.String(96),nullable=False,unique=True),sa.Column("monitor_key",sa.String(160),nullable=False),sa.Column("market",sa.String(80),nullable=False),sa.Column("locale",sa.String(32),nullable=False),sa.Column("model_provider",sa.String(80),nullable=False),sa.Column("question_reference",sa.String(255),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("created_by",sa.String(128),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),nullable=False),sa.Column("revision",sa.Integer(),nullable=False),sa.UniqueConstraint("project_id","monitor_key",name="uq_factory_citation_monitor"))
+ op.create_table("factory_citation_observations",*T(),sa.Column("observation_number",sa.String(96),nullable=False,unique=True),sa.Column("monitor_id",sa.String(100),nullable=False),sa.Column("monitor_number",sa.String(96),nullable=False),sa.Column("observation_manifest_json",sa.JSON(),nullable=False),sa.Column("manifest_hash",sa.String(64),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("captured_by",sa.String(128),nullable=False),sa.Column("verified_by",sa.String(128)),sa.Column("verification_reference",sa.String(255)),sa.Column("observed_at",sa.DateTime(timezone=True),nullable=False),sa.Column("verified_at",sa.DateTime(timezone=True)),sa.Column("revision",sa.Integer(),nullable=False))
+ op.create_table("factory_citation_releases",*T(),sa.Column("release_number",sa.String(96),nullable=False,unique=True),sa.Column("observation_id",sa.String(100),nullable=False),sa.Column("observation_number",sa.String(96),nullable=False),sa.Column("target",sa.String(40),nullable=False),sa.Column("analysis_manifest_json",sa.JSON(),nullable=False),sa.Column("manifest_hash",sa.String(64),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("prepared_by",sa.String(128),nullable=False),sa.Column("approved_by",sa.String(128)),sa.Column("consumer_receipt_reference",sa.String(255)),sa.Column("available",sa.Boolean(),nullable=False),sa.Column("prepared_at",sa.DateTime(timezone=True),nullable=False),sa.Column("revision",sa.Integer(),nullable=False))
+ op.create_table("factory_citation_evidence",*T(),sa.Column("evidence_number",sa.String(96),nullable=False,unique=True),sa.Column("subject_id",sa.String(100),nullable=False),sa.Column("evidence_type",sa.String(64),nullable=False),sa.Column("evidence_reference",sa.String(255),nullable=False),sa.Column("note",sa.Text()),sa.Column("recorded_by",sa.String(128),nullable=False),sa.Column("recorded_at",sa.DateTime(timezone=True),nullable=False))
+ for table,columns in (("factory_citation_monitors",("project_id","monitor_key","status")),("factory_citation_observations",("project_id","monitor_id","status")),("factory_citation_releases",("project_id","observation_id","status","available")),("factory_citation_evidence",("project_id","subject_id","evidence_type"))):
+  for column in columns:op.create_index(f"ix_{table}_{column}",table,[column])
+ b=op.get_bind();b.execute(sa.text("INSERT INTO factory_core_object_contracts (id,sequence,label,system_of_record,identity_rule,minimum_fields_json,lifecycle_status,schema_version,revision,updated_by) SELECT 'citation-observation',41,'Citation observation','recommend','tenant, monitor and observation','[\"tenantId\",\"monitorId\",\"observationId\",\"questionReference\",\"manifestHash\"]','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_object_contracts WHERE id='citation-observation')"));b.execute(sa.text("INSERT INTO factory_core_event_contracts (id,sequence,label,subject_id,producer,consumers_json,required_fields_json,compatibility,lifecycle_status,schema_version,revision,updated_by) SELECT 'citation-analysis-released',33,'Citation analysis released','citation-observation','recommend','[\"marketing\",\"executive\",\"geo\"]','[\"eventId\",\"tenantId\",\"eventType\",\"subjectId\",\"version\"]','backward','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_event_contracts WHERE id='citation-analysis-released')"))
+ perms()
+def downgrade():
+ perms(True);b=op.get_bind();b.execute(sa.text("DELETE FROM factory_core_event_contracts WHERE id='citation-analysis-released'"));b.execute(sa.text("DELETE FROM factory_core_object_contracts WHERE id='citation-observation'"));op.drop_table("factory_citation_evidence");op.drop_table("factory_citation_releases");op.drop_table("factory_citation_observations");op.drop_table("factory_citation_monitors")

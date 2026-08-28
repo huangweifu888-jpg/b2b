@@ -1,0 +1,24 @@
+version: 1
+profile: 05-server
+serverCount: 5
+roleDefinitionsRoot: deployment/role-definitions
+releaseFlow: deployment/common/global-release-flow.yaml
+sourcePolicy: one-source-no-role-copies
+purpose: 总部控制面与业务运行端分开
+external_backup_required: true
+servers:
+  - id: SERVER-01-SOURCE
+    roles: ["01"]
+    summary: 总部端、代理源、客户源、租户注册和发布控制。
+  - id: SERVER-02-RUNTIME
+    roles: ["02", "03"]
+    summary: 代理运行端和客户计划运行端。
+  - id: SERVER-03-WORKER
+    roles: ["04"]
+    summary: 素材、构建、发布和异步任务。
+  - id: SERVER-04-EDGE
+    roles: ["05"]
+    summary: 公网入口、HTTPS、域名和观测。
+  - id: SERVER-05-DATA
+    roles: ["06"]
+    summary: PostgreSQL、Redis和对象存储。

@@ -1,0 +1,35 @@
+"""customer-success review and renewal handoff projections
+
+Revision ID: d5f9b2e7a103
+Revises: c4e8a1d6f902
+
+Rollback removes only customer-success review, handoff and evidence projections,
+their contracts and permissions. It never removes installed assets, service
+tickets, renewal opportunities, orders, invoices or customer identities.
+"""
+import json
+from alembic import op
+import sqlalchemy as sa
+revision = "d5f9b2e7a103"; down_revision = "c4e8a1d6f902"; branch_labels = None; depends_on = None
+P = ("factory.care.success.create", "factory.care.success.review", "factory.care.success.approve", "factory.care.success.handoff", "factory.care.success.acknowledge")
+def C(): return [sa.Column("id", sa.String(100), primary_key=True), sa.Column("project_id", sa.Integer(), nullable=False), sa.Column("agent_path", sa.String(500), nullable=False), sa.Column("tenant_id", sa.String(100), nullable=False), sa.Column("client_id", sa.String(100), nullable=False), sa.Column("plan_id", sa.String(100), nullable=False)]
+def idx(table, cols):
+    for col in cols: op.create_index(f"ix_{table}_{col}", table, [col])
+def perms(remove=False):
+    bind = op.get_bind()
+    for row in bind.execute(sa.text("SELECT id,permissions_json FROM roles_platform WHERE is_system=1 AND scope IN ('client','project')")).mappings():
+        try: values = json.loads(row["permissions_json"] or "[]")
+        except (TypeError, ValueError): values = []
+        values = [v for v in values if v not in P] if remove else list(dict.fromkeys([*values, *P]))
+        bind.execute(sa.text("UPDATE roles_platform SET permissions_json=:permissions WHERE id=:id"), {"permissions": json.dumps(values, ensure_ascii=False), "id": row["id"]})
+def upgrade():
+    op.create_table("factory_customer_success_reviews", *C(), sa.Column("review_number", sa.String(100), nullable=False, unique=True), sa.Column("asset_id", sa.String(100), nullable=False), sa.Column("asset_number", sa.String(100), nullable=False), sa.Column("asset_revision", sa.Integer(), nullable=False), sa.Column("source_fingerprint", sa.String(64), nullable=False), sa.Column("health_score", sa.Integer(), nullable=False), sa.Column("risk_level", sa.String(20), nullable=False), sa.Column("success_summary", sa.Text(), nullable=False), sa.Column("lifecycle_status", sa.String(30), nullable=False, server_default="draft"), sa.Column("created_by", sa.String(255), nullable=False), sa.Column("reviewed_by", sa.String(255)), sa.Column("review_reference", sa.String(255)), sa.Column("approved_by", sa.String(255)), sa.Column("approval_reference", sa.String(255)), sa.Column("revision", sa.Integer(), nullable=False, server_default="1"), sa.Column("created_at", sa.DateTime(timezone=True)), sa.Column("updated_at", sa.DateTime(timezone=True)), sa.UniqueConstraint("project_id", "asset_id", name="uq_factory_customer_success_asset"))
+    op.create_table("factory_customer_success_handoffs", *C(), sa.Column("handoff_number", sa.String(100), nullable=False, unique=True), sa.Column("review_id", sa.String(100), nullable=False), sa.Column("review_number", sa.String(100), nullable=False), sa.Column("consumer", sa.String(64), nullable=False, server_default="renewal-growth"), sa.Column("payload_fingerprint", sa.String(64), nullable=False), sa.Column("status", sa.String(30), nullable=False, server_default="pending"), sa.Column("released_by", sa.String(255), nullable=False), sa.Column("release_reference", sa.String(255), nullable=False), sa.Column("acknowledged_by", sa.String(255)), sa.Column("receipt_reference", sa.String(255)), sa.Column("revision", sa.Integer(), nullable=False, server_default="1"), sa.Column("created_at", sa.DateTime(timezone=True)), sa.Column("acknowledged_at", sa.DateTime(timezone=True)), sa.UniqueConstraint("review_id", name="uq_factory_customer_success_handoff_review"))
+    op.create_table("factory_customer_success_evidence", *C(), sa.Column("evidence_number", sa.String(100), nullable=False, unique=True), sa.Column("review_id", sa.String(100), nullable=False), sa.Column("event_type", sa.String(64), nullable=False), sa.Column("reference", sa.String(255), nullable=False), sa.Column("note", sa.Text()), sa.Column("recorded_by", sa.String(255), nullable=False), sa.Column("recorded_at", sa.DateTime(timezone=True)))
+    idx("factory_customer_success_reviews", ("project_id","agent_path","tenant_id","client_id","plan_id","review_number","asset_id","health_score","risk_level","lifecycle_status","created_by","reviewed_by","approved_by")); idx("factory_customer_success_handoffs", ("project_id","agent_path","tenant_id","client_id","plan_id","handoff_number","review_id","status","released_by","acknowledged_by")); idx("factory_customer_success_evidence", ("project_id","agent_path","tenant_id","client_id","plan_id","evidence_number","review_id","event_type","recorded_by"))
+    bind=op.get_bind(); bind.execute(sa.text("INSERT INTO factory_core_object_contracts (id,sequence,label,system_of_record,identity_rule,minimum_fields_json,lifecycle_status,schema_version,revision,updated_by) SELECT 'customer-success-review',44,'Customer success review','care','tenant, asset and authoritative asset revision','[\"tenantId\",\"reviewId\",\"assetId\",\"assetRevision\",\"sourceFingerprint\",\"healthScore\"]','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_object_contracts WHERE id='customer-success-review')")); bind.execute(sa.text("INSERT INTO factory_core_event_contracts (id,sequence,label,subject_id,producer,consumers_json,required_fields_json,compatibility,lifecycle_status,schema_version,revision,updated_by) SELECT 'customer-success-handoff-released',36,'Customer success handoff released','customer-success-review','care','[\"renewal-growth\",\"decision\"]','[\"eventId\",\"tenantId\",\"subjectId\",\"version\",\"sourceFingerprint\"]','backward','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_event_contracts WHERE id='customer-success-handoff-released')")); perms()
+def downgrade():
+    perms(True); bind=op.get_bind(); bind.execute(sa.text("DELETE FROM factory_core_event_contracts WHERE id='customer-success-handoff-released'")); bind.execute(sa.text("DELETE FROM factory_core_object_contracts WHERE id='customer-success-review'"))
+    for table, cols in (("factory_customer_success_evidence", ("recorded_by","event_type","review_id","evidence_number","plan_id","client_id","tenant_id","agent_path","project_id")), ("factory_customer_success_handoffs", ("acknowledged_by","released_by","status","review_id","handoff_number","plan_id","client_id","tenant_id","agent_path","project_id")), ("factory_customer_success_reviews", ("approved_by","reviewed_by","created_by","lifecycle_status","risk_level","health_score","asset_id","review_number","plan_id","client_id","tenant_id","agent_path","project_id"))):
+        for col in cols: op.drop_index(f"ix_{table}_{col}", table_name=table)
+    op.drop_table("factory_customer_success_evidence"); op.drop_table("factory_customer_success_handoffs"); op.drop_table("factory_customer_success_reviews")

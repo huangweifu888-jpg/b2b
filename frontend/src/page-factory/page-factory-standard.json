@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "factoryVersion": "2026.08.22.6",
+  "label": "页面工厂",
+  "languages": [
+    "Python",
+    "TypeScript"
+  ],
+  "sourceOfTruth": "code-owned-page-factory",
+  "scopes": [
+    "hq",
+    "agency_source",
+    "client_source"
+  ],
+  "templates": [
+    "reference",
+    "dashboard",
+    "list",
+    "form",
+    "detail",
+    "editor",
+    "workflow"
+  ],
+  "regionStrategies": [
+    "explicit",
+    "runtime-auto"
+  ],
+  "frameOwnershipModes": [
+    "factory-shell",
+    "existing-workspace"
+  ],
+  "templateRegions": {
+    "reference": [
+      "top",
+      "body",
+      "title-1",
+      "footer"
+    ],
+    "dashboard": [
+      "top",
+      "body",
+      "title-1",
+      "title-2",
+      "content",
+      "large-card",
+      "small-card",
+      "footer"
+    ],
+    "list": [
+      "top",
+      "body",
+      "title-1",
+      "title-2",
+      "table-shell",
+      "table-header",
+      "content",
+      "footer",
+      "scrollbar"
+    ],
+    "form": [
+      "top",
+      "body",
+      "title-1",
+      "title-2",
+      "content",
+      "footer"
+    ],
+    "detail": [
+      "top",
+      "body",
+      "title-1",
+      "title-2",
+      "content",
+      "large-card",
+      "small-card",
+      "footer"
+    ],
+    "editor": [
+      "top",
+      "body",
+      "title-1",
+      "title-2",
+      "content",
+      "large-card",
+      "small-card",
+      "footer",
+      "scrollbar"
+    ],
+    "workflow": [
+      "top",
+      "body",
+      "title-1",
+      "title-2",
+      "table-shell",
+      "table-header",
+      "content",
+      "large-card",
+      "small-card",
+      "footer",
+      "scrollbar"
+    ]
+  },
+  "requiredCapabilities": [
+    "responsive-small-screen",
+    "developer",
+    "visual-editor",
+    "shared-contract",
+    "factory-restore",
+    "version-governance"
+  ],
+  "regions": [
+    "top",
+    "body",
+    "title-1",
+    "title-2",
+    "table-shell",
+    "table-header",
+    "content",
+    "large-card",
+    "small-card",
+    "footer",
+    "scrollbar"
+  ],
+  "cssPlugins": [
+    "page-shell",
+    "topbar",
+    "body",
+    "titles",
+    "table-shell",
+    "table-header",
+    "content",
+    "cards",
+    "footer",
+    "markers",
+    "responsive"
+  ],
+  "domainContracts": {
+    "customerServiceExpert": {
+      "version": "2026.08.22.2",
+      "contentPlugin": "shared-customer-service-expert-content-v1",
+      "contentSource": "current-expert-voice-customization",
+      "contentSourceLabel": "当前专家真人朗音自定义",
+      "runtimePlugin": "shared-customer-service-runtime-config-v2",
+      "capacityPlugin": "shared-service-expert-capacity-v4",
+      "avatarSizePlugin": "shared-service-expert-launcher-size-v1",
+      "avatarSizeSource": "floating-service-launcher",
+      "avatarSizeDefault": "64px",
+      "avatarSizeExceptions": [
+        "sidebar-expert-dialog-enlarged-preview",
+        "chat-message-avatar"
+      ],
+      "controlEdgeInset": 8,
+      "controlGap": 8,
+      "identityFields": [
+        "gender",
+        "title",
+        "animation"
+      ],
+      "behaviorFields": [
+        "customer-service-name",
+        "greeting",
+        "reminder",
+        "voice"
+      ],
+      "projections": [
+        "select-expert-card",
+        "current-expert-editor",
+        "sidebar-expert-dialog",
+        "chat-expert-picker",
+        "customer-service-chat"
+      ],
+      "minimumCardInlineSize": 222,
+      "maximumColumns": null,
+      "textOverflow": "single-line-ellipsis-v1",
+      "selectionCopy": "seven-character-total-shared-behavior-ellipsis-v3",
+      "layout": "centered-avatar-eight-gap-fact-columns-v4",
+      "persistence": "existing-avatar-override-only-no-second-content-store"
+    }
+  },
+  "factoryRestore": {
+    "owner": "source-code",
+    "requiresAllChecks": true,
+    "restores": [
+      "structure",
+      "shared-styles",
+      "css-plugins",
+      "markers",
+      "responsive-rules",
+      "developer-tools"
+    ],
+    "preserves": [
+      "business-data",
+      "uploaded-assets",
+      "tenant-content",
+      "downstream-customization",
+      "database",
+      "formal-backups"
+    ]
+  },
+  "releaseFlow": [
+    "source-lock",
+    "impact-check",
+    "python-verify",
+    "typescript-check",
+    "three-scope-responsive-check",
+    "version-bump",
+    "factory-snapshot"
+  ]
+}

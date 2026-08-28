@@ -1,0 +1,51 @@
+version: 1
+id: "06"
+name: data-services
+label: 数据服务
+purpose: 提供 PostgreSQL、Redis、私有对象存储和受控数据库迁移定义。
+rulePath: deployment/role-definitions/role-06.yaml
+sourceIncludes:
+  - backend/alembic/**
+  - backend/alembic.ini
+  - backend/data_models/**
+  - backend/models/**
+  - deployment/infrastructure/**
+  - deployment/policies/data-governance.json
+  - deployment/policies/data-migration.json
+  - deployment/policies/tenant-isolation.yaml
+  - deployment/env/release.production.env.example
+sourceExcludes:
+  - backend/tests/**
+  - "**/*.db"
+  - "**/*.sqlite"
+  - "**/*.sqlite3"
+  - "**/*.dump"
+  - "**/*.backup"
+  - "**/*.log"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: []
+artifactRoot: ../06-data-services/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: postgresql-ready
+    type: database-query
+    target: "${DATABASE_URL}"
+    expected: select-1-and-migration-head
+  - name: redis-ready
+    type: redis-ping
+    target: "${REDIS_URL}"
+    expected: pong-and-durable-jobs-ready
+  - name: object-storage-private
+    type: storage-policy
+    target: "${ASSET_STORAGE_URI}"
+    expected: private-read-write-without-public-listing
+deployOrder: 20
+rollbackPolicy:
+  strategy: application-first-migration-specific
+  retainVersions: 2
+  requireHealthCheck: true
+  restoreData: migration-rollback-note-or-isolated-restore-only
+

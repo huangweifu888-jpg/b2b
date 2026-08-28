@@ -1,0 +1,101 @@
+export const ADAPTIVE_STRUCTURE_ROLE_IDS = [
+  "section",
+  "list",
+  "item",
+  "action-rail",
+  "main",
+  "choice-group",
+  "choice-grid",
+  "field-grid",
+  "details",
+] as const;
+
+export type AdaptiveStructureRole = typeof ADAPTIVE_STRUCTURE_ROLE_IDS[number];
+
+export const ADAPTIVE_STRUCTURE_FACTORY_DEFAULT = {
+  id: "shared-adaptive-structure-v3",
+  version: "2026.08.16.5",
+  strategy: "one-boundary-progressive-disclosure-by-container",
+  roles: ADAPTIVE_STRUCTURE_ROLE_IDS,
+  hierarchy: ["section", "item", "details"],
+  boundaries: {
+    maximumVisibleLevels: 3,
+    itemBoundaryCount: 1,
+    nestedCarrierPolicy: "transparent-unless-interactive",
+  },
+  density: {
+    spaceUnit: 4,
+    sectionGap: 12,
+    itemGap: 8,
+    compactGap: 6,
+    actionHeight: 36,
+    minimumTouchTarget: 44,
+    itemRadius: 12,
+    controlRadius: 8,
+  },
+  informationPriority: {
+    p0: ["title", "status", "primary-action", "save"],
+    p1: ["action-rail", "core-fields", "selection-state"],
+    p2: ["secondary-fields", "supporting-actions"],
+    p3: ["description", "decoration", "developer-help"],
+  },
+  capacitySequence: [
+    "reduce-flexible-gap",
+    "compact-secondary-copy",
+    "activate-mobile-application-frame",
+    "reflow-auto-fit-grid",
+    "move-secondary-fields-to-details",
+    "single-column-last",
+  ],
+  componentPolicies: {
+    section: "one-section-boundary",
+    item: "one-item-boundary-no-decorative-card-nesting",
+    actionRail: "single-line-while-capacity-allows-then-whole-control-wrap",
+    choiceGrid: "auto-fit-equal-width-single-selection-frame",
+    fieldGrid: "two-columns-while-readable-then-one-column",
+    moduleEditor: "card-capacity-480-inline-352-group-wrap-extreme-equal-status-row",
+    moduleCategory: "desktop-shared-50-6-36-single-capsule-below-1024-static-flow",
+    serviceExperts: "content-capacity-222-card-auto-fit-unbounded-columns-until-single",
+    pageTools: "labelled>measured-icon-only>measured-overflow",
+    details: "large-visible-compact-progressive-disclosure",
+  },
+  mobileApplication: {
+    plugin: "shared-mobile-app-frame-v1",
+    activationMax: 639,
+    desktopIsolationMin: 640,
+    frame: {
+      topbarHeight: 52,
+      gutter: 8,
+      sectionGap: 8,
+      footerMinimumHeight: 60,
+      safeArea: true,
+    },
+    collections: {
+      functionGrid: "complexity-aware-editor-capacity-groups-through-mobile-content-auto-fit",
+      moduleEditor: "same-desktop-dom-medium-inline-small-group-wrap-extreme-stack",
+      moduleCategory: "same-desktop-dom-static-flow-below-1024-no-scroll-listener",
+      serviceExperts: "same-expert-card-dom-unbounded-auto-fit-by-own-content-capacity",
+      recordList: "single-boundary-compact-records",
+      choiceGrid: "auto-fit-equal-choice-cells",
+    },
+    footer: {
+      strategy: "context-row-then-five-equal-primary-items",
+      primaryItems: ["source-lock", "page-lock", "column-lock", "visual", "save"],
+      labelPolicy: "always-visible-while-each-equal-cell-remains-readable",
+    },
+  },
+  legacyAdapter: {
+    strategy: "semantic-marker-discovery",
+    scope: "every-responsive-page-host",
+    preserves: ["records", "fields", "business-actions", "materials", "tenant-settings"],
+  },
+  verification: {
+    widths: [240, 320, 352, 390, 480, 586, 639, 640, 768, 1024, 1280, 1440],
+    heights: [360, 390, 520, 650, 900],
+    reject: ["page-horizontal-overflow", "nested-decorative-boundary", "vertical-label", "detached-action-rail"],
+  },
+  factoryRestore: {
+    source: "code-owned-adaptive-structure-contract",
+    restoreTogether: ["three-source-shells", "visual-developer", "responsive-learning"],
+  },
+} as const;

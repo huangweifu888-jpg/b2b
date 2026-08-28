@@ -1,0 +1,837 @@
+/* Route-owned SiteSettings base moved out of the global entry stylesheet. */
+#root [data-site-settings-standard] .site-settings-general-card {
+  flex: 0 0 auto;
+  margin: 0;
+  overflow: hidden;
+}
+
+#root [data-site-settings-standard] [role="tabpanel"]:has(.site-settings-general-card) {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--tradepro-page-title-to-body-gap, 0.75rem) 0.75rem 1.5rem !important;
+  scrollbar-gutter: stable;
+}
+
+#root [data-site-settings-standard] .site-settings-general-header {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text) 30%, transparent);
+  background: var(--tradepro-panel-table-bg);
+  color: var(--tradepro-panel-table-text);
+}
+
+#root [data-site-settings-standard] .site-settings-general-header [data-page-list-left] {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+}
+
+#root [data-site-settings-standard] .site-settings-general-header small {
+  color: inherit;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-panel {
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header {
+  --tradepro-redirect-list-inset: var(--tradepro-shared-list-edge-inset, 0.75rem);
+  --tradepro-redirect-scrollbar-reserve: var(--tradepro-shared-list-scrollbar-lane, var(--tradepro-nav-scrollbar-reserve, 0.875rem));
+  flex: 0 0 auto !important;
+  margin: 0 var(--tradepro-redirect-scrollbar-reserve) 0 0 !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-list {
+  --tradepro-redirect-list-inset: var(--tradepro-shared-list-edge-inset, 0.75rem);
+  display: grid !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: var(--tradepro-shared-list-scroll-top-inset, var(--tradepro-redirect-list-inset)) 0 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  scroll-padding-top: 0;
+  scroll-padding-bottom: 0;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable !important;
+  background: var(--tradepro-panel-bg) !important;
+  scrollbar-color: var(--tradepro-panel-action-bg) var(--tradepro-panel-bg);
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-list::-webkit-scrollbar-track {
+  background: var(--tradepro-panel-bg);
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-list::-webkit-scrollbar-thumb {
+  border-color: var(--tradepro-panel-bg);
+  background-color: var(--tradepro-panel-action-bg);
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-list-add {
+  min-height: 0 !important;
+  padding-bottom: var(--tradepro-redirect-list-inset, 0.75rem) !important;
+}
+
+@media (min-width: 768px) {
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-site-settings-standard] [data-page-layout-frame] {
+    height: calc(
+      100dvh - var(--tradepro-shared-topbar-height, 3.5rem) - var(--tradepro-shared-footer-height, 3rem) - (var(--tradepro-shared-frame-gap, 0.75rem) * 2)
+    ) !important;
+    min-height: calc(
+      100dvh - var(--tradepro-shared-topbar-height, 3.5rem) - var(--tradepro-shared-footer-height, 3rem) - (var(--tradepro-shared-frame-gap, 0.75rem) * 2)
+    ) !important;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-site-settings-standard] [data-page-title] + [role="tabpanel"] {
+    padding-top: var(--tradepro-shared-title-to-card-gap, 0.75rem) !important;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-site-settings-standard] .site-settings-tailbar-wrap [data-nav-tailbar] {
+    padding-left: calc(
+      var(--tradepro-shared-shell-inline-gap, 1.5rem)
+      + var(--tradepro-shared-card-edge-inset, 0.75rem)
+      + 1px
+    ) !important;
+    padding-right: calc(
+      var(--tradepro-shared-shell-inline-gap, 1.5rem)
+      + var(--tradepro-shared-card-edge-inset, 0.75rem)
+      + var(--tradepro-shared-list-scrollbar-lane, var(--tradepro-nav-scrollbar-reserve, 14px))
+      + 1px
+    ) !important;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-site-settings-standard] .site-settings-tailbar-actions {
+    transform: none !important;
+  }
+}
+
+/* The standard site-settings page exposes the same semantic anchors as the
+   layout developer. Shared CSS can therefore recompose real content directly. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  padding: var(--tradepro-page-frame-gutter, 0px);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-layout-frame] {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.18);
+  border-radius: var(--tradepro-page-frame-radius, 1.5rem);
+  background: var(--tradepro-panel-bg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title] {
+  display: flex;
+  min-height: 4.75rem;
+  margin: 0;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--tradepro-panel-title-2-text) 28%, transparent);
+  border-radius: var(--tradepro-page-frame-radius, 1.5rem) var(--tradepro-page-frame-radius, 1.5rem) 0 0;
+  background: var(--tradepro-panel-title-2-bg) !important;
+  color: var(--tradepro-panel-title-2-text) !important;
+  box-shadow: inset 1px 1px 0 color-mix(in srgb, var(--tradepro-panel-title-2-text) 24%, transparent), inset -2px -2px 0 color-mix(in srgb, var(--tradepro-panel-title-2-primary) 22%, transparent), 0 3px 0 color-mix(in srgb, var(--tradepro-panel-title-2-text) 16%, transparent);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title] :is(h1, p, svg) {
+  color: var(--tradepro-panel-title-2-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title-actions] {
+  display: flex;
+  margin-left: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title-content] {
+  min-width: 0;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title-actions] button {
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 42%, transparent) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title-search] {
+  width: min(15rem, 24vw);
+  border-color: color-mix(in srgb, var(--tradepro-panel-title-text) 52%, transparent);
+  background: color-mix(in srgb, var(--tradepro-panel-title-text) 10%, transparent);
+  color: var(--tradepro-panel-title-text);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title-search]::placeholder {
+  color: color-mix(in srgb, var(--tradepro-panel-title-text) 72%, transparent);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title-meta] {
+  flex: 0 0 auto;
+  color: var(--tradepro-panel-title-text);
+  font-size: var(--tradepro-page-note-size);
+  white-space: nowrap;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-tabs] {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 0;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-tabs] [role="tab"] {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text) 24%, transparent);
+  border-radius: 9999px;
+  color: var(--tradepro-panel-table-text);
+  font-size: var(--tradepro-page-note-size);
+  text-decoration: none;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-tabs] [data-state="active"] {
+  border-color: var(--tradepro-panel-action-bg);
+  background: var(--tradepro-panel-action-bg);
+  color: var(--tradepro-panel-action-text);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [role="tabpanel"] {
+  padding: var(--tradepro-page-title-to-body-gap, 0.75rem) 1rem 1rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-layout-card] {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text) 18%, transparent) !important;
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+  box-shadow: 0 0.25rem 0.75rem color-mix(in srgb, var(--tradepro-panel-text) 8%, transparent);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-panel {
+  overflow: hidden;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.9fr) minmax(22rem, 1.1fr);
+  min-width: 0;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header {
+  margin: 0 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.72);
+  border-radius: 0.75rem;
+  background: var(--tradepro-panel-list-bg) !important;
+  color: var(--tradepro-panel-list-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header * {
+  color: var(--tradepro-panel-list-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header :is([data-page-list-left], [data-page-list-right]) {
+  min-width: 0;
+  padding: 0.625rem 0.875rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header small {
+  display: block;
+  margin-bottom: 0.25rem;
+  opacity: 0.76;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-left] > div,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-right] > div {
+  display: grid;
+  gap: 0.75rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-left] > div {
+  grid-template-columns: minmax(0, 1fr) 5rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-right] > div {
+  grid-template-columns: minmax(0, 1fr) 4rem 3.75rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-list {
+  display: grid;
+  gap: 0.5rem;
+  max-height: min(30rem, calc(100dvh - 23rem));
+  margin: 0.5rem 1rem 1rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 22%, transparent);
+  border-radius: var(--tradepro-page-radius);
+  background: var(--tradepro-panel-card-bg);
+  color: var(--tradepro-panel-list-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-rule,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-editor {
+  display: grid;
+  min-width: 0;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-rule {
+  grid-template-columns: minmax(0, 1fr) 5rem auto;
+  border-right: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 18%, transparent);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-editor {
+  grid-template-columns: minmax(0, 1fr) 4rem 3.75rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-rule code,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-editor input {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--tradepro-panel-list-text) !important;
+  font-size: var(--tradepro-page-note-size);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-editor input {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text) 30%, transparent);
+  background: color-mix(in srgb, var(--tradepro-panel-card-bg) 86%, var(--tradepro-panel-text));
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-nav-tailbar] {
+  margin-top: auto;
+  border-top: 1px solid var(--tradepro-shell-border);
+  background: var(--tradepro-shell-to);
+  color: var(--tradepro-shell-text);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-nav-tailbar] button {
+  min-height: 2rem;
+  padding: 0.375rem 0.75rem;
+  border-color: color-mix(in srgb, var(--tradepro-shell-text) 58%, transparent) !important;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--tradepro-shell-text) 10%, transparent) !important;
+  color: var(--tradepro-shell-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-nav-tailbar] .nav-tailbar-save {
+  flex: 0 0 auto;
+  transform: none !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-layout-footer-status] {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--tradepro-shell-text) 48%, transparent);
+  border-radius: 9999px;
+  color: var(--tradepro-shell-text);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title] {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header,
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+    grid-template-columns: 1fr;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-rule {
+    border-right: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 18%, transparent);
+  }
+}
+
+
+/* Site settings intentionally keeps the earlier standard management layout.
+   A previously saved navigation-frame profile must not turn it into the editor shell. */
+html[data-tradepro-page-layout-plugin="navigation-frame"] #root [data-site-settings-standard] [data-page-title] {
+  display: block;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: var(--tradepro-panel-text) !important;
+  box-shadow: none;
+}
+
+html[data-tradepro-page-layout-plugin="navigation-frame"] #root [data-site-settings-standard] [data-page-title] :is(h1, p, svg) {
+  color: var(--tradepro-panel-text) !important;
+}
+
+/* Redirect settings reuse the navigation title shell instead of the legacy
+   site-settings exception, so shared layout profiles stay visually aligned. */
+#root [data-site-settings-standard] [data-page-title].site-settings-navigation-title,
+html[data-tradepro-page-layout-plugin="navigation-frame"] #root [data-site-settings-standard] [data-page-title].site-settings-navigation-title,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [data-page-title].site-settings-navigation-title {
+  display: flex;
+  min-height: 4.75rem;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 0;
+  border-bottom: 3px solid color-mix(in srgb, var(--tradepro-panel-title-2-text) 36%, transparent);
+  border-radius: var(--tradepro-page-frame-radius, 1.5rem) var(--tradepro-page-frame-radius, 1.5rem) 0 0;
+  background: var(--tradepro-panel-title-2-bg) !important;
+  color: var(--tradepro-panel-title-2-text) !important;
+  box-shadow: inset 1px 1px 0 color-mix(in srgb, var(--tradepro-panel-title-2-text) 24%, transparent), inset -2px -2px 0 color-mix(in srgb, var(--tradepro-panel-title-2-primary) 22%, transparent), 0 0.1875rem 0 color-mix(in srgb, var(--tradepro-panel-title-2-text) 16%, transparent);
+}
+
+#root [data-site-settings-standard] [data-page-title].site-settings-navigation-title :is(h1, p, svg),
+html[data-tradepro-page-layout-plugin="navigation-frame"] #root [data-site-settings-standard] [data-page-title].site-settings-navigation-title :is(h1, p, svg) {
+  color: var(--tradepro-panel-title-2-text) !important;
+}
+
+#root [data-site-settings-standard] [data-page-title].site-settings-navigation-title h1 {
+  font-size: clamp(1.125rem, 1.45vw, 1.375rem) !important;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+#root [data-site-settings-standard] [data-page-title].site-settings-navigation-title p {
+  font-size: 0.75rem !important;
+  line-height: 1.25rem;
+  opacity: 0.8;
+}
+
+#root [data-site-settings-standard] .site-settings-navigation-title [data-page-title-actions] {
+  display: flex;
+  min-width: 0;
+  margin-left: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* Reuse navigation customization's scrollbar reserve so title actions end on the list edge. */
+#root [data-site-settings-standard] .site-settings-navigation-title [data-page-title-actions] {
+  margin-right: calc(var(--tradepro-nav-scrollbar-reserve) - 0.5rem);
+}
+
+#root [data-site-settings-standard] .site-settings-navigation-title [data-page-title-search] {
+  width: min(16rem, 36vw);
+  border-color: color-mix(in srgb, var(--tradepro-panel-title-text) 52%, transparent);
+  background: color-mix(in srgb, var(--tradepro-panel-title-text) 8%, transparent);
+  color: var(--tradepro-panel-title-text);
+}
+
+#root [data-site-settings-standard] .site-settings-navigation-title [data-page-title-search]::placeholder,
+#root [data-site-settings-standard] .site-settings-navigation-title [data-page-title-meta] {
+  color: color-mix(in srgb, var(--tradepro-panel-title-text) 70%, transparent);
+}
+
+#root [data-site-settings-standard] .site-settings-title-sortable-action {
+  cursor: grab;
+  touch-action: none;
+}
+
+#root [data-site-settings-standard] .site-settings-title-sortable-action.is-dragging {
+  cursor: grabbing;
+  opacity: 0.58;
+}
+
+#root [data-site-settings-standard] .site-settings-title-sortable-action {
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 40%, transparent) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+}
+
+/* Redirect settings use the same left-controls / right-content list contract as navigation customization. */
+#root [data-site-settings-standard] .site-settings-redirect-panel {
+  overflow: hidden;
+  background: transparent !important;
+  color: var(--tradepro-panel-text) !important;
+}
+
+/* The redirect editor shares navigation customization's single outer shell.
+   Only table and list rows are cards; the space between them remains the right-panel surface. */
+#root [data-site-settings-standard] [data-page-layout-frame] {
+  height: calc(100dvh - 9.125rem);
+  min-height: calc(100dvh - 9.125rem);
+  overflow: hidden;
+  background: var(--tradepro-panel-bg) !important;
+  color: var(--tradepro-panel-text) !important;
+}
+
+/* Match navigation customization's independent bottom action bar. */
+#root [data-site-settings-standard] .site-settings-tailbar-wrap {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: var(--app-sidebar-visible-width, 15rem);
+  z-index: 40;
+  transition: left 300ms ease-out;
+}
+
+#root [data-site-settings-standard] .site-settings-tailbar-wrap [data-nav-tailbar] {
+  height: 3rem;
+  min-height: 3rem;
+  margin: 0;
+  background: var(--tradepro-shell-to) !important;
+  color: var(--tradepro-shell-text) !important;
+}
+
+#root [data-site-settings-standard] .site-settings-tailbar-actions {
+  transform: translateX(calc(-1 * var(--tradepro-nav-footer-save-offset)));
+}
+
+body .site-settings-redirect-dialog {
+  border-color: color-mix(in srgb, var(--tradepro-panel-text) 22%, transparent) !important;
+  background: var(--tradepro-panel-bg) !important;
+  color: var(--tradepro-panel-text) !important;
+}
+
+body .site-settings-redirect-dialog :is(h2, p, label) {
+  color: var(--tradepro-panel-text) !important;
+}
+
+body .site-settings-redirect-dialog input {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text) 30%, transparent) !important;
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+}
+
+body .site-settings-redirect-dialog .site-settings-redirect-type-select {
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 30%, transparent);
+  border-radius: var(--tradepro-page-radius);
+  background: var(--tradepro-panel-card-bg);
+  color: var(--tradepro-panel-card-text);
+}
+
+body .site-settings-redirect-dialog .tradepro-panel-action {
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 40%, transparent) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-tailbar-wrap [data-nav-tailbar] .tradepro-panel-action {
+  height: 2rem;
+  min-height: 2rem;
+  padding: 0 0.75rem !important;
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 40%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.45rem) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header,
+#root [data-site-settings-standard] .site-settings-redirect-row {
+  display: grid;
+  grid-template-columns: minmax(13.5rem, 0.78fr) minmax(30rem, 1.22fr);
+  min-width: 0;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header {
+  margin: 1rem 1rem 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text) 34%, transparent);
+  border-radius: var(--tradepro-page-radius);
+  background: var(--tradepro-panel-table-bg) !important;
+  color: var(--tradepro-panel-table-text) !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header :is([data-page-list-left], [data-page-list-right]) {
+  display: flex;
+  min-width: 0;
+  min-height: 3.25rem;
+  align-items: center;
+  padding: 0.625rem 0.875rem;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-left] {
+  border-right: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text) 24%, transparent);
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header small,
+#root [data-site-settings-standard] .site-settings-redirect-header b {
+  color: var(--tradepro-panel-table-text) !important;
+  font-size: var(--tradepro-page-note-size);
+  font-weight: 600;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-right] > div,
+#root [data-site-settings-standard] .site-settings-redirect-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) 4rem 5.25rem;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-list {
+  display: grid;
+  gap: 0.5rem;
+  max-height: min(30rem, calc(100dvh - 23rem));
+  margin: 0.5rem 1rem 1rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-row {
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 22%, transparent);
+  border-radius: var(--tradepro-page-radius);
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-controls,
+#root [data-site-settings-standard] .site-settings-redirect-editor {
+  min-width: 0;
+  padding: 0.625rem 0.875rem;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-right: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 18%, transparent);
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-order-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-icon-button {
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  padding: 0;
+  color: var(--tradepro-panel-card-text) !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-icon-button svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-edit-button {
+  height: 1.875rem;
+  padding: 0 0.625rem;
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 40%, transparent) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+  font-size: var(--tradepro-page-note-size);
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-editor code,
+#root [data-site-settings-standard] .site-settings-redirect-editor input,
+#root [data-site-settings-standard] .site-settings-redirect-editor > span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--tradepro-panel-card-text) !important;
+  font-size: var(--tradepro-page-note-size);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-editor input {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text) 30%, transparent);
+  background: color-mix(in srgb, var(--tradepro-panel-card-bg) 86%, var(--tradepro-panel-text));
+}
+
+@media (max-width: 900px) {
+  #root [data-site-settings-standard] .site-settings-redirect-header,
+  #root [data-site-settings-standard] .site-settings-redirect-row {
+    grid-template-columns: 1fr;
+  }
+
+  #root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-left],
+  #root [data-site-settings-standard] .site-settings-redirect-controls {
+    border-right: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--tradepro-panel-card-text) 18%, transparent);
+  }
+}
+
+@media (max-width: 760px) {
+  #root [data-site-settings-standard] [data-page-layout-frame] {
+    height: auto;
+    overflow: visible;
+  }
+
+  #root [data-site-settings-standard] .site-settings-tailbar-wrap {
+    left: 0;
+    width: 100%;
+  }
+}
+
+/* Keep saved shared-frame profiles on the same redirect grid as the reusable navigation layout. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+  grid-template-columns: minmax(13.5rem, 0.78fr) minmax(30rem, 1.22fr);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header {
+  border-color: color-mix(in srgb, var(--tradepro-panel-table-text) 34%, transparent);
+  background: var(--tradepro-panel-table-bg) !important;
+  color: var(--tradepro-panel-table-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header * {
+  color: var(--tradepro-panel-table-text) !important;
+  font-family: var(--tradepro-page-font-family, inherit);
+}
+
+/* Every redirect rule is a navigation-style card: controls and fields share its card tokens. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+  font-family: var(--tradepro-page-font-family, inherit);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row :is(.site-settings-redirect-icon-button, .site-settings-redirect-icon-button svg, .site-settings-redirect-edit-button, .site-settings-redirect-editor code, .site-settings-redirect-editor input, .site-settings-redirect-editor > span) {
+  color: var(--tradepro-panel-card-text) !important;
+  font-family: var(--tradepro-page-font-family, inherit);
+}
+
+/* Match navigation customization's bare list icons: the card is the frame, not every control. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row .site-settings-redirect-icon-button {
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row .site-settings-redirect-icon-button:hover {
+  background: color-mix(in srgb, var(--tradepro-panel-card-text) 10%, transparent) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-controls button[role="switch"][data-state="checked"] {
+  background: #3b82f6 !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-controls button[role="switch"][data-state="unchecked"] {
+  background: #e2e8f0 !important;
+}
+
+#root [data-site-settings-standard] .site-settings-redirect-row.is-dragging {
+  z-index: 2;
+  opacity: 0.64;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row .site-settings-redirect-editor input,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row .site-settings-redirect-edit-button {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text) 32%, transparent) !important;
+  background: var(--tradepro-panel-card-bg) !important;
+}
+
+/* Layout Developer preview: the site-settings rule cards use the same card background and list text. */
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header [data-page-list-right] > div,
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-editor {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) 4rem 5.25rem;
+}
+
+/* Redirect table and rows share navigation customization's 0.75rem content gutter. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] [role="tabpanel"] {
+  padding: var(--tradepro-page-title-to-body-gap, 0.75rem) 0.75rem 0.75rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header {
+  margin: 0 0.875rem 0 0;
+  position: relative;
+  z-index: 3;
+  flex: 0 0 auto;
+  isolation: isolate;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-list {
+  grid-auto-rows: minmax(3.75rem, max-content);
+  align-content: start;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none;
+  margin: 0.5rem 0 0.75rem;
+  padding-right: 0;
+  scrollbar-gutter: stable;
+  position: relative;
+  z-index: 1;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+  min-height: 3.75rem;
+}
+
+/* Match the navigation editor's end-of-list action and its tail-safe space. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-list-add {
+  display: flex;
+  min-height: 9rem;
+  align-items: flex-start;
+  padding-top: 0.25rem;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-list-add .tradepro-panel-action {
+  height: 2rem;
+  padding: 0 0.75rem;
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text) 40%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.45rem) !important;
+  background: var(--tradepro-panel-action-bg) !important;
+  color: var(--tradepro-panel-action-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-controls {
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header,
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-row {
+    grid-template-columns: 1fr;
+  }
+
+  html[data-tradepro-page-layout="active"][data-tradepro-page-layout-plugin="shared-frame"] #root [data-site-settings-standard] .site-settings-redirect-header {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  #root [data-site-settings-standard] [data-page-title].site-settings-navigation-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  #root [data-site-settings-standard] .site-settings-navigation-title [data-page-title-actions],
+  #root [data-site-settings-standard] .site-settings-title-sortable-list {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

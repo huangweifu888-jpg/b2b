@@ -1,0 +1,30 @@
+# Operational controls; values are deployment policy, not credentials.
+audit:
+  retention_days: 365
+  redact_keys_containing:
+    - password
+    - secret
+    - token
+    - authorization
+    - cookie
+    - api_key
+health:
+  endpoint: /api/v1/operations/health
+  interval_seconds: 60
+  alert_after_consecutive_failures: 3
+  state_transitions_only: true
+  local_state_file: ../local-runtime/state/health-monitor/health-state.json
+  local_state_path_base: source-root
+alerts:
+  - database_unhealthy
+  - deployment_configuration_invalid
+  - background_job_queue_backlog
+  - background_job_processing_stalled
+  - content_download_scan_pending
+  - content_download_scan_rejected
+  - repeated_permission_denied
+restore_drill:
+  cadence: monthly
+  scope: one representative client plan backup
+  evidence: timestamp, source backup identifier, restored revision, integrity result
+  sqlite_command: python tools/verify_sqlite_restore_drill.py --backup <backup.sqlite3>

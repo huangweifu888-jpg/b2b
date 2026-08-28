@@ -1,0 +1,8 @@
+param([string]$BaseUrl="http://127.0.0.1:8000",[int]$ProjectId=1)
+$ErrorActionPreference="Stop"
+function S([string]$scope){Invoke-RestMethod -Method Post -Uri "$BaseUrl/api/v1/auth/local/demo-session" -ContentType "application/json" -Body (@{scope=$scope}|ConvertTo-Json -Compress)}
+function P([string]$path,[hashtable]$payload,[hashtable]$headers){Invoke-RestMethod -Method Post -Uri "$BaseUrl$path" -Headers $headers -ContentType "application/json" -Body ($payload|ConvertTo-Json -Depth 12 -Compress)}
+$hq=S "hq";$agency=S "agency";$client=S "client";$hh=@{Authorization="Bearer $($hq.token)"};$ah=@{Authorization="Bearer $($agency.token)"};$ch=@{Authorization="Bearer $($client.token)"};$stamp=Get-Date -Format "yyyyMMddHHmmssfff"
+$root="/api/v1/factory-platform/projects/$ProjectId/audiences";$audience=P $root @{audience_key="retargeting-$stamp";source_reference="segment:verified-$stamp";consent_receipt="consent:verified-$stamp";market_scope="overseas"} $hh;$audience=P "$root/$($audience.id)/verify" @{expected_revision=$audience.revision;reference="AUD-VERIFY-$stamp"} $ah;$activated=P "$root/$($audience.id)/activate" @{expected_revision=$audience.revision;destination="marketing-owner"} $ch;$activation=P "$root/activations/$($activated.activation.id)/acknowledge" @{expected_revision=$activated.activation.revision;reference="AUD-ACK-$stamp"} $hh
+if($activation.status -ne "acknowledged"){throw "Audience activation was not acknowledged."}
+[pscustomobject]@{project_id=$ProjectId;audience_status=$activated.audience.status;activation_status=$activation.status;raw_personal_data_stored=$false;external_audience_synced=$false;external_ad_spend_dispatched=$false;roles="hq,agency,client"}|ConvertTo-Json -Depth 8

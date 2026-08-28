@@ -1,0 +1,40 @@
+{
+    "title": "ad_sync_settings",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "platform_name": {
+            "type": "string",
+            "description": "Ad platform name"
+        },
+        "account_id": {
+            "type": "string",
+            "description": "Account identifier"
+        },
+        "sync_frequency": {
+            "type": "string",
+            "description": "Sync frequency: hourly, daily, weekly"
+        },
+        "auto_sync_enabled": {
+            "type": "boolean",
+            "description": "Whether auto sync is enabled"
+        },
+        "last_sync_at": {
+            "type": "string",
+            "description": "Last sync timestamp"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "platform_name",
+        "account_id"
+    ]
+}

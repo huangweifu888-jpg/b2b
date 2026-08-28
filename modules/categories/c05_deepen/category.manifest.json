@@ -1,0 +1,11 @@
+{
+  "manifestVersion": "1.0.0",
+  "kind": "business-category",
+  "categoryId": "deepen",
+  "order": "05",
+  "directory": "c05_deepen",
+  "productSourceOfTruth": "frontend/src/lib/factory-platform-blueprint.ts",
+  "migrationState": "pilot-manifest",
+  "applicationsRoot": "apps",
+  "implementationPolicy": "Application directories own vertical slices only after contract tests and compatibility adapters exist."
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.08.28.4",
+  "ownership": "shared-first",
+  "authority": "shared-contract",
+  "ownerComponent": "DevelopmentStandardApplyConsole",
+  "ownerModulePath": "frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx",
+  "navigationOrderSource": "developer-optimization-contract.json#apps",
+  "navigationOrderMigrationSource": "developer-optimization-contract.json#navigationOrderMigration",
+  "compatibilityRules": {
+    "navigationOrderAlias": {
+      "effectiveContractVersionSource": "developer-optimization-contract.json#navigationOrderMigration.effectiveContractVersion",
+      "missingContractVersionMode": "legacy-previous-order",
+      "beforeEffectiveVersion": "previous-order-alias",
+      "atOrAfterEffectiveVersion": "current-order"
+    },
+    "workflowPerformanceRevision": {
+      "sourceKeyPattern": "WorkflowPerformanceRevision$",
+      "stageOrders": ["01", "02", "03", "04", "05", "06"],
+      "primaryAppId": "performance-experience",
+      "artifactKind": "performance-evidence",
+      "pageIdentityObjectFields": ["sourceScope", "normalizedRoute"],
+      "externalPendingMapsTo": "pending",
+      "statusPriority": ["failed", "blocked", "stale", "pending", "passed"]
+    }
+  },
+  "commonFields": [
+    "schemaVersion",
+    "recordId",
+    "appId",
+    "relatedAppIds",
+    "artifactKind",
+    "scope",
+    "scopeIdentity",
+    "sourceScope",
+    "pageIdentity",
+    "status",
+    "authority",
+    "recordedAt",
+    "title",
+    "contractVersion",
+    "factoryVersion",
+    "hVersion",
+    "sourceFingerprint",
+    "targetManifestFingerprint",
+    "summary",
+    "validation",
+    "risks",
+    "artifactRefs"
+  ],
+  "adapterProvenanceFields": ["sourceKey"],
+  "authorities": [
+    {
+      "id": "source",
+      "label": "源码正式记录",
+      "auditLevel": "formal"
+    },
+    {
+      "id": "server",
+      "label": "服务端权威状态",
+      "auditLevel": "authoritative-state"
+    },
+    {
+      "id": "local",
+      "label": "本地便捷记录",
+      "auditLevel": "convenience-only"
+    },
+    {
+      "id": "session",
+      "label": "会话临时证据",
+      "auditLevel": "temporary-only"
+    }
+  ],
+  "projections": [
+    { "order": "01", "appId": "visual-frame", "artifactKind": "scope-manifest", "latestLimit": 3 },
+    { "order": "02", "appId": "shared-contract", "artifactKind": "resolved-contract", "latestLimit": 3 },
+    { "order": "03", "appId": "figma-ui", "artifactKind": "design-snapshot", "latestLimit": 3 },
+    { "order": "04", "appId": "visual-evidence", "artifactKind": "visual-evidence", "latestLimit": 3 },
+    { "order": "05", "appId": "performance-experience", "artifactKind": "performance-evidence", "latestLimit": 3 },
+    { "order": "06", "appId": "quality-release", "artifactKind": "release-evidence", "latestLimit": 3 },
+    { "order": "08", "appId": "page-lock", "artifactKind": "lock-receipt", "latestLimit": 3 }
+  ],
+  "aggregate": {
+    "order": "07",
+    "id": "page-factory-record-ledger",
+    "artifactKind": "page-factory-verification",
+    "label": "开发器记录总账",
+    "hostAppId": "page-factory",
+    "mode": "read-only",
+    "filters": ["appId", "status", "authority", "pageIdentity", "hVersion", "recordedAt", "keyword"]
+  },
+  "legacyEvidence": {
+    "source": "frontend/src/page-factory/phase-two-verification.json",
+    "revisionPattern": "^latest.*Revision$",
+    "auditKeys": ["latestHeartbeatAudit", "latestSmallCardDefaultTeaGreenAudit"],
+    "repairKeys": ["versionHistoryRetentionDisplayRepair"],
+    "adapterMode": "read-only",
+    "preferExplicitAppIdentity": true,
+    "classificationFields": ["sourceKey", "title", "scope", "result", "summary"],
+    "includeRootVerificationSummary": true
+  },
+  "localReceipts": {
+    "storagePrefix": "tradepro.developer-record-ledger.v1",
+    "maximumRecordsPerScope": 120,
+    "formalAudit": false
+  },
+  "artifactReferencePolicy": {
+    "allowRelativeWorkspacePaths": true,
+    "allowHttpUrls": true,
+    "redactAbsoluteLocalPaths": true,
+    "redactCredentials": true
+  },
+  "ui": {
+    "projectionPlacement": "active-application-footer-band",
+    "projectionLatestLimit": 3,
+    "aggregatePlacement": "07-page-factory-standalone-read-only-governance",
+    "duplicateLedgersForbidden": true
+  }
+}

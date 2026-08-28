@@ -1,0 +1,471 @@
+{
+  "version": "2026.08.28.7",
+  "ownership": "shared-first",
+  "automaticSourceRewrite": false,
+  "mediaContract": "media-optimization-contract.json",
+  "designContract": "design-integration-contract.json",
+  "recordLedgerContract": "developer-record-ledger-contract.json",
+  "navigationOrderMigration": {
+    "identityField": "appId",
+    "preserveStableAppIds": true,
+    "rewriteHistoricalRecords": false,
+    "effectiveContractVersion": "2026.08.28.3",
+    "aliases": [
+      { "appId": "page-factory", "previousOrder": "09", "currentOrder": "07" },
+      { "appId": "page-lock", "previousOrder": "07", "currentOrder": "08" }
+    ]
+  },
+  "routeComposition": {
+    "registry": "frontend/src/page-factory/page-registry.json",
+    "rootEntry": "index.html",
+    "appEntryName": "App",
+    "alwaysEntries": ["src/components/AppProductMarketRuntime.tsx"],
+    "layoutEntries": {
+      "hq": "src/components/HQLayout.tsx",
+      "agency_source": "src/components/AgencySourceLayout.tsx",
+      "client_source": "src/components/ClientSourceLayout.tsx"
+    },
+    "initialLazyEntriesByPageId": {
+      "hq-product-market-modules": ["src/components/product-market/ProductMarketModulesPanel.tsx"],
+      "agency-source-product-market-modules": ["src/components/product-market/ProductMarketModulesPanel.tsx"],
+      "client-source-product-market-modules": ["src/components/product-market/ProductMarketModulesPanel.tsx"],
+      "hq-product-market-service": ["src/components/product-market/ProductMarketCustomerServiceSection.tsx"],
+      "agency-source-product-market-service": ["src/components/product-market/ProductMarketCustomerServiceSection.tsx"],
+      "client-source-product-market-service": ["src/components/product-market/ProductMarketCustomerServiceSection.tsx"],
+      "product-analysis-market-finder": ["src/components/market-radar/MarketRadarWorkspace.tsx"],
+      "product-analysis-global-market": ["src/components/competitive-pricing/CompetitivePricingWorkspace.tsx"],
+      "client-social": ["src/components/social/tabs/SocialDashboardTab.tsx"],
+      "client-social-customer-roadmap": ["src/components/social/SocialCustomerRoadmapTab.tsx"],
+      "client-social-marketing-playbook": ["src/components/social/SocialMarketingPlaybook.tsx"],
+      "client-social-dashboard": ["src/components/social/tabs/SocialDashboardTab.tsx"],
+      "client-social-accounts": ["src/components/social/tabs/SocialAccountsTab.tsx"],
+      "client-social-create": ["src/components/social/tabs/SocialCreateTab.tsx"],
+      "client-social-digital-human": ["src/components/social/tabs/SocialDigitalHumanTab.tsx"],
+      "client-social-schedule": ["src/components/social/tabs/SocialScheduleTab.tsx"],
+      "client-social-automation": ["src/components/social/tabs/SocialAutomationTab.tsx"],
+      "client-social-analytics": ["src/components/social/tabs/SocialAnalyticsTab.tsx"],
+      "client-social-settings": ["src/components/social/tabs/SocialSettingsTab.tsx"]
+    },
+    "deferredLazyEntriesBySourceScope": {
+      "hq": [
+        "src/components/GlobalLocalEnvAlert.tsx",
+        "src/components/PlatformSettingsDropdown.tsx",
+        "src/components/SoftwareVersionBadge.tsx",
+        "src/components/SidebarProjectVersionCard.tsx"
+      ],
+      "agency_source": [
+        "src/components/GlobalLocalEnvAlert.tsx",
+        "src/components/PlatformSettingsDropdown.tsx",
+        "src/components/SoftwareVersionBadge.tsx",
+        "src/components/SiteSwitchLoadingOverlay.tsx"
+      ],
+      "client_source": [
+        "src/components/ExternalDevtoolsMenu.tsx",
+        "src/components/GlobalLocalEnvAlert.tsx",
+        "src/components/PlatformSettingsDropdown.tsx",
+        "src/components/SoftwareVersionBadge.tsx",
+        "src/components/SidebarProjectVersionCard.tsx",
+        "src/components/SiteSwitchLoadingOverlay.tsx"
+      ]
+    },
+    "deferredLazyEntriesByPageId": {
+      "client-dashboard": ["src/components/charts/ClientDashboardCharts.tsx"],
+      "client-account": ["src/components/charts/AccountCreditsChart.tsx"],
+      "client-seo": ["src/components/charts/SeoRankingChart.tsx"],
+      "client-company-info": ["src/pages/CompanyInfoDeferredPanels.tsx"],
+      "client-reports": ["src/components/reports/ReportChart.tsx"],
+      "hq-product-market-development": ["src/components/product-market/ProductMarketDevelopmentGuidePanel.tsx", "src/components/product-market/DevelopmentStandardWorkbench.tsx", "src/components/product-market/DevelopmentStandardPanels.tsx"],
+      "agency-source-product-market-development": ["src/components/product-market/ProductMarketDevelopmentGuidePanel.tsx", "src/components/product-market/DevelopmentStandardWorkbench.tsx", "src/components/product-market/DevelopmentStandardPanels.tsx"],
+      "client-source-product-market-development": ["src/components/product-market/ProductMarketDevelopmentGuidePanel.tsx", "src/components/product-market/DevelopmentStandardWorkbench.tsx", "src/components/product-market/DevelopmentStandardPanels.tsx"],
+      "hq-product-market": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-product-market-operations": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-product-market-modules": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-product-market-layout": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-product-market-service": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-product-market-blueprint": ["src/components/product-market/FactoryPlatformBlueprint.tsx", "src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "agency-source-product-market": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "agency-source-product-market-operations": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "agency-source-product-market-modules": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "agency-source-product-market-layout": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "agency-source-product-market-service": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "agency-source-product-market-blueprint": ["src/components/product-market/FactoryPlatformBlueprint.tsx", "src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "client-source-product-market": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "client-source-product-market-operations": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "client-source-product-market-modules": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "client-source-product-market-layout": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "client-source-product-market-service": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "client-source-product-market-blueprint": ["src/components/product-market/FactoryPlatformBlueprint.tsx", "src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-agency-source-style-settings": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-client-source-style-settings": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-agency-style-settings": ["src/components/product-market/VisualPageEditorLauncher.tsx"],
+      "hq-client-style-settings": ["src/components/product-market/VisualPageEditorLauncher.tsx"]
+    },
+    "developerApplicationEntries": {
+      "shared-contract": "src/components/product-market/DeveloperSharedContractWorkbench.tsx",
+      "figma-ui": "src/components/product-market/DeveloperFigmaDesignWorkbench.tsx",
+      "visual-evidence": "src/components/product-market/DeveloperVisualEvidenceWorkbench.tsx",
+      "performance-experience": "src/components/product-market/PerformanceExperienceWorkbench.tsx",
+      "quality-release": "src/components/product-market/PerformanceQualityReleaseWorkbench.tsx",
+      "page-factory": "src/components/product-market/PageFactoryWorkbench.tsx"
+    },
+    "developerShellEntry": "src/components/product-market/DevelopmentStandardApplyConsole.tsx",
+    "developerApplicationDeferredEntries": {
+      "page-factory": [
+        "src/page-factory/page-factory-audit.ts"
+      ]
+    },
+    "developerApplicationPreload": {
+      "mode": "single-next-step",
+      "schedule": "post-paint-idle",
+      "directIntentEvents": ["hover-120ms", "pointerdown", "focus"],
+      "singleFlight": true,
+      "failurePolicy": "one-retry-then-release"
+    },
+    "lightweightRouteUtilities": {
+      "aiBuilderScope": {
+        "entry": "src/lib/ai-builder-route-scope.ts",
+        "heavySource": "src/lib/ai-builder-scope.ts",
+        "consumer": "src/pages/ProductMarket.tsx",
+        "rule": "路由作用域判定不得让产品市场首屏加载语言目录。"
+      }
+    }
+  },
+  "pageLockRuntime": {
+    "stateProjection": "single-readonly-snapshot-per-revision",
+    "storageRecordsPerSnapshot": ["structure", "page", "source", "parents"],
+    "maxStorageReadsPerRevision": 4,
+    "memoizeInheritedResolution": true,
+    "hoverGuideOwner": "title-source-page-column-actions-only",
+    "duplicateTreeAndFooterHoverGuides": false,
+    "duplicateSelectionAndCustomLockGuides": false,
+    "batchStateCommit": "single-lock-tree-and-registry-refresh-after-operation",
+    "writeAndServerRegistrySemantics": "unchanged"
+  },
+  "releaseCoordinatorGate": {
+    "executionOwner": "single-global-frame-release-coordinator",
+    "evidenceOwner": "developer-workflow-run",
+    "lockCheckOwner": "08-page-lock",
+    "requiredFreshStages": ["02", "03", "04", "05", "06"],
+    "guardedActions": ["sync-passed-pages", "publish-three-end", "save-factory-default"],
+    "readOnlyAction": "preflight",
+    "lockLevelsMustBeOpen": ["source", "page", "column"],
+    "authorizationMode": "short-lived-single-action-one-time-request",
+    "authorizationMaxAgeMs": 300000,
+    "eventPayload": "opaque-request-id",
+    "localLedgerAuthority": "display-only",
+    "failureMode": "fail-closed"
+  },
+  "scopes": ["global", "page"],
+  "apps": [
+    {
+      "id": "visual-frame",
+      "order": "01",
+      "label": "全局框架器",
+      "description": "统一管理三端页面框架、作用范围、发布默认和批量同步；公共能力只维护一份。",
+      "footer": "先确定全局归属与影响范围，再进入契约、优化和发布。"
+    },
+    {
+      "id": "shared-contract",
+      "order": "02",
+      "label": "共享契约器",
+      "description": "集中定义结构、样式、响应式、加载预算和回归边界，所有页面读取同一份契约。",
+      "footer": "修改共享能力一次，三个来源端按契约同步生效。"
+    },
+    {
+      "id": "figma-ui",
+      "order": "03",
+      "label": "Figma 插件 UI",
+      "description": "读取可编辑 Design 引用和标准快照，将变量、组件、页面与加载意图映射到共享契约。",
+      "footer": "Figma 只生成受审设计提案；不会直接覆盖源码、共享契约或业务页面。"
+    },
+    {
+      "id": "visual-evidence",
+      "order": "04",
+      "label": "可视化验证台",
+      "description": "统一展示页面 DNA、Figma 与实页差异、三屏矩阵、加载证据、媒体地图和影响范围。",
+      "footer": "可视化默认只读；隔离预览通过后才允许生成受审修改计划。"
+    },
+    {
+      "id": "performance-experience",
+      "order": "05",
+      "label": "优化加载体验",
+      "description": "检测当前路由的真实等待、脚本、长任务、DOM、媒体和重复请求，并应用可逆策略。",
+      "footer": "当前页面负责提供证据，优化策略归属共享组件与公共边界。"
+    },
+    {
+      "id": "quality-release",
+      "order": "06",
+      "label": "质量与发布中心",
+      "description": "统一运行 Knip、ESLint、源码体积、构建包和 PR 门禁，支持全局或指定页面审计。",
+      "footer": "报告进入 PR 审查；不自动删除文件、导出、依赖或业务能力。"
+    },
+    {
+      "id": "page-factory",
+      "order": "07",
+      "label": "页面工厂",
+      "description": "集中查阅 01 至 06 的执行证据、08 锁定回执，以及页面覆盖率、版本、快照和恢复边界；保持只读，不复制第二套账本。",
+      "footer": "页面工厂只汇总 01 至 06 执行证据、08 锁定回执和代码拥有的页面状态；逐页采用、快照和版本推进仍遵守计划优先与保护边界。"
+    },
+    {
+      "id": "page-lock",
+      "order": "08",
+      "label": "页面锁定器",
+      "description": "最后确认源码锁、页面锁和栏目锁；锁定后任何自动优化都不得覆盖受保护基线。",
+      "footer": "锁定器是最终保护门，不是优化工具的旁路。"
+    }
+  ],
+  "loadingSpeedLearning": {
+    "version": "2026.08.28.2",
+    "owner": "performance-experience-learning",
+    "catalogSource": "frontend/src/lib/performance-experience-learning.ts",
+    "singleSource": true,
+    "automaticSourceRewrite": false,
+    "scopes": ["global", "page"],
+    "loadPlanProjection": {
+      "schemaVersion": 1,
+      "globalProfileId": "global-registered-pages",
+      "unregisteredProfileId": "unregistered-page",
+      "pageProfileIdSource": "pageFactoryId",
+      "pageEntryIntent": "critical",
+      "bucketIntents": {
+        "alwaysEntries": "critical",
+        "layoutEntries": "critical",
+        "initialLazyEntriesByPageId": "critical",
+        "deferredLazyEntriesBySourceScope": "post-paint",
+        "deferredLazyEntriesByPageId": "interaction"
+      },
+      "budgetSource": "budgets",
+      "ruleSource": "loadingSpeedLearning.rules",
+      "pageOverridesOnly": true,
+      "globalEmbedsPerPageUnits": false
+    },
+    "comparisonProtocol": {
+      "requireSamePageDna": true,
+      "requireFunctionalParity": true,
+      "requireBeforeAfterEvidence": true,
+      "allowedUnexpectedMutationRequests": 0,
+      "quick": {
+        "coldRuns": 2,
+        "repeatRuns": 2,
+        "viewports": [390, 768, 1440],
+        "releaseEvidence": false
+      },
+      "release": {
+        "coldRuns": 7,
+        "repeatRuns": 7,
+        "viewports": [390, 768, 1440],
+        "releaseEvidence": true
+      }
+    },
+    "rules": [
+      {
+        "id": "stable-page-identity",
+        "label": "稳定页面身份",
+        "guidance": "路由、Page DNA、实例键和占位布局必须稳定；只在真实页面身份变化时重挂载，Portal 入口不得制造流内位移。",
+        "evidencePatternIds": ["route-state-stability", "portal-fallback-zero-layout"]
+      },
+      {
+        "id": "intent-driven-boundaries",
+        "label": "真实意图拆包",
+        "guidance": "非首屏工具、弹窗和页签专属控件保持独立懒边界，只在悬浮、聚焦、按下或打开意图出现时单航道预热。",
+        "evidencePatternIds": ["heavy-tool-lazy-load", "tab-exclusive-control-boundary"]
+      },
+      {
+        "id": "deduplicated-async-work",
+        "label": "异步工作去重",
+        "guidance": "同一请求使用 single-flight 并在失败后释放；独立素材并发结算后批量提交状态，避免重复请求和逐项重渲染。",
+        "evidencePatternIds": ["network-single-flight", "batch-async-state-commit"]
+      },
+      {
+        "id": "immutable-computation-cache",
+        "label": "不可变计算复用",
+        "guidance": "只缓存原文签名、不可变 baseline 和稳定派生结果；实时草稿继续精确计算，避免错误缓存掩盖业务变化。",
+        "evidencePatternIds": ["storage-signature-cache", "component-render-boundary"]
+      },
+      {
+        "id": "visibility-aware-scheduling",
+        "label": "可见期调度",
+        "guidance": "观察器和短时进度合并调度，后台页停止周期唤醒；回到前台后按新鲜度补查，不用常驻高频轮询。",
+        "evidencePatternIds": ["observer-feedback-control", "visibility-aware-background-work", "event-backed-transient-polling"]
+      },
+      {
+        "id": "viewport-media-delivery",
+        "label": "近视口媒体交付",
+        "guidance": "保留完整语义 DOM 和固定尺寸占位，图片接近视口才赋真实地址，音视频按用户意图加载并遵守格式、尺寸和解码预算。",
+        "evidencePatternIds": ["offscreen-render-skipping", "media-lightweight-loading"]
+      },
+      {
+        "id": "route-owned-assets",
+        "label": "路由拥有资源",
+        "guidance": "只由单一路由或延迟组件消费的数据、CSS 和治理清单归属对应懒边界；共享结构和级联规则继续留在公共契约。",
+        "evidencePatternIds": ["route-owned-data-boundary", "route-owned-deferred-css", "deferred-widget-owned-css"]
+      },
+      {
+        "id": "tiered-performance-evidence",
+        "label": "分级性能证据",
+        "guidance": "日常快检使用 2 次冷启动、2 次复访和三视口；发布结论使用 7+7 分布采样，并要求同一 Page DNA 与功能等价。",
+        "evidencePatternIds": ["tiered-performance-evidence"]
+      },
+      {
+        "id": "capability-preservation",
+        "label": "能力等价保护",
+        "guidance": "清壳、拆包和清依赖不得删除拖拽、树级增删、上传、滚动同步、保存回读、权限或业务状态。",
+        "evidencePatternIds": []
+      },
+      {
+        "id": "fail-closed-governance",
+        "label": "失败关闭治理",
+        "guidance": "来源身份、证据、性能预算或源码锁、页面锁、栏目锁任一失效时停止写入、同步和发布，不把本地展示状态当授权。",
+        "evidencePatternIds": []
+      }
+    ],
+    "applicationPlans": [
+      {
+        "appId": "visual-frame",
+        "responsibility": "先确定页面身份、三端框架、路由归属和影响范围，再决定共享边界与加载顺序。",
+        "ruleIds": ["stable-page-identity", "intent-driven-boundaries", "route-owned-assets", "tiered-performance-evidence"],
+        "checks": ["Page DNA 与目标清单稳定", "首屏、后置和交互分包归属明确", "全局变更与单页覆盖范围可追溯"],
+        "output": "页面目标清单、框架草稿、加载边界和影响范围。",
+        "boundary": "不得复制页面外壳或以全局修改覆盖单页例外。"
+      },
+      {
+        "appId": "shared-contract",
+        "responsibility": "把请求、缓存、调度、媒体和响应式策略收敛为共享契约，让修改一处按作用域同步。",
+        "ruleIds": ["deduplicated-async-work", "immutable-computation-cache", "visibility-aware-scheduling", "viewport-media-delivery", "capability-preservation"],
+        "checks": ["共享能力只有一个所有者", "预算、媒体和响应式规则可机器验证", "页面只声明差异不复制实现"],
+        "output": "共享加载契约、预算、媒体策略和回归边界。",
+        "boundary": "不得把页面专属实现伪装成共享组件，也不得删除业务能力换取体积。"
+      },
+      {
+        "appId": "figma-ui",
+        "responsibility": "把 Figma 组件、变量、Frame 和加载意图映射到 Page DNA 与共享契约。",
+        "ruleIds": ["stable-page-identity", "intent-driven-boundaries", "viewport-media-delivery", "capability-preservation"],
+        "checks": ["链接指向具体 Frame 或组件集", "首屏、延迟和媒体意图进入设计快照", "设计 revision 与 Page DNA 同步"],
+        "output": "设计引用、标准快照和组件到加载契约映射。",
+        "boundary": "只生成受审提案，不保存凭证、不直接覆盖源码或发布组件。"
+      },
+      {
+        "appId": "visual-evidence",
+        "responsibility": "用三视口、资源瀑布、语义差异和影响图把加载结果变成可复核证据。",
+        "ruleIds": ["tiered-performance-evidence", "visibility-aware-scheduling", "stable-page-identity", "capability-preservation"],
+        "checks": ["390、768、1440 三视口覆盖", "可视化自身不进入业务首屏主包", "差异绑定同一 Page DNA 指纹"],
+        "output": "三屏矩阵、瀑布、媒体地图、差异和影响证据。",
+        "boundary": "默认只读；没有功能等价证据时不得把视觉差异直接转成源码写入。"
+      },
+      {
+        "appId": "performance-experience",
+        "responsibility": "测量当前页或全局代表样本，应用可逆运行时策略，并把验证结果更新为共享学习。",
+        "ruleIds": ["stable-page-identity", "intent-driven-boundaries", "deduplicated-async-work", "immutable-computation-cache", "visibility-aware-scheduling", "viewport-media-delivery", "route-owned-assets", "tiered-performance-evidence", "capability-preservation", "fail-closed-governance"],
+        "checks": ["先基线后候选且记录分布", "重复请求、长任务、CLS、DOM、媒体和存储均受检", "功能、响应式和零意外写请求保持"],
+        "output": "基线与候选对比、问题模式、学习条目和安全优化建议。",
+        "boundary": "自动动作仅限可逆运行时策略；源码优化必须进入受审任务和发布门。"
+      },
+      {
+        "appId": "quality-release",
+        "responsibility": "把清洁度、类型、包体、媒体、性能分布和 GitHub PR 证据统一为发布门。",
+        "ruleIds": ["intent-driven-boundaries", "route-owned-assets", "tiered-performance-evidence", "capability-preservation", "fail-closed-governance"],
+        "checks": ["Knip、ESLint、TypeScript 与包预算通过", "发布级 7+7 证据和功能等价有效", "PR、CI、HEAD、工作树和目标指纹一致"],
+        "output": "本地质量报告、发布级性能证据和可消费 PR 授权。",
+        "boundary": "不得自动删除文件、依赖或业务能力；外部证据缺失时保持 pending。"
+      },
+      {
+        "appId": "page-factory",
+        "responsibility": "只读汇总 01–06 与 08 证据，并用登记身份、覆盖率和快照验证规则是否真正复用。",
+        "ruleIds": ["stable-page-identity", "route-owned-assets", "immutable-computation-cache", "tiered-performance-evidence", "fail-closed-governance"],
+        "checks": ["页面身份与路由登记一致", "治理数据保持路由内懒加载", "覆盖率、学习证据和正式采用分开统计"],
+        "output": "确定性普查、覆盖报告、版本记录和恢复边界。",
+        "boundary": "不得批量采用、改写页面、自动接受基线或复制第二套账本。"
+      },
+      {
+        "appId": "page-lock",
+        "responsibility": "按需读取并展示源码锁、页面锁、栏目锁及继承关系，作为自动优化的最终保护门。",
+        "ruleIds": ["immutable-computation-cache", "visibility-aware-scheduling", "capability-preservation", "fail-closed-governance"],
+        "checks": ["仅激活 08 时订阅和计算锁树", "每个 revision 只读取栏目锁、页面锁、源码锁与父级表各一次", "锁说明只由标题源码锁、页面锁、栏目锁三个按钮承载", "锁回读与继承范围清晰", "任何写入前重新验证有效锁状态"],
+        "output": "三层锁状态、继承范围和可审计操作回执。",
+        "boundary": "不得绕过锁、替用户解锁或把锁定基线当成可覆盖许可。"
+      }
+    ]
+  },
+  "budgets": [
+    { "id": "route-fallback", "label": "路由等待", "unit": "ms", "warning": 400, "limit": 800 },
+    { "id": "route-script", "label": "路由脚本", "unit": "KB gzip", "warning": 256, "limit": 512 },
+    { "id": "post-paint-script", "label": "首帧后脚本", "unit": "KB gzip", "warning": 128, "limit": 256 },
+    { "id": "largest-chunk", "label": "最大单包", "unit": "KB gzip", "warning": 150, "limit": 256 },
+    { "id": "long-task", "label": "最长任务", "unit": "ms", "warning": 100, "limit": 200 },
+    { "id": "layout-shift", "label": "布局偏移", "unit": "CLS", "warning": 0.1, "limit": 0.25 },
+    { "id": "source-module", "label": "单源码模块", "unit": "KB raw", "warning": 80, "limit": 180 }
+  ],
+  "principles": [
+    {
+      "id": "single-owner",
+      "label": "单一所有权",
+      "rule": "加载策略、预算和共享结构写在公共契约或公共组件中，页面不复制实现。"
+    },
+    {
+      "id": "evidence-first",
+      "label": "证据优先",
+      "rule": "先采集运行时、源码和构建证据，再决定拆包、延迟加载或资源压缩。"
+    },
+    {
+      "id": "safe-automation",
+      "label": "安全自动化",
+      "rule": "运行时可自动应用可逆策略；源码清理只生成任务，必须经过 PR 审查。"
+    },
+    {
+      "id": "contract-regression",
+      "label": "契约回归",
+      "rule": "任何优化必须继续通过共享框架、响应式、页面工厂和业务能力验证。"
+    }
+  ],
+  "gates": [
+    "source-lock",
+    "eslint",
+    "typescript",
+    "knip",
+    "bundle-budget",
+    "media-policy",
+    "responsive",
+    "shared-contract",
+    "page-factory",
+    "github-pr"
+  ],
+  "githubPrEvidence": {
+    "schemaVersion": 1,
+    "requiredChecks": ["source-lock", "backend-contracts", "frontend-types"],
+    "requiredCheckBindings": [
+      {
+        "name": "source-lock",
+        "appSlug": "github-actions",
+        "workflowName": "B2B verification",
+        "workflowPath": ".github/workflows/verify.yml",
+        "event": "pull_request"
+      },
+      {
+        "name": "backend-contracts",
+        "appSlug": "github-actions",
+        "workflowName": "B2B verification",
+        "workflowPath": ".github/workflows/verify.yml",
+        "event": "pull_request"
+      },
+      {
+        "name": "frontend-types",
+        "appSlug": "github-actions",
+        "workflowName": "B2B verification",
+        "workflowPath": ".github/workflows/verify.yml",
+        "event": "pull_request"
+      }
+    ],
+    "acceptedReviewDecisions": ["approved"],
+    "requireExactWorkflowBinding": true,
+    "ttlSeconds": 600,
+    "repositoryBinding": "git-origin",
+    "requireCleanWorktree": true,
+    "requireHeadShaMatch": true,
+    "requireCurrentSourceFingerprint": true,
+    "requireCurrentTargetManifest": true,
+    "requireHqFingerprintVerification": true,
+    "requireTrustedCheckProvenance": true,
+    "requireOneTimeConsumption": true,
+    "consumeRevalidatesAuthoritativeState": true
+  }
+}

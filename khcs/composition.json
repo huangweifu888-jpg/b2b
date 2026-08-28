@@ -1,0 +1,28 @@
+{
+  "contractVersion": "1.0.0",
+  "compositionId": "khcs.client-runtime",
+  "shellId": "khcs",
+  "surface": "client-runtime-and-plan",
+  "mode": "use",
+  "codePolicy": "reference-only",
+  "categoryCatalog": "modules/technical-category-catalog.json",
+  "applicationResolution": {
+    "sourceFile": "frontend/src/lib/factory-platform-blueprint.ts",
+    "rule": "Resolve stable application IDs, then filter by published version, tenant, client, optional plan, permissions, and entitlements."
+  },
+  "categoryRefs": [
+    { "id": "identity", "mode": "use" },
+    { "id": "content", "mode": "use" },
+    { "id": "trust", "mode": "use" },
+    { "id": "recommend", "mode": "use" },
+    { "id": "deepen", "mode": "use" },
+    { "id": "portrait", "mode": "use" },
+    { "id": "lead", "mode": "use" },
+    { "id": "convert", "mode": "use" },
+    { "id": "fulfillment", "mode": "use" },
+    { "id": "care", "mode": "use" },
+    { "id": "decision", "mode": "use" },
+    { "id": "operations", "mode": "use" }
+  ],
+  "scopePolicy": "Customer and plan behavior is tenant-scoped configuration, content, branding, and approved overlays; reusable source is never copied."
+}

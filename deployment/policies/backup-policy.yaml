@@ -1,0 +1,18 @@
+schema_version: 1
+path_resolution:
+  workspace_root: ..
+  local_data_root: ../local-data
+local_validation_roots:
+  - ../local-data/backup-staging/program
+  - ../local-data/backup-staging/website
+production_requirements:
+  - backup_target_must_be_offsite
+  - database_and_release_backups_must_be_separate_from_application_host
+  - restore_verification_required_before_production_release
+  - no_source_tree_script_may_delete_formal_backups
+  - every_automated_backup_must_emit_a_verification_manifest
+  - production_schedule_identifier_must_be_recorded
+  - postgresql_restore_drill_must_use_an_isolated_read_only_verifier
+retention:
+  local_validation_versions: 10
+  production: provider_or_operations_policy

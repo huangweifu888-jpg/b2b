@@ -1,0 +1,53 @@
+name: B2B container release
+
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: Immutable registry repository, for example registry.example.com/b2b/platform
+        required: true
+        type: string
+      tag:
+        description: Reviewed release tag; deployment must use the resulting digest
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+  packages: write
+  attestations: write
+
+jobs:
+  build-scan-sign:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE: ${{ inputs.image }}
+      TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Authenticate to the approved registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.CONTAINER_REGISTRY_HOST }}
+          username: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+          password: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+      - name: Build and publish immutable image
+        run: |
+          docker buildx build --push --provenance=true --sbom=true \
+            --file deployment/containers/backend.Dockerfile \
+            --tag "$IMAGE:$TAG" --metadata-file image-metadata.json .
+          echo "IMAGE_DIGEST=$(jq -r '.\"containerimage.digest\"' image-metadata.json)" >> "$GITHUB_ENV"
+      - name: Scan published image by digest
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: ${{ env.IMAGE }}@${{ env.IMAGE_DIGEST }}
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          ignore-unfixed: true
+      - uses: sigstore/cosign-installer@v3.9.2
+      - name: Sign image through GitHub OIDC
+        run: cosign sign --yes "$IMAGE@$IMAGE_DIGEST"
+      - name: Verify signature before rollout
+        run: cosign verify --certificate-identity-regexp 'https://github.com/.+' --certificate-oidc-issuer https://token.actions.githubusercontent.com "$IMAGE@$IMAGE_DIGEST"

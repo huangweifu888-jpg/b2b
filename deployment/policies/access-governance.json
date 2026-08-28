@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "roles": {
+    "headquarters_administrator": {"scope": "all_active_tenants", "approve_release": true},
+    "agency_operator": {"scope": "own_descendant_organizations_and_plans", "approve_release": false},
+    "customer_content_operator": {"scope": "own_client_and_assigned_plans", "approve_release": false},
+    "plan_operator": {"scope": "assigned_plan_only", "approve_release": false},
+    "technical_operations": {"scope": "deployment_operations_only", "approve_release": false},
+    "security_owner": {"scope": "audit_and_incident_controls", "approve_release": false}
+  },
+  "deny_rules": ["sibling_agency", "unrelated_tenant", "parentless_scope_escalation"],
+  "release_approval_roles": ["headquarters_administrator", "technical_operations", "security_owner"],
+  "review": {"frequency_days": 90, "on_membership_change": true, "on_role_change": true}
+}

@@ -1,0 +1,1 @@
+{"id":"10-health-dashboard","name":"驭数（健康驾舱）","version":"0.1.0","requiredTenantContext":["agent_path","tenant_id","client_id"]}

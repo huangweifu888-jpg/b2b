@@ -1,0 +1,85 @@
+schema_version: 2
+path_resolution:
+  base: source-root
+  source_root: .
+  workspace_root: ..
+  policy: resolve-relative-paths-before-deployment
+source_of_truth:
+  repository: .
+  policy: one-reviewed-source-and-image-no-role-code-copies
+
+roles:
+  "01":
+    name: hq-source-control
+    folder: ../01-hq-source-control
+    owns: [headquarters, agency-source, client-source, tenant-registry, templates, release-control]
+    exposure: private-admin
+  "02":
+    name: agency-runtime
+    folder: ../02-agency-runtime
+    owns: [multi-level-agency-runtime]
+    tenant_keys: [agent_path, tenant_id]
+    exposure: private-behind-edge
+  "03":
+    name: client-plan-runtime
+    folder: ../03-client-plan-runtime
+    owns: [multi-client-runtime, multi-plan-runtime]
+    tenant_keys: [agent_path, tenant_id, client_id, plan_id]
+    exposure: private-behind-edge
+  "04":
+    name: content-worker
+    folder: ../04-content-worker
+    owns: [upload-quarantine, malware-scan, asset-derivatives, site-build, release-jobs, backup-jobs]
+    exposure: private-only
+  "05":
+    name: edge-observability
+    folder: ../05-edge-observability
+    owns: [https, domains, reverse-proxy, rate-limit, telemetry]
+    exposure: public-80-443-only
+  "06":
+    name: data-services
+    folder: ../06-data-services
+    owns: [postgresql, redis, object-storage, data-migrations]
+    logical_domains: [control, agency-runtime, client-plan-runtime, ops-audit]
+    exposure: private-data-network-only
+  "07":
+    name: backup-disaster-recovery
+    folder: ../07-backup-disaster-recovery
+    owns: [backup-policy, backup-manifest, isolated-restore, disaster-recovery]
+    exposure: isolated-offsite
+
+deployment_profiles:
+  source: deployment/profiles
+  growth_order: [data, worker, edge, source-control, agency-and-client-runtime, offsite-dr]
+  profiles:
+    - {servers: 1, file: deployment/profiles/01-server.yaml, purpose: local-sandbox}
+    - {servers: 2, file: deployment/profiles/02-server.yaml, purpose: app-data-separation}
+    - {servers: 3, file: deployment/profiles/03-server.yaml, purpose: production-baseline}
+    - {servers: 4, file: deployment/profiles/04-server.yaml, purpose: edge-separation}
+    - {servers: 5, file: deployment/profiles/05-server.yaml, purpose: source-control-separation}
+    - {servers: 6, file: deployment/profiles/06-server.yaml, purpose: business-runtime-separation}
+    - {servers: 7, file: deployment/profiles/07-server.yaml, purpose: dedicated-offsite-dr}
+
+state_boundaries:
+  local_sandbox:
+    runtime: ../local-runtime
+    mutable_data: ../local-data
+  production:
+    database: managed-or-dedicated-postgresql
+    cache_and_jobs: tls-redis
+    assets: private-object-storage
+    published_sites: separate-public-object-storage
+    backups: separate-credentials-and-failure-domain
+  forbidden_in_images: [database-files, customer-assets, secrets, logs, caches, backup-payloads]
+
+external_services:
+  database: managed-postgresql
+  object_storage: object-storage-uri
+  private_assets: private-read-only-mount
+  backups: separate-offsite-object-storage
+
+routing:
+  source: tenant-registry
+  key: [agent_path, tenant_id, client_id, optional-plan_id]
+  dedicated_when: [contractual-isolation, high-traffic, regional-compliance, independent-recovery]
+  forbidden_shortcut: copying-a-tenant-database-to-route-traffic

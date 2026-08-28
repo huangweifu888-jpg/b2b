@@ -1,0 +1,56 @@
+version: 1
+id: "03"
+name: client-plan-runtime
+label: 客户与计划运行端
+purpose: 运行多客户端和客户端多个计划，并按代理、租户、客户和计划四级上下文隔离。
+rulePath: deployment/role-definitions/role-03.yaml
+sourceIncludes:
+  - frontend/src/**
+  - frontend/public/**
+  - frontend/index.html
+  - frontend/package.json
+  - frontend/package-lock.json
+  - frontend/tsconfig*.json
+  - frontend/vite.config.ts
+  - backend/**
+  - khcs/**
+  - shared/**
+  - modules/**
+  - platform/template-engine/**
+  - platform/tenant-registry/**
+  - deployment/containers/backend.Dockerfile
+sourceExcludes:
+  - "**/AGENTS.md"
+  - backend/scaffolds/**
+  - frontend/node_modules/**
+  - frontend/dist/**
+  - frontend/test-results/**
+  - frontend/e2e/**
+  - backend/tests/**
+  - backend/mock_data/**
+  - "**/__pycache__/**"
+  - "**/*.pyc"
+  - "**/*.log"
+  - "**/*.pid"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: ["01", "02", "06"]
+artifactRoot: ../03-client-plan-runtime/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: client-api-ready
+    type: http
+    target: "${CLIENT_RUNTIME_BASE_URL}/api/v1/operations/health"
+    expected: http-200-and-plan-routing-ready
+  - name: client-plan-smoke
+    type: browser-smoke
+    target: /zb/client-source/product-market
+    expected: client-and-plan-context-load-without-cross-tenant-data
+deployOrder: 70
+rollbackPolicy:
+  strategy: previous-version-atomic-switch
+  retainVersions: 2
+  requireHealthCheck: true
+  restoreData: false

@@ -1,0 +1,40 @@
+version: 1
+id: "05"
+name: edge-observability
+label: 公网入口与观测
+purpose: 提供域名、HTTPS、反向代理、限流、访问日志、指标和告警入口。
+rulePath: deployment/role-definitions/role-05.yaml
+sourceIncludes:
+  - deployment/infrastructure/**
+  - deployment/topology/**
+  - deployment/policies/observability.yaml
+  - deployment/policies/operations-slo.json
+  - deployment/env/release.production.env.example
+sourceExcludes:
+  - "**/*.key"
+  - "**/*.pem"
+  - "**/*.pfx"
+  - "**/*.log"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: ["01", "02", "03", "04"]
+artifactRoot: ../05-edge-observability/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: public-https
+    type: http
+    target: "${PUBLIC_BASE_URL}/api/v1/operations/health"
+    expected: https-http-200-valid-certificate
+  - name: telemetry-ready
+    type: observability
+    target: "${DEPLOYMENT_ID}"
+    expected: logs-metrics-alerts-receiving
+deployOrder: 80
+rollbackPolicy:
+  strategy: previous-config-atomic-switch
+  retainVersions: 3
+  requireHealthCheck: true
+  restoreData: false
+

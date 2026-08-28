@@ -1,0 +1,8 @@
+param([string]$BaseUrl="http://127.0.0.1:8000",[int]$ProjectId=1)
+$ErrorActionPreference="Stop"
+function S([string]$scope){Invoke-RestMethod -Method Post -Uri "$BaseUrl/api/v1/auth/local/demo-session" -ContentType "application/json" -Body (@{scope=$scope}|ConvertTo-Json -Compress)}
+function P([string]$path,[hashtable]$payload,[hashtable]$headers){Invoke-RestMethod -Method Post -Uri "$BaseUrl$path" -Headers $headers -ContentType "application/json" -Body ($payload|ConvertTo-Json -Depth 12 -Compress)}
+$hq=S "hq";$agency=S "agency";$client=S "client";$hh=@{Authorization="Bearer $($hq.token)"};$ah=@{Authorization="Bearer $($agency.token)"};$ch=@{Authorization="Bearer $($client.token)"};$stamp=Get-Date -Format "yyyyMMddHHmmssfff"
+$root="/api/v1/factory-platform/projects/$ProjectId/ad-accounts";$account=P $root @{platform="google";account_reference="GOOGLE-$stamp";vault_reference="vault://ads/google-$stamp";market_scope="overseas"} $hh;$account=P "$root/$($account.id)/verify" @{expected_revision=$account.revision;reference="AD-VERIFY-$stamp"} $ah;$routed=P "$root/$($account.id)/route" @{expected_revision=$account.revision;destination="marketing-owner"} $ch;$handoff=P "$root/handoffs/$($routed.handoff.id)/acknowledge" @{expected_revision=$routed.handoff.revision;reference="AD-ACK-$stamp"} $hh
+if($handoff.status -ne "acknowledged"){throw "Ad account handoff was not acknowledged."}
+[pscustomobject]@{project_id=$ProjectId;account_status=$routed.account.status;handoff_status=$handoff.status;platform_credentials_stored=$false;external_account_enabled=$false;external_ad_spend_dispatched=$false;roles="hq,agency,client"}|ConvertTo-Json -Depth 8

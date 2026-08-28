@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "health": {
+    "endpoint": "/api/v1/operations/health",
+    "interval_seconds": 60,
+    "alert_after_consecutive_failures": 3
+  },
+  "alerts": [
+    "database_unhealthy",
+    "redis_or_worker_unhealthy",
+    "content_download_scan_pending",
+    "backup_or_restore_drill_failed",
+    "release_stage_paused"
+  ],
+  "performance": {
+    "health_probe_p95_ms": 1000,
+    "health_probe_error_rate_percent": 1,
+    "max_smoke_concurrency": 20
+  },
+  "privacy": {
+    "forbid": ["password", "secret", "token", "authorization", "cookie", "api_key"]
+  }
+}

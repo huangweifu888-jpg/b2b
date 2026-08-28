@@ -1,0 +1,31 @@
+{
+  "manifestVersion": "1.0.0",
+  "kind": "business-application",
+  "applicationId": "deepen.social-matrix",
+  "categoryId": "deepen",
+  "directory": "social_matrix",
+  "productSourceOfTruth": "frontend/src/lib/factory-platform-blueprint.ts",
+  "migrationState": "manifest-only",
+  "implementationMoved": false,
+  "legacy": {
+    "moduleId": "05-social-media",
+    "moduleManifest": "modules/05-social-media/module.manifest.json",
+    "frontendPage": "frontend/src/pages/SocialMedia.tsx",
+    "route": "/social?tab=accounts"
+  },
+  "surfaceModes": {
+    "headquarters": "govern",
+    "agencySource": "publish",
+    "clientSource": "configure",
+    "agencyRuntime": "operate",
+    "clientRuntime": "use"
+  },
+  "requiredTenantContext": ["agent_path", "tenant_id", "client_id"],
+  "optionalTenantContext": ["plan_id"],
+  "implementationPolicy": {
+    "copySource": false,
+    "preserveLegacyRoute": true,
+    "moveOnlyAfter": ["contract-tests", "compatibility-adapter", "role-package-verification"]
+  },
+  "downloadEnabled": false
+}

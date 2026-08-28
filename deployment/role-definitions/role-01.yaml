@@ -1,0 +1,60 @@
+version: 1
+id: "01"
+name: hq-source-control
+label: 总部与源控制
+purpose: 运行总部端、代理源、客户源、租户注册、模板治理和受控发布。
+rulePath: deployment/role-definitions/role-01.yaml
+sourceIncludes:
+  - frontend/src/**
+  - frontend/public/**
+  - frontend/index.html
+  - frontend/package.json
+  - frontend/package-lock.json
+  - frontend/tsconfig*.json
+  - frontend/vite.config.ts
+  - backend/**
+  - zbcx/**
+  - shared/**
+  - modules/**
+  - platform/control-api/**
+  - platform/release-manager/**
+  - platform/template-engine/**
+  - platform/tenant-registry/**
+  - release/**
+  - deployment/containers/backend.Dockerfile
+  - deployment/infrastructure/deployment-contract.example.json
+sourceExcludes:
+  - "**/AGENTS.md"
+  - backend/scaffolds/**
+  - frontend/node_modules/**
+  - frontend/dist/**
+  - frontend/test-results/**
+  - frontend/e2e/**
+  - backend/tests/**
+  - backend/mock_data/**
+  - "**/__pycache__/**"
+  - "**/*.pyc"
+  - "**/*.log"
+  - "**/*.pid"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: ["06"]
+artifactRoot: ../01-hq-source-control/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: control-api-ready
+    type: http
+    target: "${CONTROL_API_BASE_URL}/api/v1/operations/health"
+    expected: http-200-and-deployment-ready
+  - name: source-shell-smoke
+    type: browser-smoke
+    target: /zb/product-market
+    expected: headquarters-agency-source-client-source-load
+deployOrder: 50
+rollbackPolicy:
+  strategy: previous-version-atomic-switch
+  retainVersions: 2
+  requireHealthCheck: true
+  restoreData: false

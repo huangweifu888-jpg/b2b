@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "environment": "staging",
+  "issuer_url": "https://REPLACE_IDP_ISSUER",
+  "client_id_reference": "secret-manager:REPLACE_OIDC_CLIENT_ID_REFERENCE",
+  "mfa_claims": ["amr", "acr"],
+  "privileged_roles": ["admin", "headquarters_administrator", "technical_operations", "security_owner"],
+  "scim": {"enabled": true, "deprovisioning_event_required": true},
+  "test_user_reference": "secret-manager:REPLACE_TEST_USER_REFERENCE"
+}

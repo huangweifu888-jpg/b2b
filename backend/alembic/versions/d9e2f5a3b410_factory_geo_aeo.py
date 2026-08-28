@@ -1,0 +1,29 @@
+"""source-bound GEO/AEO answer versions and controlled handoffs
+
+Revision ID: d9e2f5a3b410
+Revises: c8d1e4f2a309
+Rollback removes only GEO governance data, permissions and contracts; it never deletes source content, websites or model observations.
+"""
+import json
+from alembic import op
+import sqlalchemy as sa
+revision="d9e2f5a3b410";down_revision="c8d1e4f2a309";branch_labels=None;depends_on=None
+P=("factory.recommend.geo-aeo.question.manage","factory.recommend.geo-aeo.answer.verify","factory.recommend.geo-aeo.release.approve","factory.recommend.geo-aeo.handoff.acknowledge");T=("factory_geo_aeo_questions","factory_geo_aeo_answer_versions","factory_geo_aeo_releases","factory_geo_aeo_evidence")
+def t():return[sa.Column("id",sa.String(100),primary_key=True),sa.Column("project_id",sa.Integer(),nullable=False),sa.Column("agent_path",sa.String(255),nullable=False),sa.Column("tenant_id",sa.String(128),nullable=False),sa.Column("client_id",sa.String(128),nullable=False),sa.Column("plan_id",sa.String(128),nullable=False)]
+def ix(n,*c):
+ for x in("project_id","agent_path","tenant_id","client_id","plan_id",*c):op.create_index(f"ix_{n}_{x}",n,[x])
+def perms(remove=False):
+ b=op.get_bind()
+ for r in b.execute(sa.text("SELECT id,permissions_json FROM roles_platform WHERE is_system=1 AND scope IN ('client','project')")).mappings():
+  try:v=json.loads(r["permissions_json"]or"[]")
+  except(ValueError,TypeError):v=[]
+  v=[x for x in v if x not in P]if remove else list(dict.fromkeys([*v,*P]));b.execute(sa.text("UPDATE roles_platform SET permissions_json=:p WHERE id=:i"),{"p":json.dumps(v,ensure_ascii=False),"i":r["id"]})
+def upgrade():
+ op.create_table("factory_geo_aeo_questions",*t(),sa.Column("question_number",sa.String(96),nullable=False),sa.Column("question_reference",sa.String(255),nullable=False),sa.Column("market",sa.String(80),nullable=False),sa.Column("locale",sa.String(32),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("created_by",sa.String(128),nullable=False),sa.Column("created_at",sa.DateTime(timezone=True),nullable=False),sa.Column("revision",sa.Integer(),nullable=False),sa.UniqueConstraint("question_number"),sa.UniqueConstraint("project_id","question_reference",name="uq_factory_geo_aeo_question"));ix("factory_geo_aeo_questions","question_number","status")
+ op.create_table("factory_geo_aeo_answer_versions",*t(),sa.Column("version_number",sa.String(96),nullable=False),sa.Column("question_id",sa.String(100),nullable=False),sa.Column("question_number",sa.String(96),nullable=False),sa.Column("answer_manifest_json",sa.JSON(),nullable=False),sa.Column("manifest_hash",sa.String(64),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("authored_by",sa.String(128),nullable=False),sa.Column("verified_by",sa.String(128)),sa.Column("verification_reference",sa.String(255)),sa.Column("created_at",sa.DateTime(timezone=True),nullable=False),sa.Column("verified_at",sa.DateTime(timezone=True)),sa.Column("revision",sa.Integer(),nullable=False),sa.UniqueConstraint("version_number"));ix("factory_geo_aeo_answer_versions","version_number","question_id","status")
+ op.create_table("factory_geo_aeo_releases",*t(),sa.Column("release_number",sa.String(96),nullable=False),sa.Column("version_id",sa.String(100),nullable=False),sa.Column("version_number",sa.String(96),nullable=False),sa.Column("target",sa.String(40),nullable=False),sa.Column("handoff_manifest_json",sa.JSON(),nullable=False),sa.Column("manifest_hash",sa.String(64),nullable=False),sa.Column("status",sa.String(32),nullable=False),sa.Column("prepared_by",sa.String(128),nullable=False),sa.Column("approved_by",sa.String(128)),sa.Column("consumer_receipt_reference",sa.String(255)),sa.Column("available",sa.Boolean(),nullable=False),sa.Column("prepared_at",sa.DateTime(timezone=True),nullable=False),sa.Column("revision",sa.Integer(),nullable=False),sa.UniqueConstraint("release_number"));ix("factory_geo_aeo_releases","release_number","version_id","status","available")
+ op.create_table("factory_geo_aeo_evidence",*t(),sa.Column("evidence_number",sa.String(96),nullable=False),sa.Column("subject_id",sa.String(100),nullable=False),sa.Column("evidence_type",sa.String(64),nullable=False),sa.Column("evidence_reference",sa.String(255),nullable=False),sa.Column("note",sa.Text()),sa.Column("recorded_by",sa.String(128),nullable=False),sa.Column("recorded_at",sa.DateTime(timezone=True),nullable=False),sa.UniqueConstraint("evidence_number"));ix("factory_geo_aeo_evidence","evidence_number")
+ b=op.get_bind();b.execute(sa.text("INSERT INTO factory_core_object_contracts (id,sequence,label,system_of_record,identity_rule,minimum_fields_json,lifecycle_status,schema_version,revision,updated_by) SELECT 'geo-aeo-answer-version',39,'GEO answer version','recommend','tenant, question and answer','[\"tenantId\",\"questionId\",\"versionId\",\"sourceReference\",\"manifestHash\"]','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_object_contracts WHERE id='geo-aeo-answer-version')"));b.execute(sa.text("INSERT INTO factory_core_event_contracts (id,sequence,label,subject_id,producer,consumers_json,required_fields_json,compatibility,lifecycle_status,schema_version,revision,updated_by) SELECT 'geo-aeo-handoff-released',31,'GEO answer handoff released','geo-aeo-answer-version','recommend','[\"content\",\"geo\",\"marketing\"]','[\"eventId\",\"tenantId\",\"eventType\",\"subjectId\",\"version\"]','backward','frozen',1,1,'migration' WHERE NOT EXISTS (SELECT 1 FROM factory_core_event_contracts WHERE id='geo-aeo-handoff-released')"));perms()
+def downgrade():
+ perms(True);b=op.get_bind();b.execute(sa.text("DELETE FROM factory_core_event_contracts WHERE id='geo-aeo-handoff-released'"));b.execute(sa.text("DELETE FROM factory_core_object_contracts WHERE id='geo-aeo-answer-version'"))
+ for n in reversed(T):op.drop_table(n)

@@ -1,0 +1,121 @@
+{
+  "version": "2026.08.28.1",
+  "ownership": "shared-first",
+  "policy": "media-upload-and-delivery",
+  "kinds": {
+    "image": {
+      "label": "图片",
+      "acceptedMimeTypes": ["image/avif", "image/webp", "image/jpeg", "image/png"],
+      "preferredMimeTypes": ["image/avif", "image/webp"],
+      "acceptedExtensions": [".avif", ".webp", ".jpg", ".jpeg", ".png"],
+      "mimeByExtension": {
+        ".avif": "image/avif",
+        ".webp": "image/webp",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png"
+      },
+      "maxUploadBytes": 2097152,
+      "warningBytes": 307200,
+      "deliveryBudgetBytes": 716800,
+      "maxWidth": 2560,
+      "maxHeight": 2560
+    },
+    "video": {
+      "label": "视频",
+      "acceptedMimeTypes": ["video/mp4", "video/webm"],
+      "preferredMimeTypes": ["video/mp4", "video/webm"],
+      "acceptedExtensions": [".mp4", ".webm"],
+      "mimeByExtension": {
+        ".mp4": "video/mp4",
+        ".webm": "video/webm"
+      },
+      "maxUploadBytes": 2097152,
+      "warningBytes": 1048576,
+      "deliveryBudgetBytes": 2097152,
+      "maxWidth": 1920,
+      "maxHeight": 1080,
+      "maxDurationSeconds": 15
+    },
+    "audio": {
+      "label": "音频",
+      "acceptedMimeTypes": ["audio/mpeg", "audio/mp4", "audio/ogg", "audio/wav"],
+      "preferredMimeTypes": ["audio/mpeg", "audio/mp4", "audio/ogg"],
+      "acceptedExtensions": [".mp3", ".m4a", ".ogg", ".wav"],
+      "mimeByExtension": {
+        ".mp3": "audio/mpeg",
+        ".m4a": "audio/mp4",
+        ".ogg": "audio/ogg",
+        ".wav": "audio/wav"
+      },
+      "maxUploadBytes": 2097152,
+      "warningBytes": 262144,
+      "deliveryBudgetBytes": 524288
+    }
+  },
+  "avatar": {
+    "width": 250,
+    "height": 250,
+    "imageOutputMimeType": "image/webp",
+    "imageQuality": 0.82,
+    "videoOutputMimeType": "video/webm",
+    "videoFrameRate": 24,
+    "videoBitsPerSecond": 500000,
+    "maxDurationSeconds": 15
+  },
+  "storageLifecycle": {
+    "originalRetention": "temporary-until-verified",
+    "removeOriginalAfterVerification": true,
+    "editableSourceRetention": "explicit-opt-in-only",
+    "minimumSavingsRatio": 0.1,
+    "deduplicateBy": "sha256",
+    "deduplicateScope": "material-library",
+    "reuseExistingAsset": true,
+    "derivativeStorage": "regenerable-cache",
+    "failurePolicy": "keep-current-revision"
+  },
+  "optimization": {
+    "image": {
+      "mode": "automatic-on-upload",
+      "convertMimeTypes": ["image/jpeg", "image/png"],
+      "outputMimeType": "image/webp",
+      "outputExtension": ".webp",
+      "quality": 0.82,
+      "encoderMethod": 6,
+      "preserveAnimatedImages": true
+    },
+    "video": {
+      "mode": "preferred-delivery-format",
+      "outputMimeType": "video/mp4",
+      "codec": "h264",
+      "posterMimeType": "image/webp",
+      "transcodeWhenRuntimeAvailable": true,
+      "browserTranscode": false
+    },
+    "structuredMedia": {
+      "mode": "preserve-structure",
+      "formats": ["image/svg+xml", "application/json", "text/css"],
+      "examples": ["SVG", "Lottie", "CSS"]
+    }
+  },
+  "delivery": {
+    "responsiveImageWidths": [320, 640, 960, 1280, 1920],
+    "imageLoading": "lazy-below-fold",
+    "imageDecoding": "async",
+    "videoPreload": "metadata",
+    "videoPosterRequired": true,
+    "videoPlaysInline": true,
+    "immutableRevisionUrls": true,
+    "avatarFirstPaint": {
+      "id": "bundled-first-decode-gated-never-empty-v1",
+      "policy": "01-12>bundled-local-portrait-first>saved-media-ready-gate>saved-material-replaces>decode-error-to-bundled>never-empty",
+      "scope": "customer-service-experts-01-12",
+      "firstPaintSource": "bundled-local-portrait",
+      "savedImageActivation": "decode-ready",
+      "savedVideoPoster": "bundled-local-portrait",
+      "decodeFailureFallback": "bundled-local-portrait",
+      "terminalFallback": "vector-illustration",
+      "neverEmpty": true
+    }
+  }
+}

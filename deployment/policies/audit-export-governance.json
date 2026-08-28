@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "required_events": ["membership_changed", "role_changed", "release_rollout", "private_download", "data_export_requested", "data_delete_requested"],
+  "export": {"tenant_scoped": true, "authenticated": true, "audited": true, "secret_redaction": true, "max_rows_per_export": 10000},
+  "retention_days": 365,
+  "prohibited_fields": ["password", "secret", "token", "authorization", "cookie", "api_key"]
+}

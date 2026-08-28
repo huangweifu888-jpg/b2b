@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "planning_units": {
+    "api_requests_per_second_per_replica": 40,
+    "background_jobs_per_minute_per_worker": 120,
+    "plans_per_database_unit": 1000,
+    "minimum_api_replicas": 2,
+    "minimum_worker_replicas": 1
+  },
+  "slo": {
+    "health_probe_p95_ms": 1000,
+    "health_probe_error_rate_percent": 1
+  },
+  "review_triggers": [
+    "new_large_agency",
+    "dedicated_customer_stamp",
+    "p95_threshold_exceeded",
+    "queue_depth_growth",
+    "database_cpu_or_connection_saturation"
+  ]
+}

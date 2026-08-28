@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "environment": "staging",
+  "isolated_restore_database_reference": "provider:REPLACE_ISOLATED_RESTORE_DATABASE",
+  "asset_restore_target_reference": "provider:REPLACE_ISOLATED_ASSET_TARGET",
+  "alternate_runtime_reference": "provider:REPLACE_ALTERNATE_RUNTIME",
+  "dns_change_reference": "ticket:REPLACE_DNS_CHANGE_PLAN",
+  "evidence": ["restore_reference", "migration_revision", "tenant_integrity", "health_probe", "rollback_reference"],
+  "production_overwrite": false
+}

@@ -1,0 +1,95 @@
+version: 1
+title: 源码与部署中心全局六步发布流程
+sourceFile: deployment/common/global-release-flow.yaml
+description: 00-platform-source 是唯一源码；角色规则生成外层 01—07 的版本成品，服务器只接收本次所需版本包。
+sourceOfTruth: .
+roleDefinitionsRoot: deployment/role-definitions
+profilesRoot: deployment/profiles
+artifactPolicy:
+  outputLayout: "../<role-name>/releases/<version>"
+  immutableAfterBuild: true
+  manualEditsForbidden: true
+  uploadScope: selected-profile-role-versions-only
+  neverPackage:
+    - ../local-data/**
+    - ../local-runtime/**
+    - "**/node_modules/**"
+    - "**/test-results/**"
+    - "**/.env"
+    - "**/*.log"
+    - "**/*.pid"
+    - database-files
+    - customer-assets
+    - backup-payloads
+steps:
+  - id: release-precheck
+    order: 1
+    title: 发布预检
+    description: 在唯一源码中检查源码锁、版本、类型、后端、共享契约、租户隔离、迁移和敏感文件。
+    input: 00-platform-source 当前候选版本
+    actions:
+      - 确认源码锁与工作区状态
+      - 运行前端、后端、共享契约和租户隔离检查
+      - 检查数据库迁移、密钥、垃圾文件和未审核素材
+    output: 带统一版本号的可构建候选版本
+    gate: 所有必需检查通过且不存在真实密钥、本机数据或锁定页面改动
+    rollback: 不产生发布包，回到 00 修复后重新预检
+  - id: select-server-profile
+    order: 2
+    title: 选择服务器方案
+    description: 选择 1—7 台服务器组合，确定每台服务器需要承载的角色，不改变源码结构。
+    input: deployment/profiles/01-server.yaml 至 07-server.yaml
+    actions:
+      - 根据容量、隔离、可用性和灾备要求选择组合
+      - 核对角色依赖、目标服务器、网络和外部备份边界
+    output: 本次发布的服务器与角色映射
+    gate: 01—06 角色完整且备份目标满足所选方案要求
+    rollback: 返回重新选择组合，不修改源码和既有发布包
+  - id: build-role-artifacts
+    order: 3
+    title: 生成角色包
+    description: 按 role-01 至 role-07 的路径清单从同一源码构建对应角色成品。
+    input: 候选版本、角色定义和服务器方案
+    actions:
+      - 只读取 sourceIncludes 并执行 sourceExcludes
+      - 编译运行产物并加入配置模板、启动、健康检查和回滚说明
+      - 生成 manifest、源码版本和 SHA256 校验值
+    output: "<工作区根>/<role-directory>/releases/<version> 中的不可变角色包"
+    gate: 清单、校验值、版本和角色依赖完整且无禁止内容
+    rollback: 删除未发布的失败构建产物后从 00 重新生成
+  - id: review-release-impact
+    order: 4
+    title: 查看影响
+    description: 发布前展示代码、配置、迁移、素材、服务中断和回滚影响，形成审核证据。
+    input: 角色包 manifest、差异、迁移和服务器映射
+    actions:
+      - 对比当前版本与候选版本
+      - 确认数据库迁移、配置变量、容量和客户影响
+      - 记录审批人、时间、风险和回滚版本
+    output: 可追踪的发布批准或拒绝记录
+    gate: 风险已说明、备份已验证、回滚版本存在且获得批准
+    rollback: 拒绝发布并保留当前线上版本
+  - id: deploy-release
+    order: 5
+    title: 发布部署
+    description: 只上传所选服务器需要的角色版本包，注入外部配置并按依赖顺序切换。
+    input: 已批准角色包、服务器映射和外部环境变量
+    actions:
+      - 准备 07 备份目标并部署 06 数据服务和迁移
+      - 依次部署 04、01、02、03，最后部署 05 公网入口
+      - 保留上一版本并使用原子 current 指针或镜像标签切换
+    output: 已部署但仍处于验收观察期的新版本
+    gate: 文件校验一致、迁移成功、服务启动且旧版本可立即回切
+    rollback: 停止新任务和新流量，回切上一版本；数据按迁移回滚说明处理
+  - id: verify-and-rollback
+    order: 6
+    title: 健康检查与回滚
+    description: 验证三端、素材、队列、数据库、HTTPS、监控和备份恢复证据，失败立即回滚。
+    input: 新版本健康检查、业务冒烟测试和观测指标
+    actions:
+      - 执行七个角色定义中的 healthChecks
+      - 验证总部端、代理源、客户源以及代理端、客户端和多个计划
+      - 验证上传素材隔离、后台任务、告警和一次隔离恢复证据
+    output: 正式生效的版本记录或完成的回滚记录
+    gate: 全部关键检查通过并完成观察期，才允许标记发布成功
+    rollback: 按角色 rollbackPolicy 回切并记录失败证据，禁止在服务器直接修源码

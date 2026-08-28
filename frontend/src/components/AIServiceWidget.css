@@ -1,0 +1,196 @@
+#root .ai-service-launcher {
+  box-sizing: border-box;
+  width: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+  min-width: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+  height: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+  min-height: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+}
+
+#root :is(
+  .ai-service-launcher,
+  [data-ai-service-avatar-greeting]
+)[data-shared-expert-avatar-frame-contract="floating-service-v1"] {
+  border-width: 4px !important;
+  border-style: solid !important;
+  border-color: var(--tradepro-shared-expert-avatar-frame-color) !important;
+}
+
+/* Client Source normally clears inactive action buttons inside #root. The
+   floating chat's close action is a window-frame control, not page content,
+   so it must retain the exact visible capsule used by the developer frame. */
+html body #root [data-client-source-shell] [data-ai-service-drag-root][data-shared-window-contract][data-shared-resizable-window-contract="true"] button.content-plugin-action-button.is-icon[data-shared-window-close="true"]:not(.is-active):not([aria-pressed="true"]):not(:hover):not(:focus-visible) {
+  display: inline-flex !important;
+  width: var(--tradepro-shared-dialog-close-size) !important;
+  min-width: var(--tradepro-shared-dialog-close-size) !important;
+  height: var(--tradepro-shared-dialog-close-size) !important;
+  min-height: var(--tradepro-shared-dialog-close-size) !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border: 1px solid color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 36%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.5rem) !important;
+  background: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 10%, transparent) !important;
+  color: var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+html body #root [data-client-source-shell] [data-ai-service-drag-root][data-shared-window-contract][data-shared-resizable-window-contract="true"] button.content-plugin-action-button.is-icon[data-shared-window-close="true"]:is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 62%, transparent) !important;
+  background: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 18%, transparent) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 14%, transparent) !important;
+}
+
+:is(#root, body) [data-shared-window-contract]
+  [data-shared-window-footer-layout="single-primary-action"] [data-ai-service-confirm-expert-switch] {
+  box-sizing: border-box;
+  min-height: var(--tradepro-shared-dialog-footer-control-size);
+  height: var(--tradepro-shared-dialog-footer-control-size);
+  padding-inline: var(--tradepro-shared-dialog-edge);
+}
+
+/* Floating customer-service chat consumes the same 8px dialog rhythm as the
+   shared window contract.  The markup retains only small icon/text gaps where
+   a full structural gutter would reduce legibility. */
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"] {
+  --ai-service-chat-gap: var(--tradepro-shared-dialog-gap, 8px);
+  --ai-service-chat-edge: var(--tradepro-shared-dialog-edge, 8px);
+  --ai-service-chat-control-size: var(--tradepro-shared-dialog-close-size, 32px);
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"] [data-shared-window-region="title"] {
+  gap: var(--ai-service-chat-gap) !important;
+  padding: var(--ai-service-chat-edge) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"] :is(
+  [data-ai-service-chat-title-row],
+  [data-ai-service-chat-meta-row],
+  [data-ai-service-chat-sound-row],
+  [data-ai-service-chat-title-actions],
+  [data-ai-service-chat-message],
+  [data-ai-service-chat-typing]
+) {
+  gap: var(--ai-service-chat-gap) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"] :is(
+  [data-ai-service-chat-meta-row],
+  [data-ai-service-chat-sound-row],
+  [data-ai-service-chat-footer-note]
+) {
+  margin-top: var(--ai-service-chat-gap) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"] [data-shared-window-region="content"],
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"] [data-shared-window-region="footer"] {
+  padding: var(--ai-service-chat-edge) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"][data-shared-resizable-window-contract="true"] [data-shared-window-region="footer"] {
+  padding-right: var(--tradepro-shared-dialog-footer-resize-slot) !important;
+}
+
+/* The floating chat is a compact projection of the shared dialog.  Its
+   controls use the same 8px content edge at every side, rather than the
+   vertically-centred footer grip used by large workbench dialogs. */
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  [data-shared-window-region="title"] button[data-shared-window-avatar-action="true"] {
+  width: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+  min-width: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+  height: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+  min-height: var(--tradepro-shared-expert-launcher-avatar-size) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  [data-shared-resize-handle="true"] {
+  right: var(--ai-service-chat-edge) !important;
+  bottom: var(--ai-service-chat-edge) !important;
+}
+
+/* compact-popup-icon-centering-v1: The compact chat reuses the Client Source
+   developer's 32px close-control token for every title and footer action.
+   The same flex-centre algorithm also removes the inline SVG baseline offset
+   that made the voice icon appear low inside an otherwise square frame. */
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  :is(
+    [data-shared-window-close="true"],
+    [data-ai-service-voice-playback],
+    [data-ai-service-chat-title-actions] > button:not([data-shared-window-close="true"]),
+    [data-ai-service-send],
+    [data-shared-resize-handle="true"]
+  ) {
+  box-sizing: border-box !important;
+  width: var(--ai-service-chat-control-size) !important;
+  min-width: var(--ai-service-chat-control-size) !important;
+  height: var(--ai-service-chat-control-size) !important;
+  min-height: var(--ai-service-chat-control-size) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  :is(
+    [data-shared-window-close="true"],
+    [data-ai-service-voice-playback],
+    [data-ai-service-chat-title-actions] > button:not([data-shared-window-close="true"]),
+    [data-ai-service-send],
+    [data-shared-resize-handle="true"]
+  ) > svg {
+  display: block !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  vertical-align: middle !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  :is(
+    [data-ai-service-voice-playback],
+    [data-ai-service-chat-title-actions] > button:not([data-shared-window-close="true"])
+  ) {
+  padding: 0 !important;
+  border: 1px solid color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 36%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.5rem) !important;
+  background: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 10%, transparent) !important;
+  color: var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) !important;
+  box-shadow: none !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  :is(
+    [data-ai-service-voice-playback],
+    [data-ai-service-chat-title-actions] > button:not([data-shared-window-close="true"])
+  ):is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 62%, transparent) !important;
+  background: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 18%, transparent) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 14%, transparent) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  :is([data-ai-service-send], [data-shared-resize-handle="true"]) {
+  padding: 0 !important;
+  border: 1px solid color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 36%, transparent) !important;
+  border-radius: var(--tradepro-shared-action-radius, 0.5rem) !important;
+  background: var(--tradepro-shared-title-bg, var(--tradepro-panel-title-bg)) !important;
+  color: var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) !important;
+  box-shadow: none !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  :is([data-ai-service-send], [data-shared-resize-handle="true"]):is(:hover, :focus-visible) {
+  border-color: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 62%, transparent) !important;
+  background: color-mix(in srgb, var(--tradepro-shared-title-bg, var(--tradepro-panel-title-bg)) 82%, white) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 14%, transparent) !important;
+}
+
+:is(#root, body) [data-ai-service-drag-root][data-shared-window-spacing-contract="dialog-8px"]
+  [data-ai-service-send] {
+  right: var(--ai-service-chat-edge) !important;
+  bottom: calc(
+    var(--ai-service-chat-control-size)
+    + var(--ai-service-chat-edge)
+    + var(--ai-service-chat-edge)
+  ) !important;
+}

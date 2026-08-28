@@ -1,0 +1,1 @@
+{"id":"04-geo","name":"占新（GEO）","version":"0.1.0","legacyFrontendPage":"src/pages/GeoCenter.tsx","requiredTenantContext":["agent_path","tenant_id","client_id"]}

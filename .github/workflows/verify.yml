@@ -1,0 +1,198 @@
+name: B2B verification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  source-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify source page locks and H source fingerprint
+        working-directory: frontend
+        run: |
+          npm run source-lock:check
+          npm run hq:verify
+
+  backend-contracts:
+    needs: source-lock
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install backend dependencies
+        run: pip install -r backend/requirements.lock.txt -r tools/requirements-security.txt
+      - name: Verify frontend/backend target manifest parity
+        run: python tools/verify_developer_target_manifest_parity.py
+      - name: Audit Python dependencies
+        run: pip-audit -r backend/requirements.lock.txt
+      - name: Generate backend dependency SBOM
+        run: |
+          mkdir -p "$RUNNER_TEMP/b2b-sbom"
+          pip-audit -r backend/requirements.lock.txt --format cyclonedx-json --output "$RUNNER_TEMP/b2b-sbom/backend.cdx.json"
+      - name: Upload dependency SBOM
+        uses: actions/upload-artifact@v4
+        with:
+          name: b2b-dependency-sbom-backend
+          path: ${{ runner.temp }}/b2b-sbom/backend.cdx.json
+          if-no-files-found: error
+      - name: Verify platform layout and tenant boundaries
+        run: |
+          python tools/verify_platform_layout.py
+          python tools/verify_active_documentation_paths.py
+          python tools/verify_python_dependency_lock.py
+          python tools/verify_tenant_context.py
+          python tools/verify_multitenant_runtime.py
+          python tools/verify_platform_tenant_authorization.py
+          python tools/verify_tenant_end_to_end_matrix.py
+          python tools/verify_content_download_security.py
+          python tools/verify_observability_controls.py
+          python tools/verify_audit_log_scope.py
+          python tools/verify_template_snapshot_tenant_controls.py
+          python tools/verify_request_security_controls.py
+          python tools/verify_content_scanner_controls.py
+          python tools/verify_release_rollout_controls.py
+          python tools/verify_external_service_cutover.py
+          python tools/verify_release_artifact_controls.py
+          python tools/verify_backup_automation.py
+          python tools/verify_secret_controls.py
+          python tools/verify_health_monitor.py
+          python tools/verify_background_job_queue.py
+          python tools/verify_job_worker.py
+          python tools/verify_customer_stamp_deployment.py
+          python tools/verify_postgres_restore_drill.py --self-test
+      - name: Verify release controls
+        run: |
+          python tools/verify_release_manifest.py release/manifests/client-foundation-0.1.0.json
+          python tools/verify_release_readiness.py --self-test
+          python tools/verify_staging_release_drill.py
+          python tools/verify_staging_resource_contract.py --self-test
+          python tools/verify_staging_cutover_controls.py
+          python tools/verify_container_controls.py
+          python tools/verify_release_runner_controls.py
+          python tools/run_end_to_end_acceptance.py
+          python tools/run_resilience_drill.py
+          python tools/verify_operations_monitoring.py
+          python tools/run_health_load_smoke.py --self-test
+          python tools/verify_release_governance.py --self-test
+          python tools/run_security_readiness_review.py
+          python tools/verify_secret_rotation_drill.py
+          python tools/calculate_capacity_plan.py --self-test
+          python tools/run_capacity_baseline.py --self-test
+          python tools/verify_data_governance.py
+          python tools/verify_business_data_quality.py
+          python tools/verify_browser_regression_controls.py
+          python tools/verify_training_pack.py
+          python tools/verify_data_migration_controls.py
+          python tools/verify_domain_email_contract.py --self-test
+          python tools/verify_access_governance.py
+          python tools/calculate_operating_cost.py --self-test
+          python tools/verify_disaster_recovery_controls.py
+          python tools/verify_authentication_assurance.py
+          python tools/verify_audit_export_controls.py
+          python tools/verify_quota_controls.py
+          python tools/verify_integration_controls.py
+          python tools/verify_privacy_lifecycle_controls.py
+          python tools/verify_accessibility_controls.py
+          python tools/verify_billing_ledger_controls.py
+          python tools/verify_controlled_importer.py
+          python tools/verify_quality_gate_controls.py
+          python tools/verify_customer_operations_controls.py
+          python tools/verify_identity_provider_contract.py --self-test
+          python tools/verify_cloud_dr_contract.py --self-test
+          python tools/verify_infrastructure_contract.py --self-test
+          python tools/verify_payment_reconciliation.py
+          python tools/verify_tenant_provisioning.py
+          python tools/verify_tenant_analytics.py
+          python tools/verify_support_operations.py
+          python tools/verify_production_rehearsal_controls.py
+          python tools/run_local_business_flow.py
+
+  frontend-types:
+    needs: source-lock
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+      - name: Verify dependency supply-chain controls
+        run: |
+          python tools/verify_supply_chain_controls.py
+          python tools/run_supply_chain_audit.py
+          python tools/verify_sbom_controls.py
+      - name: Generate frontend dependency SBOM
+        run: |
+          python tools/generate_frontend_sbom.py --output "$RUNNER_TEMP/b2b-sbom/frontend.cdx.json"
+      - name: Upload dependency SBOM
+        uses: actions/upload-artifact@v4
+        with:
+          name: b2b-dependency-sbom-frontend
+          path: ${{ runner.temp }}/b2b-sbom/frontend.cdx.json
+          if-no-files-found: error
+      - name: Lint frontend source
+        working-directory: frontend
+        run: npm run lint:report
+      - name: Type check
+        working-directory: frontend
+        run: npx tsc --noEmit
+      - name: Verify performance governance and shared contracts
+        working-directory: frontend
+        run: |
+          npm run verify:design-integration
+          npm run verify:media-optimization
+          npm run verify:performance-governance
+          npm run verify:shared-visual-parity
+      - name: Generate Knip advisory report (blocking gate)
+        working-directory: frontend
+        run: |
+          mkdir -p "$RUNNER_TEMP/b2b-quality"
+          npm run audit:dead-code -- --reporter json > "$RUNNER_TEMP/b2b-quality/knip.json"
+      - name: Upload Knip dead-code report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-knip-report
+          path: ${{ runner.temp }}/b2b-quality/knip.json
+          if-no-files-found: warn
+      - name: Install Playwright Chromium
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+      - name: Build and visualize frontend bundle
+        working-directory: frontend
+        env:
+          ANALYZE: '1'
+        run: |
+          npm run analyze
+          npm run verify:bundle-budgets
+      - name: Upload frontend bundle analysis
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-bundle-analysis
+          path: |
+            frontend/dist/stats.html
+            frontend/dist/stats.json
+            frontend/dist/bundle-budget-report.json
+          if-no-files-found: warn
+      - name: Run browser regression smoke tests
+        working-directory: frontend
+        run: npm run test:e2e

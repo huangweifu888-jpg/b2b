@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "allowed_modes": ["dry_run", "controlled_execute"],
+  "required_evidence": ["source_inventory", "field_mapping", "isolated_restore_reference", "tenant_scope_approval", "rollback_reference"],
+  "tenant_scope": {
+    "required_fields": ["agent_path", "tenant_id", "client_id"],
+    "plan_id_optional": true,
+    "cross_tenant_rows": "reject"
+  },
+  "sensitive_fields": ["email", "phone", "mobile", "contact_name", "address", "id_number"],
+  "non_production_handling": "deterministic_masking_only",
+  "execution": {
+    "backup_before_write": true,
+    "idempotency_key_required": true,
+    "row_error_policy": "stop_and_rollback",
+    "audit_event_required": true
+  }
+}

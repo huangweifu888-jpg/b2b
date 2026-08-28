@@ -1,0 +1,48 @@
+version: 1
+id: "07"
+name: backup-disaster-recovery
+label: 备份与灾难恢复
+purpose: 配置不同故障域的备份、完整性校验、隔离恢复演练和灾难切换证据。
+rulePath: deployment/role-definitions/role-07.yaml
+sourceIncludes:
+  - deployment/schedules/**
+  - deployment/policies/backup-policy.yaml
+  - deployment/policies/disaster-recovery.json
+  - deployment/policies/production-rehearsal.json
+  - deployment/env/release.production.env.example
+  - platform/worker/**
+  - backend/scripts/run_job_worker.py
+  - backend/services/job_worker.py
+  - tools/Resolve-PlatformPython.ps1
+  - tools/run_postgres_restore_drill.ps1
+  - tools/verify_postgres_restore_drill.py
+  - tools/verify_backup_automation.py
+sourceExcludes:
+  - "**/*.db"
+  - "**/*.sqlite"
+  - "**/*.sqlite3"
+  - "**/*.dump"
+  - "**/*.backup"
+  - "**/*.log"
+  - "**/.env"
+  - "**/.env.local"
+  - ../local-data/**
+  - ../local-runtime/**
+dependencies: []
+artifactRoot: ../07-backup-disaster-recovery/releases
+environmentTemplate: deployment/env/release.production.env.example
+healthChecks:
+  - name: offsite-target-ready
+    type: storage-policy
+    target: "${BACKUP_TARGET}"
+    expected: separate-credentials-and-failure-domain
+  - name: restore-drill-current
+    type: restore-drill
+    target: "${RESTORE_DRILL_REFERENCE}"
+    expected: verified-isolated-restore-evidence
+deployOrder: 10
+rollbackPolicy:
+  strategy: previous-schedule-and-policy
+  retainVersions: 3
+  requireHealthCheck: true
+  restoreData: never-overwrite-production-during-verification

@@ -1,0 +1,120 @@
+/* Shared Product Market category contract v4 ------------------------------
+   Sidebar, Column Configuration and Operations keep one category identity,
+   two-digit order and label contract. Column Configuration owns one flat
+   control chain: drag, up/down, order, name and status. Operations projects
+   the same order/name and reuses the same category status actions; it never
+   creates a second order model, category shell or parallel checkbox model. */
+
+#root#root [data-shared-product-market-category-contract] {
+  container-name: tradepro-product-market-category;
+  container-type: inline-size;
+}
+
+#root#root [data-shared-product-market-category-sort-rail] {
+  box-sizing: border-box;
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: var(--tradepro-shared-plugin-gap, 0.5rem) !important;
+  flex-wrap: wrap;
+}
+
+#root#root [data-shared-product-market-category-order-segment] {
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 2rem;
+  min-width: 2rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.375rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text, #0f172a));
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#root#root [data-shared-product-market-category-sort-rail]
+  > [data-product-market-module-category-heading] {
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+  padding-inline: 0.375rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#root#root [data-shared-product-market-category-sort-rail]
+  > [data-content-plugin-actions="status"] {
+  width: auto !important;
+  min-width: max-content !important;
+  flex: 0 0 auto;
+}
+
+@container tradepro-product-market-category (min-width: 30rem) {
+  #root#root [data-shared-product-market-category-sort-rail] {
+    flex-wrap: nowrap;
+  }
+}
+
+#root#root [data-shared-product-market-category-rail="operations"] {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+#root#root [data-product-market-category-status-cluster] {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+#root#root [data-product-market-category-status-cluster]
+  > [data-product-market-category-label] {
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#root#root [data-product-market-category-status-actions] {
+  box-sizing: border-box;
+  display: block;
+  flex: 0 0 auto;
+  min-width: max-content;
+}
+
+#root#root [data-product-market-category-status-actions]
+  > [data-content-plugin-actions="status"] {
+  width: auto;
+  min-width: max-content;
+  margin: 0;
+}
+
+/* At true emergency capacity the same real three-button group moves as one
+   unit below the category label. No duplicate compact-only controls exist. */
+@container tradepro-product-market-category (max-width: 17.99rem) {
+  #root#root [data-product-market-category-status-actions] {
+    margin-inline-start: 0;
+  }
+}

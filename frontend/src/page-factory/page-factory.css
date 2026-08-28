@@ -1,0 +1,461 @@
+[data-page-factory-contract] {
+    min-width: 0;
+    max-width: 100%;
+    container-type: inline-size;
+    container-name: page-factory;
+}
+
+[data-page-factory-region="table-shell"] {
+    min-width: 0;
+    overflow: hidden;
+}
+
+[data-page-factory-region="content"],
+[data-page-factory-region="scrollbar"] {
+    min-width: 0;
+    max-width: 100%;
+}
+
+[data-page-factory-region="large-card"],
+[data-page-factory-region="small-card"] {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Layout Style is the final palette/type owner for every registered card.
+   Legacy HQ/Agency utility classes and old page-scoped visual variables may
+   remain in the business DOM, but cannot repaint a card after Page Factory
+   binds the shared layout-style token source. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] body #root
+  [data-page-factory-contract]
+  [data-page-factory-region="large-card"][data-shared-large-card-surface="true"][data-shared-card-token-source="layout-style"] {
+    --visual-card-component-background: var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg, #ffffff)) !important;
+    --visual-card-component-text: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text, #0f172a)) !important;
+    background-color: var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg, #ffffff)) !important;
+    color: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text, #0f172a)) !important;
+    border-color: color-mix(in srgb, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text, #0f172a)) 18%, transparent) !important;
+    font-family: var(--tradepro-global-font-family, system-ui, sans-serif) !important;
+    font-size: var(--tradepro-shared-large-card-font-size, 0.875rem) !important;
+    font-weight: var(--tradepro-shared-large-card-font-weight, var(--tradepro-global-font-weight, 400)) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] body #root
+  [data-page-factory-contract]
+  [data-page-factory-region="small-card"][data-shared-small-card-surface="true"][data-shared-card-token-source="layout-style"] {
+    --visual-card-component-background: var(--tradepro-panel-card-bg, #ffffff) !important;
+    --visual-card-component-text: var(--tradepro-panel-card-text, #0f172a) !important;
+    background-color: var(--tradepro-panel-card-bg, #ffffff) !important;
+    color: var(--tradepro-panel-card-text, #0f172a) !important;
+    border-color: color-mix(in srgb, var(--tradepro-panel-card-text, #0f172a) 22%, transparent) !important;
+    font-family: var(--tradepro-global-font-family, system-ui, sans-serif) !important;
+    font-size: var(--tradepro-shared-small-card-font-size, 0.75rem) !important;
+    font-weight: var(--tradepro-shared-small-card-font-weight, var(--tradepro-global-font-weight, 400)) !important;
+}
+
+/* Runtime-projected and authored FactoryPages consume one Layout Style region
+   map. These selectors are semantic rather than route-specific, so all three
+   product shells receive the same geometry while retaining their own source
+   theme token values. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="title-2"][data-responsive-shared-surface="title-2"] {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--tradepro-shared-title-2-min-height, 3.5rem);
+    flex-shrink: 0;
+    margin: 0;
+    padding: var(--tradepro-shared-title-2-padding, 0.75rem 1rem) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: var(--tradepro-shared-title-2-bg, var(--tradepro-panel-title-2-bg, var(--tradepro-panel-title-bg))) !important;
+    color: var(--tradepro-shared-title-2-text, var(--tradepro-panel-title-2-text, var(--tradepro-panel-title-text))) !important;
+    font-family: var(--tradepro-global-font-family, inherit);
+    font-size: var(--tradepro-shared-title-2-font-size, 0.875rem);
+    font-weight: var(--tradepro-shared-title-2-font-weight, 400);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="title-2"][data-responsive-shared-surface="title-2"] :is(h1, h2, h3, p, span, svg) {
+    color: inherit !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="content"][data-shared-region-token-source="layout-style"] {
+    color: var(--tradepro-product-market-content-text, var(--tradepro-panel-frame-text, var(--tradepro-panel-text))) !important;
+    font-family: var(--tradepro-global-font-family, inherit);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="table-shell"][data-page-table-shell="true"] {
+    box-sizing: border-box;
+    border: 1px solid color-mix(in srgb, var(--tradepro-panel-frame-text, var(--tradepro-panel-text)) 22%, transparent);
+    border-radius: 0 0 var(--tradepro-layout-frame-radius, 1.5rem) var(--tradepro-layout-frame-radius, 1.5rem);
+    padding: var(--tradepro-shared-table-shell-padding, var(--tradepro-layout-space, 0.75rem));
+    background: var(--tradepro-panel-frame-bg, var(--tradepro-panel-bg)) !important;
+    color: var(--tradepro-panel-frame-text, var(--tradepro-panel-text)) !important;
+    box-shadow: var(--tradepro-layout-shadow, none);
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  thead[data-page-factory-region="table-header"][data-page-table-header="true"] > tr {
+    height: var(--tradepro-shared-table-header-height, var(--tradepro-shared-table-header-frame-height, 3.875rem));
+    background: inherit;
+    color: inherit;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  thead[data-page-factory-region="table-header"][data-page-table-header="true"] :is(th, td) {
+    background: inherit;
+    color: inherit !important;
+    font-family: var(--tradepro-shared-table-header-font-family, var(--tradepro-global-font-family, inherit));
+    font-size: var(--tradepro-shared-table-header-font-size, 0.875rem);
+    font-weight: var(--tradepro-shared-table-header-font-weight, 400);
+}
+
+/* Every authored or projected navigation/header control inherits the exact
+   shared table-header type scale. Route-level responsive rules may change
+   layout density, but must not shrink the active item independently. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="table-header"]
+  :is(a, button, [role="tab"]) {
+    font-family: var(--tradepro-shared-table-header-font-family, var(--tradepro-global-font-family, inherit)) !important;
+    font-size: var(--tradepro-shared-table-header-font-size, 0.875rem) !important;
+    line-height: var(--tradepro-shared-table-header-line-height, 1.5) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="table-header"]
+  :is([role="tab"][aria-selected="true"], [aria-current="page"], button[aria-pressed="true"], [data-state="active"], [data-social-tab-active="true"]) {
+    font-weight: 500 !important;
+}
+
+/* THEAD is the canonical table-header frame and therefore owns its marker.
+   Keep the pseudo-element absolutely positioned so it never becomes an
+   anonymous table cell; suppress the legacy first-TH proxy to preserve one
+   marker and one hover target. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  thead[data-page-factory-region="table-header"][data-page-table-header="true"][data-development-standard-frame-region="table-header"] {
+    position: relative;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  thead[data-page-factory-region="table-header"][data-page-table-header="true"][data-development-standard-frame-region="table-header"]:is(:hover, :focus-within)::after {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-page-factory-contract]
+  thead[data-page-factory-region="table-header"][data-page-table-header="true"] > tr > th:first-child::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* ClientSourceLayout suppresses unregistered duplicate H1 copy because its
+   project context owns Title 1.  Once FactoryPage binds a real node as Title 2,
+   that node is no longer an unregistered duplicate: it is a required shared
+   frame region and must stay measurable/visible at every viewport. */
+#root [data-client-source-shell] [data-client-project-content]
+  [data-page-factory-region="title-2"] {
+    display: block !important;
+    min-width: 0;
+}
+
+#root [data-client-source-shell] [data-client-project-content]
+  [data-page-factory-region="title-2"] :is(h1, h2, p),
+#root [data-client-source-shell] [data-client-project-content]
+  :is(h1, h2, p)[data-page-factory-region="title-2"] {
+    display: block !important;
+}
+
+/* The compact responsive policy hides unregistered duplicate headings. A
+   canonical FactoryPage Title 2 is registered content, so it must remain a
+   real measurable region on the 390px contract as well. Keep this selector at
+   the same responsive root specificity as the compact policy. */
+html[data-visual-responsive-contract="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="title-2"],
+html[data-visual-responsive-contract="true"] #root
+  [data-page-factory-contract]
+  [data-page-factory-region="title-2"] :is(h1, h2, p),
+html[data-visual-responsive-contract="true"] #root
+  [data-page-factory-contract]
+  :is(h1, h2, p)[data-page-factory-region="title-2"] {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Operations Market is the canonical table-header frame. Factory-shell pages
+   that do not yet own business-specific header controls project their current
+   navigation into the same 52px shared surface. A later real header replaces
+   this fallback automatically without changing page content. */
+.page-factory-fallback-table-header {
+    display: flex;
+    min-width: 0;
+    min-height: 52px;
+    flex: 0 0 auto;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+    border-radius: 0.75rem;
+    padding: 0.625rem 0.75rem;
+}
+
+.page-factory-fallback-table-header__track {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+}
+
+.page-factory-fallback-table-header__item {
+    display: inline-flex;
+    min-height: 32px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, currentColor 28%, transparent);
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    color: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.page-factory-fallback-table-header__item[aria-current="page"] {
+    background: color-mix(in srgb, currentColor 16%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 12%, transparent);
+}
+
+/* Shared one-scrollport workspace contract.
+   A page opts in through FactoryPage instead of recreating its own viewport
+   CSS. This keeps the title and footer fixed, gives the content area the only
+   vertical scrollbar, and works through the Client Source, Agency Source and
+   Headquarters host chains. */
+#root :is(.app-main, .app-main-roomy):has([data-page-factory-scroll-contract]) {
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#root [data-responsive-page-host]:has([data-page-factory-scroll-contract]),
+#root [data-client-project-frame]:has([data-page-factory-scroll-contract]),
+#root [data-client-project-content]:has([data-page-factory-scroll-contract]),
+#root [data-page-factory-contract][data-page-factory-scroll-contract] {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 0;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* The Page Factory acceptance floor is 10px at the narrowest viewport.  The
+   generic responsive host used to lower this token to 8px below 360px, which
+   moved an otherwise canonical Content scrollbar two pixels closer to both
+   sides of the workspace on ordinary Client Source pages. */
+#root [data-responsive-page-host] {
+    --responsive-page-padding: clamp(10px, 1.4cqi, 1.5rem) !important;
+}
+
+/* Runtime-projected legacy/unavailable routes are real factory roots too.
+   Their old compact rule used the 8px responsive token as root padding, so
+   the canonical Content owner sat two pixels closer to each frame edge than
+   authored FactoryPage routes. Keep the same 10px acceptance floor without
+   changing any route content or wider-screen spacing. */
+@media (max-width: 639px) {
+  #root [data-responsive-page-host]
+    > [data-page-factory-contract][data-page-factory-runtime-projection="true"][data-page-layout-surface] {
+      padding-inline: max(10px, var(--responsive-page-padding, 10px)) !important;
+  }
+}
+
+/* A title action rail is a flex item whose intrinsic width comes from its real
+   controls.  Giving that rail inline-size containment makes its max-content
+   contribution zero, so the button paints outside a 0px rail and widens the
+   page.  Capacity containment belongs to full-width rows, not nested action
+   groups. Compact layout still assigns host-actions a full row in index.css. */
+#root [data-responsive-page-host][data-responsive-capacity-layout="shared-capacity-flow-v1"]
+  [data-responsive-capacity-row="host-actions"] {
+    container-name: none !important;
+    container-type: normal !important;
+    width: max-content;
+    max-width: 100%;
+}
+
+/* Phone titles have one shared vertical composition: copy first, actions on
+   the next full-width line.  Capacity-flow's `flex: 1 1 100%` is a horizontal
+   row rule; on authored flex-column titles it could be interpreted against a
+   stale row layout and place a 100%-wide action rail beyond the right edge. */
+@media (max-width: 639px) {
+  #root [data-responsive-page-host]:not([data-responsive-page-template="reference"])
+    :is([data-page-title], [data-client-project-context]) {
+      flex-direction: column !important;
+      flex-wrap: nowrap !important;
+  }
+
+  #root [data-responsive-page-host]:not([data-responsive-page-template="reference"])
+    :is([data-page-title-actions], [data-client-project-context-actions], [data-responsive-page-actions]) {
+      align-self: stretch !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      margin-inline: 0 !important;
+      flex: 0 0 auto !important;
+      transform: none !important;
+  }
+}
+
+/* Navigation headers keep one accessible horizontal scroll lane on phones.
+   Layout/paint containment makes that inner lane the sole owner of its wide
+   tab strip, so descendant tab geometry cannot inflate the page root's
+   scrollWidth while keyboard and pointer scrolling remain available. */
+#root [data-responsive-page-host]
+  [data-page-factory-region="table-header"][role="tablist"] {
+    box-sizing: border-box;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: var(--tradepro-shared-table-header-height, 3.875rem);
+    min-block-size: var(--tradepro-shared-table-header-height, 3.875rem);
+    contain: strict;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-inline: contain;
+}
+
+/* The host is only a clipping boundary after FactoryPage has registered a
+   canonical content scroll owner.  The legacy Client Source host used to keep
+   `scrollbar-gutter: stable` even while its overflow was hidden, reserving a
+   first 15px lane before the real owner reserved the second one.  That double
+   gutter moved ordinary project-page scrollbars and headers left of the
+   Operations Market reference at every viewport. */
+#root [data-client-project-content]:has(
+  [data-page-factory-contract][data-page-factory-scroll-contract]
+    [data-page-list-scroll-owner]
+) {
+    scrollbar-gutter: auto !important;
+}
+
+#root [data-page-factory-contract][data-page-factory-scroll-contract]
+  [data-page-factory-region="table-shell"] {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 0;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#root [data-page-factory-contract][data-page-factory-scroll-contract]
+  [data-page-factory-region="content"][data-page-list-scroll-owner] {
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 0;
+    margin-block: 0;
+    padding:
+      var(--tradepro-shared-list-scroll-top-inset, var(--tradepro-layout-space, 0.75rem))
+      0
+      var(--tradepro-shared-list-scroll-end-space, 3.75rem) !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-padding-top: 0;
+    scroll-padding-bottom: var(--tradepro-shared-list-scroll-end-space, 3.75rem);
+    scrollbar-gutter: stable;
+}
+
+/* Headquarters and Agency Source do not have ClientSourceLayout's padded
+   project-content host.  Give their factory-owned content the same physical
+   table-shell inset (theme density + the shell border) so the scrollbar rail
+   lands on the same right edge as Client Source. */
+#root .app-main-roomy
+  [data-page-factory-frame-owner="factory-shell"][data-page-factory-scroll-contract]
+  > [data-page-factory-region="content"][data-page-list-scroll-owner] {
+    margin-inline: calc(var(--tradepro-layout-space, 0.75rem) + 1px);
+}
+
+/* One vertical owner contract. Horizontal table/card overflow belongs to an
+   inner responsive wrapper, never to the page's only vertical scroll lane.
+   This applies equally to factory shells and existing-workspace projections. */
+#root [data-responsive-page-host] :is(
+  [data-page-list-scroll-owner],
+  [data-product-market-scroll-list]
+) {
+  min-width: 0;
+  min-height: 0;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+}
+
+/* `content-only` pages keep their one vertical owner on Content. A nested
+   table/card strip that previously carried the generic owner attribute remains
+   a real horizontal scroller, but can no longer steal vertical ownership. */
+#root [data-responsive-page-host] [data-page-factory-horizontal-scroll-owner="true"] {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  overscroll-behavior-inline: contain;
+}
+
+/* Shared small-card controls wrap as complete controls before they can widen
+   the canonical content lane. This keeps dense service/form editors usable at
+   medium and compact widths without hiding overflow on an oversized child. */
+@media (max-width: 1180px) {
+  #root [data-responsive-page-host] :is(
+    [data-page-list-scroll-owner],
+    [data-product-market-scroll-list]
+  ) [data-shared-small-card-surface="true"] {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere;
+  }
+
+  #root [data-responsive-page-host] :is(
+    [data-page-list-scroll-owner],
+    [data-product-market-scroll-list]
+  ) [data-shared-small-card-surface="true"] :is(.flex, .grid, [data-shared-responsive-wrap]) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+@container page-factory (max-width: 639px) {
+    [data-page-factory-responsive-row] {
+      align-items: stretch !important;
+      flex-direction: column !important;
+    }
+
+    [data-page-factory-responsive-grid] {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    [data-page-factory-responsive-actions] {
+      align-items: stretch !important;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) !important;
+      width: 100%;
+    }
+
+    [data-page-factory-responsive-actions] > * {
+      min-width: 0;
+      width: 100%;
+    }
+}

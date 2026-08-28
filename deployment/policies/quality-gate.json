@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "release_blockers": ["tenant_authorization", "api_contract", "browser_regression", "accessibility", "dependency_audit"],
+  "browser": {"desktop_required": true, "mobile_required": true, "visual_baseline_review_required": true},
+  "api": {"versioned_contract_required": true, "error_schema_review_required": true},
+  "coverage": {"critical_path_required": true, "failure_evidence_required": true}
+}

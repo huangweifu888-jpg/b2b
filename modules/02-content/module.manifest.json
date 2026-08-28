@@ -1,0 +1,10 @@
+{
+  "id": "02-content",
+  "name": "布场（内容）",
+  "version": "0.1.0",
+  "publicCapabilities": ["website-content", "plan-downloads"],
+  "requiredTenantContext": ["agent_path", "tenant_id", "client_id", "plan_id"],
+  "publicPorts": [80, 443],
+  "internalPorts": [8000],
+  "legacyFrontendPages": ["src/pages/Products.tsx", "src/pages/NewsCenter.tsx", "src/pages/Cases.tsx", "src/pages/Videos.tsx"]
+}

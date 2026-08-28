@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.08.28.1",
+  "ownership": "shared-first",
+  "purpose": "deterministic-design-runtime-and-performance-evidence",
+  "contractReferences": {
+    "pageDna": "page-dna-contract.json",
+    "designIntegration": "design-integration-contract.json",
+    "sharedOptimization": "developer-optimization-contract.json",
+    "mediaOptimization": "media-optimization-contract.json"
+  },
+  "requiredEvidenceKinds": [
+    "structure-map",
+    "figma-runtime-diff",
+    "responsive-matrix",
+    "loading-waterfall",
+    "media-map",
+    "impact-map"
+  ],
+  "viewports": [
+    { "id": "mobile", "width": 390, "height": 844 },
+    { "id": "tablet", "width": 768, "height": 1024 },
+    { "id": "desktop", "width": 1440, "height": 900 }
+  ],
+  "comparisonModes": ["side-by-side", "overlay", "semantic-diff"],
+  "requiredChecks": [
+    { "id": "sample-binding", "owner": "design-integration-contract" },
+    { "id": "semantic-regions", "owner": "shared-visual-contract" },
+    { "id": "component-mapping", "owner": "design-integration-contract" },
+    { "id": "design-snapshot-freshness", "owner": "design-integration-contract" },
+    { "id": "geometry-and-overflow", "owner": "shared-visual-contract" },
+    { "id": "responsive-matrix", "owner": "page-factory" },
+    { "id": "target-coverage", "owner": "page-factory" },
+    { "id": "media-policy", "owner": "media-optimization-contract" },
+    { "id": "impact-boundary", "owner": "page-composition-impact-map" }
+  ],
+  "dynamicMasking": {
+    "allowed": ["business-copy", "timestamps", "tenant-records", "media-frames"],
+    "neverMask": [
+      "shared-region-geometry",
+      "interactive-controls",
+      "overflow",
+      "scroll-ownership",
+      "responsive-order",
+      "design-tokens"
+    ]
+  },
+  "evidenceRecord": {
+    "requiredFields": [
+      "schemaVersion",
+      "evidenceId",
+      "capturedAt",
+      "scope",
+      "identityKey",
+      "targetManifestFingerprint",
+      "pageDnaFingerprint",
+      "designRevision",
+      "sharedContractVersion",
+      "sourceFingerprint",
+      "baseHVersion",
+      "viewportResults",
+      "targetCoverage",
+      "checkResults",
+      "artifactRefs",
+      "status",
+      "fingerprint"
+    ],
+    "scopeValues": ["global", "page"],
+    "statusValues": ["pending", "passed", "failed", "stale"],
+    "fingerprint": {
+      "algorithm": "sha256",
+      "requiredInputs": [
+        "identityKey",
+        "pageDnaFingerprint",
+        "designRevision",
+        "sharedContractVersion",
+        "sourceFingerprint",
+        "targetManifestFingerprint",
+        "targetCoverage",
+        "samples"
+      ]
+    }
+  },
+  "freshness": {
+    "mustMatch": [
+      "identityKey",
+      "pageDnaFingerprint",
+      "designRevision",
+      "sharedContractVersion",
+      "sourceFingerprint",
+      "targetManifestFingerprint"
+    ],
+    "onMismatch": "mark-stale-and-block-release",
+    "missingDesignRevision": "block-figma-runtime-diff",
+    "missingPageDna": "block-all-evidence"
+  },
+  "artifactPolicy": {
+    "machineReadableReport": "design-visual-evidence.json",
+    "screenshotsRequiredFor": ["mobile", "tablet", "desktop"],
+    "persistCredentials": false,
+    "persistBusinessData": false,
+    "retainFailureEvidence": true
+  },
+  "releaseGate": {
+    "mode": "fail-closed",
+    "requiredStatus": "passed",
+    "blocksOn": ["missing", "failed", "stale", "fingerprint-mismatch"],
+    "githubPrEvidenceRequired": true,
+    "lockReceiptRequiredAfterRelease": true
+  }
+}

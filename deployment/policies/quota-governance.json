@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "resources": ["sites", "storage_gb", "ai_tokens", "members"],
+  "scope": "tenant_and_plan",
+  "warning_ratio": 0.9,
+  "over_limit": "block_new_consumption",
+  "changes": {"approval_required": true, "audit_event_required": true, "effective_at_required": true},
+  "billing": {"provider_callback_signature_required": true, "idempotency_key_required": true}
+}

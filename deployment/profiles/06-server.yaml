@@ -1,0 +1,27 @@
+version: 1
+profile: 06-server
+serverCount: 6
+roleDefinitionsRoot: deployment/role-definitions
+releaseFlow: deployment/common/global-release-flow.yaml
+sourcePolicy: one-source-no-role-copies
+purpose: 三类业务单元完全分离并可分别扩容
+external_backup_required: true
+servers:
+  - id: SERVER-01-SOURCE
+    roles: ["01"]
+    summary: 总部端、代理源和客户源。
+  - id: SERVER-02-AGENCY
+    roles: ["02"]
+    summary: 多代理和多级代理运行端。
+  - id: SERVER-03-CLIENT
+    roles: ["03"]
+    summary: 多客户端和客户端多个计划。
+  - id: SERVER-04-WORKER
+    roles: ["04"]
+    summary: 素材、构建、发布和异步任务。
+  - id: SERVER-05-EDGE
+    roles: ["05"]
+    summary: 公网入口、HTTPS、域名和观测。
+  - id: SERVER-06-DATA
+    roles: ["06"]
+    summary: PostgreSQL、Redis和对象存储。

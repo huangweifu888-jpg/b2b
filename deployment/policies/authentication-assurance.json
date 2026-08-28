@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "privileged_roles": ["admin", "headquarters_administrator", "technical_operations", "security_owner"],
+  "production_mfa_required": true,
+  "accepted_claim_evidence": ["mfa_completed", "amr", "acr"],
+  "session": {"privileged_max_minutes": 480, "revoke_on_role_change": true, "revoke_on_secret_rotation": true},
+  "recovery": {"identity_provider_required": true, "audit_event_required": true, "support_bypass_forbidden": true}
+}

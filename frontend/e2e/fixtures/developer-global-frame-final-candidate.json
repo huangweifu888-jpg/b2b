@@ -1,0 +1,3016 @@
+{
+  "contract_version": "1.0.0",
+  "profile_version": "1.0.0",
+  "scope": "appearance-only",
+  "source_scope": "client_source",
+  "reference_page_id": "product-market:operations",
+  "regions": [
+    "topbar",
+    "workspace",
+    "title",
+    "table-shell",
+    "table-header",
+    "content",
+    "footer",
+    "scrollbar"
+  ],
+  "region_tokens": {
+    "topbar": {
+      "background_color": "#4A0C29",
+      "foreground_color": "#FFFFFF",
+      "border_width": 0,
+      "border_radius": 24,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 12,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 12,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "workspace": {
+      "background_color": "#FFF8FB",
+      "foreground_color": "#321425",
+      "border_width": 0,
+      "border_radius": 24,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 60,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 12,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "title": {
+      "background_color": "#8E174F",
+      "foreground_color": "#FFFFFF",
+      "border_width": 0,
+      "border_radius": 24,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 12,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 0,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "table-shell": {
+      "background_color": "#FFF8FB",
+      "foreground_color": "#321425",
+      "border_width": 0,
+      "border_radius": 24,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 12,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 0,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "table-header": {
+      "background_color": "#B71857",
+      "foreground_color": "#FFFFFF",
+      "border_width": 0,
+      "border_radius": 12,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 12,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 0,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "content": {
+      "background_color": "#FFF8FB",
+      "foreground_color": "#321425",
+      "border_width": 0,
+      "border_radius": 24,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 12,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 0,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "footer": {
+      "background_color": "#8E174F",
+      "foreground_color": "#FFFFFF",
+      "border_width": 0,
+      "border_radius": 24,
+      "box_shadow": "0 0.25rem 0.75rem rgb(15 23 42 / 12%)",
+      "font_family": "'Noto Sans SC', sans-serif",
+      "font_size": 14,
+      "font_weight": "400",
+      "letter_spacing": "0.02em",
+      "line_height": 1.5,
+      "padding_top": 12,
+      "padding_right": 12,
+      "padding_bottom": 12,
+      "padding_left": 12,
+      "gap": 12,
+      "right_inset": 12,
+      "annotation_visible": true,
+      "annotation_offset": 0,
+      "annotation_font_size": 10
+    },
+    "scrollbar": {
+      "scrollbar_gutter": "stable",
+      "scrollbar_width": 10,
+      "overflow_x": "hidden",
+      "overflow_y": "auto"
+    }
+  },
+  "protected_ownership": [
+    "page-structure",
+    "page-content",
+    "business-data",
+    "assets",
+    "plugins",
+    "navigation"
+  ],
+  "adapters": [
+    {
+      "page_id": "product-analysis-interest-search",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-dashboard",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-dashboard",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-orders",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-business-data",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-invite-links",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-quotas",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-public-pool",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-workspace",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-dashboard",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-account",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-customers",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-sites",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-social-content-reviews",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-members",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-oem-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-performance",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-reports",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-roles",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-seo-blogs",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-seo-tasks",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-wallet",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-cases",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-news-center",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-ai-command",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-approval-center",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-cpq-quotes",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-customer-assets",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-data-warehouse",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-digital-assets",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-erp",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-finance",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-forecast",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-fulfillment-orders",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-health-cockpit",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-icp-profiles",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-legal-contracts",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-manufacturing-execution",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-metric-center",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-partner-voice",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-people",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-procurement",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-production-planning",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-product-passports",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-quality-inspections",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-recruiting",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-renewal-growth",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-revenue-profit",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-cdp",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-field-service",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-rfq-samples",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-management",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-warranty-rma",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-projects",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-products",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-social-content-reviews",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-platform-architecture",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-template-snapshot-migrations",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-live-pages",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-version-center",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-ai-chat",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-ai-customer-service",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "auth-callback",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "auth-error",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-company-info",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-abm",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-account-graph",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-ai-sdr",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-brand-studio",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-buying-committee",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-channel-feed",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-commerce",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-creative-center",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-customer-timeline",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-dam-localization",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-identity-resolution",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-knowledge-graph",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-segments-consent",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-structured-data",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-releases",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-audit-release-logs",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-backup-restore-drills",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-blog-optimize",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-customers",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-geo-center",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-reports",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-seo",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-templates",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-videos",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-releases",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-ai-model-square",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-ai-logs",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-ai-cost",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-code-editor",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-members-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-roles-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-depts-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-ai-models-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-ai-vendors-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-ai-keys-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-templates-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-gallery-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-recharge-audit-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-recharge-audit-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-oem-audit-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-platform-config-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-email-config-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-wallet-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-orders-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-order-audit-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-auto-renew-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-refunds-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-invoices-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-expiring-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-payment-channels-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-alerts-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-announcements-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-promotions-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-groups-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-csat-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-inquiry-auto-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-notify-config-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-boosters-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-coupons-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-points-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-agencies-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-partners-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-enterprises-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-plans-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-sites-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-domains-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-qa-plans-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-qa-tasks-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-tdk-rules-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-seo-blogs-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-social-authorization",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-social-publish-delivery",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-release-rollouts",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-tenant-governance",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-inquiries",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-logout-callback",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-preview-frame",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-preview-site",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings-general",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings-redirect",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings-domains",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings-domain-register",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings-domain-binding",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-site-settings-domain-transfer",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market-operations",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market-modules",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market-layout",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market-service",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market-development",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-product-market-blueprint",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market-operations",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market-modules",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market-layout",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market-service",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market-development",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-source-product-market-blueprint",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-product-market",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "product-market:operations",
+      "role": "reference",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-product-market-modules",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-product-market-layout",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-product-market-service",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-product-market-development",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source-product-market-blueprint",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-client-style-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-material-assets",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-client-source-style-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-agency-style-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-agency-source-style-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-smart-ads",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-smart-ads-overview",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-smart-ads-platforms",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-smart-ads-campaigns",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-smart-ads-compare",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-customer-roadmap",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-source:social:marketing-playbook",
+      "role": "pilot",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-dashboard",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-accounts",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-create",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-digital-human",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-schedule",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-automation",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-analytics",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-social-settings",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-invites",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-oem",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "agency-plans-live",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "hq-code-editor-scope",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "client-product-analysis",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "product-analysis-trends",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "product-analysis-data-studio",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "product-analysis-market-finder",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    },
+    {
+      "page_id": "product-analysis-global-market",
+      "role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "owns_structure": true,
+      "allowed_overrides": []
+    }
+  ],
+  "target_matrix_complete": true,
+  "target_matrix": [
+    {
+      "page_id": "product-analysis-interest-search",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-dashboard",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-dashboard",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-orders",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-business-data",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-invite-links",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-quotas",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-public-pool",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-workspace",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-dashboard",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-account",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-customers",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-sites",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-social-content-reviews",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-members",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-oem-settings",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-performance",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-reports",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-roles",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-seo-blogs",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-seo-tasks",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-wallet",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-cases",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-news-center",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-ai-command",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-approval-center",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-cpq-quotes",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-customer-assets",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-data-warehouse",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-digital-assets",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-erp",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-finance",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-forecast",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-fulfillment-orders",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-health-cockpit",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-icp-profiles",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-legal-contracts",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-manufacturing-execution",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-metric-center",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-partner-voice",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-people",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-procurement",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-production-planning",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-product-passports",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-quality-inspections",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-recruiting",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-renewal-growth",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-revenue-profit",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-cdp",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-field-service",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-rfq-samples",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-management",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-warranty-rma",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-projects",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-products",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-social-content-reviews",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-platform-architecture",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-template-snapshot-migrations",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-live-pages",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-version-center",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-ai-chat",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-ai-customer-service",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "auth-callback",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "isolated"
+    },
+    {
+      "page_id": "auth-error",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "isolated"
+    },
+    {
+      "page_id": "client-company-info",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-abm",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-account-graph",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-ai-sdr",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-brand-studio",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-buying-committee",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-channel-feed",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-commerce",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-creative-center",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-customer-timeline",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-dam-localization",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-identity-resolution",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-knowledge-graph",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-segments-consent",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-structured-data",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-releases",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-audit-release-logs",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-backup-restore-drills",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-blog-optimize",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-customers",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-geo-center",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-reports",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-seo",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-templates",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-videos",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-releases",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-ai-model-square",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-ai-logs",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-ai-cost",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-code-editor",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-members-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-roles-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-depts-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-ai-models-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-ai-vendors-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-ai-keys-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-templates-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-gallery-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-recharge-audit-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-recharge-audit-live",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-oem-audit-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-platform-config-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-email-config-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-wallet-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-orders-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-order-audit-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-auto-renew-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-refunds-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-invoices-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-expiring-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-payment-channels-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-alerts-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-announcements-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-promotions-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-groups-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-csat-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-inquiry-auto-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-notify-config-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-boosters-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-coupons-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-points-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-agencies-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-partners-live",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-enterprises-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-plans-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-sites-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-domains-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-qa-plans-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-qa-tasks-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-tdk-rules-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-seo-blogs-live",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-social-authorization",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-social-publish-delivery",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-release-rollouts",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-tenant-governance",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-inquiries",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-logout-callback",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "isolated"
+    },
+    {
+      "page_id": "client-preview-frame",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "isolated"
+    },
+    {
+      "page_id": "client-preview-site",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "isolated"
+    },
+    {
+      "page_id": "client-site-settings",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-settings-general",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-settings-redirect",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-settings-domains",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-settings-domain-register",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-settings-domain-binding",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-site-settings-domain-transfer",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market-operations",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market-modules",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market-layout",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market-service",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market-development",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-product-market-blueprint",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market-operations",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market-modules",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market-layout",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market-service",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market-development",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-source-product-market-blueprint",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-product-market",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "product-market:operations",
+      "source_scope": "client_source",
+      "adapter_role": "reference",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-product-market-modules",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-product-market-layout",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-product-market-service",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-product-market-development",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source-product-market-blueprint",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-client-style-settings",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-material-assets",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-client-source-style-settings",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-agency-style-settings",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-agency-source-style-settings",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-smart-ads",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-smart-ads-overview",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-smart-ads-platforms",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-smart-ads-campaigns",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-smart-ads-compare",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-customer-roadmap",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-source:social:marketing-playbook",
+      "source_scope": "client_source",
+      "adapter_role": "pilot",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-dashboard",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-accounts",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-create",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-digital-human",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-schedule",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-automation",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-analytics",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-social-settings",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-invites",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-oem",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "agency-plans-live",
+      "source_scope": "agency_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "hq-code-editor-scope",
+      "source_scope": "hq",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "client-product-analysis",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "product-analysis-trends",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "product-analysis-data-studio",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "product-analysis-market-finder",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    },
+    {
+      "page_id": "product-analysis-global-market",
+      "source_scope": "client_source",
+      "adapter_role": "consumer",
+      "reads_profile_version": "1.0.0",
+      "compatibility": "compatible"
+    }
+  ],
+  "recovery": {
+    "draft_id": "developer-global-frame-final-visual-draft",
+    "recovery_point_id": "developer-global-frame-final-recovery-point",
+    "visual_audit_id": "developer-global-frame-final-visual-audit"
+  },
+  "pilot": {
+    "page_id": "client-source:social:marketing-playbook",
+    "status": "passed",
+    "checks": [
+      "workspace-annotation",
+      "table-shell-annotation",
+      "spacing-parity",
+      "right-edge-parity"
+    ],
+    "verification_id": "developer-global-frame-final-pilot-verification",
+    "verified_at": "2026-08-23T00:00:00.000Z"
+  }
+}

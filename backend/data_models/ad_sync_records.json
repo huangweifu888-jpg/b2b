@@ -1,0 +1,55 @@
+{
+    "title": "ad_sync_records",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "platform_name": {
+            "type": "string",
+            "description": "Ad platform name e.g. Google Ads"
+        },
+        "account_id": {
+            "type": "string",
+            "description": "Account identifier"
+        },
+        "account_name": {
+            "type": "string",
+            "description": "Account display name"
+        },
+        "sync_type": {
+            "type": "string",
+            "description": "manual or auto"
+        },
+        "sync_status": {
+            "type": "string",
+            "description": "success, failed, in_progress"
+        },
+        "sync_frequency": {
+            "type": "string",
+            "description": "Sync frequency: hourly, daily, weekly"
+        },
+        "data_snapshot": {
+            "type": "string",
+            "description": "JSON string of synced data snapshot"
+        },
+        "error_message": {
+            "type": "string",
+            "description": "Error message if sync failed"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "platform_name",
+        "account_id",
+        "account_name",
+        "sync_type",
+        "sync_status"
+    ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "template": "workspace-relative-example-only",
+  "codexRoot": ".",
+  "projectRoot": "00-platform-source",
+  "appRoot": "00-platform-source",
+  "hqProgramRoot": "01-hq-source-control",
+  "agencyProgramRoot": "02-agency-runtime",
+  "clientProgramRoot": "03-client-plan-runtime",
+  "siteProgramRoot": "local-data/site-public",
+  "backupRoot": "07-backup-disaster-recovery",
+  "programBackupRoot": "local-data/backup-staging/program",
+  "siteBackupRoot": "local-data/backup-staging/website",
+  "databaseRoot": "06-data-services",
+  "hqDbRoot": "06-data-services/logical-domains/control",
+  "agencyDbRoot": "06-data-services/logical-domains/agency-runtime",
+  "clientDbRoot": "06-data-services/logical-domains/client-plan-runtime",
+  "siteDbRoot": "06-data-services/logical-domains/ops-audit",
+  "activeDatabaseFile": "local-data/database/platform.sqlite3",
+  "websiteRoot": "local-data/site-public",
+  "miscFilesRoot": "local-data/protected-misc",
+  "websiteStyleRoot": "00-platform-source/shared/contracts",
+  "assetResourceRoot": "local-data/objects/asset-private",
+  "localEnvScript": "local-runtime/Start-LocalSandbox.ps1",
+  "restartLocalEnvScript": "local-runtime/Start-LocalSandbox.ps1",
+  "rootNotes": {
+    "layout": "One source repository, seven fixed deployment roles, and profiles for one through seven servers."
+  },
+  "backupNotes": {
+    "production": "Replicate backups to separate immutable storage; local backup staging is not disaster recovery."
+  }
+}

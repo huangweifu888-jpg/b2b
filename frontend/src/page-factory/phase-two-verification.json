@@ -1,0 +1,1796 @@
+{
+  "latestDeveloperLoadingSpeedApplicationLearningRevision": {
+    "recordedAt": "2026-08-28T15:23:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38691",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "status": "passed",
+    "title": "加载速度规则单一学习源与开发器 01–08 应用规划",
+    "appId": "page-factory",
+    "relatedAppIds": [
+      "visual-frame",
+      "shared-contract",
+      "figma-ui",
+      "visual-evidence",
+      "performance-experience",
+      "quality-release",
+      "page-factory",
+      "page-lock"
+    ],
+    "scopeIdentity": "global:developer-loading-speed-application-learning",
+    "contractVersion": "2026.08.28.6",
+    "designContractVersion": "2026.08.28.4",
+    "loadingSpeedLearningVersion": "2026.08.28.2",
+    "runtimeLearningVersion": "2026.08.28.15",
+    "sourceRecordCount": 100,
+    "legacyEvidenceCount": 99,
+    "revisionCount": 96,
+    "scope": "总部、代理源与客户源开发器 01 至 08；同一套加载速度规则同时支持全局已登记页面和当前独立页面，页面只声明差量。",
+    "result": "10 条可复用加载速度规则和 2+2 快检／7+7 发布测量协议只在共享优化契约定义一次，由 05 优化加载体验负责运行时学习，01 至 08 仅按职责读取规则投影。Page DNA 现在携带解析后的 loadPlan、策略版本、profile、预算引用和确定性指纹；全局计划保存登记集合指纹而不嵌入 201 份页面计划，单页以 pageFactoryId 继承并仅保存差量。01 Stage artifact 只记录目标、策略、profile 与加载计划指纹，并由开发器总控唯一写入；01 内部工作台不再重复提交第二份 Stage 01。08 发布授权改为到期定时撤销，渲染阶段不读取系统时间，锁、功能等价和失败关闭边界保持。",
+    "validation": "源码锁、ESLint、TypeScript、两份 JSON 解析、设计集成、性能治理、开发规范、统一框架和五项版本钉值门禁均通过；DeveloperRun 13/13。平台布局、Python page_factory check --all 与 Node verify:page-factory 均通过 201/201。开发器两份 Playwright 套件在串行验证中通过 11/13；受并行旧服务状态影响的客户源八应用矩阵和共享契约动态模块随后在独占 4173 的干净服务上 2/2 通过，未为环境抖动修改业务代码。",
+    "risks": "学习记录是有界、建议性的本地证据，不会自动改写源码；源码优化仍须进入受审任务、06 发布门和 08 三层锁核对。Figma 与 GitHub 外部证据缺失时继续 pending，不伪造通过。未写数据库、业务数据、上传素材、生产服务或正式备份，未访问 D:\\Codex\\zcwj。",
+    "stageEvidence": {
+      "01": {
+        "appId": "visual-frame",
+        "result": "读取 Page DNA 的加载计划和目标集合指纹，输出页面范围、框架边界与加载意图；只由总控写一次 Stage 01。",
+        "artifactRefs": ["frontend/src/lib/developer-design-integration.ts", "frontend/src/components/developer-platform/UnifiedFrameMigrationWorkbench.tsx"]
+      },
+      "02": {
+        "appId": "shared-contract",
+        "result": "唯一保存请求去重、缓存、调度、媒体、响应式、预算和单页差量规则。",
+        "artifactRefs": ["shared/contracts/developer-optimization-contract.json", "frontend/src/lib/developer-optimization-contract.ts"]
+      },
+      "03": {
+        "appId": "figma-ui",
+        "result": "把设计引用、组件和三视口意图映射到同一 Page DNA，不直接改写或发布源码。",
+        "artifactRefs": ["shared/contracts/design-integration-contract.json", "frontend/src/lib/developer-design-integration.ts"]
+      },
+      "04": {
+        "appId": "visual-evidence",
+        "result": "以同一 Page DNA 指纹生成 390／768／1440 三视口、瀑布、媒体和影响证据。",
+        "artifactRefs": ["frontend/src/components/product-market/DeveloperVisualEvidenceWorkbench.tsx", "frontend/e2e/developer-design-integration.spec.ts"]
+      },
+      "05": {
+        "appId": "performance-experience",
+        "result": "作为唯一学习所有者维护基线、候选、问题模式和应用学习版本，向八应用提供只读投影。",
+        "artifactRefs": ["frontend/src/lib/performance-experience-learning.ts", "frontend/src/components/product-market/PerformanceExperienceWorkbench.tsx"]
+      },
+      "06": {
+        "appId": "quality-release",
+        "result": "消费 Knip、ESLint、TypeScript、包体、媒体、7+7 性能分布和 GitHub PR 证据，缺失时失败关闭。",
+        "artifactRefs": ["frontend/src/lib/developer-workflow-run.ts", "frontend/scripts/verify-performance-governance-workbench-contract.mjs"]
+      },
+      "07": {
+        "appId": "page-factory",
+        "result": "只读汇总八应用学习、页面登记、覆盖率和恢复边界，不复制第二套规则或账本。",
+        "artifactRefs": ["frontend/src/page-factory/phase-two-verification.json", "frontend/scripts/verify-developer-record-ledger-contract.mjs"]
+      },
+      "08": {
+        "appId": "page-lock",
+        "result": "按需读取三层锁和继承关系；任何写入前重新验证，短时发布授权到期自动撤销。",
+        "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx", "frontend/src/lib/page-layout-lock.ts"]
+      }
+    },
+    "artifactRefs": [
+      "shared/contracts/developer-optimization-contract.json",
+      "shared/contracts/design-integration-contract.json",
+      "frontend/src/lib/developer-design-integration.ts",
+      "frontend/src/lib/developer-workflow-run.ts",
+      "frontend/src/lib/performance-experience-learning.ts",
+      "frontend/e2e/developer-application-scope-flow.spec.ts",
+      "frontend/e2e/developer-design-integration.spec.ts"
+    ]
+  },
+  "latestPageLockSnapshotAndGuideRevision": {
+    "recordedAt": "2026-08-28T14:55:12+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38691",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "status": "passed",
+    "title": "08 页面锁定器单次状态快照与唯一悬浮说明入口",
+    "appId": "page-lock",
+    "relatedAppIds": ["performance-experience", "page-factory", "page-lock"],
+    "scopeIdentity": "global:developer-page-lock-runtime",
+    "contractVersion": "2026.08.28.6",
+    "loadingSpeedLearningVersion": "2026.08.28.2",
+    "sourceRecordCount": 100,
+    "legacyEvidenceCount": 99,
+    "revisionCount": 96,
+    "scope": "总部、代理源与客户源开发器 08 页面锁定器的三层锁读取、继承投影、标题说明入口、锁树选定框和页面尾栏锁按钮。",
+    "result": "08 每个锁状态 revision 只读取栏目锁、页面锁、源码锁和父级表各一次，并在不可变快照内 memo 直接／有效／继承状态；审计默认 318 节点的单次活动刷新由 6,678 次 localStorage.getItem 降为固定 4 次，约减少 99.94%，发布门的阻断列表与指纹也共用同一新鲜快照。悬浮说明只保留在标题的源码锁、页面锁、栏目锁三个按钮；锁树选定框、尾栏三把锁与旧黑色浮层不再重复显示说明，按钮名称与 aria-label 保持。",
+    "validation": "源码锁通过；TypeScript 零错误；锁快照运行时契约、页面组合继承契约和开发器性能治理契约通过。真实 Playwright 开发器整文件 10/10：三端 × 三宽 × 八应用共 72 状态完整，900px 的标题三把锁各有唯一说明，锁树 label/input、尾栏锁按钮与旧说明浮层均无 title／重复 DOM；下拉胶囊、箭头、关闭键和内部操作行继续垂直居中。Platform layout、Python page_factory check --all 与 Node verify:page-factory 均通过 201/201。",
+    "risks": "本轮只优化锁状态读取和重复说明 DOM，不改变三层锁存储格式、写入规则、服务端源码锁 registry、发布门、业务数据或租户内容。源码锁批量写仍应后续以兼容 v1 的原子批接口独立实施；registry v2 与 guard 迁移不得混入本次低风险修复。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。",
+    "stageEvidence": {
+      "05": {
+        "appId": "performance-experience",
+        "result": "共享性能学习登记同一 revision 的大型状态投影只读一次，并记录 6,678 → 4 的实测读取预算。",
+        "artifactRefs": ["frontend/src/lib/performance-experience-learning.ts", "shared/contracts/developer-optimization-contract.json"]
+      },
+      "07": {
+        "appId": "page-factory",
+        "result": "只读总账记录 08 的加载证据、唯一说明入口与保护边界，不复制锁状态。",
+        "artifactRefs": ["frontend/src/page-factory/phase-two-verification.json"]
+      },
+      "08": {
+        "appId": "page-lock",
+        "result": "统计、锁树、尾栏状态与发布门核对共用不可变锁快照；说明只归标题三把锁按钮。",
+        "artifactRefs": ["frontend/src/lib/page-layout-lock.ts", "frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx", "frontend/src/components/PageFooterLockControls.tsx"]
+      }
+    },
+    "artifactRefs": [
+      "frontend/e2e/developer-application-scope-flow.spec.ts",
+      "frontend/scripts/verify-runtime-wakeup-storage-cache-contract.mjs",
+      "frontend/scripts/verify-performance-governance-workbench-contract.mjs",
+      "frontend/scripts/verify-page-composition-audit-contract.mjs"
+    ]
+  },
+  "latestDeveloperApplicationChainPerformanceRevision": {
+    "recordedAt": "2026-08-28T14:36:02+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38689",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "status": "passed",
+    "title": "开发器应用链路单航道、发布门收口与页面加载优化",
+    "appId": "page-factory",
+    "relatedAppIds": [
+      "visual-frame",
+      "shared-contract",
+      "figma-ui",
+      "visual-evidence",
+      "performance-experience",
+      "quality-release",
+      "page-factory",
+      "page-lock"
+    ],
+    "scopeIdentity": "global:developer-application-chain-performance",
+    "contractVersion": "2026.08.28.5",
+    "sourceRecordCount": 100,
+    "legacyEvidenceCount": 99,
+    "revisionCount": 96,
+    "scope": "总部、代理源、客户源开发器 01 至 08 的顺序加载、证据传递、发布授权、锁状态回执与页面加载预算。",
+    "result": "02 至 07 改为共享 Promise 单航道，只在当前应用首帧后预热一个下一应用，并以 120ms 悬停、pointerdown、focus 识别直接意图；失败释放后只重试一次。07 将 333065 B 原始治理审计数据拆成首帧后的独立模块，模块、Promise 与 97 条适配记录均缓存，离开再进入不重复请求；08 非活动时不再订阅栏目配置大状态。构建报告以已加载开发器壳为基线，区分首次打开新增与完整依赖闭包；07 同步入口 gzip 由约 79.3 KB 降为约 8.6 KB，审计包约 73.2 KB 延后，deferredRootsLoadedInitially 为空。01 的 sync、publish、factory-default 统一要求当前 02 至 06 新鲜证据与 08 服务端源码锁回读后的三层锁只读核对；真实授权只留在父级内存，账本仅展示，CustomEvent 只携带单动作一次性 requestId，伪造与重放失败关闭。06 PR 证据即使页面未挂载也会按 verificationExpiresAt 自动降级并清除授权。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误，DeveloperRun 13/13、性能治理静态契约、页面工厂审计懒加载契约通过。开发器整文件 Playwright 10/10：三端三宽八应用、01 至 06 共用作用域、下一应用单预热、07 首帧后审计、伪造发布事件阻断、顺序门禁均通过。完整开发规范 66 项、共享界面 13/13、三端框架、模板发布 4/4、产品市场四页与保存 20/20、共享视觉 4/4 及生产构建预算 201 路由均通过。",
+    "risks": "08 批量源码锁仍是独立高风险性能边界：当前逐目标 PUT+GET、重复哈希和整表写入不在本次低风险加载修复中混改，后续应以 registry v2 去重基线和单次批量提交迁移。应用内浏览器控制器仍因本机服务版本 26.825.31414 与已安装技能缓存 26.820.60940 错位而无法连接，真实交互由仓库 Playwright Chrome 通道验证。未写数据库、业务数据、素材、生产服务或正式备份，未访问 D:\\Codex\\zcwj。",
+    "stageEvidence": {
+      "01": {
+        "appId": "visual-frame",
+        "result": "同步、发布和工厂默认只由唯一协调器执行，并消费当前发布门授权。",
+        "artifactRefs": ["frontend/src/components/developer-platform/UnifiedFrameMigrationWorkbench.tsx", "frontend/src/components/developer-platform/DeveloperGlobalFrameWorkflowCoordinatorBridge.tsx"]
+      },
+      "02": {
+        "appId": "shared-contract",
+        "result": "共享契约登记开发器壳基线、单下一步预热与短时一次性发布门。",
+        "artifactRefs": ["shared/contracts/developer-optimization-contract.json", "shared/contracts/page-dna-contract.json"]
+      },
+      "03": {
+        "appId": "figma-ui",
+        "result": "作为独立动态入口按意图加载，不随开发器壳同步下载。",
+        "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx"]
+      },
+      "04": {
+        "appId": "visual-evidence",
+        "result": "保持独立动态入口，并按稳定执行上下文传递证据。",
+        "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx"]
+      },
+      "05": {
+        "appId": "performance-experience",
+        "result": "报告首次打开新增包体而非误报包含已加载壳的完整闭包。",
+        "artifactRefs": ["frontend/scripts/verify-bundle-budgets.mjs", "frontend/src/lib/performance-code-audit.ts"]
+      },
+      "06": {
+        "appId": "quality-release",
+        "result": "显示新增包体与完整闭包；PR 证据在父链到期后自动撤销。",
+        "artifactRefs": ["frontend/src/components/product-market/PerformanceQualityReleaseWorkbench.tsx", "frontend/src/lib/developer-workflow-run.ts"]
+      },
+      "07": {
+        "appId": "page-factory",
+        "result": "外壳先显示，治理审计首帧后单次加载，重进复用缓存。",
+        "artifactRefs": ["frontend/src/components/product-market/PageFactoryWorkbench.tsx", "frontend/src/page-factory/page-factory-audit.ts"]
+      },
+      "08": {
+        "appId": "page-lock",
+        "result": "只读核对全目标源码锁、页面硬锁和栏目锁；生成显示回执，不直接执行发布。",
+        "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx", "frontend/src/lib/visual-page-editor-events.ts"]
+      }
+    },
+    "artifactRefs": [
+      "frontend/e2e/developer-application-scope-flow.spec.ts",
+      "frontend/dist/bundle-budget-report.json",
+      "frontend/scripts/verify-performance-governance-workbench-contract.mjs",
+      "frontend/src/page-factory/phase-two-verification.json"
+    ]
+  },
+  "latestDeveloperApplicationSuiteReauditRevision": {
+    "recordedAt": "2026-08-28T13:33:44+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38688",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "status": "passed",
+    "title": "开发器整套应用再审计与一致性优化",
+    "appId": "page-factory",
+    "relatedAppIds": [
+      "visual-frame",
+      "shared-contract",
+      "figma-ui",
+      "visual-evidence",
+      "performance-experience",
+      "quality-release",
+      "page-factory",
+      "page-lock"
+    ],
+    "scopeIdentity": "global:developer-application-suite-reaudit",
+    "contractVersion": "2026.08.28.4",
+    "sourceRecordCount": 97,
+    "legacyEvidenceCount": 96,
+    "revisionCount": 93,
+    "scope": "总部、代理源、客户源开发器 01 至 08 全局复审。",
+    "result": "契约升至 v2026.08.28.4：02 至 07 统一按需加载和一次重试；四条工作流证据恢复为 05／pending／客户源页面身份；07 同步路由并提供 20 条增量展示，保持只读；08 锁写入防重入；01 发布默认与 07 恢复默认分词；栏目页路由判定与语言表拆包。",
+    "validation": "源码锁、ESLint、TypeScript、账本 11/11、开发规范 66 项、三端三宽八应用 72 状态、07 回归 4/4、栏目页 3/3、页面工厂 201/201 及构建预算均通过。",
+    "risks": "应用内浏览器版本错位，交互由 Playwright Chromium 验证；失败不伪造成功。未写数据库、业务数据、素材、生产服务或正式备份，未访问 D:\\Codex\\zcwj。",
+    "stageEvidence": {
+      "01": {
+        "appId": "visual-frame",
+        "result": "发布默认与恢复默认分词。"
+      },
+      "02": {
+        "appId": "shared-contract",
+        "result": "读取 v2026.08.28.4。"
+      },
+      "03": {
+        "appId": "figma-ui",
+        "result": "接入按需加载重试。"
+      },
+      "04": {
+        "appId": "visual-evidence",
+        "result": "版本化读取历史身份。"
+      },
+      "05": {
+        "appId": "performance-experience",
+        "result": "性能证据保持真实状态。"
+      },
+      "06": {
+        "appId": "quality-release",
+        "result": "66 项质量门禁通过。"
+      },
+      "07": {
+        "appId": "page-factory",
+        "result": "路由同步、增量展示、只读。"
+      },
+      "08": {
+        "appId": "page-lock",
+        "result": "锁写入防重入。"
+      }
+    },
+    "artifactRefs": [
+      "frontend/e2e/developer-application-scope-flow.spec.ts",
+      "frontend/e2e/page-factory.spec.ts",
+      "shared/contracts/developer-record-ledger-contract.json",
+      "frontend/src/lib/ai-builder-route-scope.ts",
+      "frontend/src/page-factory/phase-two-verification.json"
+    ]
+  },
+  "latestDeveloperNavigationOrderMigrationRevision": {
+    "recordedAt": "2026-08-28T12:26:20+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38687",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "title": "开发器页面工厂独立 07 栏目与锁定器 08 顺序迁移",
+    "appId": "page-factory",
+    "relatedAppIds": [
+      "visual-frame",
+      "shared-contract",
+      "figma-ui",
+      "visual-evidence",
+      "performance-experience",
+      "quality-release",
+      "page-factory",
+      "page-lock"
+    ],
+    "scopeIdentity": "global:developer-navigation-order",
+    "contractVersion": "2026.08.28.3",
+    "sourceRecordCount": 96,
+    "legacyEvidenceCount": 95,
+    "revisionCount": 92,
+    "scope": "总部、代理源与客户源开发器的八个顶级栏目；01 至 06 类型化执行工作流保持原身份与存储顺序，页面工厂从 01 内嵌只读入口原件迁出为独立 07，页面锁定器顺延为最终 08。",
+    "result": "共享开发器契约固定 01 全局框架器、02 共享契约器、03 Figma 插件 UI、04 可视化验证台、05 优化加载体验、06 质量与发布中心、07 页面工厂、08 页面锁定器。07 复用原 LazyPageFactoryWorkbench、覆盖率中心和唯一记录总账，不复制第二套实例；01 的查看／收起入口、展开状态和生命周期插槽全部删除。查看全部记录直接切到 07；07 内不再叠加右侧三条投影，并提供不受 01 至 06 artifact 门禁阻塞的下一步 08。稳定 appId 不变，旧 09 页面工厂和旧 07 页面锁定器只通过只读别名识别，历史文字与证据不批量重写；stageEvidence 子项显式 appId 始终优先。八应用矩阵发现并修复 390px 标题操作轨以 flex-end 作为滚动起点造成的左侧裁切，窄屏现在从本地滚动轨起点显示且不改变客服聊天 stacked 例外。",
+    "validation": "源码锁与 source-lock:check 通过；developer-record-ledger TypeScript 单元回归 8/8、全量 tsc 零错误，设计集成、记录总账、性能治理、页面工厂、统一框架、产品市场洁净度和开发规范静态门禁通过。完整开发规范运行链 66 项通过，其中共享界面 13/13、三端框架 1/1、AlertDialog 1/1、模板发布 4/4、产品市场四页与保存 19/19、共享视觉 4/4。新增导航定向 Playwright 8 个场景全部通过：72 状态矩阵定义、总部／代理源／客户源各 24 个视口应用状态、08 标题动作、页面工厂试点、390px 07 页面和三端同一页面工厂；实际点击验证 07 无重复投影且下一步 08 可用。平台布局通过，page_factory.py check --all 201/201；最终生产构建在本记录写入后执行，H38687 只在全部验证结束后 finalization 一次。",
+    "risks": "显示编号发生变化但稳定 appId、01 至 06 workflow stage、localStorage scope、锁回执身份和历史 phase-two 记录不迁移；旧无显式身份的 07／09 stageEvidence 只在 legacy adapter 中按别名读取。应用内浏览器控制器因本机服务版本 26.825.31414 与已安装技能缓存 26.820.60940 错位而无法连接，真实交互改由仓库 Playwright Chrome 通道完成，不降低页面门禁。页面工厂保持只读，不新增数据库、上传素材、租户内容、生产服务器或正式备份写入权限；未访问 D:\\Codex\\zcwj。",
+    "stageEvidence": {
+      "01": { "appId": "visual-frame", "result": "保留全局框架工作流，移除页面工厂重复入口。", "artifactRefs": ["frontend/src/components/developer-platform/UnifiedFrameMigrationWorkbench.tsx"] },
+      "02": { "appId": "shared-contract", "result": "统一读取 v2026.08.28.3 导航与记录契约。", "artifactRefs": ["shared/contracts/developer-optimization-contract.json", "shared/contracts/developer-record-ledger-contract.json"] },
+      "03": { "appId": "figma-ui", "result": "设计阶段编号与稳定身份保持不变。", "artifactRefs": ["shared/contracts/design-integration-contract.json"] },
+      "04": { "appId": "visual-evidence", "result": "视觉证据阶段编号与稳定身份保持不变。", "artifactRefs": ["frontend/src/lib/developer-record-ledger.ts"] },
+      "05": { "appId": "performance-experience", "result": "页面工厂继续只在选中 07 后按需加载。", "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx"] },
+      "06": { "appId": "quality-release", "result": "八栏目契约和回归门禁统一进入发布检查。", "artifactRefs": ["frontend/scripts/verify-design-integration-contract.mjs"] },
+      "07": { "appId": "page-factory", "result": "独立承载只读覆盖率、版本、快照、恢复边界和记录总账。", "artifactRefs": ["frontend/src/components/product-market/PageFactoryWorkbench.tsx"] },
+      "08": { "appId": "page-lock", "result": "作为最终保护门并生成 08 锁回执。", "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx"] }
+    },
+    "artifactRefs": [
+      "frontend/e2e/developer-application-scope-flow.spec.ts",
+      "frontend/e2e/page-factory.spec.ts",
+      "docs/architecture/page-factory.md"
+    ]
+  },
+  "latestDeveloperRecordLedgerConsolidationRevision": {
+    "recordedAt": "2026-08-28T10:25:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38684",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "title": "开发器记录统一总账与七应用投影",
+    "appId": "visual-frame",
+    "relatedAppIds": [
+      "visual-frame",
+      "shared-contract",
+      "figma-ui",
+      "visual-evidence",
+      "performance-experience",
+      "quality-release",
+      "page-lock",
+      "page-factory"
+    ],
+    "scopeIdentity": "global:developer-record-ledger",
+    "contractVersion": "2026.08.28.2",
+    "sourceRecordCount": 94,
+    "legacyEvidenceCount": 93,
+    "revisionCount": 90,
+    "scope": "客户源开发器 01 视觉框架、02 共享契约、03 Figma UI、04 视觉证据、05 性能体验、06 质量发布、07 页面锁定器，以及 01 内的 09 页面工厂只读治理总账；覆盖当前页与全局作用域、总部／代理源／客户源页面身份、历史 phase-two 证据和本地锁操作回执。",
+    "result": "建立 developer-record-ledger-contract.json v2026.08.28.2 作为唯一记录契约：01 至 07 每个应用底部只投影与本应用相关的最近 3 条，查看全部统一进入 01 视觉框架内的 09 页面工厂，不复制第二套账本。09 只读总账按应用、状态、权威来源和关键词筛选，并统一展示页面、H 版本、时间、验证、风险和安全凭据引用。原 09 phase-two 记录经只读适配保留，显式 appId/relatedAppIds 优先；启发式分类仅读取 sourceKey、标题、范围、结果和摘要，不再因通用的源码锁验证文字把全部历史记录误归 07。07 的标题批量、锁树单项、自定义规则和尾栏锁操作统一生成一条回执；受服务支持的源码锁执行写入与 GET 回读，页面锁、栏目锁和继承阻断保持明确状态。本地回执限定当前浏览器、每作用域最多 120 条，明确不冒充源码正式记录或不可篡改审计。",
+    "validation": "封账门禁要求源码锁和 source-lock:check 为 0 个受保护页面变动；developer-record-ledger 单元回归、TypeScript、定向 ESLint、开发规范、设计集成、页面工厂与 lazy audit 契约、平台布局、Python 页面工厂 check --all 以及完整 npm run build 全部通过。运行链覆盖共享界面 13/13、三端代表页、AlertDialog、模板发布 4/4、产品市场保存与四页一致性 19/19、四页共享视觉 4/4；包预算必须保持 201/201 路由分析完整且无超限。09 适配后应读取 94 条源码记录，其中 93 条历史证据、90 条 Revision、2 条 Audit、1 条 Repair 和 1 条当前摘要；应用主归属至少覆盖 5 类，07 主归属少于历史记录的一半。",
+    "risks": "本地回执可被浏览器存储清理，不是正式审计；源码正式记录仍以本文件和 H 清单为准，服务端源码锁状态以回读结果为准。绝对本地路径、凭据参数和 data URI 不进入凭据引用。变更不触碰业务数据库、租户内容、上传素材、发布数据、生产服务器、正式备份或 D:\\Codex\\zcwj；H 清单只记录发布证据与运行配置恢复点，不描述为源码正式备份。",
+    "stageEvidence": {
+      "01": {
+        "appId": "visual-frame",
+        "result": "持有七应用最近记录投影与 09 总账唯一入口。",
+        "artifactRefs": ["frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx"]
+      },
+      "02": {
+        "appId": "shared-contract",
+        "result": "读取同一共享账本契约、权威层级和安全引用规则。",
+        "artifactRefs": ["shared/contracts/developer-record-ledger-contract.json"]
+      },
+      "03": {
+        "appId": "figma-ui",
+        "result": "复用同一设计证据记录结构，不建立专用历史列表。",
+        "artifactRefs": ["shared/contracts/design-integration-contract.json"]
+      },
+      "04": {
+        "appId": "visual-evidence",
+        "result": "视觉证据按统一页面身份、状态、时间和凭据引用投影。",
+        "artifactRefs": ["frontend/src/lib/developer-record-ledger.ts"]
+      },
+      "05": {
+        "appId": "performance-experience",
+        "result": "记录面板与 phase-two 大历史保持按需加载，普通页面不预载 09 审计数据。",
+        "artifactRefs": ["frontend/src/components/product-market/PageFactoryWorkbench.tsx"]
+      },
+      "06": {
+        "appId": "quality-release",
+        "result": "新增账本门禁并纳入开发规范完整验证链。",
+        "artifactRefs": ["frontend/scripts/verify-developer-record-ledger-contract.mjs"]
+      },
+      "07": {
+        "appId": "page-lock",
+        "result": "每次锁操作形成一条作用域绑定回执，源码锁执行服务端写入后回读。",
+        "artifactRefs": ["frontend/src/lib/developer-source-page-lock-readback.ts"]
+      }
+    },
+    "artifactRefs": [
+      "frontend/src/components/product-market/DeveloperRecordPanel.tsx",
+      "frontend/src/lib/developer-record-ledger.test.ts",
+      "frontend/src/page-factory/phase-two-verification.json"
+    ]
+  },
+  "latestCustomerServiceAvatarFirstPaintFallbackRevision": {
+    "recordedAt": "2026-08-28T08:38:30+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38683",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "mediaContractVersion": "2026.08.28.1",
+    "avatarFirstPaintPolicy": "bundled-first-decode-gated-never-empty-v1",
+    "avatarFirstPaintScope": "customer-service-experts-01-12",
+    "sharedContractEvidence": "developer-shared-contract+quality-center+shared-avatar-renderer",
+    "scope": "共享媒体优化契约及其开发器应用，覆盖开发器 02 共享契约器的当前页／全局作用域、06 质量中心、素材库上传／替换／去重／删除／安全优化后端、存量优化工具，以及产品市场 → 客服音效 01 至 12 专家头像在总部、代理源、客户源的选择专家、当前专家、左侧栏目身份头像和 AI 客服窗口投影。",
+    "result": "媒体上传与交付只读取 media-optimization-contract.json v2026.08.28.1：上传原件仅在内存中临时存在，验证成功后只持久化一份正式文件；PNG/JPEG 自动转 WebP 且至少节省 10% 才替换，SHA-256 相同内容复用同一份实际已复核字节，缩略图与派生尺寸作为可重建缓存，SVG、Lottie 与 CSS 保持结构，浏览器不执行会生成无限时长 WebM 的不可靠视频转码。开发器当前页只继承且无执行按钮，全局可检查素材库并仅安全优化内置测试素材；质量中心和共享头像渲染器消费同一版本、同一 bundled-first-decode-gated-never-empty-v1 策略。首批 9 张代码拥有的专家 PNG 从 1447879 B 优化为 71598 B，节省 1376281 B（约 95%），验证后旧 PNG 不保留；本地素材库复检 9/9 合规。保存头像只在解码就绪后替换本地首屏头像，失败回退本地头像并最终回退矢量图，因此 01 至 12 永不留空。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript npx tsc --noEmit 零错误。后端媒体专项 25/25 通过，覆盖 WebP 转换、相同字节去重、损坏索引哈希不复用、Windows 等价路径引用保护、规范化删除编号、优化原子提交与安全存量替换。verify:media-optimization、verify:customer-service-avatar-reference、verify:customer-service-avatar-order、verify:product-market-avatar-preview-batch、verify:customer-service-audio、verify:performance-governance、verify:global-responsive-pages、verify:shared-visual-parity、verify:product-market-visual、verify:product-market-performance 均通过；产品市场四页视觉基线通过。开发器当前页／全局媒体作用域 Playwright 1/1 通过，素材优化请求体限定 safeTestAssetsOnly=true；头像远端回读、损坏回退与慢图解码门控 5/5 通过；共享小卡片与客服投影定向复跑 4/4 通过。开发规范静态主链及 201 页合同通过；整套浏览器长链在预览服务中途退出后出现连接拒绝，相关本任务用例以新服务定向复跑均通过。捆绑 Python 的 verify_platform_layout.py、verify_tenant_context.py、page_factory.py check --all 通过；verify:page-factory 作为最终 09 记录门禁复核。",
+    "risks": "变更只调整代码拥有的共享媒体策略、开发器与质量中心证据、素材库本地开发链路以及明确授权的 9 张内置测试头像；不批量改写客户上传内容，不改变专家选择、朗音和提醒业务规则、租户数据、发布数据或正式备份。未访问或修改生产数据库、远程服务器、正式备份或 D:\\Codex\\zcwj。视频仅在服务端转码器可用时自动处理；当前浏览器端保持 fail-closed，不伪造已优化状态。"
+  },
+  "latestCurrentExpertSelectionCardResponsiveParityRevision": {
+    "recordedAt": "2026-08-27T21:48:26+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38672",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "产品市场 → 客服音效中的“选择专家”卡片与“当前专家真人朗音自定义”头像名片，覆盖总部、代理源、客户源共享响应式契约以及手机、平板、桌面和超宽内容区。",
+    "result": "当前专家头像名片接入 selection-card-auto-fit-v1，与选择专家共用 222px 可读下限、8px 间距和无列数上限的 auto-fit 轨道；右侧设置区继续跨越剩余轨道，头像名片使用固有内容高度并以 align-self:start 解除同轨纵向拉伸。手机端移除选择专家头像残留的固定 52px 第二尺寸源，两类头像统一读取共享启动头像令牌，宽高相等并保持 cover。截图同类超宽场景中，修复前选择专家为 6 列、首卡 255.5px，而当前专家固定 4 列、首卡 387.25px 且高 240px；修复后两者均为 6 列和 255.5px，当前卡高 176.75px，与选择卡 178.75px 保持同一视觉节奏。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；全局响应式、共享视觉、产品市场视觉基线、客服音频、可视化开发器及 201 个页面工厂 Node 契约均通过。定向 Playwright 1/1 通过，内部覆盖 390、640、830、1024、1440、1920 六档宽度，逐档验证选择专家与当前专家列数相同、卡宽差不超过 1px、卡高差不超过 4px、当前卡无横向溢出、两类头像同尺寸且均为正方形，存在图片或视频时 object-fit 为 cover。当前主机没有 python 或 py 解释器，因此 verify_platform_layout.py、verify_tenant_context.py 和 page_factory.py check --all 均已实际尝试但无法启动；本次未改变页面注册、路由或租户上下文。",
+    "risks": "变更仅统一代码拥有的客服专家卡容量、固有高度和头像几何，不改变专家内容源、选择行为、上传素材、朗音、提醒声音、聊天弹窗、侧栏专家放大预览、业务数据、租户内容或发布流程。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestSharedPopupTitleActionBandCenterRevision": {
+    "recordedAt": "2026-08-27T21:14:09+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38671",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "弹窗共享契约中的标题右侧功能按键区与关闭按键，覆盖通用弹窗、确认弹窗、开发器 01 至 07、产品市场旧版设置弹窗和可视化开发器；客服聊天弹窗继续作为上下结构的唯一例外。",
+    "result": "共享标题动作对齐升级为 shared-title-action-band-center-v3，标题动作轨升级为 shared-window-title-action-rail-v2。非客服弹窗的标题文案栈、功能按键轨和关闭按键统一以完整标题带为参照垂直居中，功能按键、下拉胶囊与关闭按键使用 32px 实际高度；开发器与产品市场专用动作轨显式声明 inline。客服聊天弹窗显式登记为 customer-service-chat、chat、stacked，继续保留上下结构，不受全局横向动作轨覆盖。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；开发规范、可视化开发器和 AlertDialog 静态共享契约通过；201 个登记页面的 verify:page-factory 通过。真实 Playwright 回归 3/3 通过：07 页面锁定器标题操作区在 900px 宽度下完整标题带、功能轨与关闭键中心对齐且控件均为 32px；01 至 06 当前页／全局独立胶囊与关闭键中心对齐；AlertDialog 共享关闭键保持取消语义。客服聊天运行态只读测量确认 kind=chat、mode=stacked、flex-direction=column、水平中心差 0、上下间距 8px。当前主机没有可调用的 Python 解释器，因此 verify_platform_layout.py、verify_tenant_context.py 和 page_factory.py check --all 均已实际尝试但无法启动；本次未改变页面工厂路由或租户上下文，Node 页面工厂基线保持 201/201。",
+    "risks": "变更只统一代码拥有的非客服弹窗标题动作布局、共享契约标记和验证门禁，不改变按键动作、关闭语义、客服聊天上下结构、主题版色、业务数据、租户内容或发布流程。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestDeveloperWorkflowOrderNoticeRemovalRevision": {
+    "recordedAt": "2026-08-27T20:36:49+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38670",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 06 质量与发布中心标题说明区中的流程顺序内部错误提示。",
+    "result": "保留 01 至 06 开发流程的前置阶段顺序校验；当后续阶段被提前触发时，不再把 developer workflow stage XX is out of order; expected XX 这一内部英文错误透传到界面。该提示被清空后，标题说明区恢复显示正常的中文当前页或全局流程进度。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；开发规范静态主链新增英文顺序错误隐藏门禁并通过；201 个登记页面的页面工厂契约通过。DeveloperRun 顺序、指纹、失效传播与 fail-closed 门禁测试 7/7 通过。1280×800 定向 Playwright 回归 1/1 通过：在新会话提前进入 04 并采集视口触发乱序保护后，标题只显示中文当前页流程进度；再进入 06 质量与发布中心，developer workflow stage 与 out of order 均未出现。当前主机没有可调用的 Python 解释器，因此 Platform layout、tenant context 与 page_factory.py check --all 已尝试但无法启动；本次未改变页面结构、租户上下文或页面工厂登记。",
+    "risks": "变更只处理开发器流程内部错误的可见文案，不放宽流程顺序、不改变证据记录、页面路由、主题、业务数据、租户内容或发布逻辑。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestDeveloperScopeSeparateCapsulesRevision": {
+    "recordedAt": "2026-08-27T18:24:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38668",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "开发器 01 至 06 应用标题右侧的“当前页／全局”作用域选择控件。",
+    "result": "移除原有包住两个选项的组合框，将“当前页”和“全局”拆成两个有独立间距的胶囊。每个胶囊同时登记共享选中控件、data-selected、data-state 与 aria-pressed；选中胶囊的边框、底色和文字色分别读取 --tradepro-shared-selection-outline、--tradepro-shared-selection-bg 与 --tradepro-shared-selection-text，对应版面风格的“右侧选中框／右侧选中字”。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；开发规范静态主链通过。1280×800 定向 Playwright 回归 1/1 通过，确认外层组合框边框为 0、两个胶囊间距至少 6px、胶囊圆角有效；当前页默认选中时计算后的框色、底色和文字色与共享令牌一致，切换全局后 data-selected 与 aria-pressed 同步更新，业务路由和 01 至 06 共用作用域规则保持不变。",
+    "risks": "变更只调整开发器作用域选择器的胶囊布局和共享选中视觉，不改变作用域持久化、当前页／全局切换逻辑、工作台数据、页面路由、租户内容或发布流程。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerFilterUniformSurfaceRevision": {
+    "recordedAt": "2026-08-27T17:58:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38667",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题中“全部一级栏”文字和下拉箭头的统一框内表面。",
+    "result": "统一框内改为透明的展示文字层与透明箭头层；原生 select 变为覆盖整个框的透明点击层，仅负责下拉交互，不再参与可视背景绘制。文字和箭头因此始终使用同一无填充背景，仍保持共同的内容自适应宽度、边框和整框可点击下拉。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。900×720 定向 Playwright 回归 1/1 通过，验证展示文字、箭头与外框背景均为透明且一致，箭头在文字右侧和框内，透明 select 覆盖框并可聚焦，筛选文字切换后宽度继续自适应，标题操作区保持垂直居中、无裁切与无横向滚动。",
+    "risks": "变更只统一 07 页面锁定器下拉触发器的内部表面和点击层，不改变筛选值、栏目层级、锁定操作、主题、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerFilterUnifiedFrameRevision": {
+    "recordedAt": "2026-08-27T17:41:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38666",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题中的一级栏目下拉触发器框。",
+    "result": "文字区域与下拉箭头收进同一个圆角边框框内，框本身保持无填充背景，避免形成独立色块；框宽度继续按当前文字和固定箭头共同自动伸缩，箭头不会落在框外或覆盖文字。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。900×720 定向 Playwright 回归 1/1 通过，验证箭头位于文字右侧并完全处于统一触发器框内、标题与功能键垂直居中，点击框内留白可聚焦原生下拉，内容自适应宽度与无裁切基线保持通过。",
+    "risks": "变更只调整 07 页面锁定器下拉触发器的外框与内部布局，不改变筛选值、栏目层级、锁定操作、主题、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerFilterUnframedTriggerRevision": {
+    "recordedAt": "2026-08-27T17:32:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38665",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题中的一级栏目下拉触发器。",
+    "result": "移除“全部一级栏”独立的背景、边框与圆角框，文字和箭头直接融入标题栏。文字仍按实际内容伸缩，箭头保持在文字右侧；整个文字加箭头区域是同一个可点击 label，点击箭头或周围留白会聚焦并调用原生下拉选择器。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。900×720 定向 Playwright 回归 1/1 通过，验证无框触发器保持标题垂直中线、箭头处于文字右侧和触发器范围内，点击触发器左侧留白后 select 获得焦点，默认与切换筛选的内容自适应宽度、无裁切和滚动基线均保持通过。",
+    "risks": "变更只调整 07 页面锁定器下拉触发器的视觉框架和点击入口，不改变筛选值、栏目层级、锁定操作、主题、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerFilterTextChevronCapsuleRevision": {
+    "recordedAt": "2026-08-27T17:20:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38664",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题中的一级栏目筛选胶囊。",
+    "result": "筛选胶囊改由当前文字 select 与右侧独立 Chevron 图标共同构成：胶囊框、底色和边框属于外层，select 只承载文字并按当前选项内容收缩，箭头作为正常的同级弹性项占据固定宽度。这样既保持“文字 + 箭头”的实际宽度，又避开原生 select 绘制层覆盖外置图标的问题。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。900×720 定向 Playwright 回归 1/1 通过，验证文字、箭头和功能键共用垂直中线；箭头位于文字右侧且完全处于胶囊右边界内，默认内容宽度保持小于旧固定宽度，选择“产品市场”后文字区域继续收缩，未发生裁切或横向滚动。",
+    "risks": "变更仅修正 07 页面锁定器下拉胶囊的文字、箭头与自适应宽度布局，不改变筛选值、栏目层级、锁定操作、主题、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerFilterChevronVisibilityRevision": {
+    "recordedAt": "2026-08-27T17:00:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38662",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题中按内容自适应的一级栏目下拉胶囊与箭头图标。",
+    "result": "下拉控件明确为底层，箭头提升到独立上层并隔离胶囊层叠上下文；箭头继续位于右侧预留内边距内，不遮挡文字，也不会因按内容收缩而被 select 绘制层覆盖。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。900×720 定向 Playwright 回归 1/1 通过，验证箭头与标题、下拉和功能键保持同一垂直中线，箭头左右边界均在下拉胶囊内部的 4px 安全区内，计算层级大于 0，且筛选胶囊不裁切。",
+    "risks": "变更只修正 07 页面锁定器下拉箭头可见性与层叠顺序，不改变筛选、栏目、锁定操作、主题、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerFilterContentSizingRevision": {
+    "recordedAt": "2026-08-27T16:44:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38661",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题中的一级栏目筛选下拉胶囊。",
+    "result": "移除固定 144px 下拉宽度，改为按当前已选文字内容计算宽度；“全部一级栏”按自身文字收缩，切换为更短的“产品市场”会继续收窄。保留 32px 统一操作高度、原生外观隐藏、自定义箭头、文字截断和 9rem / 窄屏可用宽度上限，避免较长分组文字挤压标题操作轨。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。900×720 定向 Playwright 回归 1/1 通过，验证标题、下拉、箭头与功能键仍共用垂直中线和 32px 高度；默认“全部一级栏”宽度小于原固定 136px 下限，选择“产品市场”后宽度进一步变小，同时保留无裁切和 scrollLeft=0 检查。",
+    "risks": "变更仅影响 07 页面锁定器下拉胶囊的展示宽度，不改变筛选值、栏目层级、锁定动作、响应式换行、主题、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestSharedPopupTitleActionRailRevision": {
+    "recordedAt": "2026-08-27T16:32:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38660",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "共享弹窗标题操作轨，覆盖通用弹窗、确认弹窗、抽屉、可拖拽开发器、专家弹窗、可视化开发器与客服聊天的关闭键和标题功能键。",
+    "result": "新增 shared-window-title-action-rail-v1：所有共享窗口将标题与直接关闭键放入同一标题栅格行，关闭键固定为 32px、零内边距和 1rem 图标，并以标题最小高度的中线定位；通用、确认和抽屉窗口统一声明标题操作轨契约及相同的标题内缩。开发器可拖拽窗口保留自身零内缩边界。专家、可视化开发器和产品市场专用关闭键接入同一语义标记。客服聊天是刻意保留的例外：标题操作区声明 stacked，继续采用上下结构，不被全局横向操作轨覆盖。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；开发规范主链与 AlertDialog 共享窗口静态契约通过。真实 Playwright AlertDialog 回归 1/1 通过，确认取消语义不变且标题中心与关闭键中心误差不超过 1px、关闭键高度 32px、行高为 0；07 页面锁定器 900×720 定向回归 1/1 通过，确认标题操作区垂直居中且下拉胶囊未裁切。当前主机没有可调用的 Python 解释器，因此 Platform layout、tenant context 与 page_factory.py check --all 已尝试但无法启动；本次未变更页面工厂路由或租户上下文，既有 201/201 基线保持不变。",
+    "risks": "变更仅统一代码拥有的共享弹窗标题操作布局与关闭按钮视觉基线，不改变任何按钮动作、AlertDialog 取消语义、聊天窗口上下布局、页面锁定状态、主题版色、业务数据、租户内容或发布流程。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestSharedPopupTitleActionAlignmentRevision": {
+    "recordedAt": "2026-08-27T16:15:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38659",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "弹窗共享契约中的标题右侧操作胶囊，覆盖客户源开发器 07 页面锁定器的分类下拉、锁定按键、栏目配置标题操作基准及 900px 响应式宽度。",
+    "result": "新增 shared-title-action-centerline-v2 弹窗标题操作对齐子契约。共享弹窗标题按钮与原生下拉统一使用 32px 操作高度、同一 1rem 响应式行高、上下零内边距、垂直居中和共享字体；不再只保证外框中心而让下拉文字使用较小行盒。07 分类下拉由 160px 缩窄为最多 144px，在 900px 中等宽度可响应缩至约 139px，仍保持完整操作轨边界和省略保护。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；开发规范静态主链及 201 页面 verify:page-factory 通过。应用内浏览器实测默认宽度下标题、下拉、按键中心线均为 96.703125，下拉和按键高度均为 32px、行高均为 16px、上下内边距均为 0，下拉宽度 144px。900×720 定向 Playwright 回归 1/1 通过，校验共享子契约标识、136–144px 响应式下拉宽度、下拉／按键同源行高、垂直中心、防裁切、栏目分组和一级／二级编号。当前主机没有可调用的 Python 解释器，Platform layout、tenant context 与 page_factory.py check --all 已尝试但未能启动；上一轮 201/201 Python 页面基线保持不变。",
+    "risks": "共享规则只统一弹窗标题区按钮与下拉的内部垂直排版，不改变按钮动作、栏目筛选值、页面锁状态、主题颜色、业务数据或发布流程。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerColumnHierarchyRevision": {
+    "recordedAt": "2026-08-27T15:55:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38658",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器与产品市场 → 栏目配置的栏目分组、全局一级编号、二级编号、下拉筛选文案及共享导航静态契约。",
+    "result": "经营分类调整为无级别分组，不再占用一级栏目编号或显示级别胶囊；真实栏目继续读取栏目配置的全局连续编号。01.蓄势(身份)分组下，产品分析为一级 01栏，兴趣搜索为二级 01.01栏。分类下拉直接显示 01.蓄势(身份)等分组名称，不再拼接错误的“一级 01栏”前缀。批量锁定全部仍包含分类语义锁，按一级范围操作只命中真实一级栏目。共享导航门禁中的页面锁定器名称同步为 07。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误；社媒共享导航契约与 201 页面 verify:page-factory 通过。应用内浏览器实测分组 data-page-lock-level 不存在，产品分析 level=1 且显示一级 01栏，兴趣搜索 level=2 且显示二级 01.01栏；下拉前六个经营分类均只显示分组名称，选择 01.蓄势(身份) 后仅显示该分组。900×720 定向 Playwright 回归 1/1 通过，同时校验标题垂直对齐、防裁切、无级别分组、一级／二级编号与下拉文案。当前主机没有可调用的 Python 解释器，Platform layout、tenant context 与 page_factory.py check --all 已尝试但未能启动；上一轮 201/201 Python 页面基线保持不变。",
+    "risks": "变更只校正代码拥有的 07 页面锁定器栏目投影、筛选文案、共享门禁和 09 页面工厂证据；不改变栏目配置顺序、经营分类归属、页面路由、锁状态、租户内容或发布数据。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestPageLockerTitleActionAlignmentRevision": {
+    "recordedAt": "2026-08-27T15:36:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38657",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器 07 页面锁定器标题右侧功能操作轨，覆盖标题、栏目筛选胶囊、自定义下拉箭头、锁定功能按键、中等桌面宽度与窄屏换行规则。",
+    "result": "页面锁定器标题操作轨改为安全的首项自动外边距契约：空间足够时整组保持靠右，内容超过可用宽度时从第一个栏目筛选胶囊开始完整显示并允许横向滚动，不再由 flex-end 从左侧裁切。标题操作列容量由 32rem 调整为 36rem；筛选胶囊和所有功能键统一使用共享 32px 操作高度，原生下拉外观改为共享自定义箭头，文字、箭头、标题与按键使用同一垂直中心线。760px 以下继续按共享窄屏规则换行并清除自动外边距。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误。应用内开发器实测标题、筛选胶囊、箭头和首个功能键中心线完全一致，筛选胶囊显示完整“全部一级栏”，高度 32px、appearance=none、未越出操作轨且 scrollLeft=0。新增 900×720 定向 Playwright 回归 1/1 通过，校验垂直中心、高度、防裁切、自定义箭头与初始滚动位置；verify:page-factory 和开发规范全部静态合同通过。开发规范共享真实页组先通过 7 项，随后其 4173 预览服务终止导致 5 项连接拒绝，另 1 项为既有主题预览阴影刷新超时，均不在本次 07 标题操作面。当前主机没有可调用的 Python 解释器，因此 Platform layout、tenant context 与 page_factory.py check --all 已尝试但未能启动；上一轮 201/201 页面工厂基线保持不变。",
+    "risks": "变更仅限代码拥有的开发器标题操作布局、共享样式、定向回归和 09 页面工厂验证记录；不改变页面锁定状态、筛选数据、锁定动作、业务页面、租户内容或发布流程。未访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。"
+  },
+  "latestProductMarketRuntimeVersionConsistencyRetestRevision": {
+    "recordedAt": "2026-08-27T16:41:32.4145484+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38662",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客户源开发器七应用综合升级，覆盖全局框架器、共享契约器、Figma 插件 UI、可视化验证台、优化加载体验、质量与发布中心、页面锁定器，以及社媒九个业务页签的独立懒加载与 Page Factory 真实源码聚合。",
+    "result": "开发器统一为七应用顺序并将页面锁定器固定在最后；全局框架、共享契约、设计引用、可视化证据、加载治理、质量发布和锁继承共同读取一份 Page DNA。Figma 工作台只登记 figma.com/design 引用与标准快照，不保存凭证或直接覆盖源码；可视化台汇总 DNA 指纹、Figma 语义差异、390/768/1440 三屏矩阵、加载/长任务、图片视频策略和影响范围，并支持导出可复核证据。Figma 与可视化工作台仅在交互后动态加载。性能中心统一 Knip、ESLint、包分析、性能预算、媒体格式/大小/时长、GitHub PR 和发布证据；Knip 在 Node 24/Windows 下通过兼容包装器关闭 Oxc 约 6 GiB 连续 raw-transfer 缓冲区，普通解析结果不变。社媒外壳缩为路由和加载调度层，九个业务页签及营销作战分别形成独立动态入口，悬停、聚焦和按下时意图预热；Page Factory 按页面 ID/route 跟随 SOCIAL_TAB_LOADERS 检查真实实现，不伪造标记、不把页签重新并回首屏。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript 零错误，定向 ESLint 零错误零警告，Knip production 阻断审计通过。完整 Development Standard 60/60 通过：共享实页 13/13、三端框架 1/1、共享弹窗 1/1、产品市场发布闭环 4/4、保存/四区/租户身份 17/17、共享视觉 4/4；七应用三端 390/768/1440 矩阵 4/4、共 63 个应用状态通过。生产构建转换 3018 个模块并在 21.61 秒完成；包预算校验 201 条登记路由、313 个脚本块和 47 个公开媒体无违规。SocialMedia 外壳为 11.55 kB / 4.17 kB gzip，各业务页签独立输出；Figma 与可视化工作台分别约 3.89 kB、3.95 kB gzip。应用内实页确认七应用、Figma/可视化内容和页面 DNA 正常，路由隔离错误为零。Platform layout、tenant context、page_factory.py check --all（201/201）、verify:page-factory 和后端源码锁依赖专项 2/2 通过。",
+    "risks": "变更只作用于代码拥有的开发器、共享契约、只读设计/可视化证据、构建审计、社媒代码分块、Page Factory 源码检查与锁依赖映射；不会自动发布 Figma 提案、不会把自动优化直接写入业务页，也不会恢复工厂默认或改写租户内容。没有访问或修改生产数据库、远程服务器、正式备份、上传素材或 D:\\Codex\\zcwj。Figma 凭证仍由 Codex 插件保管；性能建议必须经过影响分析、锁检查、预算和 PR 门禁后才能应用。"
+  },
+  "latestProductMarketTemplateFactoryRolloutRevision": {
+    "recordedAt": "2026-08-27T03:45:32.2491239+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38651",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "产品市场源体的运营市场、栏目配置、版面风格、客服音效四区模板生命周期，覆盖保存草稿、发布新版、自动下发全部有效客户端计划、提升工厂默认、新计划继承、运行端保存与恢复、开发器和共享契约、09 页面工厂验证记录。",
+    "result": "四区配置现在只在显式保存并完成服务端回读后推进已保存基线，页面切换不会再以当前标签页的局部状态覆盖完整草稿，也不会对已保存内容重复提示。发布只消费服务端已校验草稿及其哈希，生成不可变版本后按精确版本创建全部有效客户端计划批次；同版本重试可复用，不同草稿必须发布新版本。批次仅在总数等于成功数、失败数为零且全部有效客户端计划实例对齐时才可提升工厂默认；任一失败会阻断提升并保留中文重试结果。工厂默认指针带版本、配置哈希、批次、契约版本与操作者证据，并保持单调前进；现有计划自动同步，新启用计划从同一已发布默认继承。运行端保存保留不可变绑定并只计算本地覆盖。开发器与共享契约同步声明唯一流程：保存草稿 → 发布新版 → 全部客户端计划 → 工厂默认。",
+    "validation": "源码锁和 source-lock:check 通过。TypeScript、产品市场发布静态契约、可视化开发器契约、页面工厂前端契约、平台布局、租户上下文及 page_factory.py check --all 201/201 全部通过。后端发布、并发、防降级、重试、租户开通、实例绑定和草稿同步专项 89/89 通过；开发规范总门禁 56/56 通过，其中共享真实页面 13/13、三端框架 1/1、共享弹窗 1/1、产品市场发布真实交互 4/4。应用内浏览器实测：栏目配置保存后切换运营市场不再弹出未保存提示；确认发布后，本地开发数据库记录的批次 16179773-744b-4709-9398-280d4c95b47b 为 completed，总数 1、成功 1、失败 0，有效客户端计划 1/1 对齐版本 v20260826192431608，工厂默认契约为 2026-08-27.1。",
+    "risks": "仅修改代码拥有的模板生命周期、共享契约、数据库结构迁移和本地开发验证数据；迁移提供 downgrade 回退路径。未连接或修改生产数据库、远程服务器、上传素材、正式备份或 D:\\Codex\\zcwj。发布失败不会推进工厂默认，客户端自定义覆盖与业务数据不会被恢复默认流程抹除。"
+  },
+  "latestSharedContractGlobalConsistencyRevision": {
+    "recordedAt": "2026-08-27T01:51:21.6837651+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38650",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "H38649 后再次反向审计开发器与共享契约的一套全局规则，覆盖总部、代理源、客户源 201 个页面工厂登记页、17 个有效端别／模板组合，以及客户源产品市场的素材筛选、客户源开发器导航、版面全局字体和草案主题编辑器选中态。",
+    "result": "发现并修复四类运行时登记盲点：头像／声音素材筛选、开发器三项顶部导航、版面字体／字重／字间距和主题编辑器三组选项。所有控件现在同时登记 data-shared-selection-control、data-selected 与 aria-pressed；版面字体运行扫描还校验私有兼容状态与共享状态一致。主题编辑器保持 draft-theme-preview 边界，在弹窗局部把共享选中底色、文字色和边框映射到草案动作色，避免误读当前已发布主题。共享视觉静态门禁新增按控件锚点计数的缺失登记检查，两条真实页面回归加入开发规范主链。",
+    "validation": "源码锁与 source-lock:check 通过；TypeScript、全局主题、共享视觉、可视化开发器和客服运行选择契约通过。真实 Playwright 新增素材筛选／开发器导航与版面／主题字体 2/2，完整共享契约聚焦回归 13/13。Platform layout 通过；页面工厂 Python 17/17、确定性源码清单 baselineDiff=unchanged、page_factory.py check --all 201/201、verify:page-factory、开发规范总门禁与生产构建全部通过。",
+    "risks": "只补齐代码拥有的共享选中态语义、草案主题局部令牌投影、运行扫描和回归门禁；保留原有私有兼容属性与计算后视觉，不改变业务状态、素材、专家、声音、保存发布、排序或租户数据。未修改数据库、上传资源、正式备份、服务器或生产环境，也未触及 D:\\Codex\\zcwj。"
+  },
+  "latestSharedDeveloperAndWindowParityRevision": {
+    "recordedAt": "2026-08-26T23:08:39.5674848+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38646",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "开发器、共享窗口与页面卡片版色的一套全局契约，覆盖总部、代理源、客户源、产品市场运营市场、栏目配置、版面风格、客服音效、可视化开发器及 09 页面工厂验证记录。",
+    "result": "共享窗口契约升级为 2026.08.26.1，并统一出厂恢复、页面主题投影、窗口注册表、关闭插件和四边八向中心对称缩放；可视化开发器本身也使用同一 workbench 窗口契约。弹窗、开发工具、客服聊天、素材选择、站点切换等窗口不再使用私有契约或版本限定样式。大卡片与小卡片由单一语义优先解析器决定，开发器语义、页面工厂语义、卡片尺寸和共享表面优先于分组猜测，运行时只清理自己投影的相反属性，不覆盖源声明。共享小卡片契约 2026.08.26.2 新增 effective 版色表面，普通非表格列表卡也会读取当前主题的底色、字体色、字号和字重；每个大卡片仍只显示第一张代表标注，其余卡片保持可编辑但静默。列表仅切换为表格模式时会立即撤销标注与小卡片版色，切回后自动恢复。主题编辑弹窗和开发器标题栏同样改读对应页面或草稿主题令牌。",
+    "validation": "源码锁和 source-lock:check 通过；npx tsc --noEmit 通过。定向 Playwright 2/2 通过：属性式卡片/表格切换会同步增删 marker、effective 版色和开发器运行区域；运营市场与栏目配置全部有效小卡片的底色、字体色、字号、字重一致且无大/小卡片重叠。应用内浏览器复核：运营市场 2 个作用域、18 张卡、2 个代表、16 个静默；栏目配置同为 18 张有效小卡并全部读取主题；客服音效 4 个作用域、38 张卡、4 个代表、34 个静默；三页大/小表面重叠均为 0。可视化开发器读取 visual-workbench、three-source-shared-window-contract、active-page、2026.08.26.1、marker 2026.08.26.2、有效版色属性、8 个缩放边和共享关闭插件，4 个代表标注可见且 34 个静默标注不可见。verify:development-standard 47 项、verify:shared-visual-parity、verify:developer-global-frame-runtime 201/201、verify:visual-card-developer、verify:product-market-visual、全局主题令牌、主题可读性、Platform layout、page_factory.py check --all 201/201 和 verify:page-factory 全部通过。",
+    "risks": "共享 effective 版色只覆盖真实小卡片语义、显式共享小卡片或非表格普通列表卡；表格行、开发器工作台和应用控制台被明确排除。运行时投影记录并恢复原属性，避免覆盖页面源声明。此次未改变业务卡片、保存发布、排序、主题数据、专家、声音、素材、租户数据或服务端接口；未修改数据库、上传资源、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestGlobalSmallCardMarkerContractRevision": {
+    "recordedAt": "2026-08-26T21:53:58+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38645",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "产品市场运营市场、版面风格、栏目配置与客服音效的小卡片唯一标注全局契约，覆盖总部、代理源、客户源、可视化开发器、开发器弹窗、共享窗口和 09 页面工厂验证记录。",
+    "result": "共享窗口契约新增 2026.08.26.1 小卡片标注子契约。每个大卡片自动成为作用域，版面风格的独立主题色板和真实预览面由同一集中适配器登记；候选发现统一包含语义小卡片、非表格普通列表卡和共享适配面。代表解析只选择第一张真实卡片面，缺少真实面令牌时回退到第一张语义卡；每组其余卡片统一写入 effective silent，但全部继续登记为开发器可编辑目标。运营市场和栏目配置不再需要逐页声明代表；版面风格删除页面私有首卡常显和错误的整组小卡片声明。可视化开发器、共享视觉扫描、响应式同步和弹窗元数据全部消费同一共享候选与运行结果。existing-workspace 的 8px 表头/内容间距也改为只读取共享区域和间距契约，不再依赖产品市场私有选择器。",
+    "validation": "源码锁与 source-lock:check 通过，npx tsc --noEmit 通过。定向 Playwright 5/5 通过：运营市场、版面风格、客服提醒声音、当前专家真人朗音、客服四组以及桌面/紧凑开发器发现均符合唯一标注规则。运营市场显示全部后为 12 个作用域、77 张可编辑小卡片、12 个代表和 65 个静默项，三端一致；版面风格为 6 个作用域、15 张可编辑小卡片、6 个代表和 9 个静默项，开发器显示 15 个编辑目标且仅 6 个标注。完整 verify:development-standard 47 项门禁通过；verify:shared-visual-parity、verify:developer-global-frame-runtime、verify:visual-card-developer、verify:product-market-visual、verify-frame-style-contract、Platform layout、page_factory.py check --all（201/201）和 verify:page-factory 全部通过。",
+    "risks": "版面风格尚未全部拥有原生小卡片语义的预览面由共享契约内的集中适配器兼容，不在页面组件中维护私有代表规则；后续增加真实卡片面时只扩展共享候选契约。此次只改变代码拥有的开发标注发现、唯一代表和校验逻辑，不隐藏业务卡片、不移除编辑能力，也不改变保存、排序、主题、声音、素材、租户数据或发布状态。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestSharedTitleTwoLineRemovalRevision": {
+    "recordedAt": "2026-08-26T21:25:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38644",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "共享标题2底部异常黑线与说明文字压线修复，覆盖05.圈养(深耕)社交媒体全部真实栏目及所有消费同一页面工厂标题2契约的页面。",
+    "result": "页面工厂标题2不再绘制3px深色底边，共享响应式最终样式也不再叠加标题2的外部3D阴影；标题2作为滚动内容中的独立语义带固定为flex-shrink: 0，使标题和栏目说明按真实内容高度完整撑开。修复位于共享页面工厂和响应式样式入口，不依赖平台设置或单一社交栏目覆盖。",
+    "validation": "源码锁与source-lock:check通过。应用内浏览器在客户源社交媒体→平台设置复现并确认修复前标题2为56px、scrollHeight为64px、底边3px且带外阴影；修复后高度76px、clientHeight等于scrollHeight、border-bottom为0、box-shadow为none，视觉截图确认黑线消失。定向Playwright对05社交媒体全部栏目通过1/1，逐页校验标题2无底边、无阴影、不收缩且完整容纳文字。npx tsc --noEmit、verify:shared-visual-parity、Platform layout、page_factory.py check --all（201页）与verify:page-factory全部通过。",
+    "risks": "只移除共享标题2的装饰性深色底边和阴影，并修正其flex收缩；不改变标题1、表头、卡片、栏目内容、滚动归属、业务数据、保存、发布、租户配置或插件。未修改数据库、上传素材、正式备份、服务器、生产环境或D:\\Codex\\zcwj。"
+  },
+  "latestSocialMediaCanonicalTitleOneRevision": {
+    "recordedAt": "2026-08-26T21:13:15+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38642",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "05.圈养(深耕)社交媒体全部栏目唯一标题1，覆盖客户源真实页面、全局响应宿主、开发器页面身份、共享视觉契约及桌面/紧凑屏。",
+    "result": "全局 ResponsivePageHost 现在把可见的页面工厂 title-1、共享/语义 title-1 和客户项目标题视为页面自有唯一标题；存在自有标题时不再生成‘客户源工作台 / 客户社交媒体’补位标题。社交媒体标题在源码和运行时统一登记为开发器 title-1，并保留原‘标题’标注文案。开发器路由解析不再把 tab 当作临时参数，因此营销作战、运营总览、账号连接、内容创作、视频创作、发布中心、互动转化、数据归因和平台设置分别解析到自己的 Page Factory ID。共享视觉扫描同时统计 shared、semantic、factory 与 client-project 四类标题1来源，发现重复即归入 responsive-shared-live-surfaces；投影属性只在值变化时写入，避免 MutationObserver 重复调度。",
+    "validation": "源码锁和 source-lock:check 通过。应用内浏览器逐项复核 9 个栏目：每页 fallback=0、可见标题1=1、开发器区域=title-1，且 resolved page ID 与页面工厂 ID 完全一致；营销作战桌面与 390px 小屏均通过。定向 Playwright 3/3 通过：05 全栏目响应与标题唯一性、开发器 dashboard 发布档案消费、Smart Ads 与 Social 全 tab 页面身份。npx tsc --noEmit、verify:shared-visual-parity、verify:developer-global-frame-runtime（201/201 可解析，196 compatible、5 isolated）全部通过。Platform layout、page_factory.py check --all（含 client-social 与 10 个 social 路由）和 verify:page-factory（201 页）全部通过。",
+    "risks": "补位标题机制没有被删除；它仍只在登记页面确实缺少可见自有标题1时启用。本次只修正标题仲裁、开发器区域登记、query 页面身份和共享扫描，不改变社交媒体栏目、内容、任务、账号、素材、发布、保存、租户数据或业务插件。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestCustomerServiceEffectiveSmallCardMarkerRevision": {
+    "recordedAt": "2026-08-26T20:43:59.7206737+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38641",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 客服音效的开关客音、选择专家、当前专家真人朗音自定义和提醒声音四组小卡片唯一标注，覆盖三端响应宿主、可视化开发器、开发规范弹窗与共享窗口/视觉契约。",
+    "result": "共享窗口契约新增 data-shared-small-card-marker-effective 运行时结果，按大卡片优先确定作用域，显式 representative 优先，否则选择第一张非 silent 小卡片；其余候选统一标记 silent，但不移除任何区域、样式、插件或编辑能力。三端 VisualResponsiveContract 在真实 DOM 和共享 portal 变化时自动重新同步。开关客音表头登记同一策略；普通页面悬浮整个组会显示第一张代表。可视化开发器和共享样式只有带 data-visual-contract-annotation 的代表才可绘制伪标注，开发器的 always/hover 草稿也不能重新显示重复卡片。共享 Dialog 与开发规范弹窗公开同一 policy 和 runtime attribute。",
+    "validation": "源码锁与 source-lock:check 通过；npx tsc --noEmit 通过。定向 Playwright 3/3 通过：开关客音、选择专家、当前专家和提醒声音分别有 4、12、7、14 张候选，每组恰好 1 张 effective representative、其余全部 effective silent；打开可视化开发器后每组 annotation=1 且实际可见 ::after=1，头像与修改提醒音指定位置保持不变。npm run verify:visual-card-developer、verify:shared-visual-parity、verify:developer-global-frame-runtime 和 verify:product-market-visual 全部通过。应用内浏览器确认开发规范弹窗读取 contract 2026.08.24.2、first-per-large-card 和 data-shared-small-card-marker-effective，页面无隔离错误。Platform layout、page_factory.py check --all 的 201/201 页面和 verify:page-factory 全部通过。",
+    "risks": "全量 product-market-service 共享视觉测试的重复 marker content 错误已从 14 条降为 0；仍有既存的大卡片工具栏主题色、小卡片字体颜色和服务编辑器字体颜色 3 条独立基线差异，本次不越界修改。显式 tsconfig.app.json 检查仍报告仓库既存类型基线错误，但本轮改动文件没有新增诊断。同步只写代码拥有的 DOM 标注属性，不改变客服开关、专家、声音、素材、排序、保存、租户数据或发布状态；未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestCustomerServiceGlobalSmallCardMarkerRevision": {
+    "recordedAt": "2026-08-26T20:13:22+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38639",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 客服音效大卡片下同类小卡片标注的全局收敛，覆盖总部、代理源、客户源、可视化开发器、开发器弹窗和共享视觉/窗口契约。",
+    "result": "共享窗口契约新增 first-per-large-card 小卡片标注策略。客服音效的每张大卡片都由共享 Customer Service Section 自动登记该策略；可视化开发器在保留所有小卡片的区域、样式、插件和编辑运行时属性的同时，只为每个策略作用域的第一张可见小卡片注入可见 annotation。当前专家真人朗音与提醒声音组的指定代表位置仍优先保留；开发器工作台与开发规范弹窗读取同一共享窗口策略字段。共享视觉契约会检查客服大卡片的首张代表收敛，避免后续再用逐页静态修改处理同类卡片。",
+    "validation": "源码锁与 source-lock:check 均通过；npx tsc --noEmit 通过。定向 Playwright 通过：客服音效每个有候选项的策略作用域只有第一张小卡片带 annotation，全部候选仍登记为 small-card，且可视化开发器工作台公开同一 first-per-large-card 弹窗契约字段；“专家头像”和“修改提醒音”的既定代表回归均通过。平台布局检查通过；python tools/page_factory.py check --all 通过全部 201 个页面；npm run verify:page-factory 通过。",
+    "risks": "该规则只压缩可见开发标注，不隐藏业务卡片、不改变保存、素材、声音、选择、排序或租户数据。product-market-service 的全量共享视觉回归仍报告既存主题色/工具栏基线差异，且未出现上下文标注错误；本次不改动该独立视觉基线。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestCustomerServiceSmallCardRepresentativeRevision": {
+    "recordedAt": "2026-08-26T20:04:34+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38637",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 客服音效的当前专家真人朗音自定义与专家出现消息发送提醒声音小卡片标注，覆盖总部、代理源、客户源、开发器和共享视觉契约。",
+    "result": "当前专家真人朗音自定义字段组按 first-per-large-card 登记，唯一可见的小卡片代表固定在第一个“头像”字段。提醒声音组将唯一代表固定在“修改提醒音”控件，十二张声音选择卡及提示卡保留小卡片语义但全部静默。开发器仍可识别、编辑和同步全部小卡片，只抑制重复的可视标注。共享视觉契约同时校验两个指定代表位置，避免后续调整回退到任意首张声音卡。",
+    "validation": "源码锁与 source-lock:check 均报告 0 个已锁定页面变动；npx tsc --noEmit 通过。定向 Playwright 验证通过：打开客户源开发器后，“头像”字段和“修改提醒音”控件分别获得唯一 small-card 开发器标注，其余同组字段/声音卡均无重复 annotation。平台布局检查通过；python tools/page_factory.py check --all 通过全部 201 个登记页面；npm run verify:page-factory 通过。",
+    "risks": "只调整代码拥有的小卡片标注语义与共享契约校验，不改变专家、声音、替换素材、试听、保存或业务数据。全量 product-market-service 共享视觉回归仍有既存主题色/工具栏视觉基线差异，与本次上下文标注无关；本次不以其通过为前提。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestProductMarketCompactModuleDescriptionHoverRevision": {
+    "recordedAt": "2026-08-26T18:34:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38636",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 运营市场与三端左侧一级栏目的栏目说明悬浮提示紧凑化。",
+    "result": "移除运营市场和客户端左侧一级栏目悬浮说明中的固定“栏目说明：”前缀；提示仅保留栏目配置中保存的说明正文。总部端、代理源原有直接说明投影保持一致。",
+    "validation": "源码锁持续报告 0 个活动登记锁。npx tsc --noEmit 通过；定向 Playwright 三端栏目说明投影回归通过。",
+    "risks": "仅缩短悬浮文案，不改变栏目说明来源、保存、状态、排序、发布或业务数据。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestProductMarketModuleDescriptionHoverRevision": {
+    "recordedAt": "2026-08-26T18:28:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38635",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 的栏目配置→栏目说明，投影到运营市场卡片和总部端、代理源、客户源左侧一级栏目悬停提示。",
+    "result": "运营市场卡片名称与左侧一级导航不再维护独立摘要，直接读取共享 ProductItem.description。运营卡片登记 modules 来源及说明数据属性，名称悬停显示“栏目说明：{说明}”；客户端侧栏保留原有分类兜底提示，存在栏目说明时优先显示该说明。总部端与代理源的统一平台导航也增加同一说明投影，包含未开通栏目时仍附带说明和既有不可用指引。",
+    "validation": "源码锁持续报告 0 个活动登记锁。npx tsc --noEmit 通过。定向 Playwright 通过：总部端、代理源、客户源的运营市场卡片及左侧一级栏目均携带 modules 来源，悬停标题包含对应栏目说明。平台布局为 OK；python tools/page_factory.py check --all 对 201/201 登记页面通过；npm run verify:page-factory 通过。实际客户端页面复核“产品分析”卡片与侧栏均显示“栏目说明：发现有利润和增长空间的产品机会。”。",
+    "risks": "同步只发生在当前源作用域保存后的共享栏目快照；不会替用户保存草稿、改变栏目名称、排序、状态或发布范围。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。"
+  },
+  "latestProductMarketCardMarkerCompressionRevision": {
+    "recordedAt": "2026-08-26T17:58:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38634",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 栏目配置的大卡片与小卡片作用域标注，覆盖总部端、代理源、客户源、当前页可视化开发器、共享响应式位置令牌和 09 页面工厂验证记录。",
+    "result": "共享上下文标注契约升级为 shared-context-marker-placement-v5，新增 largeCardTopInset=2 并投影为 --responsive-large-card-marker-top-inset；大卡片标注从距顶 6px 上移到 2px，保持横向居中、120 层级及卡片正常文档流不变。栏目配置为每个分类大卡片登记 first-per-large-card 规则：第一张一级小卡片是唯一可视代表，其余一级以及原有二、三级小卡片使用 silent；开发器仍发现全部小卡片并应用样式、插件、排序和区域运行时，只过滤重复的 data-visual-contract-annotation 与伪元素绘制。共享悬停仲裁同步忽略 silent 实例，避免悬停非代表卡时连父级大卡片标注也消失。",
+    "validation": "源码锁持续报告 0 个活动登记锁。全量 TypeScript、共享可视化合同、可视化开发器合同、开发规范 47 项主链、产品市场清洁合同均通过。定向 Playwright 3/3 通过：总部端、代理源、客户源均读取 v5、2px 令牌及每组唯一首卡代表；客户源开发器内首卡标注可见、其余标注 display=none，且每组只注入一个 annotation。独立 Chrome 复核三端大卡片 top=2px；客户源两组分别为 1/6 与 1/12 个可视小卡片标注。python tools/page_factory.py check --all 对 201/201 登记页面通过，npm run verify:page-factory 通过，平台布局为 OK。",
+    "risks": "自动同步范围是代码拥有的共享默认契约及总部端、代理源、客户源源页面；它不会绕过发布协调器自动发布可视化草稿到计划或客户端运行端。未改变卡片业务位置、字段、排序、状态或数据，只压缩诊断标注并调整大卡片标注顶部偏移。未修改数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj；仅使用系统临时目录内 python.org 便携解释器执行只读页面工厂校验。"
+  },
+  "latestProductMarketTableShellMarkerInsetRevision": {
+    "recordedAt": "2026-08-26T17:15:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38632",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market 栏目配置的表内标注，覆盖总部端、代理源、客户源、当前页可视化开发器、共享响应式契约与 09 页面工厂验证记录。",
+    "result": "将表内标注从与内容共用的 8px 位置中拆出，新增 shared-context-marker-placement-v4 的 tableShellInset=0 事实源，并投影为 --responsive-table-shell-marker-left-inset。栏目配置登记 frame-start/content-start 语义，表内标签读取共享框架字典；普通页面、Product Market 专用样式和可视化开发器均读取同一令牌。表内标注因此左移到表壳 9px 空白槽起点，内容标注继续保持 8px，不改表头列宽、业务字段或滚动结构。existing-workspace 参考契约升级到 1.0.5，共享可视化扫描新增表内 left 容差校验。",
+    "validation": "源码锁持续报告 0 个活动登记锁。全量 TypeScript、框架样式合同、产品市场清洁契约、可视化开发器契约、开发规范主链、developer global frame runtime、前端页面工厂契约均通过。python tools/page_factory.py check --all 对 201/201 登记页面通过，平台布局为 OK。定向 Playwright 3/3 通过：总部端、代理源、客户源栏目配置均读取 v4、令牌 0px 与 frame-start；客户源打开可视化开发器后仍为 0px。独立 Chrome 计算样式复核三端表内 left=0px、空白槽 9px、内容 left=8px。",
+    "risks": "自动同步范围是代码拥有的共享默认契约及三端源页面；它不会绕过现有发布协调器，把可视化开发器草稿自动发布到计划或客户端运行端。未修改业务数据、数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj。只在系统临时目录使用 python.org 便携解释器执行只读校验；B2B 每 30 分钟续推进保持暂停。"
+  },
+  "latestLocalEnvironmentFrontendOnlyRecoveryRevision": {
+    "recordedAt": "2026-08-26T10:36:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38624",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "异常检测的本地环境恢复分支：3003 前端预览、8000 本地 API、3004 静态预览，以及总部端、代理源和客户源共用的恢复接口。",
+    "result": "当且仅当 3003 未监听而 8000 与 3004 均健康时，安全重启改为 frontend-only 分支：它只启动既有 Run-LocalFrontendSupervisor.ps1。若 PID 台账中仍有旧前端监督器，必须先以精确 PID、PowerShell 可执行文件和完整监督脚本路径三项核验通过后才终止该单一进程树；不会按名称停止进程，也不会重启健康的 API、静态预览、数据库、素材或其他服务。其余异常仍保留原有全环境恢复分支。",
+    "validation": "源码锁通过。backend/routers/local_dev.py 完成 Python 编译。Local environment recovery contract 通过，新增断言覆盖 dedicated frontend-only 分支、精确 Win32_Process 校验、精确 PID 树终止，以及 API/静态预览健康前置条件。内存隔离分支测试确认：3003 离线且 8000/3004 健康时仅请求 Run-LocalFrontendSupervisor.ps1；任一依赖不健康时不进入该分支。真实本机验收已完成：受控停止唯一已核验的前端监督器后，状态为 frontend=stopped、backend=running、website=running；POST restart-local-env 返回 accepted=true、action=frontend-only；八秒复检三项均 running 且环境 ok=true，客户源路由返回 HTTP 200。",
+    "risks": "本次只改变本地开发恢复逻辑；当前已运行的后端进程需要下一次受控本地后端重启后才会加载此代码。PID 台账缺失、过期或命令行无法精确验证时，逻辑不会终止任何进程，仍会仅启动前端监督器。未读取或修改数据库、上传素材、正式备份、生产环境或 D:\\Codex\\zcwj；B2B 每 30 分钟续推进保持暂停。"
+  },
+  "latestCustomerServiceSavedExpertRuntimeSyncRevision": {
+    "recordedAt": "2026-08-26T07:53:16.4406554+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38622",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Customer Service → Select Expert saved default, floating customer-service avatar/chat projection, Headquarters, Agency Source, Client Source, runtime shared contract and factory-default snapshot.",
+    "result": "The shared customer-service runtime contract is upgraded to v2. A saved Select Expert default is now the scoped source of truth: when its persisted expert ID changes, the floating customer-service launcher clears only the stale in-chat remembered expert and pending picker choice, then immediately projects the newly saved avatar, name, greeting, voice and reminder profile. An unchanged default still preserves an intentional in-chat expert switch; first hydration and scope changes do not erase a valid preference. The rule is pure, tested and shared by Headquarters, Agency Source, Client Source and plan runtime paths. Factory default and census baseline were refreshed after review.",
+    "validation": "Source lock reported 0 registered locked page changes. The dedicated saved-Select-Expert synchronization contract passed, including unchanged-default, saved-default-change and first-hydration cases. Global responsive shared-contract verification passed. Page Factory check --all passed for all 201 registered pages; the Page Factory frontend contract passed after factory-default snapshot refresh. Full census reports 118/118 completed route entries (100%), phase-two governance 100%, route coverage 100%, baseline unchanged, and risk totals low 12/review 57/high 55. Full tsconfig.app TypeScript still reports repository-baseline diagnostics outside this change; no new diagnostic is emitted by the new reconciliation helper or its widget integration. Browser automation could not initialize because its local kernel assets path was unavailable, so this revision does not claim a live click-through result.",
+    "risks": "The reset happens only after a saved runtime default ID actually changes in the same scope; an unsaved editor click, normal chat expert switch, initial hydration and scope transition are retained. User-local remembered chat choice is intentionally cleared only for that scoped saved-default change. No database, upload, material file, formal backup, server, production state or D:\\Codex\\zcwj was read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestUnifiedActionDialogChineseNetworkErrorRevision": {
+    "recordedAt": "2026-08-26T07:31:02.0615032+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38620",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Shared confirmation and save failure dialog used by Headquarters, Agency Source and Client Source, including Product Market save-template configuration.",
+    "result": "UnifiedActionDialog now classifies browser network errors before rendering them. Failed to fetch, NetworkError and Network request failed display the Chinese recovery text ‘连接本地服务失败，请确认本地服务已启动后重试。’; interrupted requests display a separate Chinese retry text. Existing Chinese server validation messages remain unchanged. The shared-dialog theme contract now reads the active Product Market runtime owner for its token application assertion, while App retains only its legacy bootstrap assertion.",
+    "validation": "Source lock reported no registered locked page changes. TypeScript and the global-theme/shared-dialog contract passed. The contract verifies the shared formatter, network-error classification, Chinese local-service recovery text, legacy bootstrap token application and active Product Market runtime token application.",
+    "risks": "This only changes user-facing error wording; it does not retry, suppress, alter or send network requests. Detailed browser diagnostics remain available in the developer console. No database, uploads, formal backups, server configuration, production state or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestProductMarketSignatureIntentAndGovernanceRevision": {
+    "recordedAt": "2026-08-26T07:26:20.2964659+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38620",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source Product Market draft, save and publish signatures; customer-service legacy media preview planning; developer-tool intent preloading; Factory Platform Blueprint governance-data ownership; and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "Product Market now caches only immutable draft-baseline field signatures by object identity while every live draft remains freshly and exactly compared. The same save target and publish target signature are each computed once per transaction instead of again in every local and remote readback branch. Customer-service portrait planning replaces JSON and join copies of legacy embedded Data URLs with WeakMap-backed semantic descriptors that retain the original string references, material ids, category maps, cover maps and object-URL cleanup semantics. The developer application console and platform blueprint remain lazy, but pointer, pointer-down, focus and selection intent share retryable single-flight preloaders. Factory Platform Blueprint moves 55,465 bytes of governance-only data out of its shared core into four audited lazy consumers. Operations moves its batch header inside the existing single scroll owner and keeps it sticky, returning about 48 pixels to the responsive content viewport without hiding actions, shrinking controls or weakening the shared threshold. Optimization Loading Experience contract 2026.08.26.9 records the verified reusable patterns and keeps automatic learning advisory rather than rewriting source without review.",
+    "validation": "Source lock, target ESLint, Product Market performance, signature-cache, developer intent-preload, Factory Platform governance-lazy, client-source content-sync and full Factory Platform Blueprint contracts passed. All 46 development-standard gates passed. A production build completed and produced ProductMarket at about 264.7 KB / 71.0 KB gzip, the developer application console at 91,377 / 27,527, the platform blueprint at 70,391 / 18,078, and global CSS at 672,714 / 80,253. The core blueprint source decreased from 118,223 to 62,758 bytes; the deferred governance module is 55,940 bytes / 16,860 bytes gzip9 and the net source split overhead is 475 bytes. In-app browser validation loaded Operations, Column Configuration, Layout, Customer Service and the direct Platform Blueprint route without an isolated page error. All eleven focused Playwright checks passed: 1280 x 720 shared-frame and healthy responsive state for all four pages, all four 390-pixel views, the short Layout palette, reminder sounds and the classified female/male voice library. The Operations regression also scrolls the owner and verifies the sticky batch header and visible All Select action. Page Factory check --all passed for all 201 registered pages.",
+    "risks": "The Operations batch header is now part of the single scroll owner; future structural edits must preserve its sticky placement, eight-pixel separation, clickable batch controls and one-owner rule. Full-app TypeScript checking still exposes repository-baseline diagnostics outside the new governance boundary, while all dedicated revision contracts and production compilation pass. First entry to a lazy developer tool or governance view can still perform one intentional chunk request when intent preloading has not completed. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, uploads, horizontal-scroll synchronization, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestThemeCacheRouteCssAndSharedSurfaceRevision": {
+    "recordedAt": "2026-08-26T06:11:57.6928156+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38619",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source Product Market theme derivation and route switching, Social Media and Site Settings route-owned styling, Page Factory shared title/table surface projection, responsive regression reliability, and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "Product Market now memoizes the merged built-in and custom theme catalogue at the store boundary by the two immutable source references, so unrelated page state no longer rebuilds seven-plus theme objects or invalidates eight downstream memo and callback boundaries. Social Media owns nineteen additional route-exclusive non-layered rules and Site Settings owns fifteen, while shared, mixed, structural carrier and every layered rule remain global. Runtime-projected Title 2 and Table Header regions now receive the shared large-band-density plugin from the same region resolver used by FactoryPage and ResponsivePageHost. Site Settings remains a registered form page, its Title 2 surface now reads the actual Title 2 palette instead of the darker Title 1 palette, and the stale responsive test metadata plus Social content-readiness wait were corrected. Optimization Loading Experience contract 2026.08.26.8 records the stable derived-state and measured route-owned CSS patterns without automatic source rewriting.",
+    "validation": "Source lock and TypeScript passed. Target ESLint has zero errors and retains 31 pre-existing ProductMarket Hook warnings. All 43 development-standard gates passed. In-app browser switching covered Operations, Column Configuration, Layout and Customer Service with stable active-route markers and zero route errors; Site Settings reported form/form template alignment, the shared Title 2 plugin, the expected #EAF1E1/#24391E palette and an empty responsive-learning issue set; Social Media loaded its route CSS and real workspace without an isolated error. Every one of the 13 focused responsive checks reached a passing final state across Product Market, Site Settings and Social Media; the final Social test also waits for its real content scroll owner instead of racing the lazy workspace. Page Factory check --all passed for all 201 registered pages. The production build transformed 2982 modules in 21.79 seconds. Global production CSS is 672.71 KB / 81.23 KB gzip, down 11.67 KB from H38618, while SocialMedia.css is 13.89 KB / 1.86 KB gzip and SiteSettings.css is 32.89 KB / 3.42 KB gzip. The global source stylesheet decreased by 14,602 bytes (2.48 percent). ProductMarket is 264.22 KB / 70.60 KB gzip and its Customer Service section remains deferred at 3.93 KB / 1.69 KB gzip.",
+    "risks": "ProductMarket remains a 264.22 KB route chunk and the global stylesheet remains 672.71 KB, so further extraction still requires a production interaction trace and a verified net reduction. The theme cache deliberately depends on immutable Zustand reference replacement; in-place mutation would violate the store contract and must remain prohibited. First entry to Social Media or Site Settings intentionally requests its route-owned stylesheet. Customer-service legacy media signatures can still become expensive when old configurations embed very large data URLs, and draft baseline comparison remains the next measured Product Market candidate. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, uploads, horizontal-scroll synchronization, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestProductMarketServiceBoundaryAndModulesCssRevision": {
+    "recordedAt": "2026-08-26T05:15:40.8990885+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38618",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source Product Market route switching, Column Configuration route-owned styling, Customer Service sortable-section loading and direct-route prewarming, expert portrait/voice/reminder preview batching, and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "Column Configuration now owns forty non-layered, panel-exclusive rules in its lazy stylesheet while layered, mixed and shared capacity rules remain global. The three Customer Service sortable large-card shells move behind one recoverable lazy component; ProductMarket keeps drag-and-drop, ordering, save, readback, upload and lock ownership. Sidebar service intent and direct service entry share one deferred single-flight loader, release failures for retry, and ordinary routes retain zero static imports of that loader. The selected expert portrait still resolves first; the remaining eleven portraits settle in batches of at most three, reducing portrait state commits from about twelve to at most five, while voice and reminder previews each commit at most once. Optimization Loading Experience contract 2026.08.26.7 records these patterns plus the verified CompanyInfo, SiteSettings and SocialMedia route-owned CSS evidence without automatic source rewriting.",
+    "validation": "Source lock, TypeScript and targeted ESLint passed; ProductMarket retains 31 pre-existing Hook warnings and has zero target errors. All 43 development-standard gates passed. The production build transformed 2982 modules in 26.15 seconds. ProductMarket decreases from 265.46 KB to 264.14 KB and the Customer Service section is isolated at 3.93 KB; its shared loader is 1.29 KB and remains a dynamic Sidebar dependency. Global production CSS decreases from 695.64 KB to 684.38 KB, while the Column Configuration lazy CSS chunk is 23.09 KB including its imported shared capacity stylesheet. In-app browser switching covered Operations, Column Configuration, Layout and Customer Service with zero route or Vite overlay errors; direct Customer Service entry rendered all three sortable sections with zero remaining lazy placeholders. The focused responsive suite passed all eight Column Configuration and Customer Service checks at 320, 390, 768 and 1440 pixel capacities. Platform layout passed, Page Factory check --all passed for all 201 registered pages, and the frontend Page Factory contract passed.",
+    "risks": "The first cold Customer Service entry can still perform the intentional 1.29 KB loader and 3.93 KB section requests, but pointer, focus, sidebar route intent and direct-route evaluation prewarm them and failed preloads remain retryable. The first Column Configuration entry intentionally loads its 24.54 KB JavaScript and 23.09 KB combined route CSS instead of charging every route. ProductMarket remains 264.14 KB and global CSS remains 684.38 KB, so another broad split requires a production interaction trace and verified net reduction. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, media upload, horizontal-scroll synchronization, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestDeferredWidgetCssAndLayoutColorPickerRevision": {
+    "recordedAt": "2026-08-26T04:15:09.7229560+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38617",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source Product Market route switching, the deferred floating customer-service widget stylesheet, the Layout-only color-picker control boundary, shared lazy-load recovery, and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "AIServiceWidget now owns its twenty exclusive rules in a stylesheet imported by the already-delayed component, so ordinary routes no longer download or parse those rules while global mobile, shared-window, avatar and footer contracts remain global. Product Market moves the controlled color picker and its private presets into one Layout-only lazy module, preloads it from pointer or keyboard intent, keeps a stateless color-stable Suspense placeholder, shares a single in-flight import and uses the shared inline retry and recovery diagnostics. Operations, Column Configuration and Customer Service do not request the picker. Optimization Loading Experience contract 2026.08.26.6 records both verified methods without automatic source rewriting.",
+    "validation": "Source lock passed. TypeScript and targeted ESLint passed. All 40 development-standard gates passed, including Product Market performance, ColorPicker lazy ownership, AIServiceWidget deferred CSS, shared visual parity, global responsive, material ordering, version learning and Page Factory. The fully gated production build transformed 2979 modules in 27.29 seconds. ProductMarket decreases from 266.89 KB to 265.46 KB, while the Layout-only ProductMarketColorPicker is isolated at 3.42 KB. Global production CSS decreases from 704.35 KB to 695.64 KB and AIServiceWidget CSS is isolated at 8.71 KB. The in-app browser completed Operations, Layout, Customer Service and Column Configuration route switches without an isolated page error; the lazy Layout color picker opened successfully after the latest recovery and placeholder changes. Platform layout passed, Page Factory check --all passed for all 201 registered pages, and five changed Vite endpoints returned HTTP 200 without a Vite transform overlay.",
+    "risks": "A direct cold entry to Layout can briefly show a size- and color-stable placeholder until the 3.42 KB picker chunk arrives; pointer, pointer-down and keyboard-focus intent normally prewarm it. The floating customer-service stylesheet intentionally arrives with the widget after its 2400 ms plus idle boundary instead of entering the first screen. ProductMarket remains 265.46 KB and global CSS remains 695.64 KB, so another broad Layout or Customer Service split is not justified without a production interaction trace. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, media upload, horizontal-scroll synchronization, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestVisibleMediaAuditDataSidebarBatchRevision": {
+    "recordedAt": "2026-08-26T03:27:33.8863090+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38616",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market route-visible media and signature planning, Sidebar customer-service portrait state batching, Page Factory audit-data lazy ownership, Site Settings shared-frame route-owned CSS, and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "Operations and Column Configuration now plan customer-service portrait media only for the two mounted category groups instead of all twelve experts, while Customer Service retains all twelve and Layout retains none. Non-service tabs no longer construct customer-service voice, reminder, sound-image or voice-image deep signatures. Sidebar still reads every referenced portrait concurrently with isolated failures and cancellation protection, but merges up to twelve completions through at most one functional state update instead of up to twelve whole-sidebar commits. Page Factory keeps its 207548 raw bytes of audit JSON behind the already-lazy Workbench boundary. Site Settings moves 38 shared-frame-scoped rules and 12950 source bytes out of the global entry into its route-owned stylesheet. Optimization Loading Experience contract 2026.08.26.5 records all four measured patterns without automatic source rewriting.",
+    "validation": "Source lock passed. Product Market performance, Sidebar avatar batching, Page Factory audit lazy-boundary, Site Settings deferred and shared-frame CSS, runtime wakeup and storage, background polling, switch-overlay runtime, Development Standard and Page Factory contracts passed; all 38 production gates passed. The production build transformed 2977 modules in 22.61 seconds. Product Market browser checks reported media plans Operations 2, Column Configuration 2, Customer Service 12 and Layout 0, with no route error or horizontal overflow at the 1280-pixel test capacity; Site Settings also loaded without an isolated route error or horizontal overflow. Sidebar state commits decrease from at most 12 to 1 (-11, about 92 percent). Page Factory core audit dependencies decrease raw 401118 to 193570 (-207548), estimated minified 300532 to 127978 (-172554) and gzip9 44173 to 8886 (-35287); its production core chunk decreases from 302.41 KB to 130.69 KB while the 194.64 KB Workbench chunk stays deferred. The global production CSS decreases from 715.96 KB to 704.35 KB, while route-owned Site Settings CSS increases from 17.10 KB to 28.72 KB. Platform layout and Page Factory check --all passed for all 201 registered pages. Eight changed Vite module endpoints returned HTTP 200 without transform errors. Target ESLint has zero errors; full tsconfig.app checking reports 242 repository-baseline diagnostics, one fewer than the prior 243.",
+    "risks": "Sidebar portraits now appear after the concurrent batch settles rather than one by one, so one slow local asset can delay the batch display; cached reads, per-item failure isolation, replacement invalidation and effect cancellation remain intact. Opening the Page Factory Workbench intentionally pays the deferred audit-data request once. ProductMarket remains 266.89 KB raw and global CSS remains 704.35 KB, so additional splitting should require a measured interaction trace and a verified net bundle reduction. The repository still has 242 pre-existing full-app TypeScript diagnostics and existing hook warnings outside this revision. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, media upload, horizontal-scroll synchronization, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestOperationsProgressiveSocialCssAndSwitchOverlayRevision": {
+    "recordedAt": "2026-08-26T02:54:35.4862186+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38615",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market Operations progressive rendering, Social Media route-owned styling, the shared site-switch loading overlay runtime, and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "Operations now mounts two category groups initially and grows in two-group batches by viewport proximity or an explicit load-more action, while bulk selection, batch status, drag identities, saving and all catalogue data continue to operate on the complete collection. The site-switch overlay replaces two permanent polling intervals with one visibility-aware one-shot schedule plus exact same-tab and cross-tab events. Social Media owns its deferred visual rules in SocialMedia.css instead of loading them through the global entry. Optimization Loading Experience contract 2026.08.26.4 records event-backed transient polling as a reusable advisory rule.",
+    "validation": "Source locks passed. Product Market performance, Social Media deferred CSS, social navigation and marketing, site-switch overlay runtime, runtime wakeup and storage, and local-environment background polling contracts passed. The integrated production build before the final readiness correction passed all 35 gates and transformed 2976 modules. Runtime measurement on Operations changed the initial view from 12 to 2 groups, from 4579 to 2197 DOM nodes (-52.0 percent), and from 474 to 149 buttons (-68.6 percent); explicit loading reached 4 groups and reload returned to 2. A five-second site switch changes timer callbacks from 45 to 25 (-44 percent), stable JSON parses from about 25 to 1 (-96 percent), and hidden-document wakeups to zero. Global built CSS changed from 722480 to 715958 bytes, with SocialMedia CSS isolated at 6524 built bytes. The three-source full category, reorder and batch-status Playwright flow passed after explicitly expanding progressive groups. Client Source responsive checks passed at 320, 390, 480, 639, 640, 768, 844 landscape, 1280 and 1440 pixel capacities. Platform layout passed, Page Factory check --all passed for all 201 registered pages, the frontend Page Factory contract passed, and all six changed Vite module endpoints returned HTTP 200 without transform errors.",
+    "risks": "ProductMarket remains about 266 KB raw and the global entry CSS remains about 716 KB, so further splitting should follow measured route ownership rather than broad rewrites. Later Operations groups intentionally wait for proximity or explicit loading, but full bulk selection and persistence still use the complete data set. The existing global responsive suite still reports unrelated shared toolbar or interaction flags at 240, 1024 and 1180 pixel capacities. Full tsconfig.app checking retains the unchanged repository baseline of 243 diagnostics. SocialMedia retains four pre-existing Date.now purity diagnostics when the strict purity rule is enabled. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, media upload, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestVisibilityAwarePollingAndSiteSettingsCssRevision": {
+    "recordedAt": "2026-08-26T02:14:16.1146366+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38614",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source background local-environment health polling, Site Settings route-owned styling, production chunk evidence, and the developer Optimization Loading Experience reusable-learning contract.",
+    "result": "The three shared local-environment consumers keep their five-minute foreground freshness SLA while one visibility-aware scheduler clears periodic and recovery timers for hidden documents, rechecks freshness on visibility return, preserves single-flight and manual refresh, and reuses a completed fetch across route remounts inside the active freshness window. Site Settings keeps its existing lazy route boundary and now owns 19893 bytes of source CSS instead of loading those rules from the global entry on every route. Optimization Loading Experience contract 2026.08.26.3 records visibility-aware background work as a reusable rule. A proposed Product Market dialog split was measured, increased the route shell by 783 bytes and added a 5524-byte chunk because the dialog has several static consumers, and was therefore fully reverted rather than retaining a non-beneficial abstraction.",
+    "validation": "Source lock passed. Product Market performance, local-environment background polling, runtime wakeup and storage cache, local-environment recovery, Site Settings deferred CSS and Development Standard contracts passed; all 33 production gates passed. ESLint passed for the changed TypeScript and TSX files. The production build transformed 2975 modules in 21.97 seconds. Global source CSS decreased from 654472 to 634109 bytes, a reduction of 20363 bytes; built global entry CSS decreased from 739582 to 722480 bytes, while SiteSettings CSS is isolated at 17100 bytes and its JavaScript chunk remains 21100 bytes. ProductMarket returned to 265280 bytes after the rejected split was reverted. Platform layout passed, Page Factory check --all passed for all 201 registered pages, and the frontend Page Factory contract passed. All five changed Vite module endpoints returned HTTP 200 without transform errors. In-app browser verification confirmed Site Settings loaded both index.css and its route-owned SiteSettings.css, rendered without the isolated route-error state and had zero horizontal overflow. An independent Playwright matrix at 240, 320, 390, 480, 639, 640, 768, 844 landscape, 1024, 1180, 1280 and 1440 pixel widths reported zero horizontal overflow and zero console errors in all twelve cases.",
+    "risks": "The hidden-page policy intentionally delays periodic local-environment checks until the page is visible again; foreground freshness, failure recovery and manual refresh remain intact. ProductMarket remains 265280 bytes and the global entry CSS remains 722480 bytes, so further extraction should follow measured route ownership rather than broad movement. The legacy global-responsive-deep Site Settings target still declares template editor while the live and Page Factory contract declare form, and its old learning assertions report pre-existing surface, palette or page-tool flags; the independent twelve-size runtime matrix is clean, but that stale test metadata should be repaired separately before treating it as a blocking gate. Full tsconfig.app checking retains the unchanged repository baseline of 243 diagnostics. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, media upload, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestRuntimeWakeupThemeAndDeferredCssRevision": {
+    "recordedAt": "2026-08-26T01:39:49.3580207+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38613",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source lightweight route experience across Product Market theme editing and Column Configuration, Company Info non-first-screen styling, the three-shell responsive runtime, page-layout lock storage reads, and the developer Optimization Loading Experience learning contract.",
+    "result": "Product Market fixes the lazy-boundary runtime closure that left Column Configuration calling the removed buildProductModuleCategoryLabel helper, and the contract now prevents that regression. The custom theme editor moves to a dedicated single-flight lazy chunk, preloads only on pointer or focus intent, releases a failed import for retry, stays absent while never visited, and preserves its shared draggable and resizable dialog behavior after first use. Company Info moves Banner and other deferred-panel-only rules out of the global stylesheet and loads them from CompanyInfoDeferredPanels only. The responsive contract coalesces resize, viewport, media-query, observer and mutation signals through one scheduled apply; modern browsers no longer wake every 250 milliseconds, while the legacy fallback checks at most once per second and skips hidden documents. Five page-layout lock records retain cross-tab and same-tab correctness while unchanged raw localStorage values avoid repeated JSON parsing. Optimization Loading Experience contract 2026.08.26.2 records both reusable rules without changing its existing storage keys.",
+    "validation": "Source lock and ESLint passed for every changed TypeScript and TSX file. Product Market performance, Company Info deferred CSS, runtime wakeup and storage cache, global responsive, layout-lock theme, visual developer and Development Standard contracts passed; all 31 production gates passed. The production build transformed 2974 modules in 22.42 seconds. ProductMarket decreased from 284889 to 265282 bytes, a reduction of 19607 bytes or about 6.9 percent, while ProductMarketThemeEditorDialog is isolated at 21137 bytes. Global entry CSS decreased from 750517 to 739582 bytes and CompanyInfoDeferredPanels CSS is isolated at 10936 bytes. Platform layout passed, Page Factory check --all passed for all 201 registered pages, and the frontend Page Factory contract passed. In-app browser validation confirmed Column Configuration renders 2/12 progressive groups without a route error, the theme editor is absent before intent and opens, closes and reopens with shared contract 2026.08.24.2, Company Info navigation initially omits deferred styles, and Banner loads and applies them without horizontal overflow. Playwright passed 12/12 Client Source Column Configuration, Layout and Customer Service checks at 320, 390, 768 and 1440 pixel widths. All eight changed Vite module endpoints returned HTTP 200 without transform errors. Full tsconfig.app checking still reports 243 repository-baseline errors, but zero diagnostics belong to this revision's changed runtime files.",
+    "risks": "ProductMarket remains 265282 bytes and global entry CSS remains 739582 bytes. Layout and Customer Service still share extensive theme, media, audio, drag, save and publish state, so another broad split is not justified without a production interaction trace. The first theme-editor open can perform one intentional lazy request when pointer or focus prewarming has not completed. The repository full-app TypeScript baseline has 243 existing diagnostics outside the changed files; enforcing it as a blocking build gate requires a separate cleanup project. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, media upload, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestIntentPreloadMediaAndLearningRevision": {
+    "recordedAt": "2026-08-26T00:49:25.4385854+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38612",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source route intent preloading, Product Market Development Guide splitting, customer-service portrait reads and expert-picker media scheduling, plus the developer Optimization Loading Experience automatic-learning runtime.",
+    "result": "Sidebar parent rows that only expand a branch no longer preload a page chunk; real Product Market links preload their exact route and the Development Guide owns a dedicated single-flight lazy chunk. The Product Market main source retains layout, service, draft, save and publish ownership while the non-first-screen Development Guide and its seven guide-only tools move to an isolated panel. Customer-service media reads now coalesce concurrent requests by asset ID, retire stale requests on replace, invalidate or delete, and load only the current expert portrait initially; the remaining eleven expert portraits wait for pointer, focus or click intent on Change Expert. Optimization Loading Experience contract 2026.08.26.1 stores audits by scope plus route, keeps a bounded five-point identity trend and forty-point global history, learns paired lazy-load recovery events, schedules layout-shift audits through the existing cooldown, and reports true duplicate-request excess without persisting error text or rewriting source automatically.",
+    "validation": "Source lock passed. TypeScript, Product Market performance, Development Standard, customer-service audio, UTF-8 encoding, page composition manifest, Factory Platform Blueprint, impact-map, edit-mode, content-plugin and shared visual parity contracts passed. All 29 development-standard gates and the production build passed for 2972 modules in 22.46 seconds. ProductMarket decreased from 316113 to 284889 bytes, a reduction of 31224 bytes or about 9.9 percent; ProductMarketDevelopmentGuidePanel is isolated at 31069 bytes, ProductMarketModulesPanel is 24569 bytes, and the shared CSS remains 750517 bytes. Platform layout passed, Page Factory check --all passed for all 201 registered pages, and the frontend Page Factory contract passed. The local Vite server returned HTTP 200 with no transform error for ProductMarket, ProductMarketDevelopmentGuidePanel, AIServiceWidget, customer-service-media and performance-experience-learning.",
+    "risks": "ProductMarket remains 284889 bytes and shared CSS remains 750517 bytes. Layout and Customer Service still share theme, upload, audio, drag, save and publish state, so another broad split is not justified without a production interaction trace. The in-app browser was already bound to its protected internal connection-error data document, so interactive route switching and viewport interaction are not claimed as passed; the local server and transformed module endpoints are healthy on port 3003. Automatic learning is advisory and cannot rewrite source. No drag sorting, tree CRUD, media upload, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestProgressiveRouteChunkAndLearningRevision": {
+    "recordedAt": "2026-08-26T00:15:14.2479966+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38611",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Client Source route transitions, Product Market Column Configuration, Product Analysis market tools, hidden Social Media customer-roadmap development view, floating customer-service scheduling, Sidebar configuration reads, route-local CSS, and the developer Optimization Loading Experience learning workbench.",
+    "result": "Product Market Column Configuration now owns a dedicated lazy panel and precise intent preload while its transaction, draft, save, publish and readback owners remain in the route shell. Product Analysis market-radar and competitive-pricing workspaces and the hidden Social Media customer-roadmap development view now load only on matching tab intent. Two page-specific CSS contracts no longer enter the global entry bundle. Product Market stored configuration reuses immutable normalized snapshots while the raw value is unchanged, Sidebar subscriptions depend on stable scope instead of every same-scope pathname, and the floating customer-service widget waits beyond initial paint and no longer observes every body subtree mutation. Optimization Loading Experience retains advisory-only source changes while learning real route wait, script bytes, long tasks, layout shifts, storage pressure, oversized decoded images and offscreen autoplay media through an eight-step cleanup playbook with protected business boundaries.",
+    "validation": "Source lock passed. TypeScript passed. All 29 development-standard gates passed. Production build passed. Platform layout passed and Page Factory check --all passed for all 201 registered pages. Product Market main JavaScript decreased from 337349 to 316113 bytes; Product Analysis decreased from about 44.2 KB to 24941 bytes; Social Media decreased from 275627 to 181517 bytes, with the hidden roadmap isolated as a 39946-byte chunk; global entry CSS decreased from 766357 to 750517 bytes. The local Vite server returned HTTP 200 with no transform error for the Product Market shell, Modules panel, Product Analysis shell and both lazy analysis workspaces. The Social roadmap body matched the UTF-8 acceptance source exactly, with zero U+FFFD or known mojibake patterns.",
+    "risks": "Product Market remains 316113 bytes and the shared entry CSS remains 750517 bytes. The remaining Product Market Layout and Customer Service tabs are tightly coupled to theme, media, audio, header drag-and-drop, save and publish state, while the shared CSS cascade crosses many contracts; both were intentionally left intact instead of forcing a risky broad split. The in-app browser tab had already fallen onto its internal connection-error data document before the local Vite server was restored, and Browser Use policy then prevented automated navigation away from that protected document, so interactive browser switching is not claimed as passed; the server and transformed module endpoints are healthy on port 3003. Automatic learning remains advisory and never rewrites source by itself. No drag sorting, tree CRUD, uploads, business data, database, formal backup, server configuration, production state or D:\\Codex\\zcwj was removed or modified."
+  },
+  "latestGlobalPerformanceExperienceCleanupRevision": {
+    "recordedAt": "2026-08-25T23:15:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38610",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Global Client Source route transitions, shared layouts, Product Market progressive rendering, developer performance-learning workbench, visualization-tool loading, Product Market runtime background work, and shared Sidebar subscriptions.",
+    "result": "Parent route boundaries now keep Headquarters, Agency, Client Source and Admin layout shells stable while leaf pages switch. Intent preloading covers the common heavy pages without eager bulk loading. Product Market Column Configuration renders two category groups initially and expands by viewport proximity or the explicit load-more control instead of mounting all twelve groups during idle. Product Market hydration imports one final configuration instead of reset-then-import double persistence. Shared layouts subscribe only to selected Product Market fields, visualization tools load on user intent, runtime version backup waits for the real background window, and route refresh work is deferred. The Optimization Loading Experience developer tool now owns an advisory eight-step cleanup playbook, five protected business boundaries and per-route automatic learning, while keeping source rewrites manual and reviewable.",
+    "validation": "Source lock passed. TypeScript passed. All 29 development-standard gates passed, including the Product Market performance and Optimization Loading Experience contracts. Production build passed for 2968 modules in 27.38 seconds. Browser regression on Column Configuration measured 2384 DOM nodes, 206 buttons and 37 inputs with 2/12 groups mounted; this is 3207 fewer nodes, 531 fewer buttons and 118 fewer inputs than the audited idle baseline. The explicit load-more action advanced the same view to 4/12 groups. Customer Service rendered 1512 nodes with no route-loading or route-error state after a cross-page switch.",
+    "risks": "The Product Market route chunk remains 337.35 KB raw and 88.54 KB gzip, so the next safe improvement is a dedicated non-first-tab split rather than a broad rewrite. Social Media and the shared CSS bundle remain sizeable. Browser automation interaction overhead is included in route-click timings, so user-perceived latency should be measured separately with a production performance trace. No business-bound drag sorting, tree CRUD, media upload, horizontal-scroll synchronization, database data, uploaded material, formal backup, server, production state, or D:\\Codex\\zcwj was removed or modified."
+  },
+  "versionHistoryRetentionDisplayRepair": {
+    "targetHVersion": "H38609",
+    "scope": "Headquarters H version generation, local/remote history bootstrap, and the shared version-history dialog.",
+    "result": "Every retained H number remains independently visible and restorable. The dialog no longer collapses records with the same generated title or summary and retains legacy entries whose descriptions are blank. Bootstrap now emits the shared version-update event after merging remote history, so the initially rendered badge refreshes from its one-entry fallback to the complete retained list. The automatic H source updater now replaces multiline update summaries correctly.",
+    "validation": "Source lock, TypeScript, version-learning contract, backend/runtime history readback, responsive shared-dialog verification, and production build are required. Browser validation must show the retained H entries in newest/large-number-first order after bootstrap without a manual reload.",
+    "risks": "The dialog intentionally retains only the latest ten runtime configuration records; the complete source changelog remains in VERSION_LOG.md. Runtime records restore configuration, not source code. No database, formal backup, upload material, server, or production state is modified."
+  },
+  "schemaVersion": 1,
+  "factoryVersion": "2026.08.22.6",
+  "recordedAt": "2026-08-22T09:16:25.037Z",
+  "latestUnifiedSelectExpertLocalMaterialRevision": {
+    "recordedAt": "2026-08-25T21:59:17.2622330+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38608",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Customer Service Select Expert portraits 01-12 projected through the shared page-factory root, developer body, visualization root and contract body to HQ, Agency Source and Client Source Sidebar, Column Configuration and Operations Market.",
+    "result": "Shared Product Market Category Contract v8 removes the separate 01-06 saved-preview call shape and 07-12 bundled-portrait call shape. Every expert now resolves one CustomerServiceLocalMaterialReference containing materialId plus localUrl and passes that same reference to readCustomerServiceMediaPreview and one global stable object-URL cache. The historical factory-experts asset directory was moved without copying to customer-service-local-materials, and all bundled portrait references now use that local namespace. No runtime factory portrait reader or second avatar data store remains.",
+    "validation": "Source lock reported 0 registered locked pages changed. TypeScript, Client Source content sync, global responsive and shared visual parity contracts passed. Platform layout passed. Page Factory check --all passed for factory 2026.08.22.6, including all Product Market routes across HQ, Agency Source and Client Source. Playwright discovered all 169 deep responsive tests. Browser runtime found all 12 expert IDs using customer-service-select-expert and customer-service-local-material markers with stable blob previews; SPA navigation Operations -> Column Configuration -> Operations kept changed=[] for all 12 IDs, while both 20px Sidebar and 16px category projections retained identical URLs per expert.",
+    "risks": "Stable object URLs intentionally live for the current application session and are revoked only when a material is explicitly invalidated or removed. The first load still fetches each local material once and non-selected experts are scheduled in small batches, so a direct hard reload can briefly show the static fallback before the stable preview resolves; SPA route changes do not recreate or revoke the URLs. No database, uploads, formal backups, servers, production, ordinary-page bulk rewrites or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedMaterialNewestOrderRevision": {
+    "recordedAt": "2026-08-25T21:35:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38608",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Customer-service expert portraits, female and male voices, reminder sounds, and Headquarters version update history shared by HQ, Agency Source and Client Source.",
+    "result": "Introduced one newest-large-number-first comparison contract. Expert and sound libraries retain their Female/Male/Reminder group boundaries while sorting every group by persistent number descending, with timestamp and stable id as deterministic fallbacks. Headquarters version history reads the same contract and keeps the newest, largest H number first.",
+    "validation": "Source lock, TypeScript, avatar-order, voice/reminder-order, version-learning, customer-service audio, global responsive, page-factory, platform-layout and production-build gates are required. Browser verification must confirm descending expert, voice and reminder numbers plus the version-history order marker at wide and narrow capacities.",
+    "risks": "Persistent material numbers and saved references are not rewritten; this changes display order only. Category groups remain Female, Male and Reminder, so the global list is grouped first and descending within each group. No database, uploads, formal backups, servers, production or D:\\Codex\\zcwj were read or changed."
+  },
+  "latestSharedCategoryExpertMaterialRevision": {
+    "recordedAt": "2026-08-25T21:19:20.5481084+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38607",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Shared customer-service expert portrait projection across Client Source Sidebar, Product Market Column Configuration, and Product Market Operations Market, with the same contract inherited by HQ and Agency Source.",
+    "result": "Expanded the avatar preview activation gate from Service only to Service or the active Operations/Column Configuration catalogue. All locations continue to call the same cached readCustomerServiceMedia function and no avatar data is copied into a second store. Shared Product Market Category Contract v6 adds stable expert ID, material ID, media-source, and display-size markers. The identity resolver uses the saved media asset ID first, then a deterministic inline or factory expert identity. Sidebar explicitly remains 20px; Column Configuration and Operations remain 16px.",
+    "validation": "Source lock reported 0 registered locked pages changed. TypeScript, Client Source content sync, global responsive, customer-service avatar order, and customer-service audio contracts passed. Browser runtime compared all 12 categories across the three projections: category+expertId+materialId matched exactly for Sidebar, Column Configuration, and Operations. Sidebar measured 20x20px with marker 20; both category surfaces measured 16x16px with marker 16. Six saved custom materials rendered through blob URLs in Operations, proving the shared media reader was active outside Service; image/video kinds remained intact.",
+    "risks": "The identity markers expose local material IDs only as DOM contract metadata; they do not contain media blobs, credentials, or uploaded content. Factory fallback IDs use the deterministic factory:<expertId> form and inline legacy overrides use inline:<expertId>. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestHqConversationFinalizationRevision": {
+    "recordedAt": "2026-08-25T21:09:15.1337591+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38606",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Headquarters source version finalization for completed development conversations across HQ, Agency Source, Client Source, page factory, developer, visualization, shared contracts, and factory-default projection.",
+    "result": "The existing AGENTS.md completion rule and frontend hq:finalize-turn command remain the single conversation-end owner. The H sequence baseline is migrated once from H28607 to H38606. Every later completed development conversation that changes tracked source runs the finalizer exactly once after source edits, validation, and the 09 page-factory record; later releases therefore continue as H38607, H38608, and so on. Unchanged source does not create an empty duplicate release.",
+    "validation": "Source lock reported 0 registered locked pages changed before migration. The package already exposes hq:finalize-turn as auto-bump-hq-version followed by verify-hq-version, and AGENTS.md requires exactly one call after all tracked edits and verification. Final validation must confirm the manifest, displayed source constant, fingerprint, verification evidence, and restore point all report H38606.",
+    "risks": "This is a deliberate one-time numbering-family migration and does not rename older H28 history entries. The shared version dialog sorts numerically, so H38606 and all later H38 versions appear before older H28 versions. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj are read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestHeadquartersVersionDialogCleanupRevision": {
+    "recordedAt": "2026-08-25T21:03:09.9845908+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38606",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Headquarters H version dialog shared by HQ, Agency Source, Client Source, page factory, developer, visualization, shared window contract, and factory-default projection.",
+    "result": "The Headquarters H Version Update dialog keeps the same draggable, resizable title/header/content/footer/resize structure as the Expert Avatar Material picker. H records are sorted by numeric version descending before rendering. Records with neither title nor summary are excluded; this removes the empty H28611 card. Exact duplicate title-and-summary records are collapsed after sorting, so only the greatest H number remains visible for duplicated content. The unavailable External Developer Tool W Source Snapshot section and the redundant current-version summary strip were removed. Each retained H entry now uses the Expert Avatar Material card structure with Version, Reference, Time, and Description fields plus an explicit Restore Version action. Long descriptions are one-line truncated and expose the full value through hover title text; the current version action is disabled to prevent a redundant restore.",
+    "validation": "Source lock reported 0 registered locked pages changed. TypeScript, version learning, shared visual parity, three-source global responsive, product-market theme accessibility, and the 201-page factory frontend contracts passed. Browser runtime verification measured the shared editor at 1196x775px with title, header, content, footer, and resize regions. Rendered H ids were in numeric descending order; the duplicated Headquarters Source Auto Progress description appeared once. Every card exposed Version, Reference, Time, Description, and an explicit Restore Version or disabled Current Version button. Description values carried min-w-0 truncate and full title text. The W snapshot heading and the no-snapshot warning both returned false in the dialog.",
+    "risks": "The shared display now intentionally shows fewer than ten cards when stored H records repeat the exact same title and summary; HISTORY_LIMIT remains an upper bound of ten unique records. The read-only page-factory audit retains the known pre-existing customer-service expert identity field-order blocker, so no factory-default snapshot is generated or applied. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestHeadquartersVersionDialogSharedContractRevision": {
+    "recordedAt": "2026-08-25T20:50:10.8193025+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28605",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Headquarters H version history across HQ, Agency Source, Client Source, page factory, developer, visualization, shared window contract, and factory-default projection.",
+    "result": "Registered hq-version-history as one shared editor window. The Headquarters H Version Update dialog now uses the shared draggable and centre-symmetric resizable frame, explicit title/header/content/footer regions, the shared close and resize controls, an independently scrolling content owner, and one visible footer with the retained-version count. HISTORY_LIMIT remains 10. At wide capacity, the ten compact history cards render as five rows in two columns; at narrow capacity they fall back to one column inside the same scroll owner. Full titles and summaries remain available through title text while the visible card is reduced to three lines.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript and the version-learning contract passed before the final verification set. Browser runtime verification measured shared contract 2026.08.24.2, dialog id hq-version-history, editor kind, dialog-8px spacing, title/header/content/footer regions, resizable=true, centre-symmetric-four-side-v1, and one shared resize handle. The dialog measured 1196.09x775.19px at the current viewport; the content region owned overflow-y:auto. All 10/10 retained H entries rendered in two equal columns, every compact entry measured 71px high, all ten were fully visible at initial scrollTop 0, and the footer reported Headquarters version records 10/10.",
+    "risks": "Read-only tools/page_factory.py check --all still exits 1 on the pre-existing 'customer-service expert identity field order differs' issue, so no factory-default snapshot was generated or applied. Narrow screens intentionally use one history column and the shared internal scrollbar rather than shrinking text below the shared readable size. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestHeartbeatAudit": {
+    "automationId": "b2b-30",
+    "recordedAt": "2026-08-22T03:16:36.514Z",
+    "factoryVersion": "2026.08.22.2",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "materialChange": true,
+    "result": "以“当前专家真人朗音自定义”为客服专家唯一事实根，新增共享专家内容解析与运行时配置契约；选择专家卡、当前专家预览、左侧专家弹窗、切换聊天专家和客服聊天窗口统一投影客服名称、头衔、性别、朗音与招呼词。专家卡采用容器宽度驱动的 1 至 4 列容量，名称与长招呼词保留完整 title 并单行省略。09 页面工厂只读入口恢复到总部、代理源、客户源默认当前页开发器，同时共享全局仍只在预检阶段显示；未批量改写普通页面。",
+    "risks": "当前活动源码锁为 0，但没有确认可用的干净版本控制恢复点，必须继续保持小范围可逆改动。全量只读普查确认 client-source-releases 的既有浏览器存储风险信号为 authorization,browser-storage。官方社媒渠道连接仍为 0/16，外部发布闭环仍为 0%；后端社媒 API 尚未把 allowedPlatforms 作为权威权限边界。通用 FactoryPage autoRegions 尚未全部接入可视化常驻只读标注发现器，不能宣称所有普通页面的可视化标注覆盖率 100%。B2B 每 30 分钟自动续推进继续暂停。"
+  },
+  "latestExpertLayoutRevision": {
+    "recordedAt": "2026-08-22T03:52:00.000Z",
+    "factoryVersion": "2026.08.22.2",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "当前专家真人朗音自定义 → 专家小卡片 / 当前专家编辑预览 / 左侧专家弹窗",
+    "result": "共享专家容量插件升级为 v3：卡片列表以容器 320px 可读下限自动平铺并保持最多四列；头像上方、身份与行为两列说明共用紧凑字段语法，去除名称标签的 2.75rem 固定空白，先随容器缩小头像和文字，仅在极窄容器改为单列；名称与招呼词仍保持单行省略和完整 title。",
+    "validation": "源码锁 0；只读普查 118/118 正式路由、158/158 路由身份、201/201 工厂登记通过；平台布局通过；Python 22/22；客服专家 Playwright 专项 4/4 通过；全局响应式、共享可视化与页面工厂契约通过；浏览器实测 390px 单卡无横向溢出、1440px 自动三列、240px 编辑摘要在缩小后转单列。",
+    "productionBuild": "blocked：完整构建在既有营销试点滚动所有权门禁缺少 data-social-media-scroll-owner 标记时停止；该普通页面不属于本次专家卡片变更，按禁止批量改写边界未修改。",
+    "risks": "未改业务数据、数据库、上传素材、正式备份、生产或服务器；自动平铺仍限制为最多四列以保证每张卡可读。完整生产编译和总部版本同步需在营销试点门禁恢复后重跑。B2B 每 30 分钟续推进保持暂停。"
+  },
+  "latestServiceControlLabelRevision": {
+    "recordedAt": "2026-08-22T13:10:36.770+08:00",
+    "factoryVersion": "2026.08.22.2",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "产品市场 → 客服音效 → 当前专家真人朗音自定义",
+    "result": "编辑标签统一缩短为头像、客音、名称、招呼、效果、朗音、语速；动画选项显示名称缩短为翻斗、转圈，保存值保持 flip-roll、spin-slow 不变。七个编辑标签统一为 48px 靠左紧凑轨道，控件间距收紧为 6px；朗音首行复用服务字段三列网格：左侧“朗音/上传朗音”独立卡片与头像、名称卡片共用总边框，右侧“女性/男性/状态/播放”跨后两列并保持同一行；效果保持下一张独立栏目卡片。声音状态最小宽度为 9rem，首行在中等及以上宽度保持不换行，仅在小屏的局部宽度不足时自然折行；客音设置条、朗音状态和播放按键统一采用共享功能卡底色，只有名称与招呼保留白色编辑输入框。性别/状态/播放及效果删除重复的设置容器边框，只保留栏目外框和各具体按钮边框；开关、语速改为各自清晰的单项设置框，状态与播放使用同级高对比边框。头像、客音、名称、招呼、朗音、性别/播放与效果栏目统一为 54px 高，并使用卡内垂直居中规则。当前专家编辑摘要升级为共享“居中头像＋事实说明间距”规则：头像容器占满行宽并居中媒体，头像与下方说明保持 14–20px 间距；客户源、代理源、总部端及左侧专家弹窗读取同一规则。点击左侧专家头像的弹窗移除 240px 显示上限，头像依旧按弹窗宽高安全比例计算，且弹窗专用尺寸令牌覆盖设置页的 80px 紧凑预览上限。",
+    "validation": "源码锁 0；本地 3003 预览已实际编译新结构；浏览器实测头像、客音、名称、招呼、朗音、性别/播放、效果七类行卡均为 54px，所有标签、输入、开关、语速、状态、播放和效果按键相对卡片中心偏差均为 0px。开关、语速、未上传女声和播放均为 1px、42% 共享文字色边框，开关与语速单项框宽度分别为 84.45px、273.91px；性别/状态/播放设置容器与效果动画容器内层边框均为 0px，两个栏目外框均为 1px，具体按钮保留；无横向溢出。头像、名称、朗音左卡均为 228.17px 宽、左右边界完全一致，上传朗音与名称编辑框均为 152.17px 宽；朗音左卡和右侧设置卡同一行、卡间距 10px；客音设置条、朗音状态区和播放按键背景均为 rgb(191, 222, 255)，名称、招呼编辑框均为 rgb(255, 255, 255)；当前专家编辑摘要浏览器实测：头像容器中心偏差 0px、头像媒体中心偏差 -0.01px、头像至事实说明间距 14px、无横向溢出；共享可视化契约同时执行中心偏差不大于 1px、事实说明间距不少于 12px 的运行时检查。点击左侧专家头像弹窗实测 456×368px 时，弹窗与摘要尺寸令牌均为 137px、媒体实际为 137×137px；源码确认其计算不再包含 240px 硬上限。TypeScript 通过；页面工厂 201/201、全局响应式（三端外壳）、共享可视化与页面工厂契约均通过。",
+    "risks": "仅改变前端显示文案与布局，不改变专家配置、动画保存值、数据库、素材、备份、生产或服务器；完整生产编译仍受既有营销试点门禁阻断。"
+  },
+  "latestExpertSelectionCompactRevision": {
+    "recordedAt": "2026-08-22T13:42:26.730+08:00",
+    "factoryVersion": "2026.08.22.2",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "产品市场 → 客服音效 → 选择专家小卡片；三端页面工厂、开发器、可视化与共享契约",
+    "result": "选择专家小卡片改为紧凑共享投影：名称、客服名称、头衔、性别、动画、提醒、朗音和招呼仅显示前两字，超过时显示单个省略号，完整内容保留在 title 与当前专家编辑区。卡片、头像到左边、两组说明之间和右侧说明到卡片内容边缘统一 8px；头像为 48px。网格最小卡宽调整为 240px，容器宽度足够时 auto-fit 自动增加等宽列且不设列数上限，宽度不足时逐张回落至单列。240px 以下才将行为说明放到下一行；工厂默认快照已保存为代码拥有状态。",
+    "validation": "源码锁 0；npx.cmd tsc --noEmit 通过；页面工厂、三端全局响应式和共享可视化契约均通过；factory snapshot dry-run 通过后 snapshot --apply 成功，写入 2 个代码拥有的页面工厂文件，路线覆盖 118/118、100%，普查基线 unchanged。浏览器实测客户源选择专家容器宽 954.53px、12 张卡自动为 3 列；首卡宽 312.84px、高 70.56px，头像左侧与行为说明右侧距离均为 9px（包含 1px 卡片边框，即内容内边距 8px），核心说明与行为说明间距 8px；八个文本节点长度分别为 3、3、2、2、2、2、3、3，完整原文均在 title；无横向溢出。",
+    "risks": "仅改共享前端投影、响应式规则、页面工厂标准与默认快照；不改专家配置、数据库、上传素材、正式备份、生产或服务器。page_factory.py check --all 当前以退出码 1 报告既有 client-social 的 10 个登记页面缺少 title-2、large-card、small-card 或 scrollbar 标注；该问题不在本次客服音效共享卡片范围内，未批量改写普通页面。250px 以下极窄容器会按既有单列规则保持可读性；B2B 每 30 分钟续推进仍暂停。"
+  },
+  "latestSharedResizableWindowRevision": {
+    "recordedAt": "2026-08-25T14:32:44.5477706+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Shared dialog and floating customer-service chat resize behaviour across HQ, Agency Source, and Client Source.",
+    "result": "Replaced the legacy opposite-edge-pinned resize path with one code-owned centre-symmetric four-side resize contract. Every supported edge and corner now changes the two opposing edges by the same amount around the current window centre. The floating chat now calls the same resolver and no longer re-pins its right or bottom edge after safe-area bounds are applied.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. Shared visual parity, global responsive pages, and page-factory frontend contract passed. Platform layout passed. Browser runtime verification confirmed the resizable normal dialog and chat expose center-symmetric-four-side-v1, seven edge targets, and the shared lower-right handle. Dragging the normal dialog east edge from 456px to 416px shifted left +20px and right -20px with both centre offsets equal to 0px; each test window was restored to its starting size.",
+    "risks": "No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. No factory-default snapshot was applied because tools/page_factory.py check --all is currently not clean: it exits 2 with the pre-existing 'customer-service expert identity field order differs' error. This shared-window change does not alter business data or persisted window preferences. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedWindowCloseRevision": {
+    "recordedAt": "2026-08-25T14:44:23.5127148+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat close action and Client Source developer shared window-close contract.",
+    "result": "The chat close action now carries the same data-dialog-close marker and ContentPluginCloseButton contract as the Client Source developer. Its inline title-rail placement remains chat-owned, while its 32px size, capsule border, background, text colour, hover and focus states are owned by the shared window contract and override ordinary in-page action resets.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. Shared visual parity contract passed, including a new runtime assertion that each floating chat declares a shared window-close action with data-dialog-close. Platform layout passed.",
+    "risks": "The local Vite process reports ready on port 3003 but did not return HTML within the local 10-second probe after restart, so browser computed-style verification is intentionally not reported as passed. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. No factory-default snapshot was applied; B2B 30-minute continuation remains paused."
+  },
+  "latestChatTitleActionLayoutRevision": {
+    "recordedAt": "2026-08-25T14:46:50.7539376+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat title action rail.",
+    "result": "Moved the shared close action above the voice playback action in one compact vertical action rail. Both controls retain their existing 32px hit targets; the rail uses a 4px shared gap and cannot shrink its controls.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript and shared visual parity contract passed. Platform layout passed in the preceding unchanged structural verification.",
+    "risks": "No business data, database, uploads, backups, servers, production, or D:\\Codex\\zcwj were touched. Browser verification remains blocked by the local Vite HTTP responsiveness issue recorded in the prior revision. B2B 30-minute continuation remains paused."
+  },
+  "latestChatComposerCapacityRevision": {
+    "recordedAt": "2026-08-25T14:48:30.5013468+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat composer footer.",
+    "result": "Removed the rendered '由·专家名称·在线相伴' footer note and reassigned the released footer capacity to a three-line message input. The send control bottom offset now aligns to the enlarged composer instead of the removed note.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript and shared visual parity contract passed.",
+    "risks": "No expert configuration, chat messages, business data, database, uploads, backups, servers, production, or D:\\Codex\\zcwj were touched. Browser layout verification remains unavailable while local Vite does not return HTML. B2B 30-minute continuation remains paused."
+  },
+  "latestChatAudioPreferenceRevision": {
+    "recordedAt": "2026-08-25T14:52:18.9040663+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat reminder and voice playback controls across route changes.",
+    "result": "Added a code-owned local UI preference contract for reminder and voice playback. Each manual toggle is stored by source scope and current site, then restored when the chat remounts after navigating within that same scope. Global product settings remain the final availability gate; this change never rewrites them.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, shared visual parity contract, and platform layout passed.",
+    "risks": "The preference is browser-local and deliberately independent from business configuration, databases, uploads, backups, servers, production, and D:\\Codex\\zcwj. Browser end-to-end route verification remains unavailable while local Vite does not return HTML. B2B 30-minute continuation remains paused."
+  },
+  "latestChatEightPixelSpacingRevision": {
+    "recordedAt": "2026-08-25T15:03:37.0197020+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat title rail: avatar, close action, and voice action edge spacing.",
+    "result": "The opened chat window now opts into the shared dialog-8px spacing contract. Its title rail has an 8px edge inset. The avatar trigger is a fixed 44px frame aligned to the title rail's left edge, while the vertical close/voice action rail aligns to its right edge; all three visible controls therefore use the same 8px boundary rule.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, shared visual parity contract, and platform layout passed.",
+    "risks": "No business data, databases, uploads, backups, servers, production, or D:\\Codex\\zcwj were touched. Browser computed-layout confirmation remains unavailable while local Vite does not return HTML. B2B 30-minute continuation remains paused."
+  },
+  "latestChatDeveloperCloseParityRevision": {
+    "recordedAt": "2026-08-25T15:09:22.7302677+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat close action and Client Source developer frame-close visual parity.",
+    "result": "The Client Source ordinary-action transparency reset previously won the CSS specificity conflict, leaving the chat close as a bare X. Added the shared-window frame-close override at the Client Source shell specificity so the chat close now keeps the developer's 32px rounded, translucent, bordered capsule and matching hover/focus states while remaining above the voice action.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, shared visual parity contract, and platform layout passed.",
+    "risks": "No business data, databases, uploads, backups, servers, production, or D:\\Codex\\zcwj were touched. Browser computed-style verification remains unavailable while local Vite does not return HTML. B2B 30-minute continuation remains paused."
+  },
+  "latestChatDeveloperCloseRuntimeFixRevision": {
+    "recordedAt": "2026-08-25T15:23:25.9321245+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat close action and the Client Source developer frame-close visual contract.",
+    "result": "Corrected the remaining CSS cascade conflict by targeting the actual inactive ContentPluginCloseButton shape, including the same inactive predicates used by the Client Source ordinary-action reset. The shared close contract now wins deterministically: 32px rounded control, visible translucent border and background, white icon, plus retained hover/focus states.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, shared visual parity contract, and platform layout passed. Local browser computed styles on the opened customer-service chat confirmed background color(srgb 1 1 1 / 0.1), 1px solid color(srgb 1 1 1 / 0.36) border, rgb(255, 255, 255) icon color, and a 32px by 32px close control.",
+    "risks": "No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. No factory-default snapshot was applied because tools/page_factory.py check --all remains non-clean with the pre-existing customer-service expert identity field order error. B2B 30-minute continuation remains paused."
+  },
+  "latestChatDialogEightPixelContractRevision": {
+    "recordedAt": "2026-08-25T15:57:49.9175272+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat spacing through the shared dialog-8px contract across HQ, Agency Source, and Client Source.",
+    "result": "Moved the dialog-8px marker from the closed launcher to the opened chat frame and removed the duplicate launcher marker. The compact chat now derives title padding, avatar-to-copy gap, title action alignment, footer send placement, and resize-grip placement from the same shared 8px edge token. Its title avatar is explicitly 44px so it fits its 44px allocation instead of overlapping the expert copy.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, shared visual parity contract, and platform layout passed. After a local sandbox restart, browser runtime verification confirmed dialog-8px is present and title padding, avatar-to-left content edge, avatar-to-expert copy, close-to-right content edge, speaker-to-right content edge, and send-to-resize-grip vertical gap are each exactly 8px. Avatar is 44px; close is 32px; speaker is 40px; send and resize controls are 36px.",
+    "risks": "Only the code-owned shared chat/dialog projection and verification record changed. No business data, database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. No factory-default snapshot was applied because tools/page_factory.py check --all remains non-clean with the pre-existing customer-service expert identity field order error. B2B 30-minute continuation remains paused."
+  },
+  "latestChatUnifiedControlSizeRevision": {
+    "recordedAt": "2026-08-25T16:03:59.3791831+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat close, voice playback, send, and resize controls through the shared dialog contract.",
+    "result": "Adopted the Client Source developer frame-close token as the single compact-chat control size. Close, voice playback, send, and resize controls now all read --tradepro-shared-dialog-close-size through --ai-service-chat-control-size (32px). The send-to-resize calculation also reads that same token, preserving the 8px vertical spacing when the control size changes centrally.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, customer-service audio shared contract, and shared visual parity contract passed. The new local sandbox loaded the updated page, but the current runtime has customer service disabled, so the chat controls were not mounted for a new browser geometry measurement; no persisted product setting was altered for verification.",
+    "risks": "Only code-owned shared presentation contracts and the verification record changed. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. The browser geometry confirmation requires the existing customer-service enable setting to be on. B2B 30-minute continuation remains paused."
+  },
+  "latestDialogFunctionActionSizeRevision": {
+    "recordedAt": "2026-08-25T16:05:34.4821541+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Shared popup close and compact icon-control sizing across HQ, Agency Source, and Client Source.",
+    "result": "Made the popup close-size token an alias of the shared function-action height instead of a second literal size. At the current shared 2rem (32px) action height, close, voice playback, send, and resize controls remain 32px by 32px; future shared function-action height updates keep every popup icon control square and synchronized automatically.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, shared visual parity contract, and platform layout passed. The runtime customer-service enable setting remains off, so no user configuration was altered solely to remount the chat for browser geometry confirmation.",
+    "risks": "This is a shared presentation-token relationship, so future intentional changes to global function-action height also change standard popup close and compact icon-control size. No business data, database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestChatVoiceFrameParityRevision": {
+    "recordedAt": "2026-08-25T17:47:28.5510913+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat voice playback control and Client Source developer close-frame parity.",
+    "result": "The voice playback control now inherits the same 32px square frame, 8px action radius, 1px translucent title-text border, translucent title background, foreground colour, and hover/focus treatment as the shared developer close action. A title-action-rail fallback selector covers already-mounted legacy chat instances until they remount with the explicit voice-control marker.",
+    "validation": "Source lock: 0 locked pages changed. source-lock:check and shared visual parity contract passed. The current chat instance unmounted during local hot update while customer service is disabled, so no user setting was changed solely to remount it for a second browser-style capture.",
+    "risks": "Only code-owned shared presentation rules and the verification record changed. No business data, database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestChatSendFrameParityRevision": {
+    "recordedAt": "2026-08-25T17:49:20.0319228+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat send control and shared popup frame parity.",
+    "result": "The send action now uses the same compact popup icon-control contract as close and voice playback: 32px square derived from the shared function-action height, shared action radius, visible 1px translucent border, title-action foreground, and matched hover/focus frame. It retains the semantic title/action background for a clearly identifiable send action.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, shared visual parity contract, and platform layout passed. The automation page did not mount a chat window at the time of the final style probe, so no customer-service preference or other user configuration was changed to force a visual capture.",
+    "risks": "Only code-owned shared presentation rules and the verification record changed. No business data, database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestChatResizeFrameParityRevision": {
+    "recordedAt": "2026-08-25T17:52:27.5489356+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Floating customer-service chat resize handle and send-control visual parity.",
+    "result": "The lower-right resize handle now shares the exact compact footer icon-control contract with the send action: 32px square based on shared function-action height, shared action radius, visible 1px title-text border, semantic title/action background, foreground, and hover/focus frame. Its existing 8px edge placement and the send action's 8px vertical clearance remain independent shared spacing rules.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, shared visual parity contract, and platform layout passed. A browser hard refresh cleared the previously stale 36px style instance; the refreshed page has customer service disabled and therefore does not mount the chat controls for a second geometry capture. No customer-service preference was changed to force verification.",
+    "risks": "Only code-owned shared presentation rules and the verification record changed. No business data, database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedLauncherAvatarSizeRevision": {
+    "recordedAt": "2026-08-25T18:01:00.6166945+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "产品市场 → 客服音效 → 当前专家真人朗音自定义，以及选择专家、浮动客服启动头像与聊天标题头像。",
+    "result": "以 floating-service-launcher 的 64px 常规头像尺寸为唯一共享尺寸源。当前专家真人朗音自定义继续是唯一内容源；选择专家小卡片、当前专家编辑摘要、浮动启动头像和打开后的聊天标题头像均声明 floating-launcher-size-v1 并读取同一 CSS 尺寸令牌。小屏时令牌同步缩至 36px，避免只有启动头像缩小而其他投影仍占用桌面尺寸。侧栏专家弹窗的放大预览与聊天消息中的小头像保留为明确的独立用途例外，不被普通尺寸覆盖。",
+    "validation": "源码锁 0；TypeScript、source-lock:check、共享视觉契约、客服音频契约、全局响应式契约和工厂平台蓝图均通过。运行时探针确认旧的本地 3003 页面尚未包含新尺寸标记；重启后的本地 Vite 监听进程在 5 秒内未响应模块请求，未改变用户客服开关来强制挂载聊天窗口，因此不将旧实例的 60/64px 读数作为新规则的通过证据。",
+    "risks": "页面工厂标准新增尺寸插件元数据后，verify:page-factory 提示工厂默认快照指纹过期；tools/page_factory.py check --all 同时仍报既有 customer-service expert identity field order differs，按规则未生成或应用新快照。未触碰业务数据、数据库、上传素材、正式备份、服务器、生产环境或 D:\\Codex\\zcwj；B2B 每 30 分钟续推进保持暂停。"
+  },
+  "latestChatAvatarSizeConflictRevision": {
+    "recordedAt": "2026-08-25T18:15:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客服聊天窗口标题头像与浮动客服启动头像的共享尺寸契约。",
+    "result": "移除共享窗口标题头像中残留的 3.75rem/60px 回退尺寸来源，改为与启动头像、小卡片和当前专家摘要相同的 --tradepro-shared-expert-launcher-avatar-size（桌面 64px，小屏 36px）。聊天标题头像不再存在可覆盖统一尺寸的第二条规则。",
+    "validation": "源码锁 0；TypeScript、source-lock:check、共享视觉契约、客服音频契约、全局响应式契约、页面工厂前端契约和工厂平台蓝图均通过。用户截图所见的旧小头像与已定位的 60px 回退规则一致；本地 3003 当前模块请求未响应，未将旧页面的视觉结果误记为新版运行时通过。",
+    "risks": "本地沙盘 Vite 虽监听 3003 但源码模块请求超时，需恢复本地预览响应后再做浏览器像素复测；tools/page_factory.py check --all 仍报既有 customer-service expert identity field order differs，未对其做批量普通页面改写。未触碰数据库、上传素材、正式备份、服务器、生产或 D:\\Codex\\zcwj；B2B 自动续推进保持暂停。"
+  },
+  "latestExpertPickerSingleFooterRevision": {
+    "recordedAt": "2026-08-25T18:18:52.1711650+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客服聊天窗口 → 切换聊天专家弹窗尾栏。",
+    "result": "修复嵌套尾栏：外层保留为唯一 data-shared-window-region=footer，原 DialogFooter 改为非区域的共享单主操作轨道，因此开发器与可视化只会标注一个尾栏。删除重复的取消操作；关闭统一使用弹窗标题栏的共享关闭键。尾栏仅保留“确定切换”，高度、内边距、间距与布局均由共享弹窗尾栏令牌持有。",
+    "validation": "源码锁 0；TypeScript、source-lock:check、共享视觉契约和客服音频契约通过。源码结构中该弹窗仅保留一个 footer 区域，并且不再导入或渲染 DialogFooter。对 3003 当前 Vite 模块的直接响应复核通过：包含 single-primary-action 与 confirm 标记，不包含 取消 或 DialogFooter。",
+    "risks": "此前截图属于刷新前保留的旧浏览器模块；浏览器需强制刷新后才会重新请求已验证的当前模块。tools/page_factory.py check --all 仍报既有 customer-service expert identity field order differs，未批量改写普通页面。未触碰数据库、上传素材、正式备份、服务器、生产或 D:\\Codex\\zcwj；B2B 自动续推进保持暂停。"
+  },
+  "latestExpertPickerFooterHeightRevision": {
+    "recordedAt": "2026-08-25T18:32:14.7741402+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客服聊天窗口 → 切换聊天专家弹窗的尾栏高度与开发器标注。",
+    "result": "进一步收敛为唯一尾栏身份：内部操作轨道由 data-shared-window-footer-* 标记改为私有类名，避免任何可视化扫描把它误判为第二尾栏。未切换时，外层单主操作尾栏固定读取共享弹窗的 60px 高度，主操作 36px 垂直居中；切换进行中才因状态说明与进度条按内容自然扩展。取消保持删除，关闭继续使用标题栏共享关闭键。",
+    "validation": "源码锁 0；TypeScript、source-lock:check、共享视觉契约和客服音频契约通过。3003 当前模块直接响应包含 single-primary-action，不含 取消 或内部 data-shared-window-footer-actions 标记。",
+    "risks": "浏览器已打开页面需要强制刷新才会卸载旧模块；tools/page_factory.py check --all 仍报既有 customer-service expert identity field order differs，未批量改写普通页面。未触碰数据库、上传素材、正式备份、服务器、生产或 D:\\Codex\\zcwj；B2B 自动续推进保持暂停。"
+  },
+  "latestExpertPickerRuntimeCorrectionRevision": {
+    "recordedAt": "2026-08-25T18:50:34.1260097+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "客服聊天窗口 → 换专家 → 切换聊天专家弹窗，以及本地 3003 开发沙盘响应链。",
+    "result": "确认全项目只有一套换专家弹窗实现，前次修改位置正确。浏览器实测旧运行实例仍为 footer=2、高 97px、含取消，根因为 Vite 开发进程监控范围失控，句柄增长约 12 万并阻塞整页重载。开发监控现显式忽略 node_modules、.git、dist、playwright-report 与 test-results；新进程句柄约 1072，首页和主模块恢复 HTTP 200。当前源码的换专家弹窗仅一个 60px 尾栏、无取消、无内部尾栏数据标记。标题采用 icon-two-line 共享契约，第二行补齐 24px（16px 图标 + 8px 间距），与第一行文字起点对齐。",
+    "validation": "源码锁 0；新 Vite 配置启动通过，进程句柄稳定约 1069，首页、main.tsx 与 AIServiceWidget.tsx 均返回 200；当前模块包含 single-primary-action 与 icon-two-line，不含 取消 或 DialogFooter。TypeScript、source-lock:check、共享视觉、客服音频、全局响应式、平台布局与页面工厂前端契约均通过。",
+    "risks": "当前应用内浏览器标签在重载过程中需要重新建立页面绑定后才能补充截图级像素证据；不影响已恢复的 3003 HTTP 响应和源码契约结论。tools/page_factory.py check --all 仍报既有 customer-service expert identity field order differs，未批量改写普通页面。未触碰数据库、上传素材、正式备份、服务器、生产或 D:\\Codex\\zcwj；B2B 自动续推进保持暂停。"
+  },
+  "latestSharedDialogTitleAlignmentRevision": {
+    "recordedAt": "2026-08-25T18:57:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Shared two-line popup title alignment across HQ, Agency Source, and Client Source; first applied by the floating customer-service chat expert picker.",
+    "result": "Confirmed shared popup contract 2026.08.24.2. The title frame keeps 20px horizontal padding. Icon-two-line headings now derive their first-line gap and second-line text origin from the same contract tokens: 16px leading icon plus 8px shared gap equals a 24px copy offset. The expert-picker title only declares the semantic heading-row and leading-icon markers, so neither line owns an independent hard-coded alignment value.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript passed. source-lock:check, shared visual parity, customer-service audio, global responsive pages, platform layout, and page-factory frontend contract passed. Local Vite returned HTTP 200 for AIServiceWidget.tsx and index.css; both responses contain the semantic title markers and the shared copy-offset token usage.",
+    "risks": "tools/page_factory.py check --all still exits 2 on the pre-existing 'customer-service expert identity field order differs' issue; no factory-default snapshot was generated or applied. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedExpertAvatarSizeCorrectionRevision": {
+    "recordedAt": "2026-08-25T19:07:36.2468458+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Current Expert voice-customization identity card, expert selection cards, floating customer-service launcher, and shared HQ, Agency Source, and Client Source projections.",
+    "result": "Removed the competing 3.75rem (60px) normal-summary avatar source from the shared customer-service capacity plugin. Current Expert and normal expert-card summaries now alias --tradepro-shared-expert-launcher-avatar-size, matching the floating launcher's 64px desktop frame and 36px phone-frame token. The enlarged sidebar profile and chat-message avatar remain explicit purpose-specific exceptions.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, source-lock:check, global responsive pages, shared visual parity, customer-service audio, platform layout, and page-factory frontend contract passed. Browser measurements before the correction were Current Expert 60x60px frame / 52x52px media versus launcher 64x64px frame / 56x56px media. After the correction, Current Expert, the first of 12 selection cards, and the launcher all measured 64x64px frames with 56x56px media and floating-launcher-size-v1. HQ, Agency Source, and Client Source service routes each measured a 64x64px Current Expert frame with both shared tokens resolving to 64px.",
+    "risks": "tools/page_factory.py check --all still exits 2 on the pre-existing 'customer-service expert identity field order differs' issue; no factory-default snapshot was generated or applied. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedPopupIconCenteringRevision": {
+    "recordedAt": "2026-08-25T19:12:16.8487230+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Shared popup compact icon controls across HQ, Agency Source, and Client Source, first verified on the floating customer-service chat voice action.",
+    "result": "Completed compact-popup-icon-centering-v1 in the shared dialog contract. Close, voice playback, send, and resize controls now combine the existing square size token with one inline-flex dual-axis centering algorithm. Direct child SVG icons use block layout with zero margin, no flex shrink, and middle vertical alignment, removing the inline baseline offset that made the speaker icon appear low.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, source-lock:check, shared visual parity, customer-service audio, global responsive pages, platform layout, and page-factory frontend contract passed. Browser computed-style verification measured the voice button at 32x32px and its SVG at 16x16px; button-to-icon centre deltas were exactly X=0px and Y=0px, with flex centering, zero padding, block SVG layout, and zero SVG margin active.",
+    "risks": "tools/page_factory.py check --all still exits 2 on the pre-existing 'customer-service expert identity field order differs' issue; no factory-default snapshot was generated or applied. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedSelectedTextReadabilityRevision": {
+    "recordedAt": "2026-08-25T19:30:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market layout-style left/right selected-text readability, shared by HQ, Agency Source, and Client Source navigation and right-side selection surfaces.",
+    "result": "Added one shared selected-text accessibility path. The left selected-frame colour remains the background source and the configured selected-text colour remains the preferred foreground; when that pair is below 4.5:1, the shared resolver now chooses pure black or white. Right-side selected states use the same resolver. A new --tradepro-shell-active-text token is consumed by all three source sidebars, while the layout preview and both left/right colour controls show the effective readable pairing without rewriting saved theme data.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, product-market theme accessibility, shared visual parity, global responsive pages, factory platform blueprint, and page-factory frontend contract passed. Browser runtime verification on the active Client Source layout route measured the prior selected pair at 1.00-1.07:1 and the corrected left navigation, left colour controls, right colour controls, and shared tokens at #FFFFFF on #637C47 = 4.66:1. The page rendered without a sandbox error.",
+    "risks": "tools/page_factory.py check --all still reports the pre-existing 'customer-service expert identity field order differs' error, so no factory-default snapshot was generated or applied. This change does not rewrite ordinary pages or saved theme values. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSmallCardDefaultTeaGreenAudit": {
+    "recordedAt": "2026-08-25T19:32:56.2336825+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market layout-style small-card background and the Customer Service expert-card runtime projection.",
+    "result": "Confirmed that the factory-owned limeTea palette already supplies #557A32 as the shared small-card background. No duplicate colour or page-local override was introduced. The current selected expert card remains #637C47 because it intentionally reads the separate shared selected-frame token; ordinary expert cards continue to read #557A32.",
+    "validation": "Source lock: 0 locked pages changed. Browser verification measured the layout-style Small Card Background control at #557A32, the shared --tradepro-panel-card-bg token at #557A32, and ordinary Customer Service expert cards at rgb(85, 122, 50). The selected card alone measured rgb(99, 124, 71), matching the accessible selected-state contract.",
+    "risks": "No business style source needed modification because the requested factory default was already active. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestOperationsCardControlContrastRevision": {
+    "recordedAt": "2026-08-25T19:42:55.9097070+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market Operations small-card drag handles and checked/unchecked selection boxes across the shared HQ, Agency Source, and Client Source visual contract.",
+    "result": "Corrected the colour source without changing card surfaces. Operations status cards continue to read their own palette-owned --product-market-card-bg and --product-market-card-name-color pair. Drag buttons, their nested SVG glyphs, and unchecked checkbox borders now inherit the card name foreground instead of the page-level list foreground. Checked boxes use that same foreground as their fill and preserve a high-contrast check mark. The strengthened selector intentionally outranks the legacy client list-button reset while remaining limited to Product Market cards.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, shared visual parity, product-market theme accessibility, global responsive pages, platform layout, and page-factory frontend contract passed. Browser verification measured the active card at #F4F7ED with #24391E text; before correction the drag glyph and unchecked border were white at about 1.08:1. After correction the drag button, nested SVG glyph, and unchecked checkbox border all measured #24391E, yielding about 11.54:1. The checked state measured #24391E fill with a white check mark, and the temporary selection was restored to unchecked.",
+    "risks": "tools/page_factory.py check --all still reports the pre-existing 'customer-service expert identity field order differs' error, so no factory-default snapshot was generated or applied. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSelectedTextWarmDefaultRevision": {
+    "recordedAt": "2026-08-25T19:55:33.9909079+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market layout-style left and right selected-text defaults, shared by HQ, Agency Source, Client Source, their sidebars, right-side selection surfaces, developer preview, visualization, and factory restore.",
+    "result": "Unified both independently configurable selected-text defaults to the requested warm bright #FFFFCC. Factory built-in themes now persist rightSelectedFrameColor/rightSelectedTextColor and use the same accessible left activeHighlight source. Runtime tokens, the Client Source sidebar, and the layout-style left/right colour controls read the same shared contract. Exact migration covers only the two short-lived intermediate defaults #EEFFFF and #FFFCEB; user-authored colours remain unchanged.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, product-market theme accessibility, shared visual parity, global responsive pages, factory platform blueprint, and page-factory frontend contract passed. Browser runtime verification measured both --tradepro-shell-active-text and --tradepro-shared-selection-text at #FFFFCC on #637C47, each at 4.53:1; both visible colour controls rendered rgb(255,255,204) on rgb(99,124,71). Factory version remains 2026.08.22.6 with 201 registered pages and governance/route coverage at 100%.",
+    "risks": "Read-only tools/page_factory.py check --all still exits 1 on the pre-existing 'customer-service expert identity field order differs' issue, so no factory-default snapshot was generated or applied. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestLightweightSmallCardActiveDefaultRevision": {
+    "recordedAt": "2026-08-25T20:00:10.6836799+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market Global and Layout Style lightweight-frame small-card default across HQ, Agency Source, Client Source, developer preview, visualization, shared contract, and factory restore.",
+    "result": "Removed the duplicate factory colour source for lightweight-frame small cards. Built-in themes now project clientFeatureCardBgColor/clientFeatureCardTextColor directly from the active-status card background and name text. The two editor sections remain independently customizable after initialization. Existing drafts migrate only when both former small-card fields still exactly match the previous palette-owned secondary/onSecondary pair; any partial or complete user customization is preserved.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, product-market theme accessibility, shared visual parity, global responsive pages, factory platform blueprint, and page-factory frontend contract passed. Browser verification on the Client Source layout route measured the lightweight-frame small-card background control, text control, preview card, active-status controls, and active-status preview card at the same #F4F7ED background and #24391E text, approximately 11.54:1 contrast. Factory version remains 2026.08.22.6 with 201 registered pages and governance/route coverage at 100%.",
+    "risks": "Read-only tools/page_factory.py check --all still exits 2 on the pre-existing 'customer-service expert identity field order differs' issue, so no factory-default snapshot was generated or applied. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestGlobalTypographyVerticalColumnsRevision": {
+    "recordedAt": "2026-08-25T20:37:33.2770291+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28604",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market Global and Layout Style typography controls across HQ, Agency Source, Client Source, page factory, developer preview, visualization, shared responsive contract, and factory restore.",
+    "result": "Registered shared-global-typography-columns-v2. Font Weight and Letter Spacing now share one equal two-column settings block: the left Font Weight column owns three vertically stacked controls and the right Letter Spacing column owns three vertically stacked controls. Font Family remains its independent full-width group. The same live handlers and persisted typography fields are retained, so the change is one shared structural projection rather than copied page-specific controls.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, global responsive pages, product-market theme accessibility, shared visual parity, platform layout, and page-factory frontend contract passed. Browser verification on the Client Source layout route measured one 475px shared block with two equal 233.5px columns and an 8px gap. Both headings start at the same Y coordinate; each column contains three 233.5px by 36px controls on three distinct Y coordinates, with no horizontal overflow. The responsive contract explicitly fixes the outer block to two minmax(0,1fr) columns and each inner choice grid to one column, preventing generic auto-fit rules from returning these controls to horizontal rows.",
+    "risks": "Read-only tools/page_factory.py check --all still exits 1 on the pre-existing 'customer-service expert identity field order differs' issue, so no factory-default snapshot was generated or applied. Extremely narrow columns preserve two requested vertical tracks and rely on the existing single-line truncation for long labels. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestGlobalTypographyTwoRowRevision": {
+    "recordedAt": "2026-08-25T20:05:05.0641052+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Product Market Global and Layout Style typography controls across HQ, Agency Source, Client Source, developer preview, visualization, shared responsive contract, and factory restore.",
+    "result": "Registered shared-global-font-row-v1. Font Weight and Letter Spacing now each own one full-width semantic settings row. Each row uses three equal grid columns for its three fixed choices, while font-family remains its independent row. The same live controls and persisted typography fields are retained; no duplicate controls or page-specific copies were introduced.",
+    "validation": "Source lock: 0 locked pages changed. TypeScript, global responsive pages, product-market theme accessibility, shared visual parity, platform layout, and page-factory frontend contract passed. Browser verification on the Client Source layout route measured three Font Weight buttons on one Y coordinate and three Letter Spacing buttons on the next Y coordinate. All six controls were equal 154px by 36px at the current viewport; each semantic row measured 475px, exactly matching the settings pane usable inner width after its 8px leading inset.",
+    "risks": "Read-only tools/page_factory.py check --all still exits 2 on the pre-existing 'customer-service expert identity field order differs' issue, so no factory-default snapshot was generated or applied. At extremely narrow containers the three requested fixed columns preserve one row and rely on existing text truncation rather than wrapping. No ordinary page was bulk rewritten. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestSharedExpertAvatarFrameColorRevision": {
+    "recordedAt": "2026-08-25T21:25:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28603",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Current Expert, selection-card, floating launcher, and open-chat title avatars across HQ, Agency Source, Client Source, page factory, developer, visualization, shared expert contract, and factory-default projection.",
+    "result": "Made Current Expert the single visual source for the four-pixel portrait frame. Added --tradepro-shared-expert-avatar-frame-color as an alias of the active shared action colour and connected the editor summary, floating launcher, and open chat title avatar to floating-service-v1. The launcher no longer uses the separate white launcher-icon colour for its frame.",
+    "validation": "Before correction, browser runtime measured the Current Expert frame at 4px #557A32 and the 64px floating launcher frame at 4px white. Source lock, TypeScript, global responsive contract, shared visual parity, customer-service audio contract, page-factory frontend contract, platform layout, and post-fix browser measurements for closed launcher plus open chat title avatar are required for this H28603 handoff.",
+    "risks": "The enlarged avatar preview and small message-history avatars remain explicit size exceptions; only normal 64px expert projections receive the four-pixel frame. Read-only tools/page_factory.py check --all retains the pre-existing customer-service expert identity field-order blocker, so no factory-default snapshot is generated or applied. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj are read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestCustomerServiceSliderContrastRevision": {
+    "recordedAt": "2026-08-25T21:05:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28602",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Customer Service appearance volume and expert voice-rate sliders across HQ, Agency Source, Client Source, page factory, developer, visualization, shared control contract, and factory-default projection.",
+    "result": "Registered one shared customer-service slider contract for both volume and voice rate. The unfilled track now uses readable blue-grey #94A3B8 instead of the near-white global secondary surface; the filled range and thumb border use #2563EB, exactly matching the enabled customer-service toggle, and the thumb uses #DBEAFE for a clear control boundary.",
+    "validation": "Before correction, browser runtime measured both unfilled tracks at #F1F5F9, filled ranges at #0F172A, and white thumbs, while the enabled shared toggle used #2563EB. Source lock, TypeScript, customer-service audio contract, shared visual parity, global responsive page contract, product-market theme accessibility, page-factory frontend contract, platform layout, and post-fix browser measurements of both sliders are required for this H28602 handoff.",
+    "risks": "The new data markers are semantic only and do not change values, drag behavior, preview playback, persistence, or other global sliders. Read-only tools/page_factory.py check --all retains the pre-existing customer-service expert identity field-order blocker, so no factory-default snapshot is generated or applied. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj are read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestReminderSelectedFrameRevision": {
+    "recordedAt": "2026-08-25T20:45:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28601",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Customer Service expert-appearance/message-send reminder sound cards across HQ, Agency Source, Client Source, page factory, developer, visualization, shared theme contract, and factory-default projection.",
+    "result": "Reconnected the selected reminder-sound card to the shared right-side selection contract. Its background, text, outline, and inset emphasis now read --tradepro-shared-selection-bg/text/outline instead of the unrelated small-card action colour. The reminder selection data flow, numbered expert mapping, local preview, replacement slot, and saved configuration remain unchanged.",
+    "validation": "Before correction, browser runtime measured the configured right-selection tokens as #637C47 / #FFFFCC while the selected reminder card rendered a mixed pale background with #557A32 border, proving that a service-specific CSS override bypassed the contract. Source lock, TypeScript, customer-service audio contract, shared visual parity, global responsive page contract, product-market theme accessibility, page-factory frontend contract, and post-fix browser computed-style verification are required for this H28601 handoff.",
+    "risks": "Read-only tools/page_factory.py check --all retains the pre-existing customer-service expert identity field-order blocker, so no factory-default snapshot is generated or applied. The change does not alter audio files, business content, saved selections, or ordinary-page structure. No database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj are read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestHVersionLifecycleRevision": {
+    "recordedAt": "2026-08-25T20:25:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28600",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Headquarters H-version finalization policy shared by source changes across HQ, Agency Source, Client Source, page factory, developer, visualization, shared contracts, and factory-default records.",
+    "result": "Diagnosed the stale H28599 release: the source fingerprint synchronizer existed but was not wired to build or conversation finalization. Added one explicit hq:finalize-turn command and a repository rule requiring exactly one finalization after all tracked edits and verification in each source-changing development conversation. Re-running finalization for an unchanged fingerprint remains a no-op, preventing duplicate releases.",
+    "validation": "Source lock reported 0 locked registered pages changed. The H source constant and .hq-version.json both reported H28599 before correction; package inspection confirmed that build-development-standard.mjs and the development-standard gate list did not invoke the H synchronizer. This record is included before the final source fingerprint is generated; hq:finalize-turn and browser display verification complete the H28600 handoff.",
+    "risks": "The H restore point is runtime configuration history plus a source-change manifest, not a complete source archive. No formal backup was created or modified. The existing read-only tools/page_factory.py check --all customer-service expert identity field-order blocker remains unrelated, so no factory-default snapshot was generated or applied. No ordinary page was bulk rewritten; no database, uploads, formal backups, servers, production, or D:\\Codex\\zcwj were read or changed. B2B 30-minute continuation remains paused."
+  },
+  "latestPerformanceExperienceLearningRevision": {
+    "recordedAt": "2026-08-25T21:00:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H28606",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "HQ, Agency Source and Client Source developer workbenches, shared responsive runtime learning, ordinary project routes and the shared dialog contract.",
+    "result": "Added 03 Optimization Loading Experience to the shared developer. Eight code-owned, historically verified patterns are seeded automatically; runtime audits learn route stabilization, long tasks, DOM pressure, eager offscreen media, duplicate requests, large transfers and storage pressure by route and issue identity. Manual detection and reversible quick application are available for each current route. A browser-discovered observer feedback loop was itself learned and corrected with a 15-second automatic-audit cooldown and stable issue accumulation.",
+    "validation": "Source lock reported 0 locked registered pages changed. TypeScript, the 25 development-standard gates, global responsive learning, Product Market performance, platform layout and the complete production build passed. Browser verification opened the Client Source developer on Customer Service, confirmed eight shared patterns, automatic learning, manual detection, quick application and stable learning counts, then verified the shared title/header/content/footer at 390px without a page-load error.",
+    "risks": "The quick-application boundary only changes reversible runtime hints for offscreen images, audio/video and iframes; it does not rewrite source pages or business data. tools/page_factory.py check --all retains the pre-existing customer-service expert identity field-order blocker, so no factory-default snapshot is generated or applied. No database, uploads, formal backups, servers, production or D:\\Codex\\zcwj were read or changed."
+  },
+  "latestCustomerServiceExpertFactoryOrderRevision": {
+    "recordedAt": "2026-08-25T21:20:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38607",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "Page-factory customer-service expert field-order validation shared by HQ, Agency Source and Client Source projections.",
+    "result": "Removed the stale Python validator expectation for the former name/title/gender order. The page-factory CLI now validates the current shared two-column contract: gender/title/animation on the left and customer-service-name/greeting/reminder/voice on the right.",
+    "validation": "Source lock, page-factory Python full catalog, frontend page-factory contract, TypeScript, customer-service audio contract, global responsive contract, platform layout, production build and wide/narrow browser projection order are required for this H38607 handoff.",
+    "risks": "This correction changes only code-owned validation and verification metadata; it does not rewrite expert data, saved customer-service settings, ordinary pages or the factory-default snapshot. No database, uploads, formal backups, servers, production or D:\\Codex\\zcwj were read or changed."
+  },
+  "latestProductMarketOperationsWorkflowPerformanceRevision": {
+    "recordedAt": "2026-08-28T08:24:59+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38682",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "仅客户源 产品市场 → 运营市场，页面身份 client_source:/product-market?tab=operations；以该页作为 01 至 06 自动工作流试点，并把可复用结论回写共享框架、共享契约、性能体检和质量发布证据，不复制页面实现。",
+    "pageIdentity": {
+      "pageId": "client-source-product-market-operations",
+      "sourceScope": "client_source",
+      "normalizedRoute": "/product-market?tab=operations"
+    },
+    "result": "移除被动打开源页时的远端模板写入，默认捆绑专家头像不再进入 Blob/素材预览链；页面与 Sidebar 的自定义素材读取统一复用按 materialId 的单飞缓存，模板快照并发读取也统一为单飞；批量状态计算改用已建立的路径 Map，清除 Product Market store 中未使用导出。单飞生命周期进一步收敛为一个共享函数，缓存命中、并发所有权、显式失效和请求完成清理只维护一处。01 至 06 工作流新增可重复的 Operations 性能采集与 Stage 05 汇总工具，保留 mean、median、P75 及独立候选运行冲突，不用单次最好结果掩盖波动。",
+    "workflow": [
+      {
+        "stage": "01",
+        "name": "页面 DNA 与全局框架",
+        "status": "passed",
+        "evidence": "页面身份固定为 client-source-product-market-operations / client_source:/product-market?tab=operations；18 张状态卡、2 个初始分组及四标签共享框架保持一致。"
+      },
+      {
+        "stage": "02",
+        "name": "共享契约",
+        "status": "passed",
+        "evidence": "运营、模块、侧栏、媒体首屏和共享选中态读取同一契约；媒体单飞、WebP 首屏头像、解码就绪替换与失败回退均由共享源持有。"
+      },
+      {
+        "stage": "03",
+        "name": "设计输入",
+        "status": "external-evidence-not-supplied",
+        "evidence": "本轮未提供可绑定到该页面 DNA 的外部 Figma 快照，因此不伪造设计通过；代码内共享设计令牌与视觉契约已通过。"
+      },
+      {
+        "stage": "04",
+        "name": "可视化与响应式",
+        "status": "passed",
+        "evidence": "390×844、768×1024、1440×900 三档视口均无横向溢出，卡片/分组数量与功能行为保持一致；产品市场共享视觉真实页面回归 4/4 通过。"
+      },
+      {
+        "stage": "05",
+        "name": "加载体验",
+        "status": "passed-with-mixed-confidence",
+        "evidence": "2 份基线与 2 份候选报告、冷启动和重复访问各 10 个样本已汇总；均值改善，但重复访问中位数回归、P75 改善，因此置信度明确标记 mixed。"
+      },
+      {
+        "stage": "06",
+        "name": "质量与发布",
+        "status": "local-passed-external-pending",
+        "evidence": "本地源码锁、TypeScript、Knip、ESLint 零错误、页面工厂、平台布局、定向 Playwright、64 项开发门禁、完整生产构建与 201 路由预算通过；本轮未提供 GitHub PR 和审批证据，因此外部发布门禁保持 pending。"
+      }
+    ],
+    "performanceEvidence": {
+      "protocol": "2 baseline reports + 2 candidate reports; each report contains 5 cold and 5 repeat runs",
+      "sampleCounts": {
+        "baselineCold": 10,
+        "baselineRepeat": 10,
+        "candidateCold": 10,
+        "candidateRepeat": 10
+      },
+      "mean": {
+        "outcome": "improved",
+        "coldVisualReadyMs": "1760.4 -> 1693.6 (-66.8, -3.80%)",
+        "coldEditReadyMs": "2355.8 -> 2279.3 (-76.5, -3.25%)",
+        "repeatVisualReadyMs": "1656.5 -> 1448.6 (-207.9, -12.55%)",
+        "repeatEditReadyMs": "2332.7 -> 2255.6 (-77.1, -3.31%)",
+        "coldTotalEncodedBytes": "4085761 -> 2151887 (-47.33%)",
+        "resourceCount": "137.9 -> 125.5 (-8.99%)",
+        "duplicateRequestExcess": "14 -> 2 (-85.71%)",
+        "mutationRequestCount": "0 -> 0"
+      },
+      "distribution": {
+        "medianOutcome": "regressed",
+        "repeatVisualReadyMedianMs": "1307 -> 1449.5 (+10.90%)",
+        "p75Outcome": "improved",
+        "repeatVisualReadyP75Ms": "2324 -> 1681 (-27.67%)",
+        "confidence": "mixed",
+        "independentCandidateOutcomes": [
+          "regressed",
+          "improved"
+        ]
+      },
+      "functionalParity": "passed: 18 cards, 2 initial groups, 3 viewport classes, no unexpected mutation requests",
+      "bundleBudget": {
+        "contractVersion": "2026.08.28.1",
+        "reportFingerprint": "6ccd9f679e24a323bd868511cc74c40131cd2fbc1c6ec8d9464733d54d5b2a91",
+        "operationsRouteGzipBytes": 518124,
+        "operationsRouteHeadroomBytes": 6164,
+        "sharedModulesRouteGzipBytes": 523927,
+        "sharedModulesRouteHeadroomBytes": 361
+      },
+      "artifact": "release/local-performance/artifacts/product-market-operations-stage05-summary-3a160199c958a36654d9.json",
+      "evidenceFingerprint": "3a160199c958a36654d953756befce05e17d91e3c38602f61fe0839c31a5c2b5"
+    },
+    "validation": "源码锁与 source-lock:check 全程通过。DeveloperRun 11/11、Stage 05 CLI 3/3、产品市场性能和性能治理契约通过；TypeScript 零错误，Knip 0 个问题，定向 ESLint 0 错误（35 条既有 Hook/fast-refresh 警告未机械改写）；Platform layout 通过，page_factory.py check --all 201/201，定向头像/被动 hydration Playwright 3/3。最终 npm run build 通过：64 项开发规范门禁、共享实时表面 13/13、三源框架 1/1、模板发布 4/4、产品市场组合 18/18、共享视觉 4/4、Vite 3028 模块、201 条路由预算和 postbuild 复核全部通过。",
+    "risks": "性能均值与 P75 改善，但重复访问中位数仍有 10.90% 回归且两次独立候选结论不一致，后续优化必须继续保留分布对比，不能宣称所有场景都变快。剩余 2 个重复请求组来自本地预览回退中的模板 GET 与鉴权 POST；真实并发成功路径已有单飞契约覆盖。外部 Figma 快照、GitHub PR、远端 CI 与审批未提供，均未标记通过。未连接或修改数据库、上传素材、生产服务器、远程环境、正式备份或 D:\\Codex\\zcwj；本地性能报告是可重建证据，不是正式备份。"
+  },
+  "latestProductMarketLayoutWorkflowPerformanceRevision": {
+    "recordedAt": "2026-08-28T10:45:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38685",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "仅客户源 产品市场 → 版面风格；页面身份 client_source:/product-market?tab=layout。此页复用 01–06 的统一性能、共享契约与可视化响应式工作流，不复制页面实现。",
+    "pageIdentity": {
+      "pageId": "client-source-product-market-layout",
+      "sourceScope": "client_source",
+      "normalizedRoute": "/product-market?tab=layout"
+    },
+    "result": "版面风格页接入统一性能采集器及快速入口。快检强制使用 2 次冷启动、2 次缓存复访和三档视口完成候选判断，不继承外部残留采样数；完整入口强制使用 7 次冷启动、7 次缓存复访与相同的功能等价、资源和响应式约束。默认报告按页面目标分别命名，避免版面风格证据误归运营市场。该分层只缩短日常检查时间，不降低发布门槛。",
+    "workflow": [
+      { "stage": "01", "name": "全局框架", "status": "passed", "evidence": "复用同一 FactoryPage、ProductMarket 路由入口和 client_source 页面身份。" },
+      { "stage": "02", "name": "共享契约", "status": "passed", "evidence": "采集器读取已登记路由、统一就绪条件、卡片/分组计数、异常请求和资源去重规则；未复制页面实现。" },
+      { "stage": "03", "name": "Figma UI", "status": "external-evidence-not-supplied", "evidence": "本轮没有可绑定至该页面 DNA 的 Figma 快照，不能将设计外部审查标为通过。" },
+      { "stage": "04", "name": "可视化与响应式", "status": "passed", "evidence": "快检及完整协议均覆盖 390×844、768×1024、1440×900；保持 5 个设置组、无横向溢出与功能等价。" },
+      { "stage": "05", "name": "优化加载体验", "status": "passed", "evidence": "快检实测约 20 秒完成；基线中冷启动视觉就绪中位数 1478ms、复访 1484ms，CLS 0.011，未发现非预期写请求。共享运行时仍是主要成本；未以高风险拆包换取不可靠的微小波动。" },
+      { "stage": "06", "name": "质量与发布", "status": "local-passed-external-pending", "evidence": "本地源码锁、契约、类型、死代码、页面工厂、生产构建和目标浏览器回归作为发布证据；GitHub PR、远端 CI 与审批未在本轮提供，保持 pending。" }
+    ],
+    "performanceEvidence": {
+      "quickProtocol": "2 cold + 2 repeat samples plus 3 responsive viewports",
+      "releaseProtocol": "7 cold + 7 repeat samples plus the same responsive and functional-parity gates",
+      "quickRunDuration": "19.8 seconds observed locally",
+      "baselineArtifact": "release/local-performance/artifacts/product-market-layout-performance-before-production-h38684.json",
+      "quickArtifact": "release/local-performance/artifacts/product-market-layout-performance-fast-workflow-check.json",
+      "baselineMedian": {
+        "coldVisualReadyMs": 1478,
+        "coldEditReadyMs": 2151,
+        "coldLcpMs": 1368,
+        "repeatVisualReadyMs": 1484,
+        "repeatEditReadyMs": 2191,
+        "repeatLcpMs": 1388,
+        "layoutShiftScore": 0.011,
+        "resourceCount": 125,
+        "duplicateRequestExcess": 2,
+        "unexpectedMutationRequests": 0
+      },
+      "releaseCheck": {
+        "artifact": "release/local-performance/artifacts/product-market-layout-performance-after-fast-workflow-h38685.json",
+        "protocol": "7 cold + 7 repeat samples on the final production build",
+        "functionalParity": "passed: 5 settings groups, expected local-preview fallback requests only, no horizontal overflow across 3 viewports",
+        "coldMedian": {
+          "visualReadyMs": 1386,
+          "editReadyMs": 2076,
+          "lcpMs": 1280,
+          "cls": 0.011,
+          "longTaskTotalMs": 1641
+        },
+        "repeatMedian": {
+          "visualReadyMs": 1337,
+          "editReadyMs": 1530,
+          "lcpMs": 1284,
+          "cls": 0.011,
+          "longTaskTotalMs": 1575
+        },
+        "comparisonStatus": "not-comparable-across-page-dna-revision",
+        "comparisonReason": "The H38684 baseline page-DNA fingerprint differs from the final H38685 build. The runner correctly rejected a cross-identity improvement verdict; its raw samples remain valid release evidence."
+      }
+    },
+    "validation": "Source lock and source-lock:check, TypeScript, Knip production audit, Product Market performance/shared-contract gates, page_factory.py check --all, frontend page-factory contract, platform layout, 19 Product Market browser consistency scenarios, full development-standard production build and the final 7+7 production-preview protocol passed locally.",
+    "risks": "Quick evidence is intentionally not release evidence. Cross-H performance deltas are rejected whenever the page-DNA fingerprint changes; only same-identity baselines may produce an improvement verdict. External Figma, GitHub PR, remote CI and approval evidence were not supplied. No database, uploads, production services, formal backups or D:\\Codex\\zcwj are read or changed."
+  },
+  "latestProductMarketModulesWorkflowPerformanceRevision": {
+    "recordedAt": "2026-08-28T10:00:58+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38684",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "仅客户源 产品市场 → 栏目配置，页面身份 client_source:/product-market?tab=modules；以该页作为 01 至 06 自动工作流试点，把可复用结论回写共享框架、共享契约、性能体检和质量证据，不复制页面实现。",
+    "pageIdentity": {
+      "pageId": "client-source-product-market-modules",
+      "sourceScope": "client_source",
+      "normalizedRoute": "/product-market?tab=modules"
+    },
+    "result": "静态清单确认 12 个分类、72 个顶层应用和 215 个子项无重复；对脏历史 productOrder 增加首项优先、保持顺序的共享去重契约，并覆盖同步、导入、持久化恢复和重排入口。栏目编辑 DTO 与分类排序编解码收敛为单一共享契约，删除不可达的自定义产品编辑链、重复类型和无效回调依赖。Portal 型可视化延迟入口改为零布局 fallback，使栏目工作区不再在入口加载后整体位移。性能采集器现可用同一协议切换 operations/modules，并把延迟骨架、栏目子组件和新共享契约纳入源码指纹。",
+    "workflow": [
+      {
+        "stage": "01",
+        "name": "页面 DNA 与全局框架",
+        "status": "passed",
+        "evidence": "页面身份固定为 client-source-product-market-modules / client_source:/product-market?tab=modules，继续使用同一 FactoryPage、产品市场主入口和四标签框架；未复制页面。"
+      },
+      {
+        "stage": "02",
+        "name": "共享契约",
+        "status": "passed",
+        "evidence": "栏目编辑类型、分类排序 ID、产品顺序去重、子视图识别和源码市场生命周期均有单一契约；脏历史顺序专项 Playwright 验证每个 path 只渲染一次且保留首次顺序。"
+      },
+      {
+        "stage": "03",
+        "name": "设计输入",
+        "status": "external-evidence-not-supplied",
+        "evidence": "本轮未提供可绑定该页面 DNA 的外部 Figma 快照，因此不伪造设计通过；代码内共享设计令牌、响应式契约和现有视觉回归继续作为本地证据。"
+      },
+      {
+        "stage": "04",
+        "name": "可视化与响应式",
+        "status": "passed",
+        "evidence": "390×844、768×1024、1440×900 三档视口保持 18 张栏目卡、2 个分组、无横向溢出和无意外写请求；Portal 延迟入口不再占据普通文档流。"
+      },
+      {
+        "stage": "05",
+        "name": "加载体验",
+        "status": "passed-with-rejected-candidate",
+        "evidence": "接受零布局 Portal fallback：冷启动 CLS 中位数 0.066→0.005（-92.4%），重复访问 0.199→0.005（-97.5%），其余主速度指标保持容差内；拒绝等高侧栏骨架候选，因为有效复测使关键速度回归 9.7% 至 50.1%。"
+      },
+      {
+        "stage": "06",
+        "name": "质量与发布",
+        "status": "local-passed-external-pending",
+        "evidence": "共享契约门禁、TypeScript、Knip、ESLint、页面工厂、平台布局、定向 Playwright 和生产构建作为本地证据；GitHub PR、远端 CI 与审批未提供，继续保持 pending。"
+      }
+    ],
+    "performanceEvidence": {
+      "protocol": "production preview; one baseline and one accepted candidate, each with 7 cold + 7 repeat samples; 3 responsive viewports",
+      "sampleCounts": {
+        "baselineCold": 7,
+        "baselineRepeat": 7,
+        "candidateCold": 7,
+        "candidateRepeat": 7
+      },
+      "baselineMedian": {
+        "coldVisualReadyMs": 1280,
+        "coldEditReadyMs": 2130,
+        "coldLcpMs": 1116,
+        "coldCls": 0.066,
+        "repeatVisualReadyMs": 1213,
+        "repeatEditReadyMs": 1559,
+        "repeatLcpMs": 1116,
+        "repeatCls": 0.199
+      },
+      "acceptedMedian": {
+        "coldVisualReadyMs": 1306,
+        "coldEditReadyMs": 2149,
+        "coldLcpMs": 1136,
+        "coldCls": 0.005,
+        "repeatVisualReadyMs": 1257,
+        "repeatEditReadyMs": 1514,
+        "repeatLcpMs": 1128,
+        "repeatCls": 0.005
+      },
+      "distribution": {
+        "coldClsImprovement": "0.066 -> 0.005 (-92.4%)",
+        "repeatClsImprovement": "0.199 -> 0.005 (-97.5%)",
+        "speedOutcome": "primary timing medians and P75 remain within the configured comparison tolerance",
+        "resourceCount": "130 -> 126",
+        "functionalParity": "passed: 18 cards, 2 groups, 3 viewport classes, no horizontal overflow, no unexpected mutation requests"
+      },
+      "rejectedCandidate": {
+        "name": "equal-height-sidebar-skeleton",
+        "reason": "valid confirmation improved CLS only from 0.005 to 0.004, below the meaningful threshold, while cold edit-ready regressed 9.7%, cold LCP 14.8%, cold long-task total 24.4% and repeat edit-ready 50.1%; source change was reverted",
+        "artifact": "release/local-performance/artifacts/product-market-modules-performance-confirm-equal-height-sidebar-skeleton-h38683.json"
+      },
+      "baselineArtifact": "release/local-performance/artifacts/product-market-modules-performance-before-column-config-production-h38683.json",
+      "acceptedArtifact": "release/local-performance/artifacts/product-market-modules-performance-after-workspace-contract-cleanup-h38683.json",
+      "acceptedReportFingerprint": "aa50d0c0ce7f6e3690028a83c59684590766185635b4784a7aea2e0075290eec"
+    },
+    "validation": "源码锁与 source-lock:check 通过；栏目内容同步、源码市场生命周期、性能、签名缓存和性能版本联动门禁通过；TypeScript 0 错误，Knip 0 问题，定向 ESLint 0 错误、31 条既有 Hook 警告；page_factory.py check --all 201/201、页面工厂前端契约与平台布局通过；脏历史顺序 Playwright 1/1，通过 post-paint 就绪条件稳定的共享表面专项 2/2，并完成完整共享表面回归 55/55。最终 npm run build 对本轮全部源码执行开发规范、13 项浏览器回归、Vite 生产编译、201 路由预算与 postbuild 复核；通过后执行唯一一次 H38684 finalization。",
+    "risks": "速度数据存在正常环境波动，因此只接受在容差内且功能等价的零布局修复；已拒绝并回退速度明显退化的骨架候选。外部 Figma、GitHub PR、远端 CI 与审批未提供，均未标记通过。未连接或修改数据库、上传素材、生产服务器、远程环境、正式备份或 D:\\Codex\\zcwj；本地性能报告是可重建证据，不是正式备份。"
+  },
+  "latestProductMarketServiceWorkflowPerformanceRevision": {
+    "recordedAt": "2026-08-28T13:51:15+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38688",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "scope": "仅针对客户源 产品市场 → 客服音效，页面身份 client_source:/product-market?tab=service；以该页作为 01–06 自动工作流试点，复用统一页面工厂、共享契约、可视化证据和性能协议，不复制第二套页面实现。",
+    "pageIdentity": {
+      "pageId": "client-source-product-market-service",
+      "sourceScope": "client_source",
+      "normalizedRoute": "/product-market?tab=service"
+    },
+    "result": "客服音效复用独立 quick/full 性能入口和页面专属持久化报告。首屏预览音频已改为用户播放意图后再取资源；12 张代码内置生肖封面先由 PNG 转为质量 1 WebP，再通过共享 DeferredViewportMediaGroup 以一次 IntersectionObserver 在整组接近视口时才挂载真实地址。观察器本身进一步收敛为客服页专属 0.40 KB gzip 动态块，其他页签不承担其代码。12 个提醒卡和全部交互始终留在 DOM，固定 20×20 生肖占位避免布局位移；原 PNG 继续作为历史 URL 兼容。",
+    "workflow": [
+      { "stage": "01", "name": "全局框架器", "status": "passed", "evidence": "复用既有 FactoryPage、ProductMarket 路由和 client_source 页面身份；页面工厂登记 client-source-product-market-service 为 complete，没有新增或复制应用外壳。" },
+      { "stage": "02", "name": "共享契约器", "status": "passed", "evidence": "共享 DeferredViewportMediaGroup 统一近视口媒体加载，一处实现可供其他长页复用，并通过 service-only 动态边界避免全局页签付费；本页只延迟封面 src，不延迟 12 位专家、12 类提醒音或卡片 DOM。/ai-customer-service 是聊天应用而本页是客服配置，不属于重复应用。Knip 生产审计 0 问题。24 个 WAV 的 12 组兼容副本因可能承载历史 URL 而未删除。" },
+      { "stage": "03", "name": "Figma 插件 UI", "status": "external-evidence-not-supplied", "evidence": "本轮没有可绑定至该页 DNA 的外部 Figma 快照或审批，不把设计外部证据标记为通过；代码内视觉质量由逐图尺寸、PSNR、平均像素误差和透明度门槛覆盖。" },
+      { "stage": "04", "name": "可视化验证台", "status": "passed", "evidence": "390×844、768×1024、1440×900 三档视口均保持 24 个卡片、3 个客服区域、无横向溢出和功能等价；固定 20×20 占位使最新 CLS 保持 0.012。专项浏览器回归验证初始封面请求为 0，滚动接近提醒区后 12 张 WebP 各请求一次并均解码为 250×250。" },
+      { "stage": "05", "name": "优化加载体验", "status": "passed", "evidence": "正式分阶段 7 冷启动 + 7 复访证据：预览铃声首屏 1 次/29,484 B→0；封面 PNG 2,400,422 B→WebP 1,402,686 B（-41.6%）；再由近视口挂载把首屏封面 12 次/1,402,686 B→0。最新 verdict=improved，复访 FCP 284→248ms（-12.7%）、长任务 15→14、最大长任务 387→354ms，零写请求且功能等价。观察器拆为客服页专属动态块后，最重栏目配置路由为 522,823/524,288 B。" },
+      { "stage": "06", "name": "质量与发布中心", "status": "local-passed-external-pending", "evidence": "本地源码锁、性能静态门、TypeScript、定向 ESLint、四页 Playwright 14/14、正式 7+7、页面工厂与平台布局作为发布门禁；201 条路由、319 个脚本块和 59 个公开媒体预算通过。GitHub PR、远端 CI、远端审批未提供，保持 pending。" }
+    ],
+    "performanceEvidence": {
+      "releaseProtocol": "7 cold + 7 repeat samples plus 390x844, 768x1024 and 1440x900 responsive/functional-parity gates on the controlled local runtime",
+      "measurementContract": "expected local fallback identity is a unique method+origin+path+error set; multiplicity is measured independently; service card count is 24 and service region count is 3",
+      "audioIntentRound": {
+        "baselineArtifact": "release/local-performance/artifacts/product-market-service-performance-before-reminder-preload-production-final-protocol-h38686.json",
+        "acceptedArtifact": "release/local-performance/artifacts/product-market-service-performance-after-reminder-preload-production-final-protocol-h38686.json",
+        "reminderToneResourceCount": "1 -> 0",
+        "reminderToneEncodedBytes": "29484 -> 0",
+        "functionalParity": "passed across all three viewports; no primary timing regression"
+      },
+      "modernCoverRound": {
+        "baselineArtifact": "release/local-performance/artifacts/product-market-service-performance-before-cover-webp-production-h38686.json",
+        "acceptedArtifact": "release/local-performance/artifacts/product-market-service-performance-after-cover-webp-production-h38686.json",
+        "qualityArtifact": "release/local-performance/artifacts/customer-service-reminder-cover-webp-quality-h38686.json",
+        "coverEncodedBytes": "2400422 -> 1402686 (-41.6%)",
+        "totalEncodedBytes": "3179631 -> 2181948 (-31.4%)",
+        "coldTotalTransferBytes": "3218931 -> 2221248 (-31.0%)",
+        "functionalParity": "passed across all three viewports; 24 cards, 3 regions, CLS 0.011 and zero passive mutations preserved"
+      },
+      "deferredCoverRound": {
+        "baselineArtifact": "release/local-performance/artifacts/product-market-service-performance-before-deferred-covers-production-h38687.json",
+        "acceptedArtifact": "release/local-performance/artifacts/product-market-service-performance-after-deferred-covers-route-budget-production-h38687.json",
+        "acceptedReportFingerprint": "ea4b88c1a88af183d65710a4c7f27248321f489469b4bec83054bceecec9afa5",
+        "verdict": "improved",
+        "coverResourceCount": "12 -> 0 (-100%)",
+        "coverEncodedBytes": "1402686 -> 0 (-100%)",
+        "coldTiming": "FCP 272 -> 272 ms; visual-ready, edit-ready and LCP stayed within tolerance",
+        "repeatTiming": "FCP 284 -> 248 ms (-12.7%); long tasks 15 -> 14 (-6.7%); max long task 387 -> 354 ms (-8.5%)",
+        "bundleBudget": "DeferredViewportMediaGroup is a service-only 0.40 KB gzip chunk; 201 routes, 319 script chunks and 59 public media passed; heaviest modules route is 522823/524288 bytes",
+        "runtimeScrollProof": "initial cover requests 0; after scroll 12 unique WebP requests and 12 successful 250x250 decodes",
+        "functionalParity": "passed across all three viewports; 24 cards, 3 regions, CLS 0.012 and zero mutation requests preserved"
+      },
+      "finalMedian": {
+        "coldVisualReadyMs": 2344,
+        "coldEditReadyMs": 3278,
+        "coldLcpMs": 2156,
+        "coldLongTaskTotalMs": 2746,
+        "repeatVisualReadyMs": 1911,
+        "repeatEditReadyMs": 2777,
+        "repeatLcpMs": 1724,
+        "repeatLongTaskTotalMs": 1885,
+        "layoutShiftScore": 0.012,
+        "coldResourceCount": 249,
+        "repeatResourceCount": 250,
+        "duplicateRequestExcess": 1,
+        "unexpectedMutationRequests": 0
+      }
+    },
+    "validation": "源码锁与 source-lock:check、产品市场性能契约、TypeScript、定向 ESLint、正式 7+7 本地受控测量和四页 Playwright 14/14 已通过；候选对比为 improved，三档响应式、24 卡片、3 区域与零写请求保持。Vite 生产编译及 201 路由/319 脚本块/59 公开媒体预算通过；页面工厂全量检查、平台布局、最终规范复核和 H38688 finalization 作为本轮收尾门禁。",
+    "risks": "ProductMarket.tsx 仍是约 12k 行的大型页面，完整拆分客服工作区属于后续高风险架构任务，不应在缺少独立回归计划时继续扩张本轮。12 组 WAV 兼容副本和原 PNG 仅在具备历史 URL 引用清单、迁移及回退策略后才能清理。当前没有第二个同等级、低风险且可量化的加载候选，本轮在共享近视口原语完成后暂停。外部 Figma、GitHub PR、远端 CI 与审批未提供。未连接或修改数据库、上传素材、生产服务器、正式备份或 D:\\Codex\\zcwj；本地性能报告是可重建证据，不是正式备份。"
+  },
+  "governancePercent": 100,
+  "routeCoveragePercent": 100,
+  "status": "passed",
+  "summary": "页面工厂第二阶段治理完成度与正式路由覆盖率保持真实 100%，工厂版本和恢复工厂默认快照同步为 2026.08.22.6。本版把客服专家数据收敛为一个共享内容根，不新增第二套存储：编辑器草稿只在当前编辑预览中可见，保存后的同一份覆盖数据才同步到选择专家、左侧专家弹窗、切换专家和聊天窗口。左列字段固定为性别、头衔、动画，右列字段固定为名称、招呼、提醒、朗音；卡片根据容器可用宽度自适应排列，最长文本不挤压卡片。页面工厂测试与标准共享相同字段契约，并通过三端开发器中的独立 07 只读栏目进入。当前目录登记、类型、共享响应式契约、专家数据流浏览器专项、页面工厂 Python 测试、平台布局和直接生产编译均已通过；页面完成度与外部渠道能力继续分开披露。",
+  "checks": [
+    {
+      "id": "source-lock",
+      "label": "源码锁与保护边界",
+      "status": "passed",
+      "result": "每次读取、修改、测试、快照和构建前均执行源码锁守卫；当前 0 个活动登记锁、0 个锁定页面被普通改写。未触碰数据库、上传素材、正式备份、D:\\Codex\\zcwj、服务器或生产环境；自动续推进保持暂停。"
+    },
+    {
+      "id": "page-factory-catalog",
+      "label": "页面工厂登记、普查与恢复默认",
+      "status": "passed",
+      "result": "页面工厂检查 201/201；字面路由映射 180/180，路由身份 158/158，正式登记路由 118/118 = 100%；页面文件 118/124 = 95.16%，其余 6 个为支持文件。普查基线 2026.08.22.1 为 unchanged，指纹 2c6050f8f41f7d30e78cc815bba21d169eccfd4ac51b39024a693cef88d78515；恢复工厂默认快照目录哈希 71a4c244453fe36f25d16728b89f711ed485e3af986a18e2d2a1ab06ec3600de。"
+    },
+    {
+      "id": "backend-tests",
+      "label": "无数据库工具与布局测试",
+      "status": "passed",
+      "result": "页面工厂 Python 单元测试 12/12；平台布局验证通过。此次只修改前端共享契约、页面工厂元数据和只读工具，不连接数据库，也未改动需要数据库集成测试的后端业务代码。"
+    },
+    {
+      "id": "typescript",
+      "label": "TypeScript 与静态契约",
+      "status": "passed",
+      "result": "全量 tsc --noEmit 通过；全局响应式页面契约和共享可视化一致性门禁通过。新增共享专家内容根、共享运行时配置和三端投影均由稳定 data 契约标记覆盖。"
+    },
+    {
+      "id": "responsive-contract",
+      "label": "客服专家共享自适应契约",
+      "status": "passed",
+      "result": "shared-service-expert-capacity-v4 统一由共享 CSS 插件持有；单卡可读下限 222px，不设置固定最大列数。左列顺序固定 gender,title,animation，右列顺序固定 customer-service-name,greeting,reminder,voice，唯一内容源为 current-expert-voice-customization，五个运行投影和恢复工厂默认规则已进入页面工厂标准、开发器和可视化扫描。"
+    },
+    {
+      "id": "responsive-e2e",
+      "label": "客服专家浏览器数据流",
+      "status": "passed",
+      "result": "本轮定向 Playwright 4/4：1 至 4 列容量、总部/代理源/客户源结构容量、长客服名称与长招呼词省略号及完整 title、保存内容根向选择专家/左侧弹窗/聊天窗口/换专家弹窗投影均通过。应用内真实客户数据在 1280×720 下验证 2 个等宽列、字段顺序正确、主要内容零横向溢出。"
+    },
+    {
+      "id": "page-factory-e2e",
+      "label": "页面工厂浏览器场景",
+      "status": "passed",
+      "result": "页面工厂 Playwright 完整套件覆盖 390px 页面矩阵、三端共享路由身份、社媒全部标签页、07 覆盖率中心、别名路由、恢复默认元数据以及总部/代理源/客户源同一页面工厂自校验。测试版本自动读取页面工厂标准，07 只读栏目使用稳定契约标记，不依赖易变中文按钮文案。"
+    },
+    {
+      "id": "production-build",
+      "label": "前端生产编译",
+      "status": "passed",
+      "result": "完整 npm run build 复核页面工厂版本、快照和 07 记录一致；Vite 生产编译与 postbuild 开发规范主链必须保持通过。"
+    }
+  ]
+}

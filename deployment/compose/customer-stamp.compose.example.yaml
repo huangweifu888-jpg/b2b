@@ -1,0 +1,74 @@
+name: b2b-customer-stamp
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: deployment/containers/backend.Dockerfile
+    image: ${B2B_IMAGE:-b2b-platform}:${B2B_IMAGE_TAG:-local}
+    env_file:
+      - ${B2B_RUNTIME_ENV_FILE:?Set B2B_RUNTIME_ENV_FILE outside source control}
+    environment:
+      APP_COMPONENT: api
+      LOG_DIR: /srv/b2b/runtime/logs
+    ports:
+      - "127.0.0.1:${B2B_API_PORT:-8000}:8000"
+    volumes:
+      - type: bind
+        source: ${PRIVATE_ASSET_MOUNT:?Set PRIVATE_ASSET_MOUNT outside source control}
+        target: /srv/b2b/private-assets
+        read_only: true
+      - type: tmpfs
+        target: /srv/b2b/runtime
+      - type: tmpfs
+        target: /tmp
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/operations/health', timeout=5).read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+
+  worker:
+    image: ${B2B_IMAGE:-b2b-platform}:${B2B_IMAGE_TAG:-local}
+    build:
+      context: ../..
+      dockerfile: deployment/containers/backend.Dockerfile
+    command: ["python", "/app/platform/worker/run_worker.py"]
+    env_file:
+      - ${B2B_RUNTIME_ENV_FILE:?Set B2B_RUNTIME_ENV_FILE outside source control}
+    environment:
+      APP_COMPONENT: worker
+      LOG_DIR: /srv/b2b/runtime/logs
+    volumes:
+      - type: bind
+        source: ${PRIVATE_ASSET_MOUNT:?Set PRIVATE_ASSET_MOUNT outside source control}
+        target: /srv/b2b/private-assets
+        read_only: true
+      - type: bind
+        source: ${BACKUP_VERIFICATION_MOUNT:?Set BACKUP_VERIFICATION_MOUNT outside source control}
+        target: /srv/b2b/backup-verification
+        read_only: true
+      - type: bind
+        source: ${RELEASE_ARTIFACT_MOUNT:?Set RELEASE_ARTIFACT_MOUNT outside source control}
+        target: /srv/b2b/release-artifacts
+        read_only: true
+      - type: tmpfs
+        target: /srv/b2b/runtime
+      - type: tmpfs
+        target: /tmp
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+# PostgreSQL, Redis, private object storage, backups, and TLS termination are
+# external managed services. They are deliberately not defined in this file.

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "classification": {
+    "public": ["published_product", "published_news", "public_case"],
+    "internal": ["tenant_configuration", "operational_metric"],
+    "confidential": ["inquiry", "crm_record", "audit_event"],
+    "restricted": ["password", "secret", "token", "payment_reference", "provider_credential"]
+  },
+  "retention_days": {
+    "audit_event": 365,
+    "inquiry": 730,
+    "crm_record_after_closure": 1095,
+    "operational_metric": 90
+  },
+  "data_subject_requests": {
+    "export": "tenant-scoped, authenticated, audited",
+    "delete": "approved, tenant-scoped, backup-aware, audited"
+  },
+  "prohibitions": [
+    "no_secrets_in_audit_or_monitoring_payloads",
+    "no_cross_tenant_export",
+    "no_public_asset_storage_for_private_downloads"
+  ]
+}

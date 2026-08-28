@@ -1,0 +1,28 @@
+#source-deployment-hero {
+  width: 100% !important;
+  background: #020617 !important;
+}
+
+#source-deployment-hero .source-deployment-hero__intro {
+  background-color: transparent !important;
+  background-image: radial-gradient(circle at top right, rgba(6, 182, 212, 0.24), transparent 38%) !important;
+}
+
+#source-deployment-mode-grid {
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  background: #020617 !important;
+}
+
+#source-deployment-mode-grid > button {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+@media (min-width: 768px) {
+  #source-deployment-mode-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}

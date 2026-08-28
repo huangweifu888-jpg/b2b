@@ -1,0 +1,28 @@
+{
+  "contractVersion": "1.0.0",
+  "compositionId": "zbcx.client-source",
+  "shellId": "zbcx",
+  "surface": "client-source",
+  "mode": "configure",
+  "codePolicy": "reference-only",
+  "categoryCatalog": "modules/technical-category-catalog.json",
+  "applicationResolution": {
+    "sourceFile": "frontend/src/lib/factory-platform-blueprint.ts",
+    "rule": "Resolve the 12-category and 72-application product catalog by stable ID; configuration never becomes reusable source code."
+  },
+  "categoryRefs": [
+    { "id": "identity", "mode": "configure" },
+    { "id": "content", "mode": "configure" },
+    { "id": "trust", "mode": "configure" },
+    { "id": "recommend", "mode": "configure" },
+    { "id": "deepen", "mode": "configure" },
+    { "id": "portrait", "mode": "configure" },
+    { "id": "lead", "mode": "configure" },
+    { "id": "convert", "mode": "configure" },
+    { "id": "fulfillment", "mode": "configure" },
+    { "id": "care", "mode": "configure" },
+    { "id": "decision", "mode": "configure" },
+    { "id": "operations", "mode": "configure" }
+  ],
+  "scopePolicy": "Client-source stores publishable baseline configuration and template versions, not customer or plan source forks."
+}

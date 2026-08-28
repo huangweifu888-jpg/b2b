@@ -1,0 +1,5 @@
+process.env.B2B_PERF_PRODUCT_MARKET_TAB = "service";
+process.env.B2B_PERF_FAST = "false";
+process.env.B2B_PERF_SAMPLES = "7";
+
+await import("./measure-product-market-operations-performance.mjs");

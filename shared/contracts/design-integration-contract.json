@@ -1,0 +1,195 @@
+{
+  "version": "2026.08.28.4",
+  "ownership": "shared-first",
+  "authority": "shared-contract",
+  "contractReferences": {
+    "pageDna": "page-dna-contract.json",
+    "visualEvidence": "visual-evidence-contract.json",
+    "developerRecordLedger": "developer-record-ledger-contract.json"
+  },
+  "pageDna": {
+    "identityFields": ["sourceScope", "normalizedRoute"],
+    "registry": "frontend/src/page-factory/page-registry.json",
+    "resolver": "frontend/src/lib/developer-global-frame-adapter-resolution.ts",
+    "artifacts": [
+      "scope-manifest",
+      "resolved-contract",
+      "design-snapshot",
+      "visual-evidence",
+      "performance-evidence",
+      "release-evidence",
+      "page-factory-verification",
+      "lock-receipt"
+    ]
+  },
+  "workflow": [
+    { "order": "01", "appId": "visual-frame", "label": "全局框架器", "artifact": "scope-manifest" },
+    { "order": "02", "appId": "shared-contract", "label": "共享契约器", "artifact": "resolved-contract" },
+    { "order": "03", "appId": "figma-ui", "label": "Figma 插件 UI", "artifact": "design-snapshot" },
+    { "order": "04", "appId": "visual-evidence", "label": "可视化验证台", "artifact": "visual-evidence" },
+    { "order": "05", "appId": "performance-experience", "label": "优化加载体验", "artifact": "performance-evidence" },
+    { "order": "06", "appId": "quality-release", "label": "质量与发布中心", "artifact": "release-evidence" },
+    { "order": "07", "appId": "page-factory", "label": "页面工厂", "artifact": "page-factory-verification" },
+    { "order": "08", "appId": "page-lock", "label": "页面锁定器", "artifact": "lock-receipt" }
+  ],
+  "workflowRuntime": {
+    "schemaVersion": 1,
+    "schema": "developer-workflow-run",
+    "module": "developer-workflow-run",
+    "modulePath": "frontend/src/lib/developer-workflow-run.ts",
+    "scopeOwner": {
+      "mode": "single-owner",
+      "component": "DevelopmentStandardApplyConsole",
+      "modulePath": "frontend/src/components/product-market/DevelopmentStandardApplyConsole.tsx",
+      "allowedScopes": ["global", "page"],
+      "childScopeState": "forbidden"
+    },
+    "identityRules": {
+      "global": {
+        "scopeIdentityFormat": "global:{encodedSourceScope}",
+        "requiredFields": ["sourceScope"],
+        "routeIndependent": true,
+        "targetManifestRequired": true
+      },
+      "page": {
+        "scopeIdentityFormat": "page:{encodedSourceScope}:{encodedNormalizedRoute}",
+        "pageIdentityFields": ["sourceScope", "normalizedRoute"],
+        "requiredFields": ["sourceScope", "normalizedRoute"],
+        "targetManifestRequired": true,
+        "targetManifestCardinality": 1
+      }
+    },
+    "artifactTypes": {
+      "envelope": "DeveloperWorkflowArtifactEnvelope",
+      "payloadByStage": "DeveloperWorkflowArtifactPayloadByStage",
+      "status": "DeveloperWorkflowStatus",
+      "statusValues": ["pending", "passed", "failed", "blocked", "stale"]
+    },
+    "typedArtifacts": [
+      { "order": "01", "appId": "visual-frame", "artifactKind": "scope-manifest" },
+      { "order": "02", "appId": "shared-contract", "artifactKind": "resolved-contract" },
+      { "order": "03", "appId": "figma-ui", "artifactKind": "design-snapshot" },
+      { "order": "04", "appId": "visual-evidence", "artifactKind": "visual-evidence" },
+      { "order": "05", "appId": "performance-experience", "artifactKind": "performance-evidence" },
+      { "order": "06", "appId": "quality-release", "artifactKind": "release-evidence" }
+    ],
+    "nextTransition": {
+      "action": "next",
+      "mode": "fail-closed",
+      "requiresCurrentArtifact": "fresh-passed",
+      "blocksOn": ["missing", "pending", "failed", "blocked", "stale", "fingerprint-mismatch"]
+    },
+    "freshness": {
+      "onUpstreamChange": "mark-all-downstream-stale",
+      "fingerprintFields": ["scopeIdentity", "targetManifestFingerprint", "sourceFingerprint", "contractVersion"],
+      "staleBlocksNext": true
+    },
+    "qualityReleaseGate": {
+      "order": "06",
+      "appId": "quality-release",
+      "consumesFreshArtifactsFrom": ["01", "02", "03", "04", "05"],
+      "requiredStatus": "fresh-passed",
+      "missingOrStaleEvidence": "block-release"
+    }
+  },
+  "figma": {
+    "connection": "codex-plugin",
+    "editableDesignRequired": true,
+    "acceptedHosts": ["figma.com", "www.figma.com"],
+    "acceptedPathPrefixes": ["/design/"],
+    "storedMetadata": [
+      "fileKey",
+      "nodeId",
+      "revision",
+      "fileUrl",
+      "capturedAt",
+      "pageDnaFingerprint",
+      "sharedContractVersion"
+    ],
+    "forbiddenStorage": ["accessToken", "refreshToken", "cookie", "credential"],
+    "syncPolicy": {
+      "contractToFigma": "proposal-or-approved-write",
+      "figmaToContract": "reviewed-proposal-only",
+      "figmaToSource": "never-direct",
+      "sourceMutation": "github-pr-only"
+    }
+  },
+  "snapshotRequirements": {
+    "designSnapshotRequiredFields": [
+      "fileKey",
+      "nodeId",
+      "revision",
+      "capturedAt",
+      "pageDnaFingerprint",
+      "sharedContractVersion"
+    ],
+    "evidenceFingerprintFields": [
+      "identityKey",
+      "pageDnaFingerprint",
+      "designRevision",
+      "sharedContractVersion",
+      "sourceFingerprint",
+      "targetManifestFingerprint",
+      "targetCoverage",
+      "samples"
+    ],
+    "forbiddenPayloadFields": [
+      "accessToken",
+      "refreshToken",
+      "cookie",
+      "credential",
+      "businessData",
+      "tenantContent",
+      "uploadedAsset"
+    ]
+  },
+  "componentMappings": [
+    { "figmaName": "Title-1", "region": "title-1", "owner": "shared-contract", "defaultLoadPriority": "critical" },
+    { "figmaName": "Title-2", "region": "title-2", "owner": "shared-contract", "defaultLoadPriority": "critical" },
+    { "figmaName": "Table-Header", "region": "table-header", "owner": "shared-contract", "defaultLoadPriority": "critical" },
+    { "figmaName": "Content", "region": "content", "owner": "shared-contract", "defaultLoadPriority": "critical" },
+    { "figmaName": "Large-Card", "region": "large-card", "owner": "shared-contract", "defaultLoadPriority": "viewport" },
+    { "figmaName": "Small-Card", "region": "small-card", "owner": "shared-contract", "defaultLoadPriority": "viewport" },
+    { "figmaName": "Scrollbar", "region": "scrollbar", "owner": "shared-contract", "defaultLoadPriority": "critical" },
+    { "figmaName": "Action", "region": "action", "owner": "shared-contract", "defaultLoadPriority": "interaction" }
+  ],
+  "loadPriorities": [
+    { "id": "critical", "label": "首屏关键", "trigger": "route", "description": "标题、导航、主要内容骨架和首个关键操作。" },
+    { "id": "post-paint", "label": "首帧后", "trigger": "post-paint", "description": "KPI 图表、次要摘要和不影响首次可用的脚本。" },
+    { "id": "viewport", "label": "进入视口", "trigger": "intersection", "description": "折叠线以下卡片、长列表、图片和媒体预览。" },
+    { "id": "interaction", "label": "交互后", "trigger": "intent", "description": "弹窗、编辑器、AI 工具、播放器和外部插件。" },
+    { "id": "background", "label": "后台空闲", "trigger": "idle", "description": "审计、预取、辅助分析和非关键索引。" }
+  ],
+  "responsiveViewportLabels": {
+    "mobile": "手机",
+    "tablet": "平板",
+    "desktop": "桌面"
+  },
+  "requiredStates": ["normal", "loading", "empty", "error", "forbidden", "long-copy", "large-data", "small-screen", "media-unavailable"],
+  "visualEvidence": [
+    "structure-map",
+    "figma-runtime-diff",
+    "responsive-matrix",
+    "loading-waterfall",
+    "media-map",
+    "impact-map"
+  ],
+  "designComplexityBudgets": [
+    { "id": "font-families", "label": "单页字体家族", "limit": 2 },
+    { "id": "above-fold-media", "label": "首屏主媒体", "limit": 1 },
+    { "id": "looping-animation", "label": "无限循环动画", "limit": 0 },
+    { "id": "unmapped-component", "label": "未映射共享组件", "limit": 0 },
+    { "id": "responsive-page-copy", "label": "响应式页面复制", "limit": 0 }
+  ],
+  "releaseSequence": [
+    "resolve-page-dna",
+    "read-design-snapshot",
+    "review-contract-diff",
+    "render-isolated-preview",
+    "verify-responsive-and-performance",
+    "run-quality-gates",
+    "create-github-pr",
+    "finalize-h-version",
+    "restore-locks"
+  ]
+}

@@ -1,0 +1,293 @@
+/* Route-owned SocialMedia workspace base moved out of the global entry stylesheet. */
+#root [data-client-source-shell] .app-main:has(> [data-social-media-workspace]),
+#root [data-client-source-shell] .app-main:has(> [data-page-factory-page-id^="client-social"] > [data-social-media-workspace]) {
+  display: flex;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--tradepro-shared-workspace-bg, var(--tradepro-panel-bg));
+}
+
+#root [data-client-source-shell] .app-main:has([data-social-media-workspace]) > [data-responsive-page-host] {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#root [data-client-source-shell] [data-social-media-workspace] {
+  box-sizing: border-box;
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 0;
+  margin: var(--tradepro-shared-frame-gap, 0.75rem);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  border: 1px solid color-mix(in srgb, var(--tradepro-shared-workspace-text, var(--tradepro-panel-text)) 26%, transparent) !important;
+  border-radius: var(--tradepro-page-frame-radius, 1.5rem) !important;
+  box-shadow: none !important;
+  background: var(--tradepro-shared-workspace-bg, var(--tradepro-panel-bg));
+  color: var(--tradepro-shared-workspace-text, var(--tradepro-panel-text));
+  scrollbar-gutter: stable;
+}
+
+#root [data-client-source-shell] [data-social-media-title-header] {
+  min-height: var(--tradepro-shared-title-height, 5.25rem);
+  margin: 0 !important;
+  padding: var(--tradepro-shared-title-padding, 1rem var(--tradepro-shared-content-gutter, 1.25rem)) !important;
+  border: 0 !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--tradepro-panel-title-text, #ffffff) 26%, transparent) !important;
+  border-top-left-radius: var(--tradepro-page-frame-radius, var(--tradepro-page-radius, 1rem)) !important;
+  border-top-right-radius: var(--tradepro-page-frame-radius, var(--tradepro-page-radius, 1rem)) !important;
+  border-bottom-left-radius: var(--tradepro-shared-title-bottom-radius, 0px) !important;
+  border-bottom-right-radius: var(--tradepro-shared-title-bottom-radius, 0px) !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-shared-title="true"] #root [data-client-source-shell] [data-social-media-title-header][data-page-title] {
+  border-top-left-radius: var(--tradepro-page-frame-radius, var(--tradepro-page-radius, 1rem)) !important;
+  border-top-right-radius: var(--tradepro-page-frame-radius, var(--tradepro-page-radius, 1rem)) !important;
+  border-bottom-left-radius: var(--tradepro-shared-title-bottom-radius, 0px) !important;
+  border-bottom-right-radius: var(--tradepro-shared-title-bottom-radius, 0px) !important;
+}
+
+#root [data-client-source-shell] [data-social-media-workspace] [data-client-project-subnav][data-page-table-header] {
+  min-height: var(--tradepro-shared-table-header-height, 3.25rem);
+  margin: 0 !important;
+  padding: var(--tradepro-shared-table-header-padding, 0.5rem var(--tradepro-shared-content-gutter, 1.25rem)) !important;
+  border: 0 !important;
+  border-bottom: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text, #0f172a) 20%, transparent) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#root [data-client-source-shell] [data-social-media-content][data-page-list] {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: var(--tradepro-shared-list-gap, 1rem);
+  padding: var(--tradepro-shared-list-padding, var(--tradepro-shared-content-gutter, 1.25rem)) !important;
+  padding-bottom: max(
+    calc(var(--tradepro-shared-list-padding, var(--tradepro-shared-content-gutter, 1.25rem)) * 2),
+    calc(var(--tradepro-shared-footer-height, 3rem) + var(--tradepro-shared-frame-gap, 0.75rem))
+  ) !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--tradepro-shared-list-text, var(--tradepro-panel-list-text, var(--tradepro-panel-text))) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-content][data-page-list] {
+  min-height: 0 !important;
+  width: 100% !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace] {
+  position: relative;
+  --tradepro-hover-capsule-bg: color-mix(in srgb, var(--tradepro-shared-workspace-text, var(--tradepro-panel-text)) 86%, var(--tradepro-shared-workspace-bg, var(--tradepro-panel-bg)));
+  --tradepro-hover-capsule-text: var(--tradepro-shared-workspace-bg, var(--tradepro-panel-bg));
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace]::after {
+  content: "主体";
+  position: absolute;
+  z-index: 90;
+  top: 0.375rem;
+  left: 0.5rem;
+  display: none;
+  border: 1px solid color-mix(in srgb, var(--tradepro-hover-capsule-text) 46%, transparent);
+  border-radius: 9999px;
+  padding: 0.1875rem 0.4375rem;
+  background: var(--tradepro-hover-capsule-bg);
+  color: var(--tradepro-hover-capsule-text);
+  font-size: 0.625rem;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace]:not([data-page-factory-frame-owner="existing-workspace"]):hover::after {
+  display: inline-flex;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace]:not([data-page-factory-frame-owner="existing-workspace"]):has(:is([data-social-media-title-header], [data-page-table-header], [data-social-media-content]):hover)::after {
+  display: none;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-content] [data-social-content-card]:not([data-shared-large-card-surface="true"]),
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-content] :is([data-social-content-capsule], [data-social-readiness-item], [data-social-customer-education-item], [data-social-market-track], [data-social-roadmap-stage]) {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text, #0f172a) 24%, transparent) !important;
+  border-radius: var(--tradepro-shared-card-radius, 0.75rem) !important;
+  background: var(--tradepro-panel-card-bg, #ffffff) !important;
+  color: var(--tradepro-panel-card-text, #0f172a) !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-content] [data-social-content-card]:not([data-shared-large-card-surface="true"]) :is(.text-slate-900, .text-slate-800, .text-slate-700, .text-slate-600, .text-slate-500, .text-slate-400) {
+  color: color-mix(in srgb, var(--tradepro-panel-card-text, #0f172a) 84%, transparent) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-content] :is([data-social-content-card], [data-social-content-capsule], [data-social-readiness-item], [data-social-customer-education-item], [data-social-market-track], [data-social-roadmap-stage]) .rounded-full {
+  border-radius: var(--tradepro-shared-pill-radius, 9999px) !important;
+}
+
+@media (max-width: 767px) {
+  #root [data-client-source-shell] [data-social-media-title-header] {
+    min-height: 0;
+    padding: 0.875rem 1rem !important;
+  }
+
+  #root [data-client-source-shell] [data-social-media-workspace] [data-client-project-subnav][data-page-table-header] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #root [data-client-source-shell] [data-social-media-content][data-page-list] {
+    padding: 1rem !important;
+    padding-bottom: max(3.5rem, calc(var(--tradepro-shared-footer-height, 3rem) + 0.75rem)) !important;
+  }
+
+  #root [data-client-source-shell] [data-social-media-workspace] {
+    margin: 0.5rem !important;
+    border-radius: var(--tradepro-page-frame-radius, 1rem) !important;
+  }
+}
+
+/* Social Media uses the same editable Title / Header contracts as Product Market.
+   The primary task action stays in the title band; the tab switcher consumes
+   table-header variables instead of keeping an isolated one-off style. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace] [data-social-media-title-header] {
+  border-color: color-mix(in srgb, var(--tradepro-panel-title-text, #ffffff) 24%, transparent) !important;
+  background-color: var(--tradepro-panel-title-bg, #ffffff) !important;
+  color: var(--tradepro-panel-title-text, #0f172a) !important;
+  box-shadow: 0 0.5rem 1.25rem color-mix(in srgb, var(--tradepro-panel-title-text, #0f172a) 10%, transparent) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace] [data-social-media-title-header] :is([data-shared-title-heading], [data-shared-title-description]) {
+  color: inherit !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace] [data-social-create-publish-task] {
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-text, #ffffff) 28%, transparent) !important;
+  background: var(--tradepro-panel-action-bg, #2563eb) !important;
+  color: var(--tradepro-panel-action-text, #ffffff) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root [data-social-media-workspace] [data-client-project-subnav][data-page-table-header] {
+  border: 1px solid color-mix(in srgb, var(--tradepro-panel-table-text, #0f172a) 20%, transparent) !important;
+  background-color: var(--tradepro-panel-table-bg, #ffffff) !important;
+  color: var(--tradepro-panel-table-text, #0f172a) !important;
+}
+
+/* 社交媒体二级导航和营销作战节块继续读取共享变量，但选中／未完成状态
+   必须拥有可读的前景与背景对比，不能被表头和内容区的通用文字覆盖。 */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-social-media-workspace] [data-client-project-subnav][data-page-table-header]
+  [data-social-tab-active="true"] {
+  border-color: var(--tradepro-shared-selection-outline, var(--tradepro-shared-table-header-text, var(--tradepro-shell-border))) !important;
+  background: var(--tradepro-shared-selection-bg, var(--tradepro-shared-action-bg, var(--tradepro-panel-action-bg))) !important;
+  color: var(--tradepro-shared-selection-text, var(--tradepro-shared-action-text, var(--tradepro-panel-action-text))) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-social-marketing-stage-rail] [data-social-marketing-stage-state="partial"] {
+  border-color: color-mix(in srgb, var(--tradepro-panel-action-bg) 58%, var(--tradepro-panel-card-text)) !important;
+  background: color-mix(in srgb, var(--tradepro-panel-action-bg) 18%, var(--tradepro-panel-card-bg)) !important;
+  color: var(--tradepro-panel-card-text) !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-social-marketing-stage-rail] [data-social-marketing-stage-state="pending"] {
+  border-color: color-mix(in srgb, var(--tradepro-panel-card-text) 28%, transparent) !important;
+  background: var(--tradepro-panel-card-bg) !important;
+  color: var(--tradepro-panel-card-text) !important;
+  opacity: 0.72;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] #root
+  [data-social-marketing-stage-rail] [data-social-marketing-stage-state="complete"] {
+  border-color: color-mix(in srgb, #059669 72%, var(--tradepro-panel-card-text)) !important;
+  background: #059669 !important;
+  color: #ffffff !important;
+}
+
+/* Social Media is a direct consumer of the Operations shared-frame contract.
+   Keep these final selectors beside the Operations overrides so generic
+   page-title/table/list presets can never win back a local card geometry. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"]
+  #root [data-client-source-shell] [data-social-media-workspace] {
+  margin: var(--tradepro-shared-frame-gap, 0.75rem) !important;
+  border: 1px solid color-mix(in srgb, var(--tradepro-shared-workspace-text, var(--tradepro-panel-frame-text, var(--tradepro-panel-text))) 26%, transparent) !important;
+  border-radius: var(--tradepro-page-frame-radius, 1.5rem) !important;
+  background: var(--tradepro-shared-workspace-bg, var(--tradepro-panel-frame-bg, var(--tradepro-panel-bg))) !important;
+  color: var(--tradepro-shared-workspace-text, var(--tradepro-panel-frame-text, var(--tradepro-panel-text))) !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-shared-title="true"]
+  #root [data-client-source-shell] [data-social-media-title-header][data-page-title="social-media"] {
+  margin: 0 !important;
+  min-height: var(--tradepro-shared-title-height, 5.25rem) !important;
+  padding: var(--tradepro-shared-title-padding, 1rem var(--tradepro-shared-content-gutter, 1.25rem)) !important;
+  border-width: 0 0 1px !important;
+  border-color: color-mix(in srgb, var(--tradepro-shared-title-text, var(--tradepro-panel-title-text)) 26%, transparent) !important;
+  border-top-left-radius: var(--tradepro-page-frame-radius, 1.5rem) !important;
+  border-top-right-radius: var(--tradepro-page-frame-radius, 1.5rem) !important;
+  border-bottom-left-radius: var(--tradepro-shared-title-bottom-radius, 0px) !important;
+  border-bottom-right-radius: var(--tradepro-shared-title-bottom-radius, 0px) !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-shared-table-header="true"]
+  #root [data-client-source-shell] [data-social-media-workspace] [data-client-project-subnav][data-page-table-header] {
+  margin: 0 !important;
+  min-height: var(--tradepro-shared-table-header-height, 3.25rem) !important;
+  padding: var(--tradepro-shared-table-header-padding, 0.5rem var(--tradepro-shared-content-gutter, 1.25rem)) !important;
+  border-width: 0 0 1px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-tradepro-page-shared-list="true"]
+  #root [data-client-source-shell] [data-social-media-content][data-page-list] {
+  min-height: 0 !important;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  gap: var(--tradepro-shared-list-gap, 1rem) !important;
+  padding: var(--tradepro-shared-list-padding, var(--tradepro-shared-content-gutter, 1.25rem)) !important;
+  padding-bottom: max(
+    calc(var(--tradepro-shared-list-padding, var(--tradepro-shared-content-gutter, 1.25rem)) * 2),
+    calc(var(--tradepro-shared-footer-height, 3rem) + var(--tradepro-shared-frame-gap, 0.75rem))
+  ) !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+/* Social Media is a consumer of the Operations workspace, not a special
+   scrolling shell.  This scoped bridge only restores its visible tab band
+   (the client-project container normally hides duplicate sub-navigation)
+   and lets the shared Title / Header / List rules above own the geometry. */
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"]
+  #root [data-client-source-shell] [data-social-media-workspace][data-shared-page-workspace] {
+  min-height: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"]
+  #root [data-client-source-shell] [data-social-media-workspace][data-shared-page-workspace] > [data-social-media-content][data-page-list] {
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+#root [data-client-source-shell] [data-client-source-main][data-client-project-subnav-hidden="true"]
+  [data-social-media-workspace] > [data-client-project-subnav][data-page-table-header] {
+  display: flex !important;
+}

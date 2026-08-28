@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "environment": "staging",
+  "provider_reference": "provider:REPLACE_PAYMENT_PROVIDER",
+  "webhook_secret_reference": "secret-manager:REPLACE_PAYMENT_WEBHOOK_SECRET",
+  "callback": {"hmac_sha256": true, "idempotency": true, "replay_protection": true},
+  "events": ["payment_succeeded", "refund_succeeded"],
+  "daily_reconciliation_required": true
+}

@@ -1,0 +1,28 @@
+{
+  "contractVersion": "1.0.0",
+  "compositionId": "zbcx.agency-source",
+  "shellId": "zbcx",
+  "surface": "agency-source",
+  "mode": "publish",
+  "codePolicy": "reference-only",
+  "categoryCatalog": "modules/technical-category-catalog.json",
+  "applicationResolution": {
+    "sourceFile": "frontend/src/lib/factory-platform-blueprint.ts",
+    "rule": "Resolve applications by stable category ID, then apply headquarters publication fields, permissions, and entitlements."
+  },
+  "categoryRefs": [
+    { "id": "identity", "mode": "publish" },
+    { "id": "content", "mode": "publish" },
+    { "id": "trust", "mode": "publish" },
+    { "id": "recommend", "mode": "publish" },
+    { "id": "deepen", "mode": "publish" },
+    { "id": "portrait", "mode": "publish" },
+    { "id": "lead", "mode": "publish" },
+    { "id": "convert", "mode": "publish" },
+    { "id": "fulfillment", "mode": "publish" },
+    { "id": "care", "mode": "publish" },
+    { "id": "decision", "mode": "publish" },
+    { "id": "operations", "mode": "publish" }
+  ],
+  "scopePolicy": "Agency-source publication remains inside headquarters-approved override fields and descendant agent scope."
+}

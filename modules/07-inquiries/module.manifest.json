@@ -1,0 +1,1 @@
+{"id":"07-inquiries","name":"承转（询盘）","version":"0.1.0","legacyFrontendPage":"src/pages/Inquiries.tsx","requiredTenantContext":["agent_path","tenant_id","client_id"]}

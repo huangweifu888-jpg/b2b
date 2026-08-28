@@ -1,0 +1,33 @@
+{
+    "title": "chat_conversations",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "title": {
+            "type": "string",
+            "description": "Conversation title, auto-generated from first message"
+        },
+        "message_count": {
+            "type": "integer",
+            "description": "Number of messages in conversation",
+            "default": 0
+        },
+        "last_message_at": {
+            "type": "string",
+            "description": "Timestamp of last message",
+            "format": "date-time"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "title"
+    ]
+}

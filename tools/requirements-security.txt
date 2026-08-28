@@ -1,0 +1,3 @@
+# Security tooling only. Keep this separate from runtime requirements so it
+# does not become part of the application image.
+pip-audit>=2.9.0,<3.0.0

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "commands": [
+    { "id": "new", "label": "新建页面", "mode": "plan-first", "command": "python tools/page_factory.py new --id <page-id> --route <route> --component <component> --template <template>" },
+    { "id": "adopt", "label": "接入现有页面", "mode": "plan-first", "command": "python tools/page_factory.py adopt --id <page-id> --route <route> --component <path> --template <template>" },
+    { "id": "check", "label": "检查当前页面", "mode": "read-only", "command": "python tools/page_factory.py check --route <route>" },
+    { "id": "check-all", "label": "检查全部页面", "mode": "read-only", "command": "python tools/page_factory.py check --all" },
+    { "id": "report", "label": "生成接入报告", "mode": "read-only", "command": "python tools/page_factory.py report" },
+    { "id": "bump", "label": "推进工厂版本", "mode": "plan-first", "command": "python tools/page_factory.py bump --part patch" },
+    { "id": "snapshot", "label": "保存工厂默认", "mode": "verified-write", "command": "python tools/page_factory.py snapshot" }
+  ]
+}

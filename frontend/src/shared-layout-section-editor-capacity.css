@@ -1,0 +1,118 @@
+/* Shared Layout Style section-editor capsule plugin v2 ----------------------
+   Layout Style and Customer Service share one list-editor grammar: a single
+   large-card carrier owns the outline while operation, title and description
+   remain three readable semantic segments. Thin semantic dividers distinguish
+   those segments without redrawing three competing rounded shells. */
+
+#root#root [data-shared-layout-section-editor-capsule="single"] {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: 0 !important;
+  padding: 6px !important;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 18%, transparent) !important;
+  border-radius: 12px !important;
+  background: color-mix(in srgb, var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 88%, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 12%) !important;
+  color: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) !important;
+  box-shadow: none !important;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] > [data-layout-section-editor-segment="controls"] {
+  box-sizing: border-box;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  width: auto !important;
+  min-width: max-content;
+  flex: 0 0 auto !important;
+  flex-basis: auto !important;
+  padding: 0 12px 0 2px !important;
+  border: 0 !important;
+  border-right: 1px solid color-mix(in srgb, currentColor 24%, transparent) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] > .layout-section-matrix-edit,
+#root#root [data-shared-layout-section-editor-capsule="single"] .layout-section-matrix-fields {
+  min-width: 0;
+  gap: 0 !important;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] > .layout-section-matrix-edit {
+  width: auto !important;
+  flex: 1 1 0 !important;
+  flex-basis: 0 !important;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] .layout-section-matrix-fields {
+  width: 100%;
+  align-self: stretch;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment="title"],
+#root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment="description"] {
+  box-sizing: border-box;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding-inline: 12px;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment="description"] {
+  border-left: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] input[data-layout-large-card-input="true"] {
+  width: 100%;
+  min-width: 0;
+  padding-inline: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment]:focus-within {
+  background: color-mix(in srgb, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 12%, transparent);
+}
+
+#root#root [data-shared-layout-section-editor-capsule="single"]:hover {
+  background: color-mix(in srgb, var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 72%, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 28%) !important;
+}
+
+@container tradepro-layout-card (max-width: 639px) {
+  #root#root [data-shared-layout-section-editor-capsule="single"] > [data-layout-section-editor-segment="controls"] {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    padding: 2px 4px 8px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 24%, transparent) !important;
+  }
+
+  #root#root [data-shared-layout-section-editor-capsule="single"] > .layout-section-matrix-edit {
+    width: 100% !important;
+    flex-basis: 100% !important;
+  }
+}
+
+@container tradepro-layout-card (max-width: 479px) {
+  #root#root [data-shared-layout-section-editor-capsule="single"] .layout-section-matrix-fields {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment="title"],
+  #root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment="description"] {
+    min-height: 36px;
+    padding-inline: 12px;
+  }
+
+  #root#root [data-shared-layout-section-editor-capsule="single"] [data-layout-section-editor-segment="description"] {
+    border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+    border-left: 0;
+  }
+}

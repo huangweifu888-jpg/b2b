@@ -1,0 +1,18 @@
+schema_version: 1
+context_required:
+  - agent_path
+  - tenant_id
+  - client_id
+plan_context_required:
+  - plan_id
+enforcement:
+  - backend_query_scope
+  - storage_key_scope
+  - cache_key_scope
+  - async_job_scope
+  - audit_log_scope
+default_deployment: shared-stamp-a
+dedicated_deployment_requires:
+  - contractual_isolation
+  - high_traffic
+  - custom_runtime_requirement

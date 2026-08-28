@@ -1,0 +1,1 @@
+{"id":"08-reports","name":"锁客（数据报表）","version":"0.1.0","legacyFrontendPage":"src/pages/Reports.tsx","requiredTenantContext":["agent_path","tenant_id","client_id"]}

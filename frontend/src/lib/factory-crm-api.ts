@@ -1,0 +1,12 @@
+import { authApi } from "@/lib/auth";
+import { getAPIBaseURL } from "@/lib/config";
+export type CrmAccount={id:string;account_number:string;account_reference:string;account_name:string;market:string;status:"draft"|"verified";revision:number};
+export type CrmOpportunity={id:string;opportunity_number:string;account_id:string;account_number:string;title:string;currency:string;amount_cents:number;stage:"qualified"|"proposal"|"won"|"lost";owner_team:string;revision:number};
+export type CrmWorkspace={accounts:CrmAccount[];opportunities:CrmOpportunity[];evidence:{event_type:string;reference:string}[];contract:Record<string,boolean>};
+async function request<T>(path:string,init?:RequestInit):Promise<T>{let token=authApi.getStoredToken();if(!token&&await authApi.restoreLocalDemoSession("hq"))token=authApi.getStoredToken();const headers=new Headers(init?.headers);headers.set("Content-Type","application/json");if(token)headers.set("Authorization",`Bearer ${token}`);const response=await fetch(`${getAPIBaseURL()}${path}`,{...init,headers});if(!response.ok){const body=await response.json().catch(()=>({}));throw new Error(typeof body.detail==="string"?body.detail:`CRM request failed (${response.status})`)}return response.json() as Promise<T>}
+const base=(projectId:number)=>`/api/v1/factory-platform/projects/${projectId}/crm`;
+export const listFactoryCrm=(projectId:number)=>request<CrmWorkspace>(base(projectId));
+export const createFactoryCrmAccount=(projectId:number,payload:{account_reference:string;account_name:string;market:string})=>request<CrmAccount>(`${base(projectId)}/accounts`,{method:"POST",body:JSON.stringify(payload)});
+export const verifyFactoryCrmAccount=(projectId:number,id:string,payload:{expected_revision:number;reference:string;note:string})=>request<CrmAccount>(`${base(projectId)}/accounts/${encodeURIComponent(id)}/verify`,{method:"POST",body:JSON.stringify(payload)});
+export const createFactoryCrmOpportunity=(projectId:number,payload:{account_id:string;opportunity_key:string;title:string;currency:string;amount_cents:number;owner_team:string})=>request<CrmOpportunity>(`${base(projectId)}/opportunities`,{method:"POST",body:JSON.stringify(payload)});
+export const advanceFactoryCrmOpportunity=(projectId:number,id:string,payload:{expected_revision:number;stage:"proposal"|"won"|"lost";reference:string;note:string})=>request<CrmOpportunity>(`${base(projectId)}/opportunities/${encodeURIComponent(id)}/advance`,{method:"POST",body:JSON.stringify(payload)});

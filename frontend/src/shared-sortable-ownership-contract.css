@@ -1,0 +1,254 @@
+/* Shared sortable-card and ownership-highlight contract v3 -----------------
+   Geometry belongs to the shared move/sort plugins. Business pages only
+   provide callbacks and ownership keys. Hovering any point inside the nearest
+   sortable card or projected Operations category highlights its control rail;
+   cross-surface ownership links use a lighter, non-navigating visual state. */
+
+#root#root [data-shared-sortable-card],
+#root#root [data-shared-category-capsule="single"] {
+  /* These controls are a cross-page runtime plugin. Keep their reviewed
+     physical geometry stable when the document root scales on small screens. */
+  --tradepro-shared-plugin-control-size: 32px;
+  --tradepro-shared-plugin-gap: 8px;
+  --tradepro-shared-sort-control-size: 32px;
+  --tradepro-shared-sort-gap: 8px;
+  --tradepro-shared-sort-header-min-height: 50px;
+  --tradepro-shared-sort-header-padding: 6px;
+  --tradepro-shared-sort-header-content-height: 36px;
+  --tradepro-shared-sort-content-gap: 12px;
+  --tradepro-shared-sort-font-size: 14px;
+  --tradepro-shared-sort-line-height: 20px;
+  --tradepro-shared-sort-hover-duration: 140ms;
+}
+
+#root#root .content-plugin-move-rail {
+  display: inline-flex;
+  width: calc(var(--tradepro-shared-sort-control-size, 2rem) * 3 + var(--tradepro-shared-sort-gap, 0.5rem) * 2);
+  min-width: calc(var(--tradepro-shared-sort-control-size, 2rem) * 3 + var(--tradepro-shared-sort-gap, 0.5rem) * 2);
+  height: var(--tradepro-shared-sort-control-size, 2rem);
+  min-height: var(--tradepro-shared-sort-control-size, 2rem);
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--tradepro-shared-sort-gap, 0.5rem);
+  white-space: nowrap;
+}
+
+#root#root .content-plugin-move-rail.is-grid-contents {
+  display: contents;
+}
+
+#root#root .content-plugin-sort-toolbar {
+  width: calc(var(--tradepro-shared-sort-control-size, 2rem) * 4 + var(--tradepro-shared-sort-gap, 0.5rem) * 3);
+  min-width: calc(var(--tradepro-shared-sort-control-size, 2rem) * 4 + var(--tradepro-shared-sort-gap, 0.5rem) * 3);
+}
+
+#root#root :is([data-shared-sortable-card-rail], [data-shared-category-capsule="single"]) {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--tradepro-shared-sort-header-min-height, 3rem);
+  padding: var(--tradepro-shared-sort-header-padding, 0.375rem) !important;
+  overflow: hidden;
+  font-size: var(--tradepro-shared-sort-font-size, 0.875rem) !important;
+  line-height: var(--tradepro-shared-sort-line-height, 1.25rem) !important;
+  font-weight: 400;
+  border: 1px solid color-mix(in srgb, var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 18%, transparent) !important;
+  border-radius: 12px !important;
+  background-color: color-mix(
+    in srgb,
+    var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 76%,
+    var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 24%
+  ) !important;
+  transition:
+    background-color var(--tradepro-shared-sort-hover-duration, 140ms) ease,
+    box-shadow var(--tradepro-shared-sort-hover-duration, 140ms) ease,
+    color var(--tradepro-shared-sort-hover-duration, 140ms) ease;
+}
+
+/* Customer Service uses the sortable rail as the complete large-card header,
+   rather than a neutral category capsule. Its resting surface therefore reads
+   the large-card colour directly; the shared hover/focus rule below still
+   owns the intentional interaction highlight. */
+#root#root [data-shared-sortable-card-rail][data-shared-service-section-large-card="true"] {
+  background-color: var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) !important;
+}
+
+/* One outer capsule owns the frame. Its direct content carriers share the
+   same transparent, borderless rhythm on Column Configuration, Layout Style
+   and Customer Service. */
+#root#root :is([data-shared-sortable-card-rail], [data-shared-category-capsule="single"]) > * {
+  box-sizing: border-box;
+  min-height: var(--tradepro-shared-sort-header-content-height, 2.25rem);
+  font-size: inherit !important;
+  line-height: inherit !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Column Configuration formerly retained a 32px rounded operation carrier
+   inside the shared 50px capsule. These are layout carriers, not controls, so
+   the shared outer capsule is their only visual boundary. */
+#root#root [data-shared-sortable-card-rail][data-shared-product-market-category-source="modules"]
+  :is(.product-module-category-row, .adaptive-work-matrix-function, .adaptive-work-matrix-function-grid, .product-module-category-operation-grid) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root#root :is([data-shared-sortable-card-rail], [data-shared-category-capsule="single"])
+  :is([data-shared-product-market-category-order-segment], [data-shared-product-market-category-name], [data-product-market-category-label], [data-product-market-category-status-actions]) {
+  font-size: var(--tradepro-shared-sort-font-size, 0.875rem) !important;
+  line-height: var(--tradepro-shared-sort-line-height, 1.25rem) !important;
+}
+
+/* Service title and description used responsive page-private 10/11/12px
+   classes. They are semantic capsule copy and therefore follow the same
+   14px/20px typography as Layout Style title and description fields. */
+#root#root [data-shared-sortable-card-rail]
+  :is([data-shared-sortable-capsule-title], [data-shared-sortable-capsule-description]) {
+  font-size: var(--tradepro-shared-sort-font-size, 0.875rem) !important;
+  line-height: var(--tradepro-shared-sort-line-height, 1.25rem) !important;
+}
+
+#root#root :is([data-shared-sortable-card-rail], [data-shared-category-capsule="single"])
+  [data-content-plugin-actions="status"] button {
+  font-size: var(--tradepro-shared-sort-font-size, 0.875rem) !important;
+  line-height: var(--tradepro-shared-sort-line-height, 1.25rem) !important;
+}
+
+/* Layout Style owns the reviewed vertical rhythm: 12px from capsule to its
+   content. Column Configuration and Operations consume that same spacing. */
+#root#root [data-product-market-category-group][data-shared-product-market-category-source="modules"],
+#root#root [data-product-market-category-group][data-shared-product-market-category-source="operations"] {
+  display: grid !important;
+  gap: var(--tradepro-shared-sort-content-gap, 0.75rem) !important;
+}
+
+@media (min-width: 1024px) {
+  #root#root :is([data-shared-sortable-card-rail], [data-shared-category-capsule="single"]) {
+    height: var(--tradepro-shared-sort-header-min-height, 3.125rem) !important;
+  }
+
+  #root#root :is([data-shared-sortable-card-rail], [data-shared-category-capsule="single"]) > * {
+    height: var(--tradepro-shared-sort-header-content-height, 2.25rem) !important;
+    min-height: var(--tradepro-shared-sort-header-content-height, 2.25rem) !important;
+    max-height: var(--tradepro-shared-sort-header-content-height, 2.25rem) !important;
+    align-self: center;
+  }
+}
+
+#root#root [data-shared-sortable-card]:is(:hover, :focus-within):not(:has([data-shared-sortable-card]:is(:hover, :focus-within)))
+  [data-shared-sortable-card-rail] {
+  background-color: color-mix(
+    in srgb,
+    var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 44%,
+    var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 56%
+  ) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+#root#root [data-product-market-category-group][data-shared-product-market-category-source="operations"]:is(:hover, :focus-within)
+  > [data-shared-category-capsule="single"] {
+  background-color: color-mix(
+    in srgb,
+    var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 44%,
+    var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 56%
+  ) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 18%, transparent);
+}
+
+#root#root [data-shared-sortable-card][data-sortable-dragging="true"] [data-shared-sortable-card-rail] {
+  background-color: color-mix(
+    in srgb,
+    var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 80%,
+    var(--tradepro-panel-action-bg) 20%
+  ) !important;
+}
+
+#root#root [data-product-market-card][data-shared-ownership-highlight="direct"] {
+  background-image: linear-gradient(color-mix(in srgb, currentColor 14%, transparent), color-mix(in srgb, currentColor 14%, transparent));
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, currentColor 34%, transparent), 0 8px 18px color-mix(in srgb, currentColor 14%, transparent) !important;
+}
+
+#root#root [data-product-market-card][data-shared-ownership-highlight="linked"] {
+  background-image: linear-gradient(color-mix(in srgb, currentColor 8%, transparent), color-mix(in srgb, currentColor 8%, transparent));
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, currentColor 24%, transparent) !important;
+}
+
+#root#root [data-shared-ownership-category-target][data-shared-ownership-highlight] [data-shared-product-market-category-rail] {
+  border-radius: 0.625rem;
+  background-color: color-mix(
+    in srgb,
+    var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 90%,
+    var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 10%
+  ) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 22%, transparent);
+}
+
+/* Ownership projection may tint the one outer category capsule only. The
+   inner sort rail is a structural carrier and must never reappear as a second
+   frame while a child module, Operations card or sidebar item is hovered. */
+#root#root [data-shared-ownership-category-target][data-shared-ownership-highlight]
+  [data-shared-product-market-category-sort-rail] {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#root#root [data-source-nav-category-heading][data-shared-ownership-highlight] {
+  border-radius: 0.5rem;
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  box-shadow: inset 2px 0 0 color-mix(in srgb, currentColor 48%, transparent);
+}
+
+#root#root [data-sidebar-nav-label][data-shared-ownership-highlight] {
+  box-shadow: inset 3px 0 0 color-mix(in srgb, currentColor 58%, transparent), 0 0 0 1px color-mix(in srgb, currentColor 18%, transparent);
+  filter: brightness(1.08);
+}
+
+#root#root [data-shared-ownership-highlight] {
+  transition:
+    background-color 140ms ease,
+    background-image 140ms ease,
+    box-shadow 140ms ease,
+    filter 140ms ease;
+}
+
+@media (hover: none), (pointer: coarse) {
+  #root#root [data-shared-sortable-card]:hover:not(:focus-within) [data-shared-sortable-card-rail] {
+    background-color: color-mix(
+      in srgb,
+      var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 76%,
+      var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 24%
+    ) !important;
+    box-shadow: none;
+  }
+
+  #root#root [data-product-market-category-group][data-shared-product-market-category-source="operations"]:hover:not(:focus-within)
+    > [data-shared-category-capsule="single"] {
+    background-color: color-mix(
+      in srgb,
+      var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg)) 76%,
+      var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text)) 24%
+    ) !important;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 639px) {
+  #root#root [data-product-market-category-group][data-shared-product-market-category-source="modules"],
+  #root#root [data-product-market-category-group][data-shared-product-market-category-source="operations"] {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root#root [data-shared-sortable-card-rail],
+  #root#root [data-shared-category-capsule="single"],
+  #root#root [data-shared-ownership-highlight] {
+    transition: none;
+  }
+}

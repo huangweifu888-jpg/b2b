@@ -1,0 +1,97 @@
+{
+  "contractVersion": "1.0.0",
+  "strategy": {
+    "id": "progressive-modular-monolith",
+    "repositoryModel": "single-source-monorepo",
+    "migrationRule": "add-contracts-and-adapters-before-moving-implementation",
+    "applicationDirectoryRule": "create-only-for-a-real-owned-boundary"
+  },
+  "productSourceOfTruth": {
+    "file": "frontend/src/lib/factory-platform-blueprint.ts",
+    "authority": "product",
+    "categoryCount": 12,
+    "applicationCount": 72,
+    "owns": [
+      "product-category-language",
+      "application-ids-and-metadata",
+      "application-routes",
+      "delivery-status"
+    ]
+  },
+  "technicalCatalogFile": "modules/technical-category-catalog.json",
+  "categoriesRoot": "modules/categories",
+  "shellCompositionsRoot": {
+    "sourceShell": "zbcx/compositions",
+    "agencyRuntimeShell": "dlcx",
+    "clientRuntimeShell": "khcs"
+  },
+  "migrationPhase": {
+    "id": "phase-1-contract-foundation",
+    "implementationMovesAllowed": false,
+    "legacyAdaptersRequired": true,
+    "nextGate": "pilot-contract-tests"
+  },
+  "categories": [
+    { "id": "identity", "order": "01", "directory": "c01_identity", "physicalState": "catalog-only" },
+    { "id": "content", "order": "02", "directory": "c02_content", "physicalState": "catalog-only" },
+    { "id": "trust", "order": "03", "directory": "c03_trust", "physicalState": "catalog-only" },
+    { "id": "recommend", "order": "04", "directory": "c04_recommend", "physicalState": "catalog-only" },
+    { "id": "deepen", "order": "05", "directory": "c05_deepen", "physicalState": "pilot-manifest" },
+    { "id": "portrait", "order": "06", "directory": "c06_portrait", "physicalState": "catalog-only" },
+    { "id": "lead", "order": "07", "directory": "c07_lead", "physicalState": "catalog-only" },
+    { "id": "convert", "order": "08", "directory": "c08_convert", "physicalState": "catalog-only" },
+    { "id": "fulfillment", "order": "09", "directory": "c09_fulfillment", "physicalState": "catalog-only" },
+    { "id": "care", "order": "10", "directory": "c10_care", "physicalState": "catalog-only" },
+    { "id": "decision", "order": "11", "directory": "c11_decision", "physicalState": "catalog-only" },
+    { "id": "operations", "order": "12", "directory": "c12_operations", "physicalState": "catalog-only" }
+  ],
+  "legacyMappings": [
+    { "legacyModuleId": "00-product-market", "targetKind": "control-plane", "targetId": "control.product-market", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "01-momentum", "targetKind": "category", "targetId": "identity", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "02-content", "targetKind": "category", "targetId": "content", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "03-seo", "targetKind": "category", "targetId": "trust", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "04-geo", "targetKind": "category", "targetId": "recommend", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "05-social-media", "targetKind": "application", "targetId": "deepen.social-matrix", "migrationState": "pilot-manifest" },
+    { "legacyModuleId": "06-smart-ads", "targetKind": "category", "targetId": "lead", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "07-inquiries", "targetKind": "category", "targetId": "convert", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "08-reports", "targetKind": "category", "targetId": "portrait", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "09-crm", "targetKind": "category", "targetId": "care", "migrationState": "compatibility-only" },
+    { "legacyModuleId": "10-health-dashboard", "targetKind": "category", "targetId": "decision", "migrationState": "compatibility-only" }
+  ],
+  "pilotApplications": [
+    {
+      "id": "deepen.social-matrix",
+      "categoryId": "deepen",
+      "directory": "modules/categories/c05_deepen/apps/social_matrix",
+      "manifest": "modules/categories/c05_deepen/apps/social_matrix/app.manifest.json",
+      "legacyModuleId": "05-social-media",
+      "migrationState": "manifest-only",
+      "implementationMoved": false
+    }
+  ],
+  "compositions": [
+    { "id": "zbcx.headquarters", "file": "zbcx/compositions/hq.json", "mode": "govern" },
+    { "id": "zbcx.agency-source", "file": "zbcx/compositions/agency-source.json", "mode": "publish" },
+    { "id": "zbcx.client-source", "file": "zbcx/compositions/client-source.json", "mode": "configure" },
+    { "id": "dlcx.agency-runtime", "file": "dlcx/composition.json", "mode": "operate" },
+    { "id": "khcs.client-runtime", "file": "khcs/composition.json", "mode": "use" }
+  ],
+  "deploymentBoundary": {
+    "moduleMeaning": "development-ownership-and-test-boundary",
+    "shellMeaning": "application-composition-and-permission-boundary",
+    "roleMeaning": "01-07-generated-server-package-boundary",
+    "roleIds": ["01", "02", "03", "04", "05", "06", "07"],
+    "artifactPolicy": "Build immutable role artifacts from 00-platform-source; never upload the editable source tree or manually copy module folders to a server.",
+    "serverScalingPolicy": "One through seven servers are deployment combinations, not category or application ownership."
+  },
+  "principles": [
+    { "id": "one-source-tree", "rule": "Reusable implementation has one editable owner in 00-platform-source." },
+    { "id": "shells-reference-stable-ids", "rule": "Shell compositions reference stable category or application IDs and modes; they never copy implementation." },
+    { "id": "tenant-and-plan-are-data", "rule": "Agents, customers, and plans use scoped data, configuration, templates, and overlays; they never receive source forks." },
+    { "id": "contracts-before-imports", "rule": "Modules integrate through shared contracts, APIs, or events and must not import another module implementation." },
+    { "id": "no-empty-directory-catalog", "rule": "Catalog-only categories remain JSON records until a real migration creates owned files." },
+    { "id": "tenant-context", "rule": "Tenant-aware work validates agent_path, tenant_id, client_id, and optional plan_id." },
+    { "id": "download-owner", "rule": "Only legacy module 02-content exposes public plan downloads over HTTPS during the progressive migration." },
+    { "id": "generated-delivery", "rule": "Outer 01-07 areas contain generated release artifacts, not editable application source." }
+  ]
+}

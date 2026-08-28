@@ -1,0 +1,18 @@
+version: 1
+profile: 03-server
+serverCount: 3
+roleDefinitionsRoot: deployment/role-definitions
+releaseFlow: deployment/common/global-release-flow.yaml
+sourcePolicy: one-source-no-role-copies
+purpose: 正式生产起步，应用、耗时任务和数据分离
+external_backup_required: true
+servers:
+  - id: SERVER-01-APP-EDGE
+    roles: ["01", "02", "03", "05"]
+    summary: 总部、双源、代理、客户计划和公网入口。
+  - id: SERVER-02-WORKER
+    roles: ["04"]
+    summary: 素材处理、网站构建、发布和异步任务。
+  - id: SERVER-03-DATA
+    roles: ["06"]
+    summary: PostgreSQL、Redis和对象存储。

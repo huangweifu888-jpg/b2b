@@ -1,0 +1,25 @@
+schema_version: 1
+path_variables:
+  PLATFORM_PYTHON: Python executable selected by the active runtime
+  PLATFORM_SOURCE_ROOT: absolute path of 00-platform-source resolved at runtime
+  PLATFORM_LOCAL_DATA_ROOT: absolute path of local-data resolved from the workspace root
+local_development:
+  scheduler: Windows Task Scheduler
+  cadence: daily 02:30 local time
+  command: >-
+    "${PLATFORM_PYTHON}" "${PLATFORM_SOURCE_ROOT}/tools/create_local_sqlite_backup.py"
+    --database "${PLATFORM_LOCAL_DATA_ROOT}/database/platform.sqlite3"
+    --backup-root "${PLATFORM_LOCAL_DATA_ROOT}/backup-staging/program/local-database"
+  safeguards:
+    - explicit_database_path_required
+    - verified_restore_before_manifest
+    - no_automatic_deletion_of_formal_backups
+staging_and_production:
+  scheduler: managed-database-provider-and-operations-runner
+  cadence: daily full backup plus point-in-time recovery
+  target: BACKUP_TARGET
+  evidence: BACKUP_SCHEDULE_ID and RESTORE_DRILL_REFERENCE
+  safeguards:
+    - PostgreSQL_backup_not_SQLite_copy
+    - encrypted_offsite_copy
+    - isolated_restore_drill_monthly

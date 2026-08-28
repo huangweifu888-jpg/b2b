@@ -1,0 +1,6944 @@
+{
+  "schemaVersion": 1,
+  "factoryVersion": "2026.08.22.6",
+  "pages": [
+    {
+      "id": "product-analysis-interest-search",
+      "label": "产品分析 → 兴趣搜索",
+      "route": "/product-analysis?tab=keyword-planner",
+      "component": "frontend/src/components/product-intelligence/ProductIntelligenceWorkspace.tsx",
+      "entryComponent": "frontend/src/pages/ProductAnalysis.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "pilot-complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-dashboard",
+      "label": "客户源工作台",
+      "route": "/",
+      "component": "frontend/src/pages/Index.tsx",
+      "entryComponent": "frontend/src/pages/Index.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-dashboard",
+      "label": "代理端仪表盘",
+      "route": "/",
+      "component": "frontend/src/pages/agency/AgencyDashboard.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencyDashboard.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-orders",
+      "label": "代理端订单管理",
+      "route": "/orders",
+      "component": "frontend/src/pages/agency/AgencyOrders.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencyOrders.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-business-data",
+      "label": "代理端业务数据",
+      "route": "/business-data",
+      "component": "frontend/src/pages/agency/BusinessData.tsx",
+      "entryComponent": "frontend/src/pages/agency/BusinessData.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-invite-links",
+      "label": "代理端注册链接",
+      "route": "/invite-links",
+      "component": "frontend/src/pages/agency/InviteLinks.tsx",
+      "entryComponent": "frontend/src/pages/agency/InviteLinks.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-quotas",
+      "label": "代理端配额管理",
+      "route": "/quotas",
+      "component": "frontend/src/pages/agency/Quotas.tsx",
+      "entryComponent": "frontend/src/pages/agency/Quotas.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-public-pool",
+      "label": "代理端公海池",
+      "route": "/public-pool",
+      "component": "frontend/src/pages/agency/PublicPool.tsx",
+      "entryComponent": "frontend/src/pages/agency/PublicPool.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-workspace",
+      "label": "代理端工作台",
+      "route": "/workspace",
+      "component": "frontend/src/pages/agency/Workspace.tsx",
+      "entryComponent": "frontend/src/pages/agency/Workspace.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-dashboard",
+      "label": "总部端仪表盘",
+      "route": "/",
+      "component": "frontend/src/pages/hq/HQDashboard.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQDashboard.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-account",
+      "label": "账户中心",
+      "route": "/account",
+      "component": "frontend/src/pages/Account.tsx",
+      "entryComponent": "frontend/src/pages/Account.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-customers",
+      "label": "客户管理",
+      "route": "/customers",
+      "component": "frontend/src/pages/agency/AgencyCustomers.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencyCustomers.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-sites",
+      "label": "站点管理",
+      "route": "/sites",
+      "component": "frontend/src/pages/agency/AgencySites.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencySites.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-social-content-reviews",
+      "label": "社交内容初审",
+      "route": "/social-content-reviews",
+      "component": "frontend/src/pages/agency/AgencySocialContentReviews.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencySocialContentReviews.tsx",
+      "template": "detail",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-members",
+      "label": "成员管理",
+      "route": "/members",
+      "component": "frontend/src/pages/agency/Members.tsx",
+      "entryComponent": "frontend/src/pages/agency/Members.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-oem-settings",
+      "label": "OEM 设置",
+      "route": "/oem-settings",
+      "component": "frontend/src/pages/agency/OEMSettings.tsx",
+      "entryComponent": "frontend/src/pages/agency/OEMSettings.tsx",
+      "template": "form",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-performance",
+      "label": "绩效统计",
+      "route": "/performance",
+      "component": "frontend/src/pages/agency/Performance.tsx",
+      "entryComponent": "frontend/src/pages/agency/Performance.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-reports",
+      "label": "客户报备",
+      "route": "/reports",
+      "component": "frontend/src/pages/agency/Reports.tsx",
+      "entryComponent": "frontend/src/pages/agency/Reports.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-roles",
+      "label": "角色管理",
+      "route": "/roles",
+      "component": "frontend/src/pages/agency/Roles.tsx",
+      "entryComponent": "frontend/src/pages/agency/Roles.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-seo-blogs",
+      "label": "SEO 博客",
+      "route": "/seo-blogs",
+      "component": "frontend/src/pages/agency/SEOBlogs.tsx",
+      "entryComponent": "frontend/src/pages/agency/SEOBlogs.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-seo-tasks",
+      "label": "SEO 任务与工具",
+      "route": "/seo-tasks",
+      "component": "frontend/src/pages/agency/SEOTasks.tsx",
+      "entryComponent": "frontend/src/pages/agency/SEOTasks.tsx",
+      "template": "workflow",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-wallet",
+      "label": "钱包管理",
+      "route": "/wallet",
+      "component": "frontend/src/pages/agency/Wallet.tsx",
+      "entryComponent": "frontend/src/pages/agency/Wallet.tsx",
+      "template": "workflow",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-cases",
+      "label": "客户案例",
+      "route": "/cases",
+      "component": "frontend/src/pages/Cases.tsx",
+      "entryComponent": "frontend/src/components/ContentLibraryEditor.tsx",
+      "template": "editor",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-news-center",
+      "label": "新闻中心",
+      "route": "/news",
+      "component": "frontend/src/pages/NewsCenter.tsx",
+      "entryComponent": "frontend/src/components/ContentLibraryEditor.tsx",
+      "template": "editor",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-ai-command",
+      "label": "AI问数与战情中心",
+      "route": "/ai-command",
+      "component": "frontend/src/pages/FactoryAiCommand.tsx",
+      "entryComponent": "frontend/src/pages/FactoryAiCommand.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-approval-center",
+      "label": "审批中心",
+      "route": "/approval-center",
+      "component": "frontend/src/pages/FactoryApprovalCenter.tsx",
+      "entryComponent": "frontend/src/pages/FactoryApprovalCenter.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-cpq-quotes",
+      "label": "智能报价 CPQ",
+      "route": "/cpq-quotes",
+      "component": "frontend/src/pages/FactoryCpqQuotes.tsx",
+      "entryComponent": "frontend/src/pages/FactoryCpqQuotes.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-customer-assets",
+      "label": "客户资产服务续费",
+      "route": "/customer-assets",
+      "component": "frontend/src/pages/FactoryCustomerAssets.tsx",
+      "entryComponent": "frontend/src/pages/FactoryCustomerAssets.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-data-warehouse",
+      "label": "经营数据仓库",
+      "route": "/data-warehouse",
+      "component": "frontend/src/pages/FactoryDataWarehouse.tsx",
+      "entryComponent": "frontend/src/pages/FactoryDataWarehouse.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-digital-assets",
+      "label": "AI计划与数字资产",
+      "route": "/digital-assets",
+      "component": "frontend/src/pages/FactoryDigitalAssets.tsx",
+      "entryComponent": "frontend/src/pages/FactoryDigitalAssets.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-erp",
+      "label": "ERP经营总台",
+      "route": "/erp",
+      "component": "frontend/src/pages/FactoryErp.tsx",
+      "entryComponent": "frontend/src/pages/FactoryErp.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-finance",
+      "label": "财务资金中心",
+      "route": "/finance",
+      "component": "frontend/src/pages/FactoryFinance.tsx",
+      "entryComponent": "frontend/src/pages/FactoryFinance.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-forecast",
+      "label": "滚动经营预测",
+      "route": "/forecast",
+      "component": "frontend/src/pages/FactoryForecast.tsx",
+      "entryComponent": "frontend/src/pages/FactoryForecast.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-fulfillment-orders",
+      "label": "履约订单",
+      "route": "/fulfillment-orders",
+      "component": "frontend/src/pages/FactoryFulfillmentOrders.tsx",
+      "entryComponent": "frontend/src/pages/FactoryFulfillmentOrders.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-health-cockpit",
+      "label": "经营健康驾驶舱",
+      "route": "/health-cockpit",
+      "component": "frontend/src/pages/FactoryHealthCockpit.tsx",
+      "entryComponent": "frontend/src/pages/FactoryHealthCockpit.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-icp-profiles",
+      "label": "ICP客户画像",
+      "route": "/icp-profiles",
+      "component": "frontend/src/pages/FactoryIcpProfiles.tsx",
+      "entryComponent": "frontend/src/pages/FactoryIcpProfiles.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-legal-contracts",
+      "label": "合同法务中心",
+      "route": "/contract-legal",
+      "component": "frontend/src/pages/FactoryLegalContracts.tsx",
+      "entryComponent": "frontend/src/pages/FactoryLegalContracts.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-manufacturing-execution",
+      "label": "制造执行 MES",
+      "route": "/manufacturing-execution",
+      "component": "frontend/src/pages/FactoryManufacturingExecution.tsx",
+      "entryComponent": "frontend/src/pages/FactoryManufacturingExecution.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-metric-center",
+      "label": "指标语义中心",
+      "route": "/metric-center",
+      "component": "frontend/src/pages/FactoryMetricSemantics.tsx",
+      "entryComponent": "frontend/src/pages/FactoryMetricSemantics.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-partner-voice",
+      "label": "伙伴之声",
+      "route": "/partner-voice",
+      "component": "frontend/src/pages/FactoryPartnerVoice.tsx",
+      "entryComponent": "frontend/src/pages/FactoryPartnerVoice.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-people",
+      "label": "人力资源中心",
+      "route": "/people",
+      "component": "frontend/src/pages/FactoryPeople.tsx",
+      "entryComponent": "frontend/src/pages/FactoryPeople.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-procurement",
+      "label": "采购管理",
+      "route": "/procurement",
+      "component": "frontend/src/pages/FactoryProcurement.tsx",
+      "entryComponent": "frontend/src/pages/FactoryProcurement.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-production-planning",
+      "label": "生产计划",
+      "route": "/production-plans",
+      "component": "frontend/src/pages/FactoryProductionPlanning.tsx",
+      "entryComponent": "frontend/src/pages/FactoryProductionPlanning.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-product-passports",
+      "label": "产品护照",
+      "route": "/product-passports",
+      "component": "frontend/src/pages/FactoryProductPassports.tsx",
+      "entryComponent": "frontend/src/pages/FactoryProductPassports.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-quality-inspections",
+      "label": "质量检验",
+      "route": "/quality-inspections",
+      "component": "frontend/src/pages/FactoryQualityInspections.tsx",
+      "entryComponent": "frontend/src/pages/FactoryQualityInspections.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-recruiting",
+      "label": "招聘中心",
+      "route": "/recruiting",
+      "component": "frontend/src/pages/FactoryRecruiting.tsx",
+      "entryComponent": "frontend/src/pages/FactoryRecruiting.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-renewal-growth",
+      "label": "续费增长",
+      "route": "/renewal-growth",
+      "component": "frontend/src/pages/FactoryRenewalGrowth.tsx",
+      "entryComponent": "frontend/src/pages/FactoryRenewalGrowth.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-revenue-profit",
+      "label": "收入利润",
+      "route": "/revenue-profit",
+      "component": "frontend/src/pages/FactoryRevenueProfit.tsx",
+      "entryComponent": "frontend/src/pages/FactoryRevenueProfit.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-cdp",
+      "label": "客户数据平台",
+      "route": "/customer-data-platform",
+      "component": "frontend/src/pages/FactoryCdp.tsx",
+      "entryComponent": "frontend/src/pages/FactoryCdp.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-field-service",
+      "label": "现场服务",
+      "route": "/field-service",
+      "component": "frontend/src/pages/FactoryFieldService.tsx",
+      "entryComponent": "frontend/src/pages/FactoryFieldService.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-rfq-samples",
+      "label": "询报价与样品",
+      "route": "/rfq-samples",
+      "component": "frontend/src/pages/FactoryRfqSamples.tsx",
+      "entryComponent": "frontend/src/pages/FactoryRfqSamples.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-management",
+      "label": "站点管理",
+      "route": "/site-management",
+      "component": "frontend/src/pages/FactorySiteManagement.tsx",
+      "entryComponent": "frontend/src/pages/FactorySiteManagement.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-warranty-rma",
+      "label": "质保与RMA",
+      "route": "/warranty-rma",
+      "component": "frontend/src/pages/FactoryWarrantyRma.tsx",
+      "entryComponent": "frontend/src/pages/FactoryWarrantyRma.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-projects",
+      "label": "已创计划",
+      "route": "/projects",
+      "component": "frontend/src/pages/Projects.tsx",
+      "entryComponent": "frontend/src/pages/Projects.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-products",
+      "label": "产品管理",
+      "route": "/products",
+      "component": "frontend/src/pages/Products.tsx",
+      "entryComponent": "frontend/src/pages/Products.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-social-content-reviews",
+      "label": "社交内容审核中心",
+      "route": "/social-content-reviews",
+      "component": "frontend/src/pages/hq/HQSocialContentReviews.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQSocialContentReviews.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-platform-architecture",
+      "label": "平台架构总览",
+      "route": "/platform-architecture",
+      "component": "frontend/src/pages/hq/PlatformArchitecture.tsx",
+      "entryComponent": "frontend/src/pages/hq/PlatformArchitecture.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-template-snapshot-migrations",
+      "label": "模板快照迁移",
+      "route": "/template-migrations",
+      "component": "frontend/src/pages/hq/TemplateSnapshotMigrations.tsx",
+      "entryComponent": "frontend/src/pages/hq/TemplateSnapshotMigrations.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-live-pages",
+      "label": "代理企业与计划",
+      "route": "/enterprises",
+      "component": "frontend/src/pages/agency/AgencyLivePages.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencyLivePages.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-version-center",
+      "label": "代理版本中心",
+      "route": "/version",
+      "component": "frontend/src/pages/agency/AgencyVersionCenter.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencyVersionCenter.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-ai-chat",
+      "label": "AI 智能建站",
+      "route": "/ai-chat",
+      "component": "frontend/src/pages/AIChat.tsx",
+      "entryComponent": "frontend/src/pages/AIChat.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-ai-customer-service",
+      "label": "智能客服",
+      "route": "/ai-customer-service",
+      "component": "frontend/src/pages/AICustomerService.tsx",
+      "entryComponent": "frontend/src/pages/AICustomerService.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "auth-callback",
+      "label": "登录回调",
+      "route": "/auth/callback",
+      "component": "frontend/src/pages/AuthCallback.tsx",
+      "entryComponent": "frontend/src/pages/AuthCallback.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "auth-error",
+      "label": "登录异常",
+      "route": "/auth/error",
+      "component": "frontend/src/pages/AuthError.tsx",
+      "entryComponent": "frontend/src/pages/AuthError.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-company-info",
+      "label": "企业资料",
+      "route": "/company-info",
+      "component": "frontend/src/pages/CompanyInfo.tsx",
+      "entryComponent": "frontend/src/pages/CompanyInfo.tsx",
+      "template": "editor",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-abm",
+      "label": "企业定向与 ABM",
+      "route": "/abm",
+      "component": "frontend/src/pages/FactoryAbm.tsx",
+      "entryComponent": "frontend/src/pages/FactoryAbm.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-account-graph",
+      "label": "B2B 企业关系图",
+      "route": "/account-graph",
+      "component": "frontend/src/pages/FactoryAccountGraph.tsx",
+      "entryComponent": "frontend/src/pages/FactoryAccountGraph.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-ai-sdr",
+      "label": "AI 售前 SDR",
+      "route": "/ai-sdr",
+      "component": "frontend/src/pages/FactoryAiSdr.tsx",
+      "entryComponent": "frontend/src/pages/FactoryAiSdr.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-brand-studio",
+      "label": "品牌工作室",
+      "route": "/brand-studio",
+      "component": "frontend/src/pages/FactoryBrandStudio.tsx",
+      "entryComponent": "frontend/src/pages/FactoryBrandStudio.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-buying-committee",
+      "label": "采购决策委员会",
+      "route": "/buying-committee",
+      "component": "frontend/src/pages/FactoryBuyingCommittee.tsx",
+      "entryComponent": "frontend/src/pages/FactoryBuyingCommittee.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-channel-feed",
+      "label": "商品 Feed 与平台刊登",
+      "route": "/channel-feed",
+      "component": "frontend/src/pages/FactoryChannelFeed.tsx",
+      "entryComponent": "frontend/src/pages/FactoryChannelFeed.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-commerce",
+      "label": "B2B 订货与 B2C 结账",
+      "route": "/commerce",
+      "component": "frontend/src/pages/FactoryCommerce.tsx",
+      "entryComponent": "frontend/src/pages/FactoryCommerce.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-creative-center",
+      "label": "AI 创意中心",
+      "route": "/creative-center",
+      "component": "frontend/src/pages/FactoryCreativeCenter.tsx",
+      "entryComponent": "frontend/src/pages/FactoryCreativeCenter.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-customer-timeline",
+      "label": "客户行为时间线",
+      "route": "/customer-timeline",
+      "component": "frontend/src/pages/FactoryCustomerTimeline.tsx",
+      "entryComponent": "frontend/src/pages/FactoryCustomerTimeline.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-dam-localization",
+      "label": "素材本地化",
+      "route": "/dam-localization",
+      "component": "frontend/src/pages/FactoryDamLocalization.tsx",
+      "entryComponent": "frontend/src/pages/FactoryDamLocalization.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-identity-resolution",
+      "label": "身份解析与黄金档案",
+      "route": "/identity-resolution",
+      "component": "frontend/src/pages/FactoryIdentityResolution.tsx",
+      "entryComponent": "frontend/src/pages/FactoryIdentityResolution.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-knowledge-graph",
+      "label": "知识图谱",
+      "route": "/knowledge-graph",
+      "component": "frontend/src/pages/FactoryKnowledgeGraph.tsx",
+      "entryComponent": "frontend/src/pages/FactoryKnowledgeGraph.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-segments-consent",
+      "label": "标签分群与同意治理",
+      "route": "/segments-consent",
+      "component": "frontend/src/pages/FactorySegmentsConsent.tsx",
+      "entryComponent": "frontend/src/pages/FactorySegmentsConsent.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-structured-data",
+      "label": "结构化数据",
+      "route": "/structured-data",
+      "component": "frontend/src/pages/FactoryStructuredData.tsx",
+      "entryComponent": "frontend/src/pages/FactoryStructuredData.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-releases",
+      "label": "代理源版本下发",
+      "route": "/releases",
+      "component": "frontend/src/pages/hq/AgencySourceReleases.tsx",
+      "entryComponent": "frontend/src/pages/hq/AgencySourceReleases.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-audit-release-logs",
+      "label": "发布审计日志",
+      "route": "/audit-logs",
+      "component": "frontend/src/pages/hq/AuditReleaseLogs.tsx",
+      "entryComponent": "frontend/src/pages/hq/AuditReleaseLogs.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-backup-restore-drills",
+      "label": "备份恢复演练",
+      "route": "/backup-restore-drills",
+      "component": "frontend/src/pages/hq/BackupRestoreDrills.tsx",
+      "entryComponent": "frontend/src/pages/hq/BackupRestoreDrills.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-blog-optimize",
+      "label": "博客优化",
+      "route": "/blog",
+      "component": "frontend/src/pages/BlogOptimize.tsx",
+      "entryComponent": "frontend/src/pages/BlogOptimize.tsx",
+      "template": "editor",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-customers",
+      "label": "CRM 管理",
+      "route": "/customers",
+      "component": "frontend/src/pages/Customers.tsx",
+      "entryComponent": "frontend/src/pages/Customers.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-geo-center",
+      "label": "GEO 中心",
+      "route": "/geo-center",
+      "component": "frontend/src/pages/GeoCenter.tsx",
+      "entryComponent": "frontend/src/pages/GeoCenter.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-reports",
+      "label": "数据报表",
+      "route": "/reports",
+      "component": "frontend/src/pages/Reports.tsx",
+      "entryComponent": "frontend/src/pages/Reports.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-seo",
+      "label": "SEO 中心",
+      "route": "/seo",
+      "component": "frontend/src/pages/SEO.tsx",
+      "entryComponent": "frontend/src/pages/SEO.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-templates",
+      "label": "网站风格模板",
+      "route": "/templates",
+      "component": "frontend/src/pages/Templates.tsx",
+      "entryComponent": "frontend/src/pages/Templates.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-videos",
+      "label": "企业视频",
+      "route": "/videos",
+      "component": "frontend/src/pages/Videos.tsx",
+      "entryComponent": "frontend/src/pages/Videos.tsx",
+      "template": "editor",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-releases",
+      "label": "客户源版本下发",
+      "route": "/releases",
+      "component": "frontend/src/pages/hq/ClientSourceReleases.tsx",
+      "entryComponent": "frontend/src/pages/hq/ClientSourceReleases.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-ai-model-square",
+      "label": "AI 模型市场",
+      "route": "/ai-square",
+      "component": "frontend/src/pages/hq/HQAIPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQAIPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-ai-logs",
+      "label": "AI 调用日志",
+      "route": "/ai-logs",
+      "component": "frontend/src/pages/hq/HQAIPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQAIPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-ai-cost",
+      "label": "AI 成本看板",
+      "route": "/ai-cost",
+      "component": "frontend/src/pages/hq/HQAIPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQAIPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-code-editor",
+      "label": "源码与部署中心",
+      "route": "/code-editor",
+      "component": "frontend/src/pages/hq/HQCodeEditor.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQCodeEditor.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-members-live",
+      "label": "总部成员",
+      "route": "/members",
+      "component": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-roles-live",
+      "label": "总部角色",
+      "route": "/roles",
+      "component": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-depts-live",
+      "label": "总部部门",
+      "route": "/depts",
+      "component": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAdminPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-ai-models-live",
+      "label": "总部 AI 模型",
+      "route": "/ai-models",
+      "component": "frontend/src/pages/hq/HQLiveAIModelsPage.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAIModelsPage.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-ai-vendors-live",
+      "label": "总部 AI 供应商",
+      "route": "/ai-vendors",
+      "component": "frontend/src/pages/hq/HQLiveAIPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAIPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-ai-keys-live",
+      "label": "总部 AI 密钥",
+      "route": "/ai-keys",
+      "component": "frontend/src/pages/hq/HQLiveAIPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAIPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-templates-live",
+      "label": "总部模板库",
+      "route": "/templates",
+      "component": "frontend/src/pages/hq/HQLiveAssetPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAssetPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-gallery-live",
+      "label": "总部图库",
+      "route": "/gallery",
+      "component": "frontend/src/pages/hq/HQLiveAssetPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAssetPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-recharge-audit-live",
+      "label": "总部充值审核",
+      "route": "/recharge-audit",
+      "component": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-recharge-audit-live",
+      "label": "代理源充值审核",
+      "route": "/recharge-audit",
+      "component": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-oem-audit-live",
+      "label": "总部 OEM 审核",
+      "route": "/oem-audit",
+      "component": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveAuditPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-platform-config-live",
+      "label": "总部平台配置",
+      "route": "/platform-config",
+      "component": "frontend/src/pages/hq/HQLiveConfigPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveConfigPages.tsx",
+      "template": "workflow",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-email-config-live",
+      "label": "总部邮件配置",
+      "route": "/email-config",
+      "component": "frontend/src/pages/hq/HQLiveConfigPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveConfigPages.tsx",
+      "template": "workflow",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-wallet-live",
+      "label": "总部钱包",
+      "route": "/wallet",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-orders-live",
+      "label": "总部订单",
+      "route": "/orders",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-order-audit-live",
+      "label": "总部订单审核",
+      "route": "/order-audit",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-auto-renew-live",
+      "label": "总部自动续费",
+      "route": "/auto-renew",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-refunds-live",
+      "label": "总部退款",
+      "route": "/refunds",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-invoices-live",
+      "label": "总部发票",
+      "route": "/invoices",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-expiring-live",
+      "label": "总部到期提醒",
+      "route": "/expiring",
+      "component": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveFinancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-payment-channels-live",
+      "label": "总部支付渠道",
+      "route": "/payment-channels",
+      "component": "frontend/src/pages/hq/HQLiveGovernancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveGovernancePages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-alerts-live",
+      "label": "总部告警",
+      "route": "/alerts",
+      "component": "frontend/src/pages/hq/HQLiveGovernancePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveGovernancePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-announcements-live",
+      "label": "总部公告",
+      "route": "/announcements",
+      "component": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-promotions-live",
+      "label": "总部促销",
+      "route": "/promotions",
+      "component": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-groups-live",
+      "label": "总部分组",
+      "route": "/groups",
+      "component": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-csat-live",
+      "label": "总部客户满意度",
+      "route": "/csat",
+      "component": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveMarketingPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-inquiry-auto-live",
+      "label": "总部询盘自动化",
+      "route": "/inquiry-auto",
+      "component": "frontend/src/pages/hq/HQLiveOpsPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveOpsPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-notify-config-live",
+      "label": "总部通知配置",
+      "route": "/notify-config",
+      "component": "frontend/src/pages/hq/HQLiveOpsPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveOpsPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-boosters-live",
+      "label": "总部加油包",
+      "route": "/boosters",
+      "component": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-coupons-live",
+      "label": "总部兑换码",
+      "route": "/coupons",
+      "component": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-points-live",
+      "label": "总部积分配置",
+      "route": "/points",
+      "component": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePackagesPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-agencies-live",
+      "label": "总部代理商",
+      "route": "/agencies",
+      "component": "frontend/src/pages/hq/HQLivePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-partners-live",
+      "label": "代理源合伙人",
+      "route": "/partners",
+      "component": "frontend/src/pages/hq/HQLivePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePages.tsx",
+      "template": "list",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-enterprises-live",
+      "label": "总部外贸企业",
+      "route": "/enterprises",
+      "component": "frontend/src/pages/hq/HQLivePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-plans-live",
+      "label": "总部客户计划",
+      "route": "/plans",
+      "component": "frontend/src/pages/hq/HQLivePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-sites-live",
+      "label": "总部站点",
+      "route": "/sites",
+      "component": "frontend/src/pages/hq/HQLivePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-domains-live",
+      "label": "总部域名",
+      "route": "/domains",
+      "component": "frontend/src/pages/hq/HQLivePages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLivePages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-qa-plans-live",
+      "label": "总部问答计划",
+      "route": "/qa-plans",
+      "component": "frontend/src/pages/hq/HQLiveQaPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveQaPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-qa-tasks-live",
+      "label": "总部问答任务",
+      "route": "/qa-tasks",
+      "component": "frontend/src/pages/hq/HQLiveQaPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveQaPages.tsx",
+      "template": "list",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-tdk-rules-live",
+      "label": "总部 TDK 规则",
+      "route": "/tdk-rules",
+      "component": "frontend/src/pages/hq/HQLiveSeoPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveSeoPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-seo-blogs-live",
+      "label": "总部 SEO 博客",
+      "route": "/seo-blogs",
+      "component": "frontend/src/pages/hq/HQLiveSeoPages.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQLiveSeoPages.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-social-authorization",
+      "label": "总部社交授权",
+      "route": "/social-authorization",
+      "component": "frontend/src/pages/hq/HQSocialAuthorization.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQSocialAuthorization.tsx",
+      "template": "form",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-social-publish-delivery",
+      "label": "总部社交发布交接",
+      "route": "/social-publish-delivery",
+      "component": "frontend/src/pages/hq/HQSocialPublishDelivery.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQSocialPublishDelivery.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-release-rollouts",
+      "label": "总部灰度发布",
+      "route": "/release-rollouts",
+      "component": "frontend/src/pages/hq/ReleaseRollouts.tsx",
+      "entryComponent": "frontend/src/pages/hq/ReleaseRollouts.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-tenant-governance",
+      "label": "总部租户治理",
+      "route": "/tenant-governance",
+      "component": "frontend/src/pages/hq/TenantGovernance.tsx",
+      "entryComponent": "frontend/src/pages/hq/TenantGovernance.tsx",
+      "template": "workflow",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-inquiries",
+      "label": "客户询盘工作台",
+      "route": "/inquiries",
+      "component": "frontend/src/pages/Inquiries.tsx",
+      "entryComponent": "frontend/src/pages/Inquiries.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-logout-callback",
+      "label": "退出登录回调",
+      "route": "/logout-callback",
+      "component": "frontend/src/pages/LogoutCallbackPage.tsx",
+      "entryComponent": "frontend/src/pages/LogoutCallbackPage.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-preview-frame",
+      "label": "客户站点预览框架",
+      "route": "/preview-frame",
+      "component": "frontend/src/pages/PreviewFrame.tsx",
+      "entryComponent": "frontend/src/pages/PreviewFrame.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-preview-site",
+      "label": "客户站点预览",
+      "route": "/sites/:slug",
+      "component": "frontend/src/pages/PreviewSite.tsx",
+      "entryComponent": "frontend/src/pages/PreviewSite.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings",
+      "label": "客户站点设置",
+      "route": "/site-settings",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings-general",
+      "label": "客户站点设置 general",
+      "route": "/site-settings?tab=general",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings-redirect",
+      "label": "客户站点设置 redirect",
+      "route": "/site-settings?tab=redirect",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings-domains",
+      "label": "客户站点设置 domains",
+      "route": "/site-settings?tab=domains",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings-domain-register",
+      "label": "客户站点设置 domain-register",
+      "route": "/site-settings?tab=domain-register",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings-domain-binding",
+      "label": "客户站点设置 domain-binding",
+      "route": "/site-settings?tab=domain-binding",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-site-settings-domain-transfer",
+      "label": "客户站点设置 domain-transfer",
+      "route": "/site-settings?tab=domain-transfer",
+      "component": "frontend/src/pages/SiteSettings.tsx",
+      "entryComponent": "frontend/src/pages/SiteSettings.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market",
+      "label": "总部产品市场",
+      "route": "/product-market",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market-operations",
+      "label": "总部产品市场 operations",
+      "route": "/product-market?tab=operations",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market-modules",
+      "label": "总部产品市场 modules",
+      "route": "/product-market?tab=modules",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market-layout",
+      "label": "总部产品市场 layout",
+      "route": "/product-market?tab=layout",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market-service",
+      "label": "总部产品市场 service",
+      "route": "/product-market?tab=service",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market-development",
+      "label": "总部产品市场 development",
+      "route": "/product-market?tab=development",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-product-market-blueprint",
+      "label": "总部产品市场 blueprint",
+      "route": "/product-market?tab=blueprint",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market",
+      "label": "代理源产品市场",
+      "route": "/product-market",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market-operations",
+      "label": "代理源产品市场 operations",
+      "route": "/product-market?tab=operations",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market-modules",
+      "label": "代理源产品市场 modules",
+      "route": "/product-market?tab=modules",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market-layout",
+      "label": "代理源产品市场 layout",
+      "route": "/product-market?tab=layout",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market-service",
+      "label": "代理源产品市场 service",
+      "route": "/product-market?tab=service",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market-development",
+      "label": "代理源产品市场 development",
+      "route": "/product-market?tab=development",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-source-product-market-blueprint",
+      "label": "代理源产品市场 blueprint",
+      "route": "/product-market?tab=blueprint",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market",
+      "label": "客户源产品市场",
+      "route": "/product-market",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market-operations",
+      "label": "客户源产品市场 operations",
+      "route": "/product-market?tab=operations",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market-modules",
+      "label": "客户源产品市场 modules",
+      "route": "/product-market?tab=modules",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market-layout",
+      "label": "客户源产品市场 layout",
+      "route": "/product-market?tab=layout",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market-service",
+      "label": "客户源产品市场 service",
+      "route": "/product-market?tab=service",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market-development",
+      "label": "客户源产品市场 development",
+      "route": "/product-market?tab=development",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-source-product-market-blueprint",
+      "label": "客户源产品市场 blueprint",
+      "route": "/product-market?tab=blueprint",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-client-style-settings",
+      "label": "总部客户版面设置",
+      "route": "/kh-style-settings",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-material-assets",
+      "label": "总部素材资源",
+      "route": "/material-assets",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-client-source-style-settings",
+      "label": "总部客户源版面设置",
+      "route": "/client-style-settings",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-agency-style-settings",
+      "label": "总部代理端版面设置",
+      "route": "/dl-style-settings",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-agency-source-style-settings",
+      "label": "总部代理源版面设置",
+      "route": "/agency-style-settings",
+      "component": "frontend/src/pages/ProductMarket.tsx",
+      "entryComponent": "frontend/src/pages/ProductMarket.tsx",
+      "template": "reference",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-smart-ads",
+      "label": "客户智能广告",
+      "route": "/smart-ads",
+      "component": "frontend/src/pages/SmartAds.tsx",
+      "entryComponent": "frontend/src/pages/SmartAds.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-smart-ads-overview",
+      "label": "客户智能广告 推广概览",
+      "route": "/smart-ads?tab=overview",
+      "component": "frontend/src/pages/SmartAds.tsx",
+      "entryComponent": "frontend/src/pages/SmartAds.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-smart-ads-platforms",
+      "label": "客户智能广告 广告平台",
+      "route": "/smart-ads?tab=platforms",
+      "component": "frontend/src/pages/SmartAds.tsx",
+      "entryComponent": "frontend/src/pages/SmartAds.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-smart-ads-campaigns",
+      "label": "客户智能广告 推广活动",
+      "route": "/smart-ads?tab=campaigns",
+      "component": "frontend/src/pages/SmartAds.tsx",
+      "entryComponent": "frontend/src/pages/SmartAds.tsx",
+      "template": "list",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-smart-ads-compare",
+      "label": "客户智能广告 跨平台对比",
+      "route": "/smart-ads?tab=compare",
+      "component": "frontend/src/pages/SmartAds.tsx",
+      "entryComponent": "frontend/src/pages/SmartAds.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social",
+      "label": "客户社交媒体",
+      "route": "/social",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-customer-roadmap",
+      "label": "客户社交媒体 痛点路线",
+      "route": "/social?tab=customer-roadmap",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-marketing-playbook",
+      "label": "客户社交媒体 营销作战",
+      "route": "/social?tab=marketing-playbook",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-dashboard",
+      "label": "客户社交媒体 运营总览",
+      "route": "/social?tab=dashboard",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-accounts",
+      "label": "客户社交媒体 账号连接",
+      "route": "/social?tab=accounts",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-create",
+      "label": "客户社交媒体 内容创作",
+      "route": "/social?tab=create",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-digital-human",
+      "label": "客户社交媒体 视频创作",
+      "route": "/social?tab=digital-human",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "editor",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-schedule",
+      "label": "客户社交媒体 发布中心",
+      "route": "/social?tab=schedule",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-automation",
+      "label": "客户社交媒体 互动转化",
+      "route": "/social?tab=automation",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-analytics",
+      "label": "客户社交媒体 数据归因",
+      "route": "/social?tab=analytics",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-social-settings",
+      "label": "客户社交媒体 平台设置",
+      "route": "/social?tab=settings",
+      "component": "frontend/src/pages/SocialMedia.tsx",
+      "entryComponent": "frontend/src/pages/SocialMedia.tsx",
+      "template": "form",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-invites",
+      "label": "代理端邀请入口",
+      "route": "/invites",
+      "component": "frontend/src/pages/agency/InviteLinks.tsx",
+      "entryComponent": "frontend/src/pages/agency/InviteLinks.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-oem",
+      "label": "代理端 OEM 入口",
+      "route": "/oem",
+      "component": "frontend/src/pages/agency/OEMSettings.tsx",
+      "entryComponent": "frontend/src/pages/agency/OEMSettings.tsx",
+      "template": "form",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "agency-plans-live",
+      "label": "代理端客户计划",
+      "route": "/plans",
+      "component": "frontend/src/pages/agency/AgencyLivePages.tsx",
+      "entryComponent": "frontend/src/pages/agency/AgencyLivePages.tsx",
+      "template": "dashboard",
+      "sourceScope": "agency_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "hq-code-editor-scope",
+      "label": "总部源码编辑器范围页",
+      "route": "/code-editor/:scope",
+      "component": "frontend/src/pages/hq/HQCodeEditor.tsx",
+      "entryComponent": "frontend/src/pages/hq/HQCodeEditor.tsx",
+      "template": "dashboard",
+      "sourceScope": "hq",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "client-product-analysis",
+      "label": "客户源产品分析",
+      "route": "/product-analysis",
+      "component": "frontend/src/pages/ProductAnalysis.tsx",
+      "entryComponent": "frontend/src/pages/ProductAnalysis.tsx",
+      "template": "workflow",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "table-shell",
+        "table-header",
+        "content",
+        "large-card",
+        "small-card",
+        "footer",
+        "scrollbar"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "product-analysis-trends",
+      "label": "产品分析趋势",
+      "route": "/product-analysis?tab=trends",
+      "component": "frontend/src/pages/ProductAnalysis.tsx",
+      "entryComponent": "frontend/src/pages/ProductAnalysis.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "product-analysis-data-studio",
+      "label": "产品分析数据工作室",
+      "route": "/product-analysis?tab=data-studio",
+      "component": "frontend/src/pages/ProductAnalysis.tsx",
+      "entryComponent": "frontend/src/pages/ProductAnalysis.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "product-analysis-market-finder",
+      "label": "产品分析市场雷达",
+      "route": "/product-analysis?tab=market-finder",
+      "component": "frontend/src/pages/ProductAnalysis.tsx",
+      "entryComponent": "frontend/src/pages/ProductAnalysis.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    },
+    {
+      "id": "product-analysis-global-market",
+      "label": "产品分析全球市场",
+      "route": "/product-analysis?tab=global-market",
+      "component": "frontend/src/pages/ProductAnalysis.tsx",
+      "entryComponent": "frontend/src/pages/ProductAnalysis.tsx",
+      "template": "dashboard",
+      "sourceScope": "client_source",
+      "governanceScopes": [
+        "hq",
+        "agency_source",
+        "client_source"
+      ],
+      "requiredRegions": [
+        "top",
+        "body",
+        "title-1",
+        "title-2",
+        "content",
+        "large-card",
+        "small-card",
+        "footer"
+      ],
+      "capabilities": [
+        "responsive-small-screen",
+        "developer",
+        "visual-editor",
+        "shared-contract",
+        "factory-restore",
+        "version-governance"
+      ],
+      "status": "complete",
+      "regionStrategy": "runtime-auto",
+      "factoryDefaultVersion": "2026.08.22.6"
+    }
+  ]
+}

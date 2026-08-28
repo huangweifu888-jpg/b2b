@@ -1,0 +1,43 @@
+# Dependencies and generated frontend output
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/test-results-*/
+frontend/tsconfig*.tsbuildinfo
+frontend/tmp-*
+
+# Python caches, runtime logs, and local databases
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.venv*/
+**/.venv*/
+**/.pytest_cache/
+backend/logs/
+logs/
+*.pyc
+*.db
+*.sqlite
+*.sqlite3
+
+# Local environment and generated releases
+.env
+.env.*
+*.env.local
+*.env.production
+*.secrets
+deployment/env/*.runtime.env
+release/**/artifacts/
+release/sboms/
+
+# Local runtime state, test artifacts, and developer tooling state
+runtime/
+test-results/
+.codex/
+tmp-*.mjs
+temp-*.mjs
+
+# Never version local backups or uploaded source assets
+../beifen/
+../sjk/
+../sczy/files/

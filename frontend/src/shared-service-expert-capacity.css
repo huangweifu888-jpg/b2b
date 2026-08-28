@@ -1,0 +1,498 @@
+/* Shared customer-service expert capacity plugin v4 -----------------------
+   One content container owns density and one summary grammar owns the
+   Current Expert editor, select-card list and sidebar expert dialog. Cards
+   auto-fill at their readable size rather than being locked to two columns. */
+
+#root#root .template-config-service-avatar-workspace {
+  container-name: tradepro-service-expert-workspace;
+  container-type: inline-size;
+}
+
+#root#root .template-config-service-card {
+  container-name: tradepro-service-card;
+  container-type: inline-size;
+  /* 当前专家真人朗音自定义是专家卡的尺寸原体：222px 可读下限。 */
+  --tradepro-current-expert-card-inline-size: 222px;
+  --tradepro-shared-expert-control-edge-inset: 8px;
+  --tradepro-shared-expert-control-gap: 8px;
+}
+
+#root#root .template-config-service-voice-workspace {
+  --tradepro-current-expert-card-inline-size: 222px;
+  /* Avatar, name and voice are one aligned control column. Eleven and three
+     eighths rem is the
+     exact longest-content frame: 8px edge + label + 8px gap + replacement
+     action + 8px gap + Clear + 8px edge. It removes the former empty tail
+     while preserving the same outer width for all three rows. */
+  --tradepro-current-expert-primary-field-inline-size: 182px;
+  --tradepro-current-expert-primary-action-inline-size: 80px;
+  --tradepro-shared-expert-control-edge-inset: 8px;
+  --tradepro-shared-expert-control-gap: 8px;
+  container-name: tradepro-service-current-expert-workspace;
+  container-type: inline-size;
+}
+
+/* The service settings content uses the same exact edge inset at every
+   container width. A fluid 8-14px gutter made the right edge look wider than
+   the controls even though the fields themselves already used 8px. */
+#root#root .template-config-service-card > .space-y-2 {
+  padding-inline: var(--tradepro-shared-expert-control-edge-inset) !important;
+}
+
+/* Every two-character field label is content-sized. Do not reserve the old
+   3rem rail: an unbordered label reads the field's own 8px edge directly. */
+#root#root .template-config-service-voice-workspace .template-config-service-field-label {
+  inline-size: fit-content;
+  min-inline-size: max-content !important;
+}
+
+/* Shared expert-control edge contract: field copy begins 8px from its outer
+   frame, while every bordered action/input/control keeps the same 8px text
+   inset. Labels have no separate border, so they inherit only the field edge. */
+#root#root .template-config-service-voice-workspace .template-config-service-voice-field {
+  padding: var(--tradepro-shared-expert-control-edge-inset) !important;
+}
+
+#root#root .template-config-service-voice-workspace .template-config-service-field-label {
+  padding-inline: 0 !important;
+}
+
+#root#root .template-config-service-voice-workspace :is(
+  .template-config-service-primary-field-control,
+  .template-config-service-voice-upload,
+  .template-config-service-voice-status,
+  [data-customer-service-small-card-choice="true"],
+  [data-customer-service-voice-clear="true"],
+  [data-shared-expert-control-edge]
+) {
+  padding-inline: var(--tradepro-shared-expert-control-edge-inset) !important;
+}
+
+#root#root .template-config-service-voice-workspace input:not([type="range"]) {
+  padding-inline: var(--tradepro-shared-expert-control-edge-inset) !important;
+}
+
+#root#root .template-config-service-voice-workspace :is(
+  [data-current-expert-voice-layout],
+  [data-shared-expert-settings-stack="true"],
+  [data-shared-expert-control-gap="true"],
+  [data-shared-expert-control-edge],
+  .template-config-service-field-pair,
+  .template-config-service-inline-control,
+  .template-config-service-voice-options,
+  [data-shared-responsive-wrap="service-animation-options"]
+) {
+  gap: var(--tradepro-shared-expert-control-gap) !important;
+}
+
+/* Content-sized text and icon capsules keep exactly 8px on each inline edge.
+   Removing their old desktop minimum widths returns the unused capacity to
+   the greeting, voice status and animation controls. */
+#root#root .template-config-service-voice-workspace [data-customer-service-gender-choices="true"]
+  [data-customer-service-small-card-choice="true"] {
+  min-inline-size: fit-content !important;
+}
+
+#root#root .template-config-service-voice-workspace [data-shared-expert-control-edge="play"] {
+  inline-size: auto !important;
+  min-inline-size: 0 !important;
+}
+
+/* Avatar, name and voice controls deliberately use only their actual content
+   width. Their field cards remain responsive, while the empty remainder stays
+   available instead of becoming a misleading oversized action capsule. */
+#root#root .template-config-service-primary-field-control {
+  flex: 0 0 auto !important;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+}
+
+/* Avatar and voice replacement use the same longest-text capsule width.
+   The Clear action therefore lands on the shared 8px trailing edge in both
+   rows instead of leaving one character of accidental spare capacity. */
+#root#root .template-config-service-voice-workspace :is(
+  .template-config-service-avatar-upload,
+  .template-config-service-voice-upload
+) {
+  inline-size: var(--tradepro-current-expert-primary-action-inline-size) !important;
+  min-inline-size: var(--tradepro-current-expert-primary-action-inline-size) !important;
+}
+
+#root#root .template-config-service-primary-field-input {
+  flex: 0 1 auto !important;
+  field-sizing: content;
+  inline-size: auto !important;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+/* Customer-voice speed shares the line with its toggle: it consumes spare
+   capacity first, then shrinks to a still-readable 112px before its field
+   needs its own row. */
+#root#root .template-config-service-voice-rate-control {
+  flex: 1 1 13rem;
+  min-inline-size: 7rem;
+}
+
+/* The native reminder preview used a fixed 12rem minimum, which overflowed a
+   narrow small-card. Its toolbar now measures its own inline size: the audio
+   element may shrink to the card edge and becomes a full, contained row when
+   the actions can no longer share a line. */
+#root#root [data-customer-service-reminder-toolbar="true"] {
+  container-name: tradepro-service-reminder-toolbar;
+  container-type: inline-size;
+  min-inline-size: 0;
+}
+
+#root#root [data-customer-service-reminder-preview="true"] {
+  box-sizing: border-box;
+  min-inline-size: 0 !important;
+  max-inline-size: 100%;
+}
+
+@container tradepro-service-reminder-toolbar (max-width: 26rem) {
+  #root#root [data-customer-service-reminder-preview="true"] {
+    flex-basis: 100%;
+    inline-size: 100%;
+  }
+}
+
+/* Keep the three compact primary fields only as wide as their actual contents.
+   The neighbouring configuration keeps all remaining inline capacity. */
+#root#root .template-config-service-primary-field-pair {
+  grid-template-columns: var(--tradepro-current-expert-primary-field-inline-size) minmax(0, 1fr) !important;
+}
+
+#root#root .template-config-service-primary-field-shell {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  inline-size: var(--tradepro-current-expert-primary-field-inline-size);
+  min-block-size: 3.375rem;
+  max-inline-size: 100%;
+}
+
+/* Avatar, name and voice share the same 182px frame, 54px row rhythm
+   and 8px edge/gap contract. Keeping every action in normal flex flow makes
+   “替换 → 清除” exactly 8px as well as the clear action's right edge. */
+#root#root .template-config-service-primary-field-shell > :is(
+  [data-shared-expert-control-gap="true"],
+  .template-config-service-inline-control
+) {
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+/* The neighbouring controls intentionally span two roomy tracks on wide
+   screens; this preserves the previous desktop density while the compact
+   field itself remains content-sized. */
+@media (min-width: 1280px) {
+  #root#root .template-config-service-primary-field-pair {
+    grid-template-columns: var(--tradepro-current-expert-primary-field-inline-size) repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* The Current Expert summary occupies the same auto-fit track as a Selection
+   Expert card.  The settings span every remaining track, so wide workspaces
+   may grow beyond four columns without making the Current Expert card wider
+   than its selection-card projection. */
+#root#root [data-current-expert-voice-layout] {
+  --tradepro-service-expert-card-min-inline-size: var(--tradepro-current-expert-card-inline-size, 222px);
+  grid-template-columns: repeat(auto-fit, minmax(
+    var(--tradepro-service-expert-card-min-inline-size),
+    1fr
+  )) !important;
+  gap: var(--tradepro-shared-expert-control-gap) !important;
+}
+
+#root#root [data-current-expert-settings-panel="true"] {
+  grid-column: 2 / -1;
+  min-inline-size: 0;
+}
+
+#root#root [data-current-expert-voice-layout] .template-config-service-avatar-preview {
+  inline-size: 100%;
+  align-self: start;
+  padding: var(--tradepro-shared-expert-control-edge-inset) !important;
+}
+
+/* Below two readable 222px cards plus the shared 8px gap, both Current Expert
+   and Selection Expert use one full-width track. */
+@container tradepro-service-current-expert-workspace (max-width: 451px) {
+  #root#root [data-current-expert-voice-layout] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #root#root [data-current-expert-settings-panel="true"] {
+    grid-column: auto;
+  }
+}
+
+/* Controls may need their own single-column flow before the outer expert
+   capacity reaches one column; this preserves readable inputs without
+   changing the shared card-width track above. */
+@container tradepro-service-current-expert-workspace (max-width: 34rem) {
+  #root#root .template-config-service-primary-field-pair {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #root#root .template-config-service-primary-field-shell {
+    inline-size: 100%;
+  }
+}
+
+/* At the intermediate two-column width, the compact avatar field remains at
+   the left while 客音 moves to a full-width second row. This gives the toggle
+   and speed slider one shared readable line instead of letting the slider
+   intrude into the greeting field below. */
+@container tradepro-service-current-expert-workspace (max-width: 44rem) {
+  #root#root [data-customer-service-voice-field="true"] {
+    grid-column: 1 / -1;
+    min-inline-size: 0;
+  }
+}
+
+#root#root [data-responsive-capacity-grid="service-experts"] {
+  --tradepro-service-expert-grid-gap: 8px;
+  --tradepro-service-expert-card-min-inline-size: var(--tradepro-current-expert-card-inline-size, 222px);
+  display: grid !important;
+  /* A compact choice card is allowed to keep filling available container
+     capacity. There is deliberately no visual column cap: cards step down
+     one by one until the owning container reaches a single readable column. */
+  grid-template-columns: repeat(auto-fit, minmax(
+    var(--tradepro-service-expert-card-min-inline-size),
+    1fr
+  )) !important;
+  align-items: stretch;
+  gap: var(--tradepro-service-expert-grid-gap) !important;
+  min-width: 0;
+}
+
+/* `min(100%, 222px)` inside an auto-fit minmax() may resolve the percentage
+   against an indefinite track size. Chromium can then squeeze a 222px card
+   below its registered readable minimum (three 219px tracks inside 673px),
+   while the shared capacity resolver correctly selects two columns. Keep the
+   real minimum literal above and switch to the one-column safe form only when
+   the owning container itself is narrower than one readable card. */
+@container tradepro-service-expert-workspace (max-width: 222px) {
+  #root#root [data-responsive-capacity-grid="service-experts"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+#root#root [data-responsive-capacity-grid="service-experts"] > [data-responsive-structure-item="expert"] {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+}
+
+#root#root [data-responsive-capacity-grid="service-experts"] > [data-responsive-structure-item="expert"] {
+  padding: 0 !important;
+}
+
+/* Twelve numbered voice samples use the same 8px control contract, but keep
+   a compact auto-fit footprint so the selector grows and shrinks with the
+   Current Expert editor instead of becoming a tall single-column list. */
+#root#root [data-responsive-capacity-grid="service-voices"] {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 6rem), 1fr)) !important;
+  gap: var(--tradepro-shared-expert-control-gap, 8px) !important;
+  min-width: 0;
+}
+
+#root#root [data-customer-service-voice-presets="true"] > button {
+  min-inline-size: 0;
+}
+
+#root#root [data-responsive-structure-item="expert"] {
+  container-name: tradepro-expert-card;
+  container-type: inline-size;
+  box-sizing: border-box;
+  padding: 8px !important;
+  border-radius: var(--adaptive-item-radius, 12px) !important;
+  box-shadow: none !important;
+}
+
+#root#root [data-responsive-structure-item="expert"] [data-shared-expert-identity-summary="small"] {
+  --tradepro-expert-summary-avatar-size: var(--tradepro-shared-expert-launcher-avatar-size);
+  --tradepro-expert-summary-row-gap: 8px;
+  --tradepro-expert-summary-column-gap: 8px;
+  grid-template-areas:
+    "avatar avatar"
+    "core behavior";
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--tradepro-expert-summary-row-gap) var(--tradepro-expert-summary-column-gap);
+  padding: 8px;
+  align-items: center;
+}
+
+/* Selection cards keep the two fact groups as left/right vertical columns:
+   identity facts on the left and behaviour facts on the right. This preserves
+   a clean reading order instead of turning either explanation group into a
+   dense 2 × 2 matrix. Full text stays in the title and the editor. */
+#root#root [data-responsive-structure-item="expert"] [data-shared-expert-identity-summary="small"] :is(
+  .shared-expert-identity-core,
+  .shared-expert-identity-behavior
+) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+#root#root [data-responsive-structure-item="expert"] [data-shared-expert-identity-summary="small"]
+  .shared-expert-identity-avatar {
+  display: flex;
+  width: 100% !important;
+  grid-column: 1 / -1;
+  justify-self: stretch;
+  justify-content: center;
+  align-items: center;
+}
+
+#root#root [data-responsive-structure-item="expert"] .shared-expert-identity-avatar,
+#root#root [data-responsive-structure-item="expert"] .shared-expert-identity-avatar-media {
+  width: var(--tradepro-expert-summary-avatar-size) !important;
+  height: var(--tradepro-expert-summary-avatar-size) !important;
+  min-height: var(--tradepro-expert-summary-avatar-size) !important;
+}
+
+/* All three projections use the same compact facts grammar. In particular,
+   labels no longer reserve a 2.75rem rail that left a large gap after ：. */
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary] {
+  --tradepro-expert-summary-avatar-size: var(--tradepro-shared-expert-launcher-avatar-size);
+  --tradepro-expert-summary-row-gap: clamp(0.125rem, 0.65cqi, 0.25rem);
+  --tradepro-expert-summary-column-gap: clamp(0.375rem, 1.2cqi, 0.625rem);
+  gap: var(--tradepro-expert-summary-row-gap) var(--tradepro-expert-summary-column-gap);
+}
+
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary]
+  :is(.shared-expert-identity-core, .shared-expert-identity-behavior) {
+  gap: var(--tradepro-expert-summary-row-gap) !important;
+}
+
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary]
+  .shared-expert-identity-meta-item {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: 0.125rem;
+}
+
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary]
+  .shared-expert-identity-meta-item > span {
+  min-width: 0;
+  flex: 0 1 auto;
+  letter-spacing: normal;
+}
+
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary]
+  .shared-expert-identity-meta-item > strong {
+  min-width: 0;
+}
+
+body [data-ai-service-expert-picker-body] {
+  container-name: tradepro-service-expert-picker;
+  container-type: inline-size;
+}
+
+body [data-ai-service-expert-picker-grid] {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+/* The expanded service header is sticky inside this scroll owner. Preserve a
+   non-layout scroll inset so keyboard focus, material pickers and automated
+   scroll-to-control actions cannot land underneath the live desktop header. */
+#root#root [data-product-market-table-shell]:has([data-template-config-service-header="true"])
+  > [data-shared-scroll-contract="table-inner-60"] {
+  --responsive-service-sticky-safe-block: 9.5rem;
+  scroll-padding-block-start: var(--responsive-service-sticky-safe-block) !important;
+}
+
+@container tradepro-service-expert-picker (min-width: 448px) {
+  body [data-ai-service-expert-picker-grid] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Current Expert is the canonical narrow summary: portrait first, then two
+   equally wide four-row fact columns separated by the shared 8px gutter.
+   Selection cards reuse this exact geometry, keeping the portrait centred. */
+#root [data-shared-expert-identity-summary="editor"] {
+  --tradepro-expert-summary-avatar-size: var(--tradepro-shared-expert-launcher-avatar-size);
+  --tradepro-expert-editor-avatar-facts-gap: 8px;
+  grid-template-areas:
+    "avatar avatar"
+    "core behavior";
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: var(--tradepro-expert-editor-avatar-facts-gap);
+  column-gap: 8px;
+  padding: 8px;
+  font-size: 0.75rem !important;
+  line-height: 1.35;
+}
+
+/* The resizable sidebar profile intentionally keeps its wider two-column
+   reading mode; it is not the narrow Current Expert configuration card. */
+body [data-shared-sidebar-expert-dialog="true"] [data-shared-expert-identity-summary="editor"] {
+  --tradepro-expert-summary-avatar-size: clamp(3.75rem, 30cqi, 5rem);
+  --tradepro-expert-editor-avatar-facts-gap: clamp(0.875rem, 3cqi, 1.25rem);
+  grid-template-areas:
+    "avatar avatar"
+    "core behavior";
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: var(--tradepro-expert-editor-avatar-facts-gap);
+  column-gap: clamp(0.375rem, 1.2cqi, 0.625rem);
+  padding: clamp(0.5rem, 2cqi, 0.75rem);
+  font-size: clamp(0.75rem, 3.8cqi, 0.8125rem) !important;
+}
+
+/* The sidebar profile is a resizable image viewer.  Its own measured token
+   must win over the compact editor preview cap used inside the Product Market
+   settings page, otherwise every popup portrait is forced back to 80px. */
+body [data-shared-sidebar-expert-dialog="true"] [data-shared-expert-identity-summary="editor"] {
+  --tradepro-expert-summary-avatar-size: var(--tradepro-expert-popup-avatar-size) !important;
+}
+
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary="editor"]
+  .shared-expert-identity-avatar {
+  width: 100% !important;
+  height: var(--tradepro-expert-summary-avatar-size) !important;
+  min-height: var(--tradepro-expert-summary-avatar-size) !important;
+  justify-self: stretch;
+  justify-content: center;
+}
+
+:is(#root, body [data-shared-sidebar-expert-dialog="true"]) [data-shared-expert-identity-summary="editor"]
+  .shared-expert-identity-avatar-media {
+  width: var(--tradepro-expert-summary-avatar-size) !important;
+  height: var(--tradepro-expert-summary-avatar-size) !important;
+  min-height: var(--tradepro-expert-summary-avatar-size) !important;
+}
+
+#root#root .template-config-service-avatar-preview {
+  container-name: tradepro-service-expert-preview;
+  container-type: inline-size;
+  min-height: 0 !important;
+}
+
+body [data-shared-sidebar-expert-dialog="true"] {
+  container-name: tradepro-service-expert-popup;
+  container-type: inline-size;
+}
+
+@container tradepro-service-expert-preview (max-width: 12rem) {
+  #root [data-shared-expert-identity-summary="editor"] {
+    grid-template-areas:
+      "avatar"
+      "core"
+      "behavior";
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container tradepro-service-expert-popup (max-width: 12rem) {
+  body [data-shared-sidebar-expert-dialog="true"] [data-shared-expert-identity-summary="editor"] {
+    grid-template-areas:
+      "avatar"
+      "core"
+      "behavior";
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

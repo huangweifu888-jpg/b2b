@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "version": "2026.08.28.1",
+  "ownership": "shared-first",
+  "purpose": "single-page-identity-and-governance-envelope",
+  "identity": {
+    "keyFormat": "{sourceScope}:{normalizedRoute}",
+    "requiredFields": ["sourceScope", "normalizedRoute"],
+    "sourceScopes": ["hq", "agency_source", "client_source"],
+    "sourceScopeResolver": "frontend/src/page-factory/page-factory.ts#resolvePageFactoryScope",
+    "normalizedRouteResolver": "frontend/src/page-factory/page-factory.ts#normalizePageFactoryRoute",
+    "queryIdentityContract": "frontend/src/lib/page-route-identity.ts",
+    "registry": "frontend/src/page-factory/page-registry.json"
+  },
+  "derivation": {
+    "pageFactoryId": "page-registry.id",
+    "template": "page-registry.template",
+    "ownerComponent": "page-registry.component",
+    "entryComponent": "page-registry.entryComponent",
+    "regions": "page-registry.requiredRegions",
+    "capabilities": "page-registry.capabilities",
+    "compositionManifest": "frontend/src/lib/page-composition-manifest.ts",
+    "impactMap": "frontend/src/lib/page-composition-impact-map.ts"
+  },
+  "snapshot": {
+    "requiredFields": [
+      "schemaVersion",
+      "identityKey",
+      "sourceScope",
+      "normalizedRoute",
+      "pageFactoryId",
+      "template",
+      "ownerComponent",
+      "entryComponent",
+      "contractVersions",
+      "loadPlan",
+      "evidenceRefs",
+      "lockState",
+      "fingerprint"
+    ],
+    "scopeValues": ["global", "page"],
+    "forbiddenPayloads": [
+      "business-data",
+      "tenant-content",
+      "uploaded-assets",
+      "downstream-custom-data",
+      "credentials",
+      "formal-backups"
+    ]
+  },
+  "contractReferences": {
+    "sharedOptimization": "developer-optimization-contract.json",
+    "mediaOptimization": "media-optimization-contract.json",
+    "designIntegration": "design-integration-contract.json",
+    "visualEvidence": "visual-evidence-contract.json",
+    "pageFactory": "frontend/src/page-factory/page-factory-standard.json"
+  },
+  "loadIntents": [
+    { "id": "critical", "trigger": "route", "entersStartupWindow": true },
+    { "id": "post-paint", "trigger": "post-paint", "entersStartupWindow": true },
+    { "id": "viewport", "trigger": "intersection", "entersStartupWindow": false },
+    { "id": "interaction", "trigger": "intent", "entersStartupWindow": false },
+    { "id": "background", "trigger": "idle", "entersStartupWindow": false }
+  ],
+  "fingerprint": {
+    "algorithm": "sha256",
+    "requiredInputs": [
+      "sourceScope",
+      "normalizedRoute",
+      "pageFactoryId",
+      "pageFactoryVersion",
+      "sharedOptimizationVersion",
+      "mediaContractVersion",
+      "sourceFingerprint"
+    ],
+    "invalidatesOn": [
+      "identity-change",
+      "page-factory-version-change",
+      "shared-contract-version-change",
+      "media-contract-version-change",
+      "source-fingerprint-change"
+    ]
+  },
+  "lockBoundary": {
+    "receiptRequiredBeforeRelease": true,
+    "levels": ["source", "page", "column"],
+    "inheritanceVisible": true,
+    "lockedStateAllows": ["read", "inspect", "export-evidence"],
+    "lockedStateBlocks": ["source-write", "visual-save", "sync", "publish"],
+    "releaseCheck": {
+      "owner": "08-page-lock",
+      "mode": "read-only",
+      "allTargetLevelsMustBeOpen": true,
+      "missingTargetMapping": "blocked",
+      "serverSourceReadbackRequired": true,
+      "receiptBinds": ["workflow-run", "stage-06-fingerprint", "source-fingerprint", "target-manifest-fingerprint", "lock-snapshot-fingerprint"],
+      "receiptAuthority": "display-only",
+      "authorizationTransport": "opaque-one-time-request-id"
+    }
+  }
+}

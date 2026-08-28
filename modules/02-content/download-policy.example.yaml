@@ -1,0 +1,16 @@
+schema_version: 1
+enabled: false
+visibility: authenticated
+allowed_roles:
+  - owner
+  - editor
+  - viewer
+allowed_extensions:
+  - pdf
+  - docx
+  - xlsx
+  - zip
+max_downloads_per_hour: 20
+download_url_ttl_seconds: 300
+public_https_only: true
+sftp_admin_only: true

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "role": "client",
+  "version": "foundation-0.1.0",
+  "deploymentId": "shared-stamp-a",
+  "sourcePath": "modules/02-content",
+  "sourceRevision": "8fef8dad3e043d337e8fb523aa6fe94163ab0738",
+  "createdAt": "2026-07-28T02:47:03.159391+00:00",
+  "files": [
+    {
+      "path": "download-policy.example.yaml",
+      "sha256": "a3f031fca68792fee607ff207f5cb42e92c378a697814dabc74f1bddf0cf354b",
+      "bytes": 263
+    },
+    {
+      "path": "module.manifest.json",
+      "sha256": "257ebd8edef13d1bbb6166439c0e2638b6a328b28f1f1b6aba29e6965fd66bbb",
+      "bytes": 405
+    }
+  ]
+}

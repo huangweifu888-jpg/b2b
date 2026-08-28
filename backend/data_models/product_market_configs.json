@@ -1,0 +1,36 @@
+{
+    "title": "product_market_configs",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Primary key, auto-increment"
+        },
+        "user_id": {
+            "type": "string",
+            "description": "User ID"
+        },
+        "config_data": {
+            "type": "string",
+            "description": "JSON string of the full product market configuration"
+        },
+        "version": {
+            "type": "integer",
+            "description": "Version number, auto-incremented per user"
+        },
+        "version_label": {
+            "type": "string",
+            "description": "Optional label for this version, e.g. 'Before theme change'"
+        },
+        "is_current": {
+            "type": "boolean",
+            "description": "Whether this is the current active config"
+        }
+    },
+    "required": [
+        "id",
+        "user_id",
+        "config_data",
+        "version"
+    ]
+}

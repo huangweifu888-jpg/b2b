@@ -1,0 +1,52 @@
+[
+  {
+    "id": "site_client_source_test",
+    "slug": "client-source-test-plan",
+    "name": "客户源测试计划",
+    "scope": "client",
+    "html": "",
+    "thumbnail": null,
+    "createdAt": "2026-08-24T07:58:19.616502",
+    "updatedAt": "2026-08-24T07:58:19.616502",
+    "industry": null,
+    "builderState": {
+      "siteName": "客户源测试计划",
+      "brandName": "客户源测试计划",
+      "languages": [
+        "zh-CN",
+        "en"
+      ],
+      "blocks": [],
+      "agencyCode": "D001-2-001-3-001",
+      "agencyName": "三级代理商D001-2-001-3-001",
+      "directAgencyCode": "D001-2-001-3-001",
+      "directAgencyName": "三级代理商D001-2-001-3-001",
+      "rootAgencyCode": "D001",
+      "rootAgencyName": "代理商1",
+      "subAgencyCode": "D001-2-001-3-001",
+      "subAgencyName": "三级代理商D001-2-001-3-001",
+      "clientCode": "K001",
+      "clientName": "客户1",
+      "planCode": "J001",
+      "planName": "客户源测试计划",
+      "companyName": "客户源测试计划"
+    },
+    "agencyId": 64,
+    "agencyCode": "D001-2-001-3-001",
+    "agencyName": "三级代理商D001-2-001-3-001",
+    "clientId": 65,
+    "clientCode": "K001",
+    "clientName": "客户1",
+    "planId": 57,
+    "planCode": "J001",
+    "planName": "客户源测试计划",
+    "urlPath": "/D001-2-001-3-001-三级代理商D001-2-001-3-001/K001-客户1/J001-客户源测试计划/",
+    "publicUrl": "http://127.0.0.1:3004/D001-2-001-3-001-三级代理商D001-2-001-3-001/K001-客户1/J001-客户源测试计划/",
+    "directAgencyCode": "D001-2-001-3-001",
+    "directAgencyName": "三级代理商D001-2-001-3-001",
+    "rootAgencyCode": "D001",
+    "rootAgencyName": "代理商1",
+    "subAgencyCode": "D001-2-001-3-001",
+    "subAgencyName": "三级代理商D001-2-001-3-001"
+  }
+]

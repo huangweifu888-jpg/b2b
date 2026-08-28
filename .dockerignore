@@ -1,0 +1,16 @@
+.git
+.github
+.codex
+**/__pycache__
+**/.pytest_cache
+backend/.venv*
+frontend/node_modules
+frontend/dist
+logs
+release/**/artifacts
+*.db
+*.sqlite*
+.env
+.env.*
+deployment/env/*.runtime.env
+**/local-data/config/path-registry.json

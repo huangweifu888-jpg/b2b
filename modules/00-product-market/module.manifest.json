@@ -1,0 +1,1 @@
+{"id":"00-product-market","name":"产品市场","version":"0.1.0","legacyFrontendPage":"src/pages/ProductMarket.tsx","requiredTenantContext":["agent_path","tenant_id","client_id"]}

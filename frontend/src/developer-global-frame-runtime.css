@@ -1,0 +1,322 @@
+/* Published developer_global_frame runtime adapter.
+ *
+ * These selectors activate only after the runtime has matched an immutable
+ * published profile, an exact registry target and one real FactoryPage root.
+ * They style canonical regions in place; they never create or move DOM.
+ */
+#root [data-developer-global-frame-runtime="applied"] [data-developer-global-frame-runtime-region],
+#root [data-developer-global-frame-runtime-region="topbar"],
+#root [data-developer-global-frame-runtime-region="footer"] {
+  font-family: var(--developer-global-frame-runtime-font-family, inherit);
+}
+
+#root [data-developer-global-frame-runtime-region="topbar"] {
+  gap: var(--developer-global-frame-topbar-gap, inherit) !important;
+  padding: var(--developer-global-frame-topbar-padding, inherit) !important;
+  border-color: var(--developer-global-frame-topbar-border, currentColor) !important;
+  background: var(--developer-global-frame-topbar-bg, inherit) !important;
+  color: var(--developer-global-frame-topbar-text, inherit) !important;
+  font-family: var(--developer-global-frame-topbar-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-topbar-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-topbar-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-topbar-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-topbar-letter-spacing, inherit) !important;
+}
+
+/* Page-factory template projection.  Unlike the exact DOM adapter above this
+ * works across the three source shells, but only on the canonical regions
+ * already marked by FactoryPage / SharedPageWorkspace. */
+#root [data-developer-global-frame-template-runtime="applied"] {
+  background: var(--developer-global-frame-workspace-bg, transparent) !important;
+  color: var(--developer-global-frame-workspace-text, inherit) !important;
+  font-family: var(--developer-global-frame-workspace-font-family, inherit) !important;
+}
+
+#root [data-developer-global-frame-template-runtime="applied"] [data-development-standard-frame-region="title"] {
+  gap: var(--developer-global-frame-title-gap, 0) !important;
+  padding: var(--developer-global-frame-title-padding, 0) !important;
+  border-color: var(--developer-global-frame-title-border, currentColor) !important;
+  border-width: var(--developer-global-frame-title-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-title-radius, 0) !important;
+  background: var(--developer-global-frame-title-bg, transparent) !important;
+  color: var(--developer-global-frame-title-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-title-shadow, none) !important;
+  font-family: var(--developer-global-frame-title-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-title-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-title-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-title-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-title-letter-spacing, inherit) !important;
+}
+
+#root [data-developer-global-frame-template-runtime="applied"] [data-development-standard-frame-region="table-shell"] {
+  gap: var(--developer-global-frame-table-shell-gap, 0) !important;
+  padding: var(--developer-global-frame-table-shell-padding, 0) !important;
+  border-color: var(--developer-global-frame-table-shell-border, currentColor) !important;
+  border-width: var(--developer-global-frame-table-shell-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-table-shell-radius, 0) !important;
+  background: var(--developer-global-frame-table-shell-bg, transparent) !important;
+  color: var(--developer-global-frame-table-shell-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-table-shell-shadow, none) !important;
+}
+
+#root [data-developer-global-frame-template-runtime="applied"] [data-development-standard-frame-region="table-header"] {
+  gap: var(--developer-global-frame-table-header-gap, 0) !important;
+  padding: var(--developer-global-frame-table-header-padding, 0) !important;
+  border-color: var(--developer-global-frame-table-header-border, currentColor) !important;
+  border-width: var(--developer-global-frame-table-header-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-table-header-radius, 0) !important;
+  background: var(--developer-global-frame-table-header-bg, transparent) !important;
+  color: var(--developer-global-frame-table-header-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-table-header-shadow, none) !important;
+  font-family: var(--developer-global-frame-table-header-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-table-header-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-table-header-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-table-header-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-table-header-letter-spacing, inherit) !important;
+}
+
+#root [data-developer-global-frame-template-runtime="applied"] [data-development-standard-frame-region="content"] {
+  gap: var(--developer-global-frame-content-gap, 0) !important;
+  padding:
+    var(--developer-global-frame-content-padding-top, 0)
+    calc(var(--developer-global-frame-content-padding-right, 0px) + var(--developer-global-frame-content-right-inset, 0px))
+    var(--developer-global-frame-content-padding-bottom, 0)
+    var(--developer-global-frame-content-padding-left, 0) !important;
+  border-color: var(--developer-global-frame-content-border, currentColor) !important;
+  border-width: var(--developer-global-frame-content-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-content-radius, 0) !important;
+  background: var(--developer-global-frame-content-bg, transparent) !important;
+  color: var(--developer-global-frame-content-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-content-shadow, none) !important;
+  font-family: var(--developer-global-frame-content-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-content-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-content-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-content-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-content-letter-spacing, inherit) !important;
+  scrollbar-gutter: var(--developer-global-frame-scrollbar-gutter, stable) !important;
+}
+
+html[data-developer-global-frame-template-runtime="applied"] #root [data-responsive-topbar] {
+  gap: var(--developer-global-frame-topbar-gap, inherit) !important;
+  padding: var(--developer-global-frame-topbar-padding, inherit) !important;
+  border-color: var(--developer-global-frame-topbar-border, currentColor) !important;
+  background: var(--developer-global-frame-topbar-bg, inherit) !important;
+  color: var(--developer-global-frame-topbar-text, inherit) !important;
+  font-family: var(--developer-global-frame-topbar-font-family, inherit) !important;
+}
+
+html[data-developer-global-frame-template-runtime="applied"] #root :is([data-client-page-footer], [data-source-page-footer], [data-platform-global-footer]) {
+  gap: var(--developer-global-frame-footer-gap, inherit) !important;
+  padding: var(--developer-global-frame-footer-padding, inherit) !important;
+  border-color: var(--developer-global-frame-footer-border, currentColor) !important;
+  background: var(--developer-global-frame-footer-bg, inherit) !important;
+  color: var(--developer-global-frame-footer-text, inherit) !important;
+  font-family: var(--developer-global-frame-footer-font-family, inherit) !important;
+}
+
+#root [data-developer-global-frame-runtime="applied"] {
+  background: var(--developer-global-frame-workspace-bg, transparent) !important;
+  color: var(--developer-global-frame-workspace-text, inherit) !important;
+  font-family: var(--developer-global-frame-workspace-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-workspace-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-workspace-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-workspace-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-workspace-letter-spacing, inherit) !important;
+}
+
+#root [data-developer-global-frame-runtime="applied"] [data-developer-global-frame-runtime-region="title"] {
+  gap: var(--developer-global-frame-title-gap, 0) !important;
+  padding: var(--developer-global-frame-title-padding, 0) !important;
+  border-color: var(--developer-global-frame-title-border, currentColor) !important;
+  border-width: var(--developer-global-frame-title-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-title-radius, 0) !important;
+  background: var(--developer-global-frame-title-bg, transparent) !important;
+  color: var(--developer-global-frame-title-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-title-shadow, none) !important;
+  font-family: var(--developer-global-frame-title-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-title-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-title-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-title-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-title-letter-spacing, inherit) !important;
+}
+
+#root [data-developer-global-frame-runtime="applied"] [data-developer-global-frame-runtime-region="table-shell"] {
+  gap: var(--developer-global-frame-table-shell-gap, 0) !important;
+  padding: var(--developer-global-frame-table-shell-padding, 0) !important;
+  border-color: var(--developer-global-frame-table-shell-border, currentColor) !important;
+  border-width: var(--developer-global-frame-table-shell-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-table-shell-radius, 0) !important;
+  background: var(--developer-global-frame-table-shell-bg, transparent) !important;
+  color: var(--developer-global-frame-table-shell-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-table-shell-shadow, none) !important;
+}
+
+#root [data-developer-global-frame-runtime="applied"] [data-developer-global-frame-runtime-region="table-header"] {
+  gap: var(--developer-global-frame-table-header-gap, 0) !important;
+  padding: var(--developer-global-frame-table-header-padding, 0) !important;
+  border-color: var(--developer-global-frame-table-header-border, currentColor) !important;
+  border-width: var(--developer-global-frame-table-header-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-table-header-radius, 0) !important;
+  background: var(--developer-global-frame-table-header-bg, transparent) !important;
+  color: var(--developer-global-frame-table-header-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-table-header-shadow, none) !important;
+  font-family: var(--developer-global-frame-table-header-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-table-header-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-table-header-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-table-header-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-table-header-letter-spacing, inherit) !important;
+}
+
+#root [data-developer-global-frame-runtime="applied"] [data-developer-global-frame-runtime-region="content"] {
+  gap: var(--developer-global-frame-content-gap, 0) !important;
+  padding:
+    var(--developer-global-frame-content-padding-top, 0)
+    calc(var(--developer-global-frame-content-padding-right, 0px) + var(--developer-global-frame-content-right-inset, 0px))
+    var(--developer-global-frame-content-padding-bottom, 0)
+    var(--developer-global-frame-content-padding-left, 0) !important;
+  border-color: var(--developer-global-frame-content-border, currentColor) !important;
+  border-width: var(--developer-global-frame-content-border-width, 0) !important;
+  border-radius: var(--developer-global-frame-content-radius, 0) !important;
+  background: var(--developer-global-frame-content-bg, transparent) !important;
+  color: var(--developer-global-frame-content-text, inherit) !important;
+  box-shadow: var(--developer-global-frame-content-shadow, none) !important;
+  font-family: var(--developer-global-frame-content-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-content-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-content-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-content-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-content-letter-spacing, inherit) !important;
+  scrollbar-gutter: var(--developer-global-frame-scrollbar-gutter, stable) !important;
+}
+
+#root [data-developer-global-frame-runtime-region="footer"] {
+  gap: var(--developer-global-frame-footer-gap, inherit) !important;
+  padding: var(--developer-global-frame-footer-padding, inherit) !important;
+  border-color: var(--developer-global-frame-footer-border, currentColor) !important;
+  background: var(--developer-global-frame-footer-bg, inherit) !important;
+  color: var(--developer-global-frame-footer-text, inherit) !important;
+  font-family: var(--developer-global-frame-footer-font-family, inherit) !important;
+  font-size: var(--developer-global-frame-footer-font-size, inherit) !important;
+  font-weight: var(--developer-global-frame-footer-font-weight, inherit) !important;
+  line-height: var(--developer-global-frame-footer-line-height, inherit) !important;
+  letter-spacing: var(--developer-global-frame-footer-letter-spacing, inherit) !important;
+}
+
+#root [data-developer-global-frame-annotation-visible="false"]::after {
+  display: none !important;
+}
+
+#root [data-developer-global-frame-annotation-visible="true"]::after {
+  font-size: var(--developer-global-frame-runtime-annotation-font-size, 10px) !important;
+  translate: var(--developer-global-frame-runtime-annotation-offset, 0px) 0;
+}
+
+/* Blueprint is a real independent consumer, but its canonical regions live in
+ * one existing bridge node. This adapter repairs only that height chain and
+ * makes Content the sole table-inner-60 scroll owner. */
+#root [data-developer-global-frame-runtime="applied"][data-developer-global-frame-adapter="product-market-blueprint-bridge-v1"] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#root [data-developer-global-frame-runtime="applied"][data-developer-global-frame-adapter="product-market-blueprint-bridge-v1"]
+  > [data-developer-global-frame-bridge="product-market-blueprint-bridge-v1"] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#root [data-developer-global-frame-adapter="product-market-blueprint-bridge-v1"]
+  [data-developer-global-frame-runtime-region="title"] {
+  flex: 0 0 auto !important;
+}
+
+#root [data-developer-global-frame-adapter="product-market-blueprint-bridge-v1"]
+  [data-developer-global-frame-runtime-region="table-shell"] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#root [data-developer-global-frame-adapter="product-market-blueprint-bridge-v1"]
+  [data-developer-global-frame-runtime-region="table-header"] {
+  min-width: 0 !important;
+  flex: 0 0 auto !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+}
+
+#root [data-developer-global-frame-adapter="product-market-blueprint-bridge-v1"]
+  [data-developer-global-frame-runtime-region="content"] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  padding-bottom: max(var(--developer-global-frame-content-padding-bottom, 0px), 3.75rem) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+  scroll-padding-bottom: 3.75rem;
+  scrollbar-gutter: var(--developer-global-frame-scrollbar-gutter, stable) !important;
+}
+
+/* The blueprint bridge is shared by all three source scopes.  Only the
+ * client-source profile owns an explicit profile-page alias, so HQ and Agency
+ * resolve through the ordinary reference template.  Bind the same real
+ * semantic bridge nodes in every scope; otherwise the blueprint's very tall
+ * business DOM expands behind app-main and its canonical Content lane has no
+ * scroll range. */
+#root [data-responsive-page-host]
+  [data-page-factory-page-id$="-product-market-blueprint"][data-product-market-workspace] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#root [data-responsive-page-host]
+  [data-page-factory-page-id$="-product-market-blueprint"][data-product-market-workspace]
+  > [data-product-market-maturity-badge-source="blueprint-only"] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#root [data-responsive-page-host]
+  [data-page-factory-page-id$="-product-market-blueprint"]
+  [data-factory-platform-blueprint] {
+  display: flex !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+#root [data-responsive-page-host]
+  [data-page-factory-page-id$="-product-market-blueprint"]
+  [data-factory-platform-blueprint]
+  > [data-page-list-scroll-owner] {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 1 1 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}

@@ -1,0 +1,16 @@
+version: 1
+profile: 07-server
+serverCount: 7
+roleDefinitionsRoot: deployment/role-definitions
+releaseFlow: deployment/common/global-release-flow.yaml
+sourcePolicy: one-source-no-role-copies
+purpose: 完整自建职责并加入独立异地灾备
+external_backup_required: false
+servers:
+  - {id: SERVER-01-SOURCE, roles: ["01"], summary: 总部端、代理源和客户源}
+  - {id: SERVER-02-AGENCY, roles: ["02"], summary: 多代理和多级代理运行端}
+  - {id: SERVER-03-CLIENT, roles: ["03"], summary: 多客户端和客户端多个计划}
+  - {id: SERVER-04-WORKER, roles: ["04"], summary: 素材、构建、发布和异步任务}
+  - {id: SERVER-05-EDGE, roles: ["05"], summary: 公网入口、HTTPS、域名和观测}
+  - {id: SERVER-06-DATA, roles: ["06"], summary: PostgreSQL、Redis和对象存储}
+  - {id: SERVER-07-BACKUP-DR, roles: ["07"], summary: 位于不同故障域的备份和恢复演练}
