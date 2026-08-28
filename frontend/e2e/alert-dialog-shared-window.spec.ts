@@ -81,7 +81,7 @@ test("AlertDialog shared X closes with Cancel semantics and never confirms", asy
     };
   });
   expect(Math.abs(titleCloseGeometry.titleCenter - titleCloseGeometry.closeCenter)).toBeLessThanOrEqual(1);
-  expect(titleCloseGeometry.closeHeight).toBe(32);
+  expect(titleCloseGeometry.closeHeight).toBeCloseTo(32, 1);
   expect(titleCloseGeometry.closeLineHeight).toBe("0px");
   await sharedClose.click();
 

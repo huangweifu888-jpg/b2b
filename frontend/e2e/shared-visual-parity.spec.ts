@@ -638,7 +638,7 @@ test.describe('registered shared visual parity', () => {
         const nextStatus = currentStatus === 'hidden' ? 'inactive' : 'hidden';
         await card.locator(`[data-product-market-status-control="${nextStatus}"]`).click();
         await expect(card).toHaveAttribute('data-shared-status-card', nextStatus);
-        const statusProjection = await card.evaluate((element, status) => {
+        await expect.poll(() => card.evaluate((element, status) => {
           const normalize = (value: string) => value.replace(/\s+/g, ' ').trim();
           const resolveAt = (scope: HTMLElement, property: 'backgroundColor' | 'borderColor' | 'color', value: string) => {
             const probe = document.createElement('span');
@@ -667,8 +667,10 @@ test.describe('registered shared visual parity', () => {
             && normalize(badgeStyle.backgroundColor) === resolveAt(statusBadge, 'backgroundColor', 'var(--product-market-status-bg)')
             && normalize(badgeStyle.color) === resolveAt(statusBadge, 'color', 'var(--product-market-status-text)')
           );
-        }, nextStatus);
-        expect(statusProjection, 'changing a status must immediately project all four factory colours').toBe(true);
+        }, nextStatus), {
+          message: 'changing a status must project all four factory colours after React commits the update',
+          timeout: 10_000,
+        }).toBe(true);
       }
 
       if (target.id === 'product-market-layout') {

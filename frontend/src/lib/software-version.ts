@@ -1,10 +1,10 @@
-export const HQ_SOFTWARE_VERSION = "H38702";
-export const HQ_SOFTWARE_VERSION_NUMBER = 38702;
-export const HQ_SOURCE_FINGERPRINT = "1bf4541c364b9da3e0c830bc7ff63c76352b8349334057eafd54aa2b5ba56568";
-export const HQ_SOFTWARE_UPDATE_ID = "2026-08-28-hq-h38702-auto-source-tracker";
+export const HQ_SOFTWARE_VERSION = "H38703";
+export const HQ_SOFTWARE_VERSION_NUMBER = 38703;
+export const HQ_SOURCE_FINGERPRINT = "dcac049654f5f2fb88801abb1061efbae1316525b79d713e1c4af4cbed4b58a5";
+export const HQ_SOFTWARE_UPDATE_ID = "2026-08-28-hq-h38703-auto-source-tracker";
 export const HQ_SOFTWARE_UPDATE_TITLE = "总部源码自动推进";
-export const HQ_SOFTWARE_UPDATE_SUMMARY = "自动检测到 4 个受跟踪源码变动：frontend/src/lib/developer-design-integration.ts、frontend/src/lib/developer-optimization-contract.ts、frontend/src/lib/media-optimization-contract.ts、frontend/src/page-factory/phase-two-verification.json。";
-export const HQ_SOFTWARE_UPDATE_CREATED_AT = "2026-08-28T11:17:59.909Z";
+export const HQ_SOFTWARE_UPDATE_SUMMARY = "自动检测到 1 个受跟踪源码变动：frontend/src/page-factory/phase-two-verification.json。";
+export const HQ_SOFTWARE_UPDATE_CREATED_AT = "2026-08-28T11:36:06.743Z";
 
 export function parseVersionNumber(value?: string | null) {
   if (!value) return 0;
