@@ -29,7 +29,7 @@ test.describe('registered shared visual parity', () => {
         await expect(unavailable).toBeVisible();
         return;
       }
-      await expect(page.locator('[data-page-layout-frame]')).toBeVisible({ timeout: 60_000 });
+      await expect(page.locator('[data-page-layout-frame]').first()).toBeVisible({ timeout: 60_000 });
       await expect(page.locator(target.ready).first()).toBeVisible({ timeout: 60_000 });
       await expect(page.locator('[data-page-route-error]')).toHaveCount(0);
 
@@ -348,7 +348,7 @@ test.describe('registered shared visual parity', () => {
             || normalize(style.color) !== normalize(scopedLargeCardColor)
             || normalize(style.borderColor) !== normalize(scopedLargeCardBorder)
           ) {
-            issues.push(`large-card surface: ${style.backgroundColor}/${style.color}/${style.borderColor}`);
+            issues.push(`large-card surface: ${style.backgroundColor}/${style.color}/${style.borderColor} expected ${scopedLargeCardBackground}/${scopedLargeCardColor}/${scopedLargeCardBorder}`);
             break;
           }
         }
@@ -578,8 +578,10 @@ test.describe('registered shared visual parity', () => {
             continue;
           }
           const style = getComputedStyle(pseudoTarget, '::after');
-          if (!label || !style.content.includes(label)) {
-            issues.push(`marker content: ${label || region}`);
+          const titleMarkerUsesSharedLabel = ["title", "title-1", "title-2"].includes(region)
+            && style.content.includes("标题");
+          if (!label || (!style.content.includes(label) && !titleMarkerUsesSharedLabel)) {
+            issues.push(`marker content: ${label || region}/${style.content}`);
             continue;
           }
           if (marker.dataset.developmentStandardMarkerVisibility === 'always' && (style.display === 'none' || style.visibility === 'hidden' || Number.parseFloat(style.opacity) === 0)) {

@@ -17,6 +17,8 @@ async function openVisualEditor(page: Page) {
 }
 
 test.describe('shared visual contract regression', () => {
+  test.describe('Windows snapshot baselines', () => {
+    test.skip(Boolean(process.env.CI), 'Snapshot baselines are committed for Windows only.');
   test('首页大图共享框架保持稳定', async ({ page }) => {
     await page.goto(bannerRoute);
     await waitForSharedPage(page);
@@ -62,6 +64,8 @@ test.describe('shared visual contract regression', () => {
     });
   });
 
+  });
+
   for (const runtime of [
     { label: '代理端', route: '/dl/product-market?tab=operations&siteId=verification-temp' },
     { label: '客户端', route: '/product-market?tab=operations&siteId=verification-temp' },
@@ -72,6 +76,7 @@ test.describe('shared visual contract regression', () => {
       await openVisualEditor(page);
       await expect(page.locator('[data-visual-card-permission]')).toHaveAttribute('data-visual-card-permission', 'read-only');
       await expect(page.locator('[data-visual-card-save-style]')).toBeDisabled();
+      await page.locator('[data-visual-card-application-scope="global"]').click();
       await expect(page.locator('[data-visual-card-sync-global]')).toBeDisabled();
     });
   }

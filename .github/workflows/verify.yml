@@ -141,6 +141,7 @@ jobs:
       - name: Verify dependency supply-chain controls
         run: |
           python tools/verify_supply_chain_controls.py
+          python -m unittest tools.test_supply_chain_audit
           python tools/run_supply_chain_audit.py
           python tools/verify_sbom_controls.py
       - name: Generate frontend dependency SBOM
@@ -197,6 +198,18 @@ jobs:
             frontend/dist/stats.json
             frontend/dist/bundle-budget-report.json
           if-no-files-found: warn
-      - name: Run browser regression smoke tests
+      - name: Run portable accessibility regression
         working-directory: frontend
-        run: npm run test:e2e -- e2e/customer-service-avatar-hydration.spec.ts
+        run: npx playwright test e2e/accessibility.spec.ts
+      - name: Run portable mobile-frame regressions
+        working-directory: frontend
+        run: npx playwright test e2e/mobile-app-frame.spec.ts
+      - name: Run portable shared-visual parity regressions
+        working-directory: frontend
+        run: npx playwright test e2e/shared-visual-parity.spec.ts
+      - name: Run portable three-source frame contract
+        working-directory: frontend
+        run: npm run test:three-source-global-frame-contract
+      - name: Run repository-compatible browser regression suite
+        working-directory: frontend
+        run: npm run test:e2e

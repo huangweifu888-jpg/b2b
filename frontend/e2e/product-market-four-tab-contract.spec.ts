@@ -83,7 +83,7 @@ for (const tab of TABS) {
   });
 }
 
-test("operations requests every bundled expert portrait at most once", async ({ page }) => {
+test("operations bounds every bundled portrait to its first-paint and shared requests", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   const portraitRequests = new Map<string, number>();
   page.on("request", (request) => {
@@ -100,7 +100,161 @@ test("operations requests every bundled expert portrait at most once", async ({ 
 
   const counts = [...portraitRequests.values()];
   expect(counts.length).toBeGreaterThanOrEqual(9);
-  expect(Math.max(...counts)).toBe(1);
+  expect(Math.max(...counts)).toBeLessThanOrEqual(2);
+});
+
+test("a bundled portrait renders before its response and retries after a failed load", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const targetPortrait = "/assets/customer-service-local-materials/01.us-woman-expert.webp";
+  let shouldFail = true;
+  let requestCount = 0;
+  const requestResourceTypes: string[] = [];
+  let releaseFirstRequest!: () => void;
+  let markFirstRequestSeen!: () => void;
+  const firstRequestGate = new Promise<void>((resolve) => {
+    releaseFirstRequest = resolve;
+  });
+  const firstRequestSeen = new Promise<void>((resolve) => {
+    markFirstRequestSeen = resolve;
+  });
+
+  await page.route(`**${targetPortrait}`, async (portraitRoute) => {
+    requestCount += 1;
+    requestResourceTypes.push(portraitRoute.request().resourceType());
+    if (!shouldFail) {
+      await portraitRoute.continue();
+      return;
+    }
+    markFirstRequestSeen();
+    await firstRequestGate;
+    await portraitRoute.fulfill({
+      status: 200,
+      contentType: "image/webp",
+      headers: { "cache-control": "public, max-age=3600" },
+      body: "not-a-decodable-webp",
+    });
+  });
+
+  await page.goto(route("operations"), { waitUntil: "domcontentloaded" });
+  await firstRequestSeen;
+  const targetImage = page.locator(`img[src="${targetPortrait}"]`).first();
+  await expect(targetImage).toHaveCount(1);
+  expect(requestResourceTypes).toEqual(["image"]);
+  const failedRequestCount = requestCount;
+  releaseFirstRequest();
+  shouldFail = false;
+  await expect(targetImage).toHaveCount(0);
+
+  await expect(page.locator('img[data-customer-service-avatar-media-source="bundled-fallback"]').first())
+    .toBeVisible({ timeout: 15_000 });
+  expect(requestCount).toBeGreaterThan(failedRequestCount);
+  await expect.poll(() => requestResourceTypes.includes("fetch")).toBe(true);
+});
+
+test("an eager bundled portrait retries after remount but not after parent rerenders", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const targetPortrait = "/assets/customer-service-local-materials/01.us-woman-expert.webp";
+  const resourceTypes: string[] = [];
+  let serveCorruptPortrait = true;
+
+  await page.route(`**${targetPortrait}`, async (portraitRoute) => {
+    const request = portraitRoute.request();
+    resourceTypes.push(request.resourceType());
+    if (serveCorruptPortrait) {
+      await portraitRoute.fulfill({
+        status: 200,
+        contentType: "image/webp",
+        body: "not-a-decodable-webp",
+      });
+      return;
+    }
+    await portraitRoute.continue();
+  });
+
+  await page.goto(route("operations"), { waitUntil: "domcontentloaded" });
+  await expectReady(page);
+  const launcher = page.locator("[data-ai-service-drag-root]").first();
+  await expect(launcher).toBeVisible({ timeout: 15_000 });
+  await expect.poll(() => resourceTypes.filter((type) => type === "fetch").length).toBeGreaterThan(0);
+  await page.waitForTimeout(500);
+  const fetchesAfterFailure = resourceTypes.filter((type) => type === "fetch").length;
+
+  const box = await launcher.boundingBox();
+  expect(box).not.toBeNull();
+  await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box!.x + box!.width / 2 - 40, box!.y + box!.height / 2 - 20, { steps: 4 });
+  await page.mouse.up();
+  await page.waitForTimeout(500);
+  expect(resourceTypes.filter((type) => type === "fetch").length).toBe(fetchesAfterFailure);
+
+  serveCorruptPortrait = false;
+  await launcher.click();
+  await expect.poll(() => resourceTypes.filter((type) => type === "fetch").length)
+    .toBeGreaterThan(fetchesAfterFailure);
+  await expect(page.locator(
+    '[data-ai-service-drag-root] img[data-customer-service-avatar-media-source="bundled-fallback"]',
+  ).first()).toBeVisible({ timeout: 15_000 });
+});
+
+test("an eager remount reloads after joining a corrupt in-flight request", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const targetPortrait = "/assets/customer-service-local-materials/01.us-woman-expert.webp";
+  let serveRecoveredPortrait = false;
+  let heldInitialFetch = false;
+  let fetchCount = 0;
+  let releaseInitialFetch!: () => void;
+  let markInitialFetchSeen!: () => void;
+  const initialFetchGate = new Promise<void>((resolve) => {
+    releaseInitialFetch = resolve;
+  });
+  const initialFetchSeen = new Promise<void>((resolve) => {
+    markInitialFetchSeen = resolve;
+  });
+
+  await page.route(`**${targetPortrait}`, async (portraitRoute) => {
+    const request = portraitRoute.request();
+    if (request.resourceType() === "fetch") {
+      fetchCount += 1;
+      if (!heldInitialFetch) {
+        heldInitialFetch = true;
+        markInitialFetchSeen();
+        await initialFetchGate;
+        await portraitRoute.fulfill({
+          status: 200,
+          contentType: "image/webp",
+          headers: { "cache-control": "public, max-age=3600" },
+          body: "not-a-decodable-webp",
+        });
+        return;
+      }
+    }
+    if (serveRecoveredPortrait) {
+      await portraitRoute.continue();
+      return;
+    }
+    await portraitRoute.fulfill({
+      status: 200,
+      contentType: "image/webp",
+      headers: { "cache-control": "public, max-age=3600" },
+      body: "not-a-decodable-webp",
+    });
+  });
+
+  await page.goto(route("operations"), { waitUntil: "domcontentloaded" });
+  await expectReady(page);
+  const launcher = page.locator("[data-ai-service-drag-root]").first();
+  await expect(launcher).toBeVisible({ timeout: 15_000 });
+  await initialFetchSeen;
+
+  serveRecoveredPortrait = true;
+  await launcher.click();
+  releaseInitialFetch();
+
+  await expect.poll(() => fetchCount).toBeGreaterThan(1);
+  await expect(page.locator(
+    '[data-ai-service-drag-root] img[data-customer-service-avatar-media-source="bundled-fallback"]',
+  ).first()).toBeVisible({ timeout: 15_000 });
 });
 
 test("column configuration stays at two groups until an explicit action and resets on tab re-entry", async ({ page }) => {

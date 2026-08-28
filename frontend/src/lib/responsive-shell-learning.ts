@@ -808,7 +808,7 @@ export function collectResponsiveLearningObservation(
           || !overflowTrigger
           || !isVisible(overflowTrigger)
           || !Number.isFinite(iconRequired)
-          || (iconRequired <= available + tolerance
+          || (available >= iconRequired + hysteresis
             && pageTools.scrollWidth <= pageTools.clientWidth + tolerance)
         ))
         || (!overflowed && labelMode === "labelled" && (

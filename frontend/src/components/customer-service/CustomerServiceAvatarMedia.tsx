@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 import { MEDIA_OPTIMIZATION_CONTRACT } from "@/lib/media-optimization-contract";
 
@@ -23,28 +23,64 @@ type AvatarMediaCandidate = {
 };
 
 const avatarFirstPaintContract = MEDIA_OPTIMIZATION_CONTRACT.delivery.avatarFirstPaint;
-const bundledFallbackResolvedUrlCache = new Map<string, string | null>();
+const bundledFallbackResolvedUrlCache = new Map<string, string>();
 const bundledFallbackLoadPromises = new Map<string, Promise<string | null>>();
+const bundledFallbackCacheBypassUrls = new Set<string>();
+
+async function createDecodedBundledFallbackUrl(blob: Blob) {
+  const resolvedUrl = URL.createObjectURL(blob);
+  try {
+    const probe = new Image();
+    probe.src = resolvedUrl;
+    await probe.decode();
+    if (probe.naturalWidth <= 0 || probe.naturalHeight <= 0) {
+      throw new Error("Bundled avatar decoded without image dimensions");
+    }
+    return resolvedUrl;
+  } catch (error) {
+    URL.revokeObjectURL(resolvedUrl);
+    throw error;
+  }
+}
 
 function loadBundledFallbackOnce(url: string) {
-  if (bundledFallbackResolvedUrlCache.has(url)) {
-    return Promise.resolve(bundledFallbackResolvedUrlCache.get(url) || null);
-  }
+  const cached = bundledFallbackResolvedUrlCache.get(url);
+  if (cached) return Promise.resolve(cached);
   const existing = bundledFallbackLoadPromises.get(url);
   if (existing) return existing;
-  const pending = fetch(url, { cache: "force-cache" })
+  const pending = fetch(url, { cache: bundledFallbackCacheBypassUrls.has(url) ? "reload" : "force-cache" })
     .then(async (response) => {
-      if (!response.ok) return null;
-      const resolvedUrl = URL.createObjectURL(await response.blob());
+      if (!response.ok) throw new Error(`Unable to load bundled avatar: ${response.status}`);
+      const resolvedUrl = await createDecodedBundledFallbackUrl(await response.blob());
       bundledFallbackResolvedUrlCache.set(url, resolvedUrl);
+      bundledFallbackCacheBypassUrls.delete(url);
       return resolvedUrl;
     })
     .catch(() => {
-      bundledFallbackResolvedUrlCache.set(url, null);
+      bundledFallbackCacheBypassUrls.add(url);
       return null;
+    })
+    .finally(() => {
+      if (bundledFallbackLoadPromises.get(url) === pending) bundledFallbackLoadPromises.delete(url);
     });
   bundledFallbackLoadPromises.set(url, pending);
   return pending;
+}
+
+function loadBundledFallbackForMountedAttempt(url: string) {
+  const joinedExistingAttempt = bundledFallbackLoadPromises.has(url);
+  return loadBundledFallbackOnce(url).then((resolvedUrl) => {
+    if (resolvedUrl || !joinedExistingAttempt || !bundledFallbackCacheBypassUrls.has(url)) {
+      return resolvedUrl;
+    }
+    return loadBundledFallbackOnce(url);
+  });
+}
+
+function evictBrokenBundledFallback(sourceUrl: string, resolvedUrl: string) {
+  if (bundledFallbackResolvedUrlCache.get(sourceUrl) !== resolvedUrl) return;
+  bundledFallbackResolvedUrlCache.delete(sourceUrl);
+  URL.revokeObjectURL(resolvedUrl);
 }
 
 /**
@@ -79,21 +115,40 @@ export function CustomerServiceAvatarMedia({
     sourceUrl: normalizedFallbackUrl,
     resolvedUrl: bundledFallbackResolvedUrlCache.get(normalizedFallbackUrl) || null,
   }));
+  const [initialEagerFallbackAttempt] = useState<{ sourceUrl: string; promise: Promise<string | null> } | null>(() => {
+    if (loading !== "eager" || !normalizedFallbackUrl) return null;
+    const cached = bundledFallbackResolvedUrlCache.get(normalizedFallbackUrl);
+    return {
+      sourceUrl: normalizedFallbackUrl,
+      promise: cached ? Promise.resolve(cached) : loadBundledFallbackForMountedAttempt(normalizedFallbackUrl),
+    };
+  });
+  const eagerFallbackAttempts = useRef(new Map(
+    initialEagerFallbackAttempt
+      ? [[initialEagerFallbackAttempt.sourceUrl, initialEagerFallbackAttempt.promise] as const]
+      : [],
+  ));
 
   useEffect(() => {
-    if (!normalizedFallbackUrl) return;
+    if (!normalizedFallbackUrl || loading !== "eager") return;
     let active = true;
     setFallbackLoadState({
       sourceUrl: normalizedFallbackUrl,
       resolvedUrl: bundledFallbackResolvedUrlCache.get(normalizedFallbackUrl) || null,
     });
-    void loadBundledFallbackOnce(normalizedFallbackUrl).then((resolvedUrl) => {
+    let attempt = eagerFallbackAttempts.current.get(normalizedFallbackUrl);
+    if (!attempt) {
+      const cached = bundledFallbackResolvedUrlCache.get(normalizedFallbackUrl);
+      attempt = cached ? Promise.resolve(cached) : loadBundledFallbackForMountedAttempt(normalizedFallbackUrl);
+      eagerFallbackAttempts.current.set(normalizedFallbackUrl, attempt);
+    }
+    void attempt.then((resolvedUrl) => {
       if (active) setFallbackLoadState({ sourceUrl: normalizedFallbackUrl, resolvedUrl });
     });
     return () => {
       active = false;
     };
-  }, [normalizedFallbackUrl]);
+  }, [loading, normalizedFallbackUrl]);
 
   useEffect(() => {
     if (!normalizedSourceUrl || normalizedSourceKind !== "image" || normalizedSourceUrl === normalizedFallbackUrl) return;
@@ -133,18 +188,43 @@ export function CustomerServiceAvatarMedia({
   ) {
     candidates.push({ url: normalizedSourceUrl, kind: normalizedSourceKind, source: "saved" });
   }
-  if (normalizedFallbackUrl && fallbackLoadState.sourceUrl === normalizedFallbackUrl && fallbackLoadState.resolvedUrl) {
-    candidates.push({ url: fallbackLoadState.resolvedUrl, kind: "image", source: "bundled-fallback" });
+  if (normalizedFallbackUrl) {
+    const resolvedFallbackUrl = fallbackLoadState.sourceUrl === normalizedFallbackUrl
+      ? fallbackLoadState.resolvedUrl || normalizedFallbackUrl
+      : normalizedFallbackUrl;
+    candidates.push({ url: resolvedFallbackUrl, kind: "image", source: "bundled-fallback" });
   }
   const candidate = candidates.find((item) => !failedUrls.includes(item.url));
 
   const rejectCandidate = () => {
     if (!candidate) return;
+    if (candidate.source === "bundled-fallback" && normalizedFallbackUrl) {
+      bundledFallbackCacheBypassUrls.add(normalizedFallbackUrl);
+      if (candidate.url !== normalizedFallbackUrl) {
+        evictBrokenBundledFallback(normalizedFallbackUrl, candidate.url);
+      }
+      if (loading === "lazy") {
+        void loadBundledFallbackForMountedAttempt(normalizedFallbackUrl).then((resolvedUrl) => {
+          if (resolvedUrl) setFallbackLoadState({ sourceUrl: normalizedFallbackUrl, resolvedUrl });
+        });
+      }
+    }
     setLoadState((current) => {
       const ready = current.signature === signature ? current.readyUrls : [];
       const failed = current.signature === signature ? current.failedUrls : [];
       if (failed.includes(candidate.url)) return current;
       return { signature, readyUrls: ready, failedUrls: [...failed, candidate.url] };
+    });
+  };
+
+  const shareLoadedBundledFallback = () => {
+    if (
+      loading !== "lazy"
+      || candidate?.source !== "bundled-fallback"
+      || candidate.url !== normalizedFallbackUrl
+    ) return;
+    void loadBundledFallbackOnce(normalizedFallbackUrl).then((resolvedUrl) => {
+      if (resolvedUrl) setFallbackLoadState({ sourceUrl: normalizedFallbackUrl, resolvedUrl });
     });
   };
 
@@ -183,6 +263,7 @@ export function CustomerServiceAvatarMedia({
       style={style}
       loading={loading}
       decoding={MEDIA_OPTIMIZATION_CONTRACT.delivery.imageDecoding}
+      onLoad={shareLoadedBundledFallback}
       onError={rejectCandidate}
     />
   );

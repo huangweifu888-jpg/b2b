@@ -8221,9 +8221,15 @@ export default function ProductMarket() {
         search: location.search,
       };
       if (detail.scopeKey !== buildVisualCardLayoutScopeKey(scope)) return;
+      const visualIntentRequest = {
+        workspaceScope: scope.workspaceScope,
+        pathname: location.pathname,
+        search: location.search,
+      };
       const currentRouteLock = resolveCompletedLayoutLock(location.pathname, location.search);
       if (isRouteCompletedPageHardLocked(location.pathname, location.search)
         || (currentRouteLock && isCompletedSourceLocked(currentRouteLock))) {
+        clearDeveloperGlobalStyleVisualIntent(window.sessionStorage, visualIntentRequest);
         detail.error = "当前页面锁或源码锁已启用；可视化保存已阻断。";
         return;
       }
@@ -8234,11 +8240,6 @@ export default function ProductMarket() {
 
       const currentConfig = useProductMarketStore.getState().exportConfig();
       const applicationScope = detail.applicationScope || "global";
-      const visualIntentRequest = {
-        workspaceScope: scope.workspaceScope,
-        pathname: location.pathname,
-        search: location.search,
-      };
       const canaryIntent = readDeveloperGlobalStyleVisualIntent(window.sessionStorage, visualIntentRequest);
       if (canaryIntent && applicationScope !== "canary-profile") {
         detail.error = "全局开发流程试点只允许确认 canary-profile；当前页配置与全局配置均不会写入。";

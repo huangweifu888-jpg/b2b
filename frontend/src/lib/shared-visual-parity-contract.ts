@@ -778,7 +778,7 @@ export function inspectSharedVisualParity(root: ParentNode = document): SharedVi
           || !overflowTrigger
           || !visibleElements(independentTools, "[data-responsive-toolbar-trigger='overflow']").length
           || !Number.isFinite(iconRequired)
-          || (iconRequired <= available + tolerance
+          || (available >= iconRequired + hysteresis
             && independentTools.scrollWidth <= independentTools.clientWidth + tolerance)
         ))
         || (!toolsOverflowed && labelMode === "labelled" && (!allLabelsVisible || labelledRequired > available + tolerance))

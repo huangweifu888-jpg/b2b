@@ -490,9 +490,13 @@ export function FactoryPage({
             ...contentSurfaces,
             firstMeaningfulChild,
           ]);
-          if (required.has("title-2")) assign("title-2", Array.from(new Set(
-            headings.map((heading) => resolveAutoTitleRegion(root, heading)),
-          )));
+          if (required.has("title-2")) assign("title-2", Array.from(new Set([
+            ...headings.map((heading) => resolveAutoTitleRegion(root, heading)),
+            // Content assignment may already own a shared page-width title
+            // wrapper. Keep the real heading as the canonical title fallback
+            // instead of leaving the required region undiscoverable.
+            ...headings,
+          ])));
           if (required.has("large-card")) assign("large-card", largeCardCandidates);
           if (required.has("small-card")) assign("small-card", [
             ...smallCardCandidates,
