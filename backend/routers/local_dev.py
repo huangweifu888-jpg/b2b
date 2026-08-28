@@ -18,7 +18,6 @@ import sys
 import tempfile
 import threading
 import time
-import tkinter as tk
 from typing import Any, Literal
 from urllib.parse import parse_qsl, quote, unquote, urlencode, urlparse
 from urllib.request import urlopen
@@ -2205,6 +2204,8 @@ def _open_external_url(url: str) -> None:
 
 def _copy_text_to_system_clipboard(text: str) -> None:
     if sys.platform.startswith("win"):
+        import tkinter as tk
+
         root = tk.Tk()
         root.withdraw()
         root.clipboard_clear()

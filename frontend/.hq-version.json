@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38695,
-  "version": "H38695",
-  "updatedAt": "2026-08-28T10:01:13.061Z",
-  "sourceFingerprint": "ac77ce6aee86ebe815c8ada673fe4c40f966d37fbff0e1ecf64432618738170c",
+  "sequence": 38696,
+  "version": "H38696",
+  "updatedAt": "2026-08-28T10:06:19.050Z",
+  "sourceFingerprint": "db856e9defc9a4518949eeeca43ae18c3f11c2ce2ec67cbdb81c0ca4482afc47",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -334,7 +334,7 @@
     "backend/routers/factory_technical_seo.py": "82f4f7033bf612ad0bba72a6da1e85d320fcb980175e7535b3372ad9a54c4657",
     "backend/routers/factory_warranty_rma.py": "b9f1b6cdecd94739052ec6a8bbb32d1233a848cb5f4db8dc4fdcf470d923e0bd",
     "backend/routers/health.py": "0630b1312049d50a88ebf98207753efe1b0ab8374c9dc93df463838f947c287e",
-    "backend/routers/local_dev.py": "8aaae76175e40d46f442320ce261868988fd0003f7f60aa3b3af1f9fe2e11d64",
+    "backend/routers/local_dev.py": "44ecdabd3bb94e88f0a836b64b8b1c2cd6c87609898f6f1ab4bfd52d9475ffc1",
     "backend/routers/module_registry.py": "0bded4c18019a78ddcb8a3a35c259775d2f3f7b28813e4596dac25d7e62f5230",
     "backend/routers/operations.py": "65b982b59371a57f7a56ab46a9079a65920ba04035e520856d99fd34fd81ae26",
     "backend/routers/plan_runtime.py": "945813d3c3e3f33fb7cc37e0782b3b89ae14720e1e645c2d671c49321583bb54",
@@ -1361,17 +1361,16 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "frontend/package.json",
-    "frontend/scripts/verify-developer-workflow-run.mjs"
+    "backend/routers/local_dev.py"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 2 个受跟踪源码变动：frontend/package.json、frontend/scripts/verify-developer-workflow-run.mjs。",
+  "summary": "自动检测到 1 个受跟踪源码变动：backend/routers/local_dev.py。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38695",
+    "version": "H38696",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }
