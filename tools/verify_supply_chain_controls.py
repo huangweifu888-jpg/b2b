@@ -63,6 +63,8 @@ def main() -> int:
         except (KeyError, TypeError, ValueError) as exc:
             raise AssertionError(f"Invalid expires_on for {package_name}") from exc
         require(expires_on >= date.today(), f"Expired supply-chain exception: {package_name} ({expires_on})")
+        require(item.get("ecosystem") in {"npm", "pypi"}, f"Unsupported ecosystem for {package_name}")
+        require(isinstance(item.get("vulnerability_id"), str) and item["vulnerability_id"].strip(), f"{package_name} must document vulnerability_id")
         for field in ("owner", "reason", "mitigation"):
             require(isinstance(item.get(field), str) and item[field].strip(), f"{package_name} must document {field}")
 

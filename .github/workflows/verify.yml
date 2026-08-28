@@ -38,7 +38,7 @@ jobs:
       - name: Verify frontend/backend target manifest parity
         run: python tools/verify_developer_target_manifest_parity.py
       - name: Audit Python dependencies
-        run: pip-audit -r backend/requirements.lock.txt
+        run: python tools/run_backend_dependency_audit.py
       - name: Generate backend dependency SBOM
         run: |
           mkdir -p "$RUNNER_TEMP/b2b-sbom"

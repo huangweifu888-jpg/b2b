@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38693,
-  "version": "H38693",
-  "updatedAt": "2026-08-28T09:21:44.360Z",
-  "sourceFingerprint": "2db84e033b03a30192b071d34f0bd247d7157caaa245e5dfc5093f23d77541e4",
+  "sequence": 38694,
+  "version": "H38694",
+  "updatedAt": "2026-08-28T09:30:57.898Z",
+  "sourceFingerprint": "d2d0fbb21b87a76ae3b783b57d08961bedd13ea68a0870fbe6b6eb542f73165f",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -238,7 +238,7 @@
     "backend/models/template_snapshot.py": "71f56bbe2dbc5155212799f0a0fde0354a529272c065b448c6a4af17ebeec363",
     "backend/published_sites.json": "b1c11b99a2d2936a3556edfb435c605fb44b2036a3d20c9e180ef14734d617be",
     "backend/requirements.default": "690dfbdfe68e7e2e00684ba795d5eb57100fc9e8b8d82089e2d43a62ed64d1c2",
-    "backend/requirements.lock.txt": "1ff4b9e261221a910d45c2808807785166a50eafc7a24fde30b28ce7740b3eca",
+    "backend/requirements.lock.txt": "35e22ec31a558348dc8590fc5d857da4cf9b4c75a9a9ba37560c75fb9ae36227",
     "backend/requirements.txt": "b85057373b2297797d4149e6cbf853010dc0548ee38827a05a1686f867aff938",
     "backend/routers/__init__.py": "cbacc8761833b64aa017a3df2d933c3897f9f19997044efaea49f206ec1b205a",
     "backend/routers/ad_optimization_suggestions.py": "4396d574f5ab13e2ca78f54064e010c22613c6caa653a3f9cb845f1b76ea4555",
@@ -617,7 +617,7 @@
     "backend/tools/verify_website_build_migration.py": "b81e451369242c7a1b29dd3dc3e34c11976f7b09ea4da76e4735a6eced0d232c",
     "backend/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "frontend/index.html": "fd265cd235120835bc9b966f2e84133e1b060bfbb5dbbb3f2ff4886e600c8a76",
-    "frontend/package.json": "7d2aa4f09c1da46a76a805bc84d2afa64fec8d812cb9e27615d3a06f9146f5ef",
+    "frontend/package.json": "aaa5d276ad659f97686fc28fff6d125d3873d57deaf9c6aa9e105b178dd9a932",
     "frontend/postcss.config.js": "e32657baf631d7c5f4dc67b4b2ee0ec8e7d5b3c41860e09cddce7c0377cd80bc",
     "frontend/prerender/blog-routes.js": "5acbb30f51cc28b106acf1c9d5bc4b93d6a478b138769829a4b7187a56cc5d04",
     "frontend/prerender/blog-sitemap.js": "9a1f5bc792124fbe76e721de1524cef3b88ac99f05e2aeed102147d505a39867",
@@ -1361,37 +1361,17 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "backend/core/database.py",
-    "backend/published_sites.json",
-    "backend/routers/local_dev.py",
-    "backend/routers/version_backups.py",
-    "backend/services/aihub.py",
-    "frontend/scripts/hq-version-utils.mjs",
-    "frontend/src/App.tsx",
-    "frontend/src/components/AdminLayout.tsx",
-    "frontend/src/components/AgencySourceLayout.tsx",
-    "frontend/src/components/ClientSourceLayout.tsx",
-    "frontend/src/components/HQLayout.tsx",
-    "frontend/src/index.css",
-    "frontend/src/lib/ai-site-builder.ts",
-    "frontend/src/lib/platform-api.ts",
-    "frontend/src/lib/product-market-version.ts",
-    "frontend/src/lib/product-navigation.ts",
-    "frontend/src/page-factory/factory-default-snapshot.json",
-    "frontend/src/page-factory/page-factory-standard.json",
-    "frontend/src/page-factory/page-inventory-baseline.json",
-    "frontend/src/page-factory/page-inventory.json",
-    "frontend/src/page-factory/page-registry.json",
-    "frontend/src/pages/hq/HQLivePages.tsx"
+    "backend/requirements.lock.txt",
+    "frontend/package.json"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 22 个受跟踪源码变动：backend/core/database.py、backend/published_sites.json、backend/routers/local_dev.py、backend/routers/version_backups.py、backend/services/aihub.py、frontend/scripts/hq-version-utils.mjs 等。",
+  "summary": "自动检测到 2 个受跟踪源码变动：backend/requirements.lock.txt、frontend/package.json。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38693",
+    "version": "H38694",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }

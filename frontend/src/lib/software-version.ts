@@ -1,10 +1,10 @@
-export const HQ_SOFTWARE_VERSION = "H38693";
-export const HQ_SOFTWARE_VERSION_NUMBER = 38693;
-export const HQ_SOURCE_FINGERPRINT = "2db84e033b03a30192b071d34f0bd247d7157caaa245e5dfc5093f23d77541e4";
-export const HQ_SOFTWARE_UPDATE_ID = "2026-08-28-hq-h38693-auto-source-tracker";
+export const HQ_SOFTWARE_VERSION = "H38694";
+export const HQ_SOFTWARE_VERSION_NUMBER = 38694;
+export const HQ_SOURCE_FINGERPRINT = "d2d0fbb21b87a76ae3b783b57d08961bedd13ea68a0870fbe6b6eb542f73165f";
+export const HQ_SOFTWARE_UPDATE_ID = "2026-08-28-hq-h38694-auto-source-tracker";
 export const HQ_SOFTWARE_UPDATE_TITLE = "总部源码自动推进";
-export const HQ_SOFTWARE_UPDATE_SUMMARY = "自动检测到 22 个受跟踪源码变动：backend/core/database.py、backend/published_sites.json、backend/routers/local_dev.py、backend/routers/version_backups.py、backend/services/aihub.py、frontend/scripts/hq-version-utils.mjs 等。";
-export const HQ_SOFTWARE_UPDATE_CREATED_AT = "2026-08-28T09:21:44.360Z";
+export const HQ_SOFTWARE_UPDATE_SUMMARY = "自动检测到 2 个受跟踪源码变动：backend/requirements.lock.txt、frontend/package.json。";
+export const HQ_SOFTWARE_UPDATE_CREATED_AT = "2026-08-28T09:30:57.898Z";
 
 export function parseVersionNumber(value?: string | null) {
   if (!value) return 0;
