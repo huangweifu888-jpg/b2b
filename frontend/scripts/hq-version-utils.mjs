@@ -63,6 +63,14 @@ function relativePath(file) {
   return path.relative(workspaceRoot, file).replaceAll("\\", "/");
 }
 
+function fingerprintContents(contents) {
+  // GitHub Actions checks out source with LF while common Windows Git setups
+  // materialize the same text files with CRLF. H source fingerprints must
+  // identify source content rather than the host platform's line endings.
+  const normalized = contents.toString("utf8").replace(/\r\n/g, "\n");
+  return createHash("sha256").update(normalized, "utf8").digest("hex");
+}
+
 async function listFiles(directory) {
   let entries;
   try {
@@ -91,7 +99,7 @@ export async function readTrackedSources() {
     .sort((left, right) => relativePath(left).localeCompare(relativePath(right)));
   const entries = await Promise.all(files.map(async (file) => {
     const contents = await readFile(file);
-    return [relativePath(file), createHash("sha256").update(contents).digest("hex")];
+    return [relativePath(file), fingerprintContents(contents)];
   }));
   return Object.fromEntries(entries);
 }
