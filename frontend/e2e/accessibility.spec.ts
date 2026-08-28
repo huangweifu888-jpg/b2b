@@ -7,9 +7,16 @@ test('Chinese document metadata, keyboard focus, and mobile viewport remain usab
   await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN');
   await expect(page.locator('#root')).toBeVisible();
 
-  await page.keyboard.press('Tab');
-  await expect(page.locator(':focus')).toHaveCount(1);
-
   const ariaControls = page.locator('[aria-label], [aria-labelledby]');
   await expect(ariaControls).not.toHaveCount(0);
+
+  const firstKeyboardControl = page
+    .locator('button:visible, a[href]:visible, input:visible, select:visible, textarea:visible, [tabindex]:visible')
+    .first();
+  await expect(firstKeyboardControl).toBeVisible();
+  await firstKeyboardControl.focus();
+  await expect(firstKeyboardControl).toBeFocused();
+
+  await page.keyboard.press('Tab');
+  await expect(page.locator(':focus')).toHaveCount(1);
 });

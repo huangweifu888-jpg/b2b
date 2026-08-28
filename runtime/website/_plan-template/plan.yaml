@@ -1,0 +1,13 @@
+schema_version: 1
+plan_id: REPLACE_WITH_PLAN_ID
+client_id: REPLACE_WITH_CLIENT_ID
+agent_path: REPLACE_WITH_AGENT_PATH
+base_client_version: 0.1.0
+template_version: 0.1.0
+deployment_id: shared-stamp-a
+database_id: shared-client-db-a
+enabled_modules:
+  - 00-product-market
+  - 02-content
+overrides:
+  content_download: false

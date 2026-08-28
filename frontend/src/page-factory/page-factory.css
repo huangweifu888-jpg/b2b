@@ -28,7 +28,7 @@
    binds the shared layout-style token source. */
 html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] body #root
   [data-page-factory-contract]
-  [data-page-factory-region="large-card"][data-shared-large-card-surface="true"][data-shared-card-token-source="layout-style"] {
+  [data-shared-large-card-surface="true"][data-shared-card-token-source="layout-style"]:not([data-shared-status-card-source]) {
     --visual-card-component-background: var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg, #ffffff)) !important;
     --visual-card-component-text: var(--tradepro-product-market-large-card-text, var(--tradepro-panel-card-text, #0f172a)) !important;
     background-color: var(--tradepro-product-market-large-card-bg, var(--tradepro-panel-card-bg, #ffffff)) !important;
@@ -41,7 +41,7 @@ html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="tr
 
 html[data-tradepro-page-layout="active"][data-tradepro-page-shared-variables="true"] body #root
   [data-page-factory-contract]
-  [data-page-factory-region="small-card"][data-shared-small-card-surface="true"][data-shared-card-token-source="layout-style"] {
+  [data-shared-small-card-surface="true"][data-shared-card-token-source="layout-style"]:not([data-shared-status-card-source]) {
     --visual-card-component-background: var(--tradepro-panel-card-bg, #ffffff) !important;
     --visual-card-component-text: var(--tradepro-panel-card-text, #0f172a) !important;
     background-color: var(--tradepro-panel-card-bg, #ffffff) !important;

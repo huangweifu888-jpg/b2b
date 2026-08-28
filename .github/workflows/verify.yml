@@ -38,11 +38,10 @@ jobs:
       - name: Verify frontend/backend target manifest parity
         run: python tools/verify_developer_target_manifest_parity.py
       - name: Audit Python dependencies
-        run: pip-audit -r backend/requirements.lock.txt
+        run: python tools/run_backend_dependency_audit.py
       - name: Generate backend dependency SBOM
         run: |
-          mkdir -p "$RUNNER_TEMP/b2b-sbom"
-          pip-audit -r backend/requirements.lock.txt --format cyclonedx-json --output "$RUNNER_TEMP/b2b-sbom/backend.cdx.json"
+          python tools/run_backend_dependency_audit.py --sbom-output "$RUNNER_TEMP/b2b-sbom/backend.cdx.json"
       - name: Upload dependency SBOM
         uses: actions/upload-artifact@v4
         with:
@@ -126,6 +125,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -134,9 +136,12 @@ jobs:
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm ci
+      - name: Install backend dependencies for cross-runtime contracts
+        run: pip install -r backend/requirements.lock.txt
       - name: Verify dependency supply-chain controls
         run: |
           python tools/verify_supply_chain_controls.py
+          python -m unittest tools.test_supply_chain_audit
           python tools/run_supply_chain_audit.py
           python tools/verify_sbom_controls.py
       - name: Generate frontend dependency SBOM
@@ -193,6 +198,18 @@ jobs:
             frontend/dist/stats.json
             frontend/dist/bundle-budget-report.json
           if-no-files-found: warn
-      - name: Run browser regression smoke tests
+      - name: Run portable accessibility regression
+        working-directory: frontend
+        run: npx playwright test e2e/accessibility.spec.ts
+      - name: Run portable mobile-frame regressions
+        working-directory: frontend
+        run: npx playwright test e2e/mobile-app-frame.spec.ts
+      - name: Run portable shared-visual parity regressions
+        working-directory: frontend
+        run: npx playwright test e2e/shared-visual-parity.spec.ts
+      - name: Run portable three-source frame contract
+        working-directory: frontend
+        run: npm run test:three-source-global-frame-contract
+      - name: Run repository-compatible browser regression suite
         working-directory: frontend
         run: npm run test:e2e

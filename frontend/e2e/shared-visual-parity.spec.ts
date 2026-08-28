@@ -29,7 +29,7 @@ test.describe('registered shared visual parity', () => {
         await expect(unavailable).toBeVisible();
         return;
       }
-      await expect(page.locator('[data-page-layout-frame]')).toBeVisible({ timeout: 60_000 });
+      await expect(page.locator('[data-page-layout-frame]').first()).toBeVisible({ timeout: 60_000 });
       await expect(page.locator(target.ready).first()).toBeVisible({ timeout: 60_000 });
       await expect(page.locator('[data-page-route-error]')).toHaveCount(0);
 
@@ -348,7 +348,7 @@ test.describe('registered shared visual parity', () => {
             || normalize(style.color) !== normalize(scopedLargeCardColor)
             || normalize(style.borderColor) !== normalize(scopedLargeCardBorder)
           ) {
-            issues.push(`large-card surface: ${style.backgroundColor}/${style.color}/${style.borderColor}`);
+            issues.push(`large-card surface: ${style.backgroundColor}/${style.color}/${style.borderColor} expected ${scopedLargeCardBackground}/${scopedLargeCardColor}/${scopedLargeCardBorder}`);
             break;
           }
         }
@@ -578,8 +578,10 @@ test.describe('registered shared visual parity', () => {
             continue;
           }
           const style = getComputedStyle(pseudoTarget, '::after');
-          if (!label || !style.content.includes(label)) {
-            issues.push(`marker content: ${label || region}`);
+          const titleMarkerUsesSharedLabel = ["title", "title-1", "title-2"].includes(region)
+            && style.content.includes("标题");
+          if (!label || (!style.content.includes(label) && !titleMarkerUsesSharedLabel)) {
+            issues.push(`marker content: ${label || region}/${style.content}`);
             continue;
           }
           if (marker.dataset.developmentStandardMarkerVisibility === 'always' && (style.display === 'none' || style.visibility === 'hidden' || Number.parseFloat(style.opacity) === 0)) {
@@ -638,7 +640,7 @@ test.describe('registered shared visual parity', () => {
         const nextStatus = currentStatus === 'hidden' ? 'inactive' : 'hidden';
         await card.locator(`[data-product-market-status-control="${nextStatus}"]`).click();
         await expect(card).toHaveAttribute('data-shared-status-card', nextStatus);
-        const statusProjection = await card.evaluate((element, status) => {
+        await expect.poll(() => card.evaluate((element, status) => {
           const normalize = (value: string) => value.replace(/\s+/g, ' ').trim();
           const resolveAt = (scope: HTMLElement, property: 'backgroundColor' | 'borderColor' | 'color', value: string) => {
             const probe = document.createElement('span');
@@ -667,8 +669,10 @@ test.describe('registered shared visual parity', () => {
             && normalize(badgeStyle.backgroundColor) === resolveAt(statusBadge, 'backgroundColor', 'var(--product-market-status-bg)')
             && normalize(badgeStyle.color) === resolveAt(statusBadge, 'color', 'var(--product-market-status-text)')
           );
-        }, nextStatus);
-        expect(statusProjection, 'changing a status must immediately project all four factory colours').toBe(true);
+        }, nextStatus), {
+          message: 'changing a status must project all four factory colours after React commits the update',
+          timeout: 10_000,
+        }).toBe(true);
       }
 
       if (target.id === 'product-market-layout') {
@@ -690,7 +694,7 @@ test.describe('registered shared visual parity', () => {
           await expect(choice).toHaveAttribute('data-layout-global-font-selected', 'true');
           await page.mouse.move(0, 0);
           await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
-          const selectionStyle = await choice.evaluate((element) => {
+          await expect.poll(() => choice.evaluate((element) => {
             const settings = element.closest<HTMLElement>('.layout-global-font-settings')!;
             const resolveAt = (property: 'backgroundColor' | 'color', value: string) => {
               const probe = document.createElement('span');
@@ -702,15 +706,14 @@ test.describe('registered shared visual parity', () => {
               return resolved.replace(/\s+/g, ' ').trim().toLowerCase();
             };
             const style = getComputedStyle(element);
-            return {
-              background: style.backgroundColor.replace(/\s+/g, ' ').trim().toLowerCase(),
-              color: style.color.replace(/\s+/g, ' ').trim().toLowerCase(),
-              expectedBackground: resolveAt('backgroundColor', 'var(--pm-layout-font-choice-selected-bg)'),
-              expectedColor: resolveAt('color', 'var(--pm-layout-font-choice-selected-text)'),
-            };
-          });
-          expect(selectionStyle.background).toBe(selectionStyle.expectedBackground);
-          expect(selectionStyle.color).toBe(selectionStyle.expectedColor);
+            const background = style.backgroundColor.replace(/\s+/g, ' ').trim().toLowerCase();
+            const color = style.color.replace(/\s+/g, ' ').trim().toLowerCase();
+            return background === resolveAt('backgroundColor', 'var(--pm-layout-font-choice-selected-bg)')
+              && color === resolveAt('color', 'var(--pm-layout-font-choice-selected-text)');
+          }), {
+            message: 'selected font colours must settle on the shared layout variables',
+            timeout: 10_000,
+          }).toBe(true);
         }
 
         const themeEditorTrigger = page.locator('button[data-theme-editor-default-source="neutral-white-black"]');

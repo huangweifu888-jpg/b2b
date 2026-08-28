@@ -15,6 +15,21 @@ POLICY = ROOT / "security" / "supply-chain-exceptions.json"
 SEVERITY_RANK = {"info": 0, "low": 1, "moderate": 2, "high": 3, "critical": 4}
 
 
+def load_active_exceptions(
+    policy_path: Path = POLICY,
+    *,
+    ecosystem: str,
+    today: date | None = None,
+) -> dict[tuple[str, str], dict[str, object]]:
+    current_date = today or date.today()
+    return {
+        (item["package"], item["severity"]): item
+        for item in json.loads(policy_path.read_text(encoding="utf-8"))["exceptions"]
+        if item.get("ecosystem") == ecosystem
+        and date.fromisoformat(item["expires_on"]) >= current_date
+    }
+
+
 def main() -> int:
     npm = "npm.cmd" if sys.platform == "win32" else "npm"
     completed = subprocess.run(
@@ -29,11 +44,7 @@ def main() -> int:
     except json.JSONDecodeError as exc:
         raise RuntimeError(f"npm audit did not return JSON: {completed.stderr.strip()}") from exc
 
-    exceptions = {
-        (item["package"], item["severity"]): item
-        for item in json.loads(POLICY.read_text(encoding="utf-8"))["exceptions"]
-        if date.fromisoformat(item["expires_on"]) >= date.today()
-    }
+    exceptions = load_active_exceptions(ecosystem="npm")
     blocked: list[str] = []
     permitted: list[str] = []
     for name, finding in report.get("vulnerabilities", {}).items():

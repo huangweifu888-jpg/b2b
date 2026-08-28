@@ -35,7 +35,7 @@ async def verify() -> None:
                     pass
                 for stage_key in ("hq", "test_agency", "test_client_plan", "full_rollout"):
                     rollout = await service.act(rollout["id"], stage_key=stage_key, action="start", note="verified", actor="admin")
-                    rollout = await service.act(rollout["id"], stage_key=stage_key, action="approve", note="approved", actor="admin")
+                    rollout = await service.act(rollout["id"], stage_key=stage_key, action="approve", note="approved", actor="release-reviewer")
                 assert rollout["status"] == "completed"
                 rolled_back = await service.rollback(rollout["id"], reason="operator rollback drill", actor="admin")
                 assert rolled_back["status"] == "rolled_back"

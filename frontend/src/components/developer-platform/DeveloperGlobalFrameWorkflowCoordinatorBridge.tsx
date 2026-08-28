@@ -20,6 +20,11 @@ import {
 } from "@/lib/developer-global-frame-release-coordinator";
 import { readDeveloperGlobalFrameVisualDraft } from "@/lib/developer-global-style-session";
 import {
+  isCompletedSourceLocked,
+  isRouteCompletedPageHardLocked,
+  resolveCompletedLayoutLock,
+} from "@/lib/page-layout-lock";
+import {
   createDeveloperGlobalFrameAcceptanceJob,
   fetchDeveloperGlobalFrameAcceptanceArtifact,
   fetchDeveloperGlobalFrameAcceptanceJob,
@@ -208,7 +213,15 @@ export function DeveloperGlobalFrameWorkflowCoordinatorBridge({ pathname, search
     let disposed = false;
     let running = false;
     const stateRepository = createDeveloperGlobalFrameLocalStateRepository(window.localStorage);
-    const releaseRepository = createDeveloperGlobalFrameServerRepository();
+    const releaseRepository = createDeveloperGlobalFrameServerRepository(undefined, {
+      assertWriteAllowed() {
+        const routeLock = resolveCompletedLayoutLock(pathname, search);
+        if (isRouteCompletedPageHardLocked(pathname, search)
+          || (routeLock && isCompletedSourceLocked(routeLock))) {
+          throw new Error("当前页面锁或源码锁已启用；全局框架发布写入已阻断。请先在页面锁定器中手动解锁。");
+        }
+      },
+    });
     const coordinator = createDeveloperGlobalFrameReleaseCoordinator({
       releaseRepository,
       stateRepository,

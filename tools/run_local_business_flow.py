@@ -20,6 +20,7 @@ from core.database import Base, get_db  # noqa: E402
 from dependencies.auth import get_current_user  # noqa: E402
 from fastapi import FastAPI  # noqa: E402
 from models.platform import Organization  # noqa: E402
+from models.template_snapshot import TemplateSnapshotTemplate, TemplateSnapshotVersion  # noqa: E402
 from routers.business_operations import router  # noqa: E402
 from schemas.auth import UserResponse  # noqa: E402
 from services.integration_security import sign_webhook  # noqa: E402
@@ -54,6 +55,30 @@ async def run_flow() -> dict[str, object]:
                 await session.flush()
                 agency = Organization(name="Agency", code="AGENCY-FLOW", org_type="agency", parent_id=hq.id, root_org_id=hq.id, agent_level=1, lineage_path=str(hq.id), status="active")
                 session.add(agency)
+                await session.flush()
+                agency.root_agency_id = agency.id
+                agency.lineage_path = f"{hq.id}/{agency.id}"
+                template_config = json.dumps({"modules": ["content"]})
+                session.add_all(
+                    [
+                        TemplateSnapshotTemplate(
+                            template_id="client-source-global",
+                            template_type="hq-client",
+                            owner_scope="client_source",
+                            organization_id=hq.id,
+                            name="Client source",
+                            latest_version="v1.0.0",
+                            config_json=template_config,
+                            is_published=True,
+                        ),
+                        TemplateSnapshotVersion(
+                            template_id="client-source-global",
+                            version="v1.0.0",
+                            config_json=template_config,
+                            review_status="published",
+                        ),
+                    ]
+                )
                 await session.commit()
                 agency_id = agency.id
             transport = httpx.ASGITransport(app=app)

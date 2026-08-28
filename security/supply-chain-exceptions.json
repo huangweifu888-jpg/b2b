@@ -2,20 +2,14 @@
   "schema_version": 1,
   "exceptions": [
     {
-      "package": "react-router",
+      "package": "ecdsa",
       "severity": "high",
       "expires_on": "2026-09-30",
-      "owner": "frontend-engineering",
-      "reason": "The latest published React Router 7 release remains covered by a newly disclosed RSC-mode advisory; the application is a browser SPA and does not enable RSC or SSR routes.",
-      "mitigation": "Keep React Router pinned to the latest published 7.x release and upgrade immediately when a fixed release is available."
-    },
-    {
-      "package": "react-router-dom",
-      "severity": "high",
-      "expires_on": "2026-09-30",
-      "owner": "frontend-engineering",
-      "reason": "This package is the direct wrapper for the documented react-router RSC-mode advisory.",
-      "mitigation": "The application uses browser-only routing and has no server action or RSC entry point; upgrade when the upstream fixed release is published."
+      "ecosystem": "pypi",
+      "vulnerability_id": "PYSEC-2026-1325",
+      "owner": "backend-engineering",
+      "reason": "ecdsa 0.19.2 is the latest published release and pip-audit reports no fixed version for this timing-side-channel advisory.",
+      "mitigation": "Authentication uses the cryptography backend; do not add direct ecdsa signing paths, review upstream releases weekly, and remove this exception as soon as a fixed version is published."
     }
   ]
 }

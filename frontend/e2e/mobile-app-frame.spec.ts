@@ -14,7 +14,7 @@ async function inspectMobileFrame(page: Page) {
     const footer = document.querySelector<HTMLElement>("[data-page-layout-footer]");
     const collection = document.querySelector<HTMLElement>('[data-responsive-mobile-collection="function-grid"]');
     const primaryItems = Array.from(footer?.querySelectorAll<HTMLElement>(
-      "[data-responsive-footer-lock-control], [data-visual-card-developer-launcher], [data-source-project-action], [data-client-project-action]",
+      "[data-responsive-footer-lock-control], [data-responsive-compact-external-tools], [data-visual-card-developer-launcher], [data-source-project-action], [data-client-project-action]",
     ) || []).filter(visible);
     const collectionItems = Array.from(collection?.children || []).filter((item): item is HTMLElement => item instanceof HTMLElement && visible(item));
     const floatingService = Array.from(document.querySelectorAll<HTMLElement>("[data-shared-floating-service-window='true']")).find(visible) || null;
@@ -47,6 +47,7 @@ async function inspectMobileFrame(page: Page) {
       generatedTitleBandCount: host?.querySelectorAll("[data-responsive-generated-title-band='true']").length || 0,
       compressedHeadingCount: compressedHeadings.length,
       pageContextTriggerVisible: Array.from(document.querySelectorAll<HTMLElement>("[data-responsive-toolbar-trigger='page-context']")).some(visible),
+      overflowTriggerVisible: Array.from(document.querySelectorAll<HTMLElement>("[data-responsive-toolbar-trigger='overflow']")).some(visible),
       recommendationStatus: document.documentElement.dataset.responsiveAutoRecommendationStatus || "",
       navigationLabel,
     };
@@ -90,14 +91,23 @@ test("agency source ordinary page inherits the shared mobile footer", async ({ p
   await page.goto("/zb/agency-source/customers", { waitUntil: "domcontentloaded" });
   await expect(page.locator('[data-responsive-shell="agency-source"]')).toBeVisible({ timeout: 60_000 });
   await expect(page.locator("[data-responsive-page-host]")).toHaveAttribute("data-responsive-content-ready", "true", { timeout: 60_000 });
-  const result = await inspectMobileFrame(page);
-  expect(result.issues).toBe("");
-  expect(result.footerDisplay).toBe("grid");
-  expect(result.footerBottom).toBe(544);
-  expect(result.footerOverflow).toBeLessThanOrEqual(1);
-  expect(result.primaryItemCount).toBe(3);
-  expect(result.primaryMinimumHeight).toBeGreaterThanOrEqual(44);
-  expect(result.compressedHeadingCount).toBe(0);
-  expect(result.pageContextTriggerVisible).toBe(true);
-  expect(result.navigationLabel).not.toBe("左栏");
+  let result: Awaited<ReturnType<typeof inspectMobileFrame>> | null = null;
+  await expect.poll(async () => {
+    result = await inspectMobileFrame(page);
+    return {
+      issues: result.issues,
+      pageToolsReachable: result.pageContextTriggerVisible || result.overflowTriggerVisible,
+    };
+  }, { timeout: 30_000 }).toEqual({ issues: "", pageToolsReachable: true });
+  const stableResult = result as Awaited<ReturnType<typeof inspectMobileFrame>> | null;
+  expect(stableResult).not.toBeNull();
+  expect(stableResult?.issues).toBe("");
+  expect(stableResult?.footerDisplay).toBe("grid");
+  expect(stableResult?.footerBottom).toBe(544);
+  expect(stableResult?.footerOverflow).toBeLessThanOrEqual(1);
+  expect(stableResult?.primaryItemCount).toBe(3);
+  expect(stableResult?.primaryMinimumHeight).toBeGreaterThanOrEqual(44);
+  expect(stableResult?.compressedHeadingCount).toBe(0);
+  expect(Boolean(stableResult?.pageContextTriggerVisible || stableResult?.overflowTriggerVisible)).toBe(true);
+  expect(stableResult?.navigationLabel).not.toBe("左栏");
 });

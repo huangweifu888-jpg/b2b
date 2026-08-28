@@ -1,6 +1,6 @@
-import designContractData from "@website-style/design-integration-contract.json";
-import mediaContractData from "@website-style/media-optimization-contract.json";
-import visualEvidenceContractData from "@website-style/visual-evidence-contract.json";
+import designContractData from "@website-style/design-integration-contract.json" with { type: "json" };
+import mediaContractData from "@website-style/media-optimization-contract.json" with { type: "json" };
+import visualEvidenceContractData from "@website-style/visual-evidence-contract.json" with { type: "json" };
 
 import {
   DEVELOPER_GLOBAL_FRAME_RESOLVABLE_TARGET_REGISTRATIONS,

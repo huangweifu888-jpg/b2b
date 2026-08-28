@@ -113,7 +113,13 @@ export function VisualProjectContractHost({
         search,
       };
       if (detail.scopeKey !== buildVisualCardLayoutScopeKey(scope)) return;
+      const visualIntentRequest = {
+        workspaceScope: scope.workspaceScope,
+        pathname,
+        search,
+      };
       if (isRouteCompletedPageHardLocked(pathname, search) || isRouteSourceLocked(pathname, search)) {
+        clearDeveloperGlobalStyleVisualIntent(window.sessionStorage, visualIntentRequest);
         detail.error = "当前页面锁或源码锁已启用；可视化、命令和同步均不可修改，请先在源开发器的页面锁定器中手动解锁。";
         return;
       }
@@ -126,11 +132,6 @@ export function VisualProjectContractHost({
       const currentConfig = store.exportConfig();
       const siteId = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search).get("siteId")?.trim() || "";
       const applicationScope = detail.applicationScope || "global";
-      const visualIntentRequest = {
-        workspaceScope: scope.workspaceScope,
-        pathname,
-        search,
-      };
       const canaryIntent = readDeveloperGlobalStyleVisualIntent(window.sessionStorage, visualIntentRequest);
       if (canaryIntent && applicationScope !== "canary-profile") {
         detail.error = "全局开发流程试点只允许确认 canary-profile；当前页配置与全局配置均不会写入。";

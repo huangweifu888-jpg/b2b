@@ -48,12 +48,13 @@ def main() -> int:
     require(policy.get("schema_version") == 1, "Unsupported supply-chain exception schema")
     exceptions = policy.get("exceptions")
     require(isinstance(exceptions, list), "Supply-chain exceptions must be a list")
-    seen: set[tuple[str, str]] = set()
+    seen: set[tuple[str, str, str]] = set()
     for item in exceptions:
         require(isinstance(item, dict), "Each exception must be an object")
         package_name = item.get("package")
         severity = item.get("severity")
-        key = (package_name, severity)
+        ecosystem = item.get("ecosystem")
+        key = (ecosystem, package_name, severity)
         require(isinstance(package_name, str) and package_name, "Exception package is required")
         require(severity in {"high", "critical"}, f"Unsupported exception severity for {package_name}")
         require(key not in seen, f"Duplicate exception for {package_name} ({severity})")
@@ -63,6 +64,8 @@ def main() -> int:
         except (KeyError, TypeError, ValueError) as exc:
             raise AssertionError(f"Invalid expires_on for {package_name}") from exc
         require(expires_on >= date.today(), f"Expired supply-chain exception: {package_name} ({expires_on})")
+        require(ecosystem in {"npm", "pypi"}, f"Unsupported ecosystem for {package_name}")
+        require(isinstance(item.get("vulnerability_id"), str) and item["vulnerability_id"].strip(), f"{package_name} must document vulnerability_id")
         for field in ("owner", "reason", "mitigation"):
             require(isinstance(item.get(field), str) and item[field].strip(), f"{package_name} must document {field}")
 

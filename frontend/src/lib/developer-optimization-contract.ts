@@ -1,4 +1,4 @@
-import sharedContractData from "@website-style/developer-optimization-contract.json";
+import sharedContractData from "@website-style/developer-optimization-contract.json" with { type: "json" };
 
 export type DeveloperTopLevelAppId =
   | "visual-frame"

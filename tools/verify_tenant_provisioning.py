@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import sys
 import tempfile
 from pathlib import Path
@@ -14,6 +15,7 @@ sys.path.insert(0, str(ROOT / "backend"))
 import models  # noqa: E402,F401
 from core.database import Base  # noqa: E402
 from models.platform import Organization, PlanRuntimeConfig, Project  # noqa: E402
+from models.template_snapshot import TemplateSnapshotTemplate, TemplateSnapshotVersion  # noqa: E402
 from services.tenant_provisioning import provision_client_plan  # noqa: E402
 from sqlalchemy import select  # noqa: E402
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine  # noqa: E402
@@ -32,11 +34,35 @@ async def verify() -> None:
                 agency = Organization(name="Agency", code="A-PROVISION", org_type="agency", parent_id=hq.id, root_org_id=hq.id, root_agency_id=0, agent_level=1, lineage_path=str(hq.id), status="active")
                 session.add(agency)
                 await session.flush()
+                agency.root_agency_id = agency.id
+                agency.lineage_path = f"{hq.id}/{agency.id}"
+                template_config = json.dumps({"modules": ["content"]})
+                session.add_all(
+                    [
+                        TemplateSnapshotTemplate(
+                            template_id="client-source-global",
+                            template_type="hq-client",
+                            owner_scope="client_source",
+                            organization_id=hq.id,
+                            name="Client source",
+                            latest_version="v1.0.0",
+                            config_json=template_config,
+                            is_published=True,
+                        ),
+                        TemplateSnapshotVersion(
+                            template_id="client-source-global",
+                            version="v1.0.0",
+                            config_json=template_config,
+                            review_status="published",
+                        ),
+                    ]
+                )
+                await session.flush()
                 provisioned = await provision_client_plan(session, agency_org_id=agency.id, client_name="Client", client_code="CLIENT-PROVISION", plan_name="Plan", plan_code="PLAN-PROVISION")
                 client = await session.scalar(select(Organization).where(Organization.id == provisioned.client_org_id))
                 project = await session.scalar(select(Project).where(Project.id == provisioned.project_id))
                 runtime = await session.scalar(select(PlanRuntimeConfig).where(PlanRuntimeConfig.project_id == provisioned.project_id))
-                assert client and client.parent_id == agency.id and client.lineage_path == f"{hq.id}/{agency.id}"
+                assert client and client.parent_id == agency.id and client.lineage_path == f"{hq.id}/{agency.id}/{client.id}"
                 assert project and runtime and runtime.deployment_id == "shared-stamp-a"
         finally:
             await engine.dispose()

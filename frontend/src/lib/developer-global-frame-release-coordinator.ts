@@ -1060,6 +1060,9 @@ export function createDeveloperGlobalFrameServerRepository(
     recordDeveloperGlobalFrameFactoryDefaultReceipt: recordDeveloperGlobalFrameFactoryDefaultReceiptOnServer,
     fetchLatestDeveloperGlobalFrameFactoryDefaultReceipt: fetchLatestDeveloperGlobalFrameFactoryDefaultReceiptFromServer,
   },
+  options: {
+    assertWriteAllowed?: () => void | Promise<void>;
+  } = {},
 ): DeveloperGlobalFrameReleaseRepository {
   const durablePreflightEvidence = typeof dependencies.mergeDeveloperGlobalFrameDraftWithPreflightEvidence === "function"
     || typeof dependencies.persistPreflightEvidence === "function";
@@ -1092,6 +1095,7 @@ export function createDeveloperGlobalFrameServerRepository(
       };
     },
     async saveDraftAtomic(request) {
+      await options.assertWriteAllowed?.();
       if (dependencies.mergeDeveloperGlobalFrameDraftWithPreflightEvidence) {
         const result = await dependencies.mergeDeveloperGlobalFrameDraftWithPreflightEvidence(
           request.templateId,
@@ -1134,6 +1138,7 @@ export function createDeveloperGlobalFrameServerRepository(
         || !sameJson(result.developer_global_frame, request.section)) {
         throw new Error("server atomic merge response crossed the section-only draft boundary");
       }
+      if (dependencies.persistPreflightEvidence) await options.assertWriteAllowed?.();
       const persistedEvidence = dependencies.persistPreflightEvidence
         ? await dependencies.persistPreflightEvidence({
           templateId: request.templateId,
@@ -1159,6 +1164,7 @@ export function createDeveloperGlobalFrameServerRepository(
       };
     },
     async requestPublication(request) {
+      await options.assertWriteAllowed?.();
       const version = await dependencies.publishTemplate(request.templateId, {
         version: request.version,
         changelog: request.changelog,
@@ -1179,6 +1185,7 @@ export function createDeveloperGlobalFrameServerRepository(
       return match ? publicationEvidence(match) : null;
     },
     async startRollout(instanceIds) {
+      await options.assertWriteAllowed?.();
       const response = await dependencies.createDeveloperGlobalFrameReleaseBatch(
         DEVELOPER_GLOBAL_FRAME_TEMPLATE_ID,
         instanceIds,
@@ -1189,6 +1196,7 @@ export function createDeveloperGlobalFrameServerRepository(
       return rolloutEvidence(await dependencies.fetchTemplateReleaseBatch(batchId));
     },
     async recordFactoryDefaultReceipt(receipt) {
+      await options.assertWriteAllowed?.();
       if (!recordFactoryDefaultReceipt || !fetchLatestFactoryDefaultReceipt) {
         throw new Error("server repository has no durable factory-default boundary");
       }

@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -15,12 +15,25 @@ const statusHook = read(resolve(frontendRoot, "src/hooks/use-local-env-status.ts
 const alert = read(resolve(frontendRoot, "src/components/GlobalLocalEnvAlert.tsx"));
 const localDev = read(resolve(frontendRoot, "src/lib/local-dev.ts"));
 const app = read(resolve(frontendRoot, "src/App.tsx"));
-const backendSupervisor = read(resolve(workspaceRoot, "local-runtime/Run-LocalBackendSupervisor.ps1"));
-const acceptanceWorkerSupervisor = read(resolve(workspaceRoot, "local-runtime/Run-DeveloperGlobalFrameAcceptanceWorkerSupervisor.ps1"));
-const sandboxStart = read(resolve(workspaceRoot, "local-runtime/Start-LocalSandbox.ps1"));
-const sandboxStop = read(resolve(workspaceRoot, "local-runtime/Stop-LocalSandbox.ps1"));
-const sandboxCheck = read(resolve(workspaceRoot, "local-runtime/Check-LocalSandbox.ps1"));
-const acceptanceWorkerLifecycleTest = read(resolve(workspaceRoot, "local-runtime/Test-DeveloperGlobalFrameAcceptanceWorkerLifecycle.ps1"));
+const runtimePaths = {
+  backendSupervisor: resolve(workspaceRoot, "local-runtime/Run-LocalBackendSupervisor.ps1"),
+  acceptanceWorkerSupervisor: resolve(workspaceRoot, "local-runtime/Run-DeveloperGlobalFrameAcceptanceWorkerSupervisor.ps1"),
+  sandboxStart: resolve(workspaceRoot, "local-runtime/Start-LocalSandbox.ps1"),
+  sandboxStop: resolve(workspaceRoot, "local-runtime/Stop-LocalSandbox.ps1"),
+  sandboxCheck: resolve(workspaceRoot, "local-runtime/Check-LocalSandbox.ps1"),
+  acceptanceWorkerLifecycleTest: resolve(workspaceRoot, "local-runtime/Test-DeveloperGlobalFrameAcceptanceWorkerLifecycle.ps1"),
+};
+const missingRuntimePaths = Object.values(runtimePaths).filter((path) => !existsSync(path));
+if (missingRuntimePaths.length > 0 && missingRuntimePaths.length < Object.keys(runtimePaths).length) {
+  throw new Error(`Local environment recovery contract requires a complete local-runtime workspace; missing: ${missingRuntimePaths.join(", ")}`);
+}
+const hasWorkspaceRuntime = missingRuntimePaths.length === 0;
+const backendSupervisor = hasWorkspaceRuntime ? read(runtimePaths.backendSupervisor) : "";
+const acceptanceWorkerSupervisor = hasWorkspaceRuntime ? read(runtimePaths.acceptanceWorkerSupervisor) : "";
+const sandboxStart = hasWorkspaceRuntime ? read(runtimePaths.sandboxStart) : "";
+const sandboxStop = hasWorkspaceRuntime ? read(runtimePaths.sandboxStop) : "";
+const sandboxCheck = hasWorkspaceRuntime ? read(runtimePaths.sandboxCheck) : "";
+const acceptanceWorkerLifecycleTest = hasWorkspaceRuntime ? read(runtimePaths.acceptanceWorkerLifecycleTest) : "";
 const packageJson = read(resolve(frontendRoot, "package.json"));
 const localDevRouter = read(resolve(sourceRoot, "backend/routers/local_dev.py"));
 
@@ -43,6 +56,7 @@ assertContains(alert, 'label: "策略拦截"', "The process-scoped execution-pol
 assertContains(alert, "data-diagnostic-usage-flow", "Each isolated diagnostic category must expose its usage flow.");
 assertContains(alert, 'data-shared-diagnostic-contract="three-isolated-learning-ledger-v2"', "Runtime diagnostics must expose the versioned isolated-learning contract.");
 
+if (hasWorkspaceRuntime) {
 assertContains(backendSupervisor, "WindowsSelectorEventLoopPolicy", "Local backend supervisor must avoid the unstable Windows Proactor accept loop.");
 assertContains(backendSupervisor, ".local-dev-jwt-secret.txt", "Local backend supervisor must retain the controlled development JWT identity.");
 assertContains(backendSupervisor, "$env:JWT_SECRET_KEY = $jwtSecret", "Local backend supervisor must pass the persisted JWT secret to every child.");
@@ -146,6 +160,7 @@ for (const token of [
 ]) {
   assertContains(acceptanceWorkerLifecycleTest, token, `Acceptance worker isolated lifecycle test is missing ${token}.`);
 }
+}
 assertContains(packageJson, '"verify:local-acceptance-worker-lifecycle"', "Frontend scripts must expose the isolated trusted-worker lifecycle gate.");
 assertContains(packageJson, '"verify:local-env-recovery"', "Frontend scripts must expose the local environment recovery gate.");
 
@@ -164,4 +179,6 @@ if (localDevRouter.includes("await db.delete(project)")) {
   throw new Error("Local environment guard: site cleanup must never hard-delete the shared tenant plan anchor.");
 }
 
-console.log("Local environment recovery contract verified for current local-runtime supervision.");
+console.log(hasWorkspaceRuntime
+  ? "Local environment recovery contract verified for current local-runtime supervision."
+  : "Local environment recovery source contract verified; external local-runtime supervision checks skipped because the complete workspace runtime is not present.");
