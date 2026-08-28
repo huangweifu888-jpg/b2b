@@ -1,4 +1,22 @@
 {
+  "latestGithubQualityGatePortabilityRevision": {
+    "recordedAt": "2026-08-28T18:35:00+08:00",
+    "factoryVersion": "2026.08.22.6",
+    "targetHVersion": "H38698",
+    "completionPercent": 100,
+    "governancePercent": 100,
+    "routeCoveragePercent": 100,
+    "status": "passed",
+    "title": "GitHub quality-gate portability and customer-service portrait request deduplication",
+    "appId": "page-factory",
+    "relatedAppIds": ["performance-experience", "quality-release", "page-factory"],
+    "scopeIdentity": "client-source:product-market:operations",
+    "contractVersion": "2026.08.28.1",
+    "scope": "GitHub Actions portability, tenant provisioning release verification, Product Market Operations and the shared customer-service launcher.",
+    "result": "Repository-only CI now validates source contracts without requiring the external Windows local-runtime workspace. Release-flow fixtures seed the published client-source template required by current activation controls. Operations and the floating customer-service launcher reuse one stable single-flight preview for every bundled expert portrait, eliminating duplicate direct asset requests while preserving saved-media overrides.",
+    "validation": "Source lock passed. TypeScript passed. The targeted Product Market Playwright request contract passed 1/1 with every bundled portrait requested at most once. Tenant provisioning and the complete local HTTP business flow passed. Python page_factory check --all and npm verify:page-factory passed all 201 registered pages.",
+    "risks": "External local-runtime supervision remains fully checked when the complete Windows workspace is present and is explicitly skipped only when all external runtime files are absent. No database, production service, uploaded asset, formal backup, or D:\\Codex\\zcwj content was modified."
+  },
   "latestDeveloperLoadingSpeedApplicationLearningRevision": {
     "recordedAt": "2026-08-28T15:23:00+08:00",
     "factoryVersion": "2026.08.22.6",
