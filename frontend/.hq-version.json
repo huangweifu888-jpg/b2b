@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38703,
-  "version": "H38703",
-  "updatedAt": "2026-08-28T11:36:06.743Z",
-  "sourceFingerprint": "dcac049654f5f2fb88801abb1061efbae1316525b79d713e1c4af4cbed4b58a5",
+  "sequence": 38704,
+  "version": "H38704",
+  "updatedAt": "2026-08-28T11:48:10.036Z",
+  "sourceFingerprint": "af82761c14c455e76f205f5ce4e91618311a70852a509dfcfa4e3454e8d55f65",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -1218,7 +1218,7 @@
     "frontend/src/page-factory/page-inventory-baseline.json": "ee0df900432010b26230cb84b713b01b775aba581b57adba66bcb03ad01259d3",
     "frontend/src/page-factory/page-inventory.json": "93c7e4b96762a30712ec73388e32ffdfd4c190e6773b66f852a08f5f65e3a97b",
     "frontend/src/page-factory/page-registry.json": "d727c23281aaab2e50eabb2a19a79e44fa42a25110fb3e50639c4693c5a2412f",
-    "frontend/src/page-factory/phase-two-verification.json": "4d059c79db44a4f4b2cde07620d8971212e505de429f2cbe1c43dcb653f638da",
+    "frontend/src/page-factory/phase-two-verification.json": "7c269a9479cd198334ee15d91a763cec35ce3a09e027e9220425ad30e787e368",
     "frontend/src/pages/Account.tsx": "0705e1ed8f5618e36a121e60921fe3ddbd6bb228af01a53a91575f95cc94b1cd",
     "frontend/src/pages/agency/AgencyCustomers.tsx": "a1f4b9b8153462725fd8ffe3258b7e43d69491dcd6aff9c42ae27f1a962f2502",
     "frontend/src/pages/agency/AgencyDashboard.tsx": "01046171e1d9bc8b4d5653c3c824d2eb591fae91da158ecc3f22d4d02cfb4288",
@@ -1370,7 +1370,7 @@
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38703",
+    "version": "H38704",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }

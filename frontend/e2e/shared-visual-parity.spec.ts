@@ -692,7 +692,7 @@ test.describe('registered shared visual parity', () => {
           await expect(choice).toHaveAttribute('data-layout-global-font-selected', 'true');
           await page.mouse.move(0, 0);
           await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
-          const selectionStyle = await choice.evaluate((element) => {
+          await expect.poll(() => choice.evaluate((element) => {
             const settings = element.closest<HTMLElement>('.layout-global-font-settings')!;
             const resolveAt = (property: 'backgroundColor' | 'color', value: string) => {
               const probe = document.createElement('span');
@@ -704,15 +704,14 @@ test.describe('registered shared visual parity', () => {
               return resolved.replace(/\s+/g, ' ').trim().toLowerCase();
             };
             const style = getComputedStyle(element);
-            return {
-              background: style.backgroundColor.replace(/\s+/g, ' ').trim().toLowerCase(),
-              color: style.color.replace(/\s+/g, ' ').trim().toLowerCase(),
-              expectedBackground: resolveAt('backgroundColor', 'var(--pm-layout-font-choice-selected-bg)'),
-              expectedColor: resolveAt('color', 'var(--pm-layout-font-choice-selected-text)'),
-            };
-          });
-          expect(selectionStyle.background).toBe(selectionStyle.expectedBackground);
-          expect(selectionStyle.color).toBe(selectionStyle.expectedColor);
+            const background = style.backgroundColor.replace(/\s+/g, ' ').trim().toLowerCase();
+            const color = style.color.replace(/\s+/g, ' ').trim().toLowerCase();
+            return background === resolveAt('backgroundColor', 'var(--pm-layout-font-choice-selected-bg)')
+              && color === resolveAt('color', 'var(--pm-layout-font-choice-selected-text)');
+          }), {
+            message: 'selected font colours must settle on the shared layout variables',
+            timeout: 10_000,
+          }).toBe(true);
         }
 
         const themeEditorTrigger = page.locator('button[data-theme-editor-default-source="neutral-white-black"]');
