@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38698,
-  "version": "H38698",
-  "updatedAt": "2026-08-28T10:36:48.437Z",
-  "sourceFingerprint": "06d523d80b64e76272e95d2b72db6b0bc45838ed51983cce949094e725bfe5d2",
+  "sequence": 38699,
+  "version": "H38699",
+  "updatedAt": "2026-08-28T10:42:05.192Z",
+  "sourceFingerprint": "10fac145b6a5aeb943eb8b4fcd522483d258ae4f8eeebb981d5d2fa965b00b9c",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -1218,7 +1218,7 @@
     "frontend/src/page-factory/page-inventory-baseline.json": "ee0df900432010b26230cb84b713b01b775aba581b57adba66bcb03ad01259d3",
     "frontend/src/page-factory/page-inventory.json": "93c7e4b96762a30712ec73388e32ffdfd4c190e6773b66f852a08f5f65e3a97b",
     "frontend/src/page-factory/page-registry.json": "d727c23281aaab2e50eabb2a19a79e44fa42a25110fb3e50639c4693c5a2412f",
-    "frontend/src/page-factory/phase-two-verification.json": "6e955d1d677e70f646503ed7051157562bdd2af22e7ce21ffc4cd201cffa943c",
+    "frontend/src/page-factory/phase-two-verification.json": "b78245b83fe742b162e6138075393adbf186ac4b75075b523566ca23ea2e194f",
     "frontend/src/pages/Account.tsx": "0705e1ed8f5618e36a121e60921fe3ddbd6bb228af01a53a91575f95cc94b1cd",
     "frontend/src/pages/agency/AgencyCustomers.tsx": "a1f4b9b8153462725fd8ffe3258b7e43d69491dcd6aff9c42ae27f1a962f2502",
     "frontend/src/pages/agency/AgencyDashboard.tsx": "01046171e1d9bc8b4d5653c3c824d2eb591fae91da158ecc3f22d4d02cfb4288",
@@ -1361,19 +1361,16 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "frontend/src/components/AIServiceWidget.tsx",
-    "frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx",
-    "frontend/src/page-factory/phase-two-verification.json",
-    "frontend/src/pages/ProductMarket.tsx"
+    "frontend/src/page-factory/phase-two-verification.json"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 4 个受跟踪源码变动：frontend/src/components/AIServiceWidget.tsx、frontend/src/components/product-market/ProductMarketCategoryIdentityIcon.tsx、frontend/src/page-factory/phase-two-verification.json、frontend/src/pages/ProductMarket.tsx。",
+  "summary": "自动检测到 1 个受跟踪源码变动：frontend/src/page-factory/phase-two-verification.json。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38698",
+    "version": "H38699",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }
