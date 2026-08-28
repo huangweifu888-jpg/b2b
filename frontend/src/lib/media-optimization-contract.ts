@@ -1,4 +1,4 @@
-import mediaContractData from "@website-style/media-optimization-contract.json";
+import mediaContractData from "@website-style/media-optimization-contract.json" with { type: "json" };
 
 import type { MaterialAssetKind } from "@/lib/material-assets";
 

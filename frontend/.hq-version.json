@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38701,
-  "version": "H38701",
-  "updatedAt": "2026-08-28T10:58:38.218Z",
-  "sourceFingerprint": "c234acdf09bc693266cde9020bcbc9f5dbed071085e4c8c590c64deb40e0ff47",
+  "sequence": 38702,
+  "version": "H38702",
+  "updatedAt": "2026-08-28T11:17:59.909Z",
+  "sourceFingerprint": "1bf4541c364b9da3e0c830bc7ff63c76352b8349334057eafd54aa2b5ba56568",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -982,7 +982,7 @@
     "frontend/src/lib/customer-service-voice-material-order.ts": "d7652ec21fd7afbe3529666ab737f2ecc332f6aa6a4a9c45a0fbc1b36ae93628",
     "frontend/src/lib/customer-service-voice-preview-runtime.ts": "919d74c72b64844bbcd8c621b0f780432f7038d591089a8384131f1b3fbffd63",
     "frontend/src/lib/customer-service-voice.ts": "84f509618b625c6a992ae3c72a159ac01204c2a44392dfcdcb8727a44eb3c11d",
-    "frontend/src/lib/developer-design-integration.ts": "fc33784681a8afc0119af8f37850bfcfd09770ac48fa0547f2212f355a4d1319",
+    "frontend/src/lib/developer-design-integration.ts": "fb99437f97e00b5c3476313c6e308843d84153d96c4de3ea9b85e9dd901e0ee8",
     "frontend/src/lib/developer-global-batch-release.ts": "1de50047ab4f16100841346d2814f40bb36b1a19276263c384eed788221861cc",
     "frontend/src/lib/developer-global-frame-adapter-registry.ts": "89b79e82a574c4254b36964b7107070dadf1293d055da217da1e19b3dff51211",
     "frontend/src/lib/developer-global-frame-adapter-resolution.ts": "302e68661a1d2383fff733433ddcf57c0f0b6e3f4a6ca9f55addc5e42465ffd3",
@@ -995,7 +995,7 @@
     "frontend/src/lib/developer-global-style-session.ts": "cfde0f1223ef8d3fa4d16a8c7a33429e5f6ec092fe946544cd72295bf71b57d2",
     "frontend/src/lib/developer-global-workflow-evidence.test.ts": "549bb970e834a89951e4ba12f99d21302195cf8e4bbd9f99e0b172c4b0f4588d",
     "frontend/src/lib/developer-global-workflow-evidence.ts": "3daec511d9bba585ca2525a98963aa29b237f752d248eda5c49fae3efc396c37",
-    "frontend/src/lib/developer-optimization-contract.ts": "e33a56429a7e6b24bd3bd6737d49c892147e58e953f180e1098df8b26a18de47",
+    "frontend/src/lib/developer-optimization-contract.ts": "bc30de5228e11949b4027dea707e46fb48b0afe3d3b7a1d437d2d291ac6a849a",
     "frontend/src/lib/developer-pr-evidence.test.ts": "f9cbe4c93d0bb64b35ed2baf16848785fda7307dd1a0451e8ef2fc3f6c5068e6",
     "frontend/src/lib/developer-pr-evidence.ts": "29914399ec3205f76905f78fefe6b58f64e1887f74dc0f1d3c534fb6f4e2458a",
     "frontend/src/lib/developer-record-ledger.test.ts": "d522af62102489526d04108e7d71bb5bf28b20337900239cdfdb8b06776fad2d",
@@ -1114,7 +1114,7 @@
     "frontend/src/lib/local-env-recovery.ts": "64d30f13d8d3ebf5a2b8f2d70f62b08251b866b3e69bffe8f467dd279b4b9880",
     "frontend/src/lib/marketing-playbook-pilot-inspector.ts": "0b2d929ef5ff95e6753d2e486f447db1377ef94ee4f88737a6ce210505197ed6",
     "frontend/src/lib/material-assets.ts": "829f692f136aa755a487091fcd48744753389e492c0f8c0ac23352ea1dcff2f4",
-    "frontend/src/lib/media-optimization-contract.ts": "f5f13c98c1f08d96ddd0a2ed377b5b3fb4024f854f6f95f9c236d4284c35bc2a",
+    "frontend/src/lib/media-optimization-contract.ts": "64dda820f7cccc42f8607183c802a596f962f3a43a42da0676fa583be04f8e9b",
     "frontend/src/lib/mock.ts": "9712c07d7cb7ba24fd62518d6e2e5ef16ab390824fcddf3ef897625ca6ce8746",
     "frontend/src/lib/module-registry.ts": "09f97bfac4d196ee96961f583fdd527a7cab2dd2f3c16691e2118177c48a8432",
     "frontend/src/lib/new-content-plugin-guide.ts": "5e05655e2a9a50f4f4179ac7be670c1bf8a72278bc688c7b561ae793f4799c6d",
@@ -1218,7 +1218,7 @@
     "frontend/src/page-factory/page-inventory-baseline.json": "ee0df900432010b26230cb84b713b01b775aba581b57adba66bcb03ad01259d3",
     "frontend/src/page-factory/page-inventory.json": "93c7e4b96762a30712ec73388e32ffdfd4c190e6773b66f852a08f5f65e3a97b",
     "frontend/src/page-factory/page-registry.json": "d727c23281aaab2e50eabb2a19a79e44fa42a25110fb3e50639c4693c5a2412f",
-    "frontend/src/page-factory/phase-two-verification.json": "00b5e30028c27c15cced43574d7ff4c41697a57d2521072523f3e201d0a58703",
+    "frontend/src/page-factory/phase-two-verification.json": "e8894e476104d9b0060bf8915435552e6762473d75ea8fb6d41a214d5f0080be",
     "frontend/src/pages/Account.tsx": "0705e1ed8f5618e36a121e60921fe3ddbd6bb228af01a53a91575f95cc94b1cd",
     "frontend/src/pages/agency/AgencyCustomers.tsx": "a1f4b9b8153462725fd8ffe3258b7e43d69491dcd6aff9c42ae27f1a962f2502",
     "frontend/src/pages/agency/AgencyDashboard.tsx": "01046171e1d9bc8b4d5653c3c824d2eb591fae91da158ecc3f22d4d02cfb4288",
@@ -1361,17 +1361,19 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx",
+    "frontend/src/lib/developer-design-integration.ts",
+    "frontend/src/lib/developer-optimization-contract.ts",
+    "frontend/src/lib/media-optimization-contract.ts",
     "frontend/src/page-factory/phase-two-verification.json"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 2 个受跟踪源码变动：frontend/src/components/customer-service/CustomerServiceAvatarMedia.tsx、frontend/src/page-factory/phase-two-verification.json。",
+  "summary": "自动检测到 4 个受跟踪源码变动：frontend/src/lib/developer-design-integration.ts、frontend/src/lib/developer-optimization-contract.ts、frontend/src/lib/media-optimization-contract.ts、frontend/src/page-factory/phase-two-verification.json。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38701",
+    "version": "H38702",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }
