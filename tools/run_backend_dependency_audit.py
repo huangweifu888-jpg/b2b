@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 import sys
@@ -15,6 +16,9 @@ POLICY = ROOT / "security" / "supply-chain-exceptions.json"
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--sbom-output", type=Path)
+    args = parser.parse_args()
     completed = subprocess.run(
         [sys.executable, "-m", "pip_audit", "-r", str(REQUIREMENTS), "--format", "json"],
         check=False,
@@ -54,6 +58,25 @@ def main() -> int:
     if completed.returncode not in {0, 1}:
         print(completed.stderr.strip(), file=sys.stderr)
         return completed.returncode
+    if args.sbom_output:
+        args.sbom_output.parent.mkdir(parents=True, exist_ok=True)
+        sbom_command = [
+            sys.executable,
+            "-m",
+            "pip_audit",
+            "-r",
+            str(REQUIREMENTS),
+            "--format",
+            "cyclonedx-json",
+            "--output",
+            str(args.sbom_output),
+        ]
+        for vulnerability_id in sorted({vulnerability_id for _, vulnerability_id in exceptions}):
+            sbom_command.extend(["--ignore-vuln", vulnerability_id])
+        sbom = subprocess.run(sbom_command, check=False, capture_output=True, text=True)
+        if sbom.returncode:
+            print(sbom.stderr.strip() or sbom.stdout.strip(), file=sys.stderr)
+            return sbom.returncode
     print("Backend dependency audit: OK")
     return 0
 

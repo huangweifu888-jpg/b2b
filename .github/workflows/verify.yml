@@ -41,8 +41,7 @@ jobs:
         run: python tools/run_backend_dependency_audit.py
       - name: Generate backend dependency SBOM
         run: |
-          mkdir -p "$RUNNER_TEMP/b2b-sbom"
-          pip-audit -r backend/requirements.lock.txt --format cyclonedx-json --output "$RUNNER_TEMP/b2b-sbom/backend.cdx.json"
+          python tools/run_backend_dependency_audit.py --sbom-output "$RUNNER_TEMP/b2b-sbom/backend.cdx.json"
       - name: Upload dependency SBOM
         uses: actions/upload-artifact@v4
         with:
