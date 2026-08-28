@@ -199,4 +199,4 @@ jobs:
           if-no-files-found: warn
       - name: Run browser regression smoke tests
         working-directory: frontend
-        run: npm run test:customer-service-avatar-hydration
+        run: npm run test:e2e -- e2e/customer-service-avatar-hydration.spec.ts
