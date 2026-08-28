@@ -22,9 +22,12 @@ def main() -> int:
         text=True,
     )
     try:
-        findings = json.loads(completed.stdout)
+        report = json.loads(completed.stdout)
     except json.JSONDecodeError as exc:
         raise RuntimeError(f"pip-audit did not return JSON: {completed.stderr.strip()}") from exc
+    findings = report.get("dependencies", []) if isinstance(report, dict) else report
+    if not isinstance(findings, list):
+        raise RuntimeError("pip-audit JSON does not contain a dependency list")
 
     policy = json.loads(POLICY.read_text(encoding="utf-8"))
     exceptions = {
