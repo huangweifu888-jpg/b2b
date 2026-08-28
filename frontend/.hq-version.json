@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sequence": 38694,
-  "version": "H38694",
-  "updatedAt": "2026-08-28T09:30:57.898Z",
-  "sourceFingerprint": "d2d0fbb21b87a76ae3b783b57d08961bedd13ea68a0870fbe6b6eb542f73165f",
+  "sequence": 38695,
+  "version": "H38695",
+  "updatedAt": "2026-08-28T10:01:13.061Z",
+  "sourceFingerprint": "ac77ce6aee86ebe815c8ada673fe4c40f966d37fbff0e1ecf64432618738170c",
   "sources": {
     "backend/alembic.ini": "1825be23e89d4ed898230cb82112428d8703ff6dd8a50abe920a790971a03b66",
     "backend/alembic/env.py": "aa9305b517c301f33347fd10dcee3d773d5c1b70da43fc3b9eb6059370892c50",
@@ -617,7 +617,7 @@
     "backend/tools/verify_website_build_migration.py": "b81e451369242c7a1b29dd3dc3e34c11976f7b09ea4da76e4735a6eced0d232c",
     "backend/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "frontend/index.html": "fd265cd235120835bc9b966f2e84133e1b060bfbb5dbbb3f2ff4886e600c8a76",
-    "frontend/package.json": "aaa5d276ad659f97686fc28fff6d125d3873d57deaf9c6aa9e105b178dd9a932",
+    "frontend/package.json": "f4d5b2f0ad54480a0dd395030cb18e7b10714677200f398ce3ab773762b6e34e",
     "frontend/postcss.config.js": "e32657baf631d7c5f4dc67b4b2ee0ec8e7d5b3c41860e09cddce7c0377cd80bc",
     "frontend/prerender/blog-routes.js": "5acbb30f51cc28b106acf1c9d5bc4b93d6a478b138769829a4b7187a56cc5d04",
     "frontend/prerender/blog-sitemap.js": "9a1f5bc792124fbe76e721de1524cef3b88ac99f05e2aeed102147d505a39867",
@@ -687,7 +687,7 @@
     "frontend/scripts/verify-developer-record-ledger-contract.mjs": "c5e28010aff6cf25f4c6d4d78b3b5e0c8edd0c4bcdff33f1b16be8302bd2230e",
     "frontend/scripts/verify-developer-target-manifest-parity.mjs": "e4dace9a714bcbcd51ff6b7435d45f1b92fa8c277b4199743b3d3354f283c193",
     "frontend/scripts/verify-developer-tool-intent-preload-contract.mjs": "3bb7e70e336be4cdd82cc53e972b9ab71365c32c6c2e6ebc85a1aea35d39e83a",
-    "frontend/scripts/verify-developer-workflow-run.mjs": "4ac3175b89cea251091e2df8860c155c59fe3d4fb0e0f78bcee7e132f68086fe",
+    "frontend/scripts/verify-developer-workflow-run.mjs": "ffe74b975bb90d74c2cfec7af48d8b615104615b98a61832772d9cb66d4e9be3",
     "frontend/scripts/verify-development-standard-contract.mjs": "768ee5d2990af1321b10a727a1293316cd0c27ff8ce5814cc0fcc773e39d7c4c",
     "frontend/scripts/verify-development-standard-encoding.mjs": "fc99305e7280a0b3716f5cf2ca2d9c929b08cc6fe339872b6ce0805905ae39e6",
     "frontend/scripts/verify-devtools-version.mjs": "56cf84b73130a24c0fcb1002b3848cb39220edec946839829121e7b9b2e8c91a",
@@ -1361,17 +1361,17 @@
     "start_app_v2.sh": "f515c990d090a68ca35410267a1c6b8b57d061c377dd4bc51501529f4f98cb02"
   },
   "changedFiles": [
-    "backend/requirements.lock.txt",
-    "frontend/package.json"
+    "frontend/package.json",
+    "frontend/scripts/verify-developer-workflow-run.mjs"
   ],
   "title": "总部源码自动推进",
-  "summary": "自动检测到 2 个受跟踪源码变动：backend/requirements.lock.txt、frontend/package.json。",
+  "summary": "自动检测到 2 个受跟踪源码变动：frontend/package.json、frontend/scripts/verify-developer-workflow-run.mjs。",
   "verification": [
     "源码指纹已重新计算；完整构建会在版本推进后继续校验合同、回归集与 Vite 打包。"
   ],
   "restorePoint": {
     "kind": "runtime-configuration-history",
-    "version": "H38694",
+    "version": "H38695",
     "note": "客户端启动时会为该总部版本创建可确认恢复的配置历史；源码变更清单保存在 .hq-version.json。"
   }
 }

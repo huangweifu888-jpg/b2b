@@ -9,7 +9,13 @@ if (!existsSync(testFile)) {
   process.exit(1);
 }
 
-const result = spawnSync(process.execPath, ["--test", testFile], {
+const tsxRunner = resolve("node_modules/tsx/dist/cli.mjs");
+if (!existsSync(tsxRunner)) {
+  console.error("缺少 TypeScript 测试运行器：node_modules/tsx/dist/cli.mjs");
+  process.exit(1);
+}
+
+const result = spawnSync(process.execPath, [tsxRunner, "--test", testFile], {
   cwd: process.cwd(),
   encoding: "utf8",
 });
